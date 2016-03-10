@@ -2,7 +2,7 @@ define([], function(){
 	var _isShow = false;
 	var $tag, $aboutme, $friends;
 
-	var ctn,radio,scaleW,idx,basicwrap;
+	var radio,scaleW,idx,basicwrap;//ctn,
 
 	//第一步 -- 初始化
 	var reset = function() {
@@ -89,9 +89,9 @@ define([], function(){
 		}, false);
 
 		//点击展示和隐藏
-		ctn.addEventListener("touchend", function(){
+		/*ctn.addEventListener("touchend", function(){
 			show();
-		}, false);
+		}, false);*/
 
 		var $right = document.getElementsByClassName("viewer-box-r")[0];
 		var touchStartTime;
@@ -111,22 +111,25 @@ define([], function(){
 		//滚动样式
 		var $overlay = $("#mobile-nav .overlay");
 		var $header = $(".js-mobile-header");
-		window.onscroll = function(){
+		/*window.onscroll = function(){
 		    var scrollTop = document.documentElement.scrollTop + document.body.scrollTop;
 		    if(scrollTop >= 69){
-		    	$overlay.addClass("fixed");
+		    	$overlay.addClass("fixed").addClass("nav-shadow");
 		    }else{
-		    	$overlay.removeClass("fixed");
+		    	$overlay.removeClass("fixed").removeClass("nav-shadow");
 		    }
 		    if(scrollTop >= 160){
 		    	$header.removeClass("hide").addClass("fixed");
 		    }else{
 		    	$header.addClass("hide").removeClass("fixed");
 		    }
-		};
-		$header[0].addEventListener("touchstart", function(){
+		};*/
+		/*
+         * 实现有错误
+        $header[0].addEventListener("touchstart", function(){
 			$('html, body').animate({scrollTop:0}, 'slow');
 		}, false);
+        */
 	};
 
 	var resetTags = function(){
@@ -142,7 +145,7 @@ define([], function(){
 	return{
 		init: function(){
 			//构造函数需要的参数
-			ctn = document.getElementsByClassName("slider-trigger")[0];
+			//ctn = document.getElementsByClassName("slider-trigger")[0];//去除mobile 导航按钮
 			//构造四步
 			reset();
 			renderDOM();
