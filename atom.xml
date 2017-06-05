@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://shadow000902.space/"/>
-  <updated>2017-06-02T13:27:04.000Z</updated>
+  <updated>2017-06-05T13:33:00.000Z</updated>
   <id>http://shadow000902.space/</id>
   
   <author>
@@ -14,6 +14,63 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Mac上MySQL的简单实用</title>
+    <link href="http://shadow000902.space/2017/06/03/Mac%E4%B8%8AMySQL%E7%9A%84%E7%AE%80%E5%8D%95%E5%AE%9E%E7%94%A8/"/>
+    <id>http://shadow000902.space/2017/06/03/Mac上MySQL的简单实用/</id>
+    <published>2017-06-03T09:20:13.000Z</published>
+    <updated>2017-06-05T13:33:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<ol>
+<li>启动、停止、重启MySQL服务<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo /usr/<span class="built_in">local</span>/MySQL/support-files/mysql.server start</div><div class="line">sudo /usr/<span class="built_in">local</span>/mysql/support-files/mysql.server stop</div><div class="line">sudo /usr/<span class="built_in">local</span>/mysql/support-files/mysql.server restart</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<a id="more"></a>
+<ol>
+<li><p>登录MySQL数据库</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysql -h 地址 -P 端口 -u 用户名 -p 密码</div></pre></td></tr></table></figure>
+</li>
+<li><p>查看数据库</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">show databases;</div></pre></td></tr></table></figure>
+</li>
+<li><p>查看当前库的所有表</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">show tables;</div></pre></td></tr></table></figure>
+</li>
+<li><p>字符匹配查询</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">select * from database <span class="built_in">where</span> Attributes like <span class="string">"%SQL%"</span>;								<span class="comment"># 查询 Attributes 中包含 SQL 字符的数据</span></div><div class="line">select * from database <span class="built_in">where</span> Attributes like <span class="string">"a%b"</span>;									<span class="comment"># 查询 Attributes 中以 a 开头以 b 结尾的字符串数据</span></div><div class="line">select * from database <span class="built_in">where</span> Attributes like <span class="string">"m_n"</span>;									<span class="comment"># 查询 Attributes 中以 m 开头以 n 结尾的3个字符的数据，中间 _ 只能代表一个字符</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>多条件查询</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">select * from database <span class="built_in">where</span> Attributes1=a and Attributes2 like <span class="string">"My_SQL"</span>;</div><div class="line">select * from database <span class="built_in">where</span> Attributes1=a or Attributes2 like <span class="string">"My_SQL"</span>;</div></pre></td></tr></table></figure>
+</li>
+<li><p>去除结果中的重复行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">select distinct Attributes from database;</div></pre></td></tr></table></figure>
+</li>
+<li><p>对查询结果进行排序</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">select * from database orderby id desc;												<span class="comment"># 倒叙排列</span></div><div class="line">select * from database orderby id asc;												<span class="comment"># 正序排列</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>分组查询</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">select name,id from database GROUP BY id;</div><div class="line">select name,id from database GROUP BY name,id;										<span class="comment"># 当id字段的值相等时，再按照name字段分组</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>限制查询结果的数量</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">select * from database orderby id asc <span class="built_in">limit</span> 2,3;									<span class="comment"># 取两条数据，正序，从第三条开始</span></div><div class="line">select * from database orderby id desc <span class="built_in">limit</span> 2,3;									<span class="comment"># 取两条数据，倒序，从倒数第三条结束，只显示倒数前两条</span></div></pre></td></tr></table></figure></li>
+</ol>]]></content>
+    
+    <summary type="html">
+    
+      &lt;ol&gt;
+&lt;li&gt;启动、停止、重启MySQL服务&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;sudo /usr/&lt;span class=&quot;built_in&quot;&gt;local&lt;/span&gt;/MySQL/support-files/mysql.server start&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;sudo /usr/&lt;span class=&quot;built_in&quot;&gt;local&lt;/span&gt;/mysql/support-files/mysql.server stop&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;sudo /usr/&lt;span class=&quot;built_in&quot;&gt;local&lt;/span&gt;/mysql/support-files/mysql.server restart&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+    
+    </summary>
+    
+      <category term="MySQL" scheme="http://shadow000902.space/categories/MySQL/"/>
+    
+    
+      <category term="mysql" scheme="http://shadow000902.space/tags/mysql/"/>
+    
+  </entry>
   
   <entry>
     <title>Mac切换Terminal为zsh</title>
@@ -782,102 +839,6 @@
       <category term="linux" scheme="http://shadow000902.space/tags/linux/"/>
     
       <category term="shadowsocks" scheme="http://shadow000902.space/tags/shadowsocks/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Android Log那些事儿</title>
-    <link href="http://shadow000902.space/2016/10/08/Android-Log%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/"/>
-    <id>http://shadow000902.space/2016/10/08/Android-Log那些事儿/</id>
-    <published>2016-10-07T16:19:09.000Z</published>
-    <updated>2017-03-25T08:13:34.000Z</updated>
-    
-    <content type="html"><![CDATA[<h4 id="实时日志抓取"><a href="#实时日志抓取" class="headerlink" title="实时日志抓取"></a>实时日志抓取</h4><ol>
-<li>抓取应用程序的日志<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">logcat -b main -v threadtime &gt; /sdcard/main.log</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<a id="more"></a>
-<ol>
-<li><p>抓取跟 radio/telephony 相关的信息</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">logcat -b radio -v threadtime &gt; /sdcard/radio.log</div></pre></td></tr></table></figure>
-</li>
-<li><p>抓取系统事件日志，如触屏事件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">logcat -b events -v threadtime &gt; /sdcard/events.log</div></pre></td></tr></table></figure>
-</li>
-<li><p>抓取kernel log</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">logcat -b kernel &gt; /sdcard/kernel.log</div></pre></td></tr></table></figure>
-</li>
-<li><p>导出当前缓存的 kernel log</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">adb shell dmesg &gt; /sdcard/dmesg.log</div></pre></td></tr></table></figure>
-</li>
-<li><p>实时查看kernel log</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">adb shell kmsgcat</div></pre></td></tr></table></figure>
-</li>
-<li><p>抓取 printk生成的内核消息</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">adb shell cat /proc/kmsg &gt; kernel.log</div></pre></td></tr></table></figure>
-</li>
-<li><p>抓取 TCP/IP协议相关的日志</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">adb shell tcpdump -s 10000 -w /sdcard/tcpip.pcap</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<h4 id="状态Log"><a href="#状态Log" class="headerlink" title="状态Log"></a>状态Log</h4><ol>
-<li><p>获取系统状态信息，如手机的内存信息、CPU信息、缓存等</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">adb shell dumpstate &gt; /sdcard/dumpstate.log</div></pre></td></tr></table></figure>
-</li>
-<li><p>获取系统进程有关的信息。比如：当前运行的服务，进程信息等</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">adb shell dumpsys</div></pre></td></tr></table></figure>
-</li>
-<li><p>如果想查看特定进程的特定service ，如 com.android.mms进程的meminfo，可以使用</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">adb shell dumpsys meminfo com.souche.fengche</div><div class="line">meminfo                                     # 显示内存信息</div><div class="line">cpuinfo                                     # 显示CPU信息</div><div class="line">account                                     # 显示accounts信息</div><div class="line">activity                                    # 显示activities的信息</div><div class="line">window                                      # 显示键盘，窗口和它们的关系</div><div class="line">wifi                                        # 显示wifi信息</div></pre></td></tr></table></figure>
-</li>
-<li><p>获取 所有状态信息。包括 dumpsys,dmesg和dumpstate</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">adb shell bugreport &gt; /sdcard/bugreport.log</div></pre></td></tr></table></figure>
-</li>
-<li><p>查看内存信息</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">adb shell cat /proc/meminfo</div></pre></td></tr></table></figure>
-</li>
-<li><p>查看虚拟内存信息</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">adb shell cat /proc/vmstate</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<h4 id="Log分析"><a href="#Log分析" class="headerlink" title="Log分析"></a>Log分析</h4><ol>
-<li><p><code>Exception</code><br>有没有捕获异常</p>
-</li>
-<li><p><code>ANR</code><br><code>ANR</code>的<code>log</code>一般都位于 <code>/data/anr/</code><br>例子： <code>E/ActivityManager( 957): ANR in com.ipanel.join.appstore</code></p>
-</li>
-<li><p><code>Fatal</code><br><code>Fatal</code> 一般比较严重，很多都很动态库和空指针有关，一般会接下来打印 <code>&quot;Build fingerprint:&quot;</code> 或 <code>&quot;NullPointerException&quot;</code></p>
-</li>
-<li><p><code>Build fingerprint</code><br>动态库问题</p>
-</li>
-<li><p><code>NullPointerException</code><br>空指针问题</p>
-</li>
-<li><p><code>kernel panic</code><br>只有加载到内核空间的驱动模块才能直接导致<code>kernel panic</code>，你可以在系统正常的情况下，使用<code>lsmod</code>查看当前系统加载了哪些模块。<br>除此之外，内建在内核里的组件（比如memory map等）也能导致panic。<br><code>kernel panic</code>分为 两种：<br><code>hard panic</code>（关键字： <code>Aieee</code>)<br><code>soft panic</code>（关键字： <code>Oops</code>）</p>
-</li>
-<li><p><code>tombstone</code><br><code>tombstone</code> 一般是由Dalvik错误，状态监视调试器，C层代码以及libc的一些问题导致的。<br>当系统发生<code>tombstone</code>的时候，<code>kernel</code>首先会上报一个严重的警告信号（<code>signal</code>）,上层接收到之后，进程的调试工具会把进程中当时的调用栈现场保存起来，并在系统创建了<code>data/tombstones</code>目录后把异常时的进程信息写在此目录里面，开发者需要通过调用栈来分析整个调用流程来找出出问题的点。<br>日志路径： <code>/data/tombstones</code></p>
-</li>
-<li><p><code>system crash</code><br><code>kernel log</code>会出现： <code>service &#39;activity&#39; died</code><br><code>&#39;activity&#39;</code> 可以是任意的<code>activity</code>。</p>
-</li>
-</ol>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h4 id=&quot;实时日志抓取&quot;&gt;&lt;a href=&quot;#实时日志抓取&quot; class=&quot;headerlink&quot; title=&quot;实时日志抓取&quot;&gt;&lt;/a&gt;实时日志抓取&lt;/h4&gt;&lt;ol&gt;
-&lt;li&gt;抓取应用程序的日志&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;logcat -b main -v threadtime &amp;gt; /sdcard/main.log&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-    
-    </summary>
-    
-      <category term="Adb" scheme="http://shadow000902.space/categories/Adb/"/>
-    
-      <category term="Log" scheme="http://shadow000902.space/categories/Adb/Log/"/>
-    
-    
-      <category term="android" scheme="http://shadow000902.space/tags/android/"/>
-    
-      <category term="adb" scheme="http://shadow000902.space/tags/adb/"/>
-    
-      <category term="log" scheme="http://shadow000902.space/tags/log/"/>
     
   </entry>
   
