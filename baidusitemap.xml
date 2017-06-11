@@ -259,19 +259,23 @@
 
     
   <url>
-    <loc>http://shadow000902.space/2017/04/25/Charles%E5%B8%B8%E7%94%A8%E7%9A%84%E4%B9%9D%E5%A4%A7%E5%8A%9F%E8%83%BD/</loc>
+    <loc>http://shadow000902.space/2016/09/19/Appium-Maven-Jenkins%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6/</loc>
     <lastmod>2017-06-02T13:27:04.000Z</lastmod>
     <data>
         <display>
-        <title>Charles常用的九大功能</title>
-        <pubTime>2017-04-25T09:57:15.000Z</pubTime>
+        <title>Appium-Maven-Jenkins自动化测试框架</title>
+        <pubTime>2016-09-19T06:07:38.000Z</pubTime>
         
-        <tag>charles</tag>
+        <tag>Appium</tag>
+         
+        <tag>Maven</tag>
+         
+        <tag>Jenkins</tag>
          
          
            
              
-              <breadCrumb title="Charles" url="http://shadow000902.space/categories/Charles/"/>
+              <breadCrumb title="自动化" url="http://shadow000902.space/categories/%E8%87%AA%E5%8A%A8%E5%8C%96/"/>
           
         </display>
     </data>
@@ -319,23 +323,19 @@
 
     
   <url>
-    <loc>http://shadow000902.space/2016/09/19/Appium-Maven-Jenkins%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6/</loc>
+    <loc>http://shadow000902.space/2017/04/25/Charles%E5%B8%B8%E7%94%A8%E7%9A%84%E4%B9%9D%E5%A4%A7%E5%8A%9F%E8%83%BD/</loc>
     <lastmod>2017-06-02T13:27:04.000Z</lastmod>
     <data>
         <display>
-        <title>Appium-Maven-Jenkins自动化测试框架</title>
-        <pubTime>2016-09-19T06:07:38.000Z</pubTime>
+        <title>Charles常用的九大功能</title>
+        <pubTime>2017-04-25T09:57:15.000Z</pubTime>
         
-        <tag>Appium</tag>
-         
-        <tag>Maven</tag>
-         
-        <tag>Jenkins</tag>
+        <tag>charles</tag>
          
          
            
              
-              <breadCrumb title="自动化" url="http://shadow000902.space/categories/%E8%87%AA%E5%8A%A8%E5%8C%96/"/>
+              <breadCrumb title="Charles" url="http://shadow000902.space/categories/Charles/"/>
           
         </display>
     </data>
@@ -1300,27 +1300,6 @@
 
     
   <url>
-    <loc>http://shadow000902.space/2016/05/19/git%E6%94%BE%E5%BC%83%E6%9C%AC%E5%9C%B0%E4%BF%AE%E6%94%B9%E7%9B%B4%E6%8E%A5%E6%8B%89%E5%8F%96%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%9B%B4%E6%96%B0/</loc>
-    <lastmod>2016-06-28T04:53:05.000Z</lastmod>
-    <data>
-        <display>
-        <title>git放弃本地修改直接拉取服务器更新</title>
-        <pubTime>2016-05-18T16:44:43.000Z</pubTime>
-        
-        <tag>git</tag>
-         
-         
-           
-             
-              <breadCrumb title="Git" url="http://shadow000902.space/categories/Git/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-    
-  <url>
     <loc>http://shadow000902.space/2016/05/26/ssh%E5%85%8D%E5%AF%86%E7%A0%81%E7%99%BB%E5%BD%95/</loc>
     <lastmod>2016-06-28T04:53:05.000Z</lastmod>
     <data>
@@ -1340,5 +1319,26 @@
     </url>
 
     
+    
+    
+  <url>
+    <loc>http://shadow000902.space/2016/05/19/git%E6%94%BE%E5%BC%83%E6%9C%AC%E5%9C%B0%E4%BF%AE%E6%94%B9%E7%9B%B4%E6%8E%A5%E6%8B%89%E5%8F%96%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%9B%B4%E6%96%B0/</loc>
+    <lastmod>2016-06-28T04:53:05.000Z</lastmod>
+    <data>
+        <display>
+        <title>git放弃本地修改直接拉取服务器更新</title>
+        <pubTime>2016-05-18T16:44:43.000Z</pubTime>
+        
+        <tag>git</tag>
+         
+         
+           
+             
+              <breadCrumb title="Git" url="http://shadow000902.space/categories/Git/"/>
+          
+        </display>
+    </data>
+    </url>
+
     
 </urlset>
