@@ -121,7 +121,7 @@
 <meta property="og:site_name" content="Shadow'S Site">
 <meta property="og:description" content="下载安装包下载稳定版本的安装包redis-stable
 安装Redis12345tar -xvf redis-stable.tar.gzcp ./redis-stable /opt/cd /opt/redis-stablesudo make testsudo make install">
-<meta property="og:updated_time" content="2017-06-18T10:33:40.000Z">
+<meta property="og:updated_time" content="2017-06-18T10:35:01.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mac下Redis环境搭建">
 <meta name="twitter:description" content="下载安装包下载稳定版本的安装包redis-stable
@@ -479,10 +479,9 @@
 </li>
 <li><p>拷贝安装好的<code>redis</code>文件到创建的<code>bin</code>目录下</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cp /usr/bin/redis-* /opt/redis-stable/bin/</div></pre></td></tr></table></figure>
+<p> 结果<code>/opt/redis-stable/bin/</code>目录下的内容如下</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">╭─taoyi at TaoYi-Mac <span class="keyword">in</span> /opt/redis-stable/bin using ‹› 17-06-18 - 18:06:48</div><div class="line">╰─○ ll</div><div class="line">total 6648</div><div class="line">-rwxr-xr-x  1 taoyi  staff    98K  6 18 18:06 redis-benchmark</div><div class="line">-rwxr-xr-x  1 taoyi  staff    14K  6 18 18:06 redis-check-aof</div><div class="line">-rwxr-xr-x  1 taoyi  staff   1.0M  6 18 18:06 redis-check-rdb</div><div class="line">-rwxr-xr-x  1 taoyi  staff   159K  6 18 18:06 redis-cli</div><div class="line">-rwxr-xr-x  1 taoyi  staff   1.0M  6 18 18:06 redis-sentinel</div><div class="line">-rwxr-xr-x  1 taoyi  staff   1.0M  6 18 18:06 redis-server</div></pre></td></tr></table></figure>
 </li>
-</ol>
-<p>结果<code>/opt/redis-stable/bin/</code>目录下的内容如下<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">╭─taoyi at TaoYi-Mac <span class="keyword">in</span> /opt/redis-stable/bin using ‹› 17-06-18 - 18:06:48</div><div class="line">╰─○ ll</div><div class="line">total 6648</div><div class="line">-rwxr-xr-x  1 taoyi  staff    98K  6 18 18:06 redis-benchmark</div><div class="line">-rwxr-xr-x  1 taoyi  staff    14K  6 18 18:06 redis-check-aof</div><div class="line">-rwxr-xr-x  1 taoyi  staff   1.0M  6 18 18:06 redis-check-rdb</div><div class="line">-rwxr-xr-x  1 taoyi  staff   159K  6 18 18:06 redis-cli</div><div class="line">-rwxr-xr-x  1 taoyi  staff   1.0M  6 18 18:06 redis-sentinel</div><div class="line">-rwxr-xr-x  1 taoyi  staff   1.0M  6 18 18:06 redis-server</div></pre></td></tr></table></figure></p>
-<ol>
 <li><p>拷贝安装目录<code>src</code>目录下的<code>mkreleasehdr.sh</code>到安装目录下</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cp /opt/redis-stable/src/mkreleasehdr.sh /opt/redis-stable/</div></pre></td></tr></table></figure>
 </li>
