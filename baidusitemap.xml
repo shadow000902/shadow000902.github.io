@@ -5,7 +5,7 @@
     
   <url>
     <loc>http://shadow000902.space/2017/06/18/Mac%E4%B8%8BRedis%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</loc>
-    <lastmod>2017-06-18T10:29:07.000Z</lastmod>
+    <lastmod>2017-06-18T10:33:40.000Z</lastmod>
     <data>
         <display>
         <title>Mac下Redis环境搭建</title>
@@ -106,6 +106,28 @@
 
     
   <url>
+    <loc>http://shadow000902.space/2017/03/05/%E5%BA%94%E7%94%A8%E9%87%8D%E7%AD%BE%E5%90%8D%E5%B7%A5%E5%85%B7re-sign-jar%E4%BD%BF%E7%94%A8/</loc>
+    <lastmod>2017-06-03T02:51:39.000Z</lastmod>
+    <data>
+        <display>
+        <title>应用重签名工具re-sign.jar使用</title>
+        <pubTime>2017-03-05T06:46:33.000Z</pubTime>
+        
+        <tag>重签名</tag>
+         
+        <tag>re-sign.jar</tag>
+         
+         
+           
+             
+              <breadCrumb title="重签名" url="http://shadow000902.space/categories/%E9%87%8D%E7%AD%BE%E5%90%8D/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://shadow000902.space/2016/03/14/%E5%9F%BA%E4%BA%8EJmeter%E5%92%8Cshell%E7%9A%84%E6%8E%A5%E5%8F%A3%E8%87%AA%E5%8A%A8%E5%8C%96%E5%8F%8A%E6%80%A7%E8%83%BD/</loc>
     <lastmod>2017-06-03T02:51:39.000Z</lastmod>
     <data>
@@ -130,21 +152,66 @@
 
     
   <url>
-    <loc>http://shadow000902.space/2017/03/05/%E5%BA%94%E7%94%A8%E9%87%8D%E7%AD%BE%E5%90%8D%E5%B7%A5%E5%85%B7re-sign-jar%E4%BD%BF%E7%94%A8/</loc>
-    <lastmod>2017-06-03T02:51:39.000Z</lastmod>
+    <loc>http://shadow000902.space/2017/01/11/web-py%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C%E4%BB%8B%E7%BB%8D/</loc>
+    <lastmod>2017-06-03T02:44:38.000Z</lastmod>
     <data>
         <display>
-        <title>应用重签名工具re-sign.jar使用</title>
-        <pubTime>2017-03-05T06:46:33.000Z</pubTime>
+        <title>web.py数据库操作介绍</title>
+        <pubTime>2017-01-11T12:35:36.000Z</pubTime>
         
-        <tag>重签名</tag>
+        <tag>web.py</tag>
          
-        <tag>re-sign.jar</tag>
+        <tag>数据库</tag>
          
          
            
              
-              <breadCrumb title="重签名" url="http://shadow000902.space/categories/%E9%87%8D%E7%AD%BE%E5%90%8D/"/>
+              <breadCrumb title="Web.py" url="http://shadow000902.space/categories/Web-py/"/>
+          
+             
+              <breadCrumb title="数据库" url="http://shadow000902.space/categories/Web-py/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://shadow000902.space/2016/03/12/%E5%9C%A8Github%E5%92%8CGit%E4%B8%8Afork%E4%B9%8B%E7%AE%80%E5%8D%95%E6%8C%87%E5%8D%97/</loc>
+    <lastmod>2017-06-03T02:44:38.000Z</lastmod>
+    <data>
+        <display>
+        <title>在Github和Git上fork之简单指南</title>
+        <pubTime>2016-03-12T07:47:52.000Z</pubTime>
+        
+        <tag>git</tag>
+         
+        <tag>github</tag>
+         
+         
+           
+             
+              <breadCrumb title="Github" url="http://shadow000902.space/categories/Github/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://shadow000902.space/2016/03/18/%E4%B8%8A%E4%BC%A0%E6%9C%AC%E5%9C%B0%E4%BB%A3%E7%A0%81%E5%88%B0Github/</loc>
+    <lastmod>2017-06-03T02:44:38.000Z</lastmod>
+    <data>
+        <display>
+        <title>上传本地代码到Github</title>
+        <pubTime>2016-03-18T06:54:16.000Z</pubTime>
+        
+        <tag>github</tag>
+         
+         
+           
+             
+              <breadCrumb title="Github" url="http://shadow000902.space/categories/Github/"/>
           
         </display>
     </data>
@@ -192,19 +259,19 @@
 
     
   <url>
-    <loc>http://shadow000902.space/2016/03/18/%E4%B8%8A%E4%BC%A0%E6%9C%AC%E5%9C%B0%E4%BB%A3%E7%A0%81%E5%88%B0Github/</loc>
-    <lastmod>2017-06-03T02:44:38.000Z</lastmod>
+    <loc>http://shadow000902.space/2017/04/25/Charles%E5%B8%B8%E7%94%A8%E7%9A%84%E4%B9%9D%E5%A4%A7%E5%8A%9F%E8%83%BD/</loc>
+    <lastmod>2017-06-02T13:27:04.000Z</lastmod>
     <data>
         <display>
-        <title>上传本地代码到Github</title>
-        <pubTime>2016-03-18T06:54:16.000Z</pubTime>
+        <title>Charles常用的九大功能</title>
+        <pubTime>2017-04-25T09:57:15.000Z</pubTime>
         
-        <tag>github</tag>
+        <tag>charles</tag>
          
          
            
              
-              <breadCrumb title="Github" url="http://shadow000902.space/categories/Github/"/>
+              <breadCrumb title="Charles" url="http://shadow000902.space/categories/Charles/"/>
           
         </display>
     </data>
@@ -212,46 +279,23 @@
 
     
   <url>
-    <loc>http://shadow000902.space/2016/03/12/%E5%9C%A8Github%E5%92%8CGit%E4%B8%8Afork%E4%B9%8B%E7%AE%80%E5%8D%95%E6%8C%87%E5%8D%97/</loc>
-    <lastmod>2017-06-03T02:44:38.000Z</lastmod>
+    <loc>http://shadow000902.space/2016/09/19/Appium-Maven-Jenkins%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6/</loc>
+    <lastmod>2017-06-02T13:27:04.000Z</lastmod>
     <data>
         <display>
-        <title>在Github和Git上fork之简单指南</title>
-        <pubTime>2016-03-12T07:47:52.000Z</pubTime>
+        <title>Appium-Maven-Jenkins自动化测试框架</title>
+        <pubTime>2016-09-19T06:07:38.000Z</pubTime>
         
-        <tag>git</tag>
+        <tag>Appium</tag>
          
-        <tag>github</tag>
+        <tag>Maven</tag>
+         
+        <tag>Jenkins</tag>
          
          
            
              
-              <breadCrumb title="Github" url="http://shadow000902.space/categories/Github/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://shadow000902.space/2017/01/11/web-py%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C%E4%BB%8B%E7%BB%8D/</loc>
-    <lastmod>2017-06-03T02:44:38.000Z</lastmod>
-    <data>
-        <display>
-        <title>web.py数据库操作介绍</title>
-        <pubTime>2017-01-11T12:35:36.000Z</pubTime>
-        
-        <tag>web.py</tag>
-         
-        <tag>数据库</tag>
-         
-         
-           
-             
-              <breadCrumb title="Web.py" url="http://shadow000902.space/categories/Web-py/"/>
-          
-             
-              <breadCrumb title="数据库" url="http://shadow000902.space/categories/Web-py/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+              <breadCrumb title="自动化" url="http://shadow000902.space/categories/%E8%87%AA%E5%8A%A8%E5%8C%96/"/>
           
         </display>
     </data>
@@ -279,46 +323,6 @@
 
     
   <url>
-    <loc>http://shadow000902.space/2016/03/31/Appium%E5%AE%89%E8%A3%85/</loc>
-    <lastmod>2017-06-02T13:27:04.000Z</lastmod>
-    <data>
-        <display>
-        <title>Appium安装</title>
-        <pubTime>2016-03-31T10:19:45.000Z</pubTime>
-        
-        <tag>appium</tag>
-         
-         
-           
-             
-              <breadCrumb title="Appium" url="http://shadow000902.space/categories/Appium/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://shadow000902.space/2017/04/25/Charles%E5%B8%B8%E7%94%A8%E7%9A%84%E4%B9%9D%E5%A4%A7%E5%8A%9F%E8%83%BD/</loc>
-    <lastmod>2017-06-02T13:27:04.000Z</lastmod>
-    <data>
-        <display>
-        <title>Charles常用的九大功能</title>
-        <pubTime>2017-04-25T09:57:15.000Z</pubTime>
-        
-        <tag>charles</tag>
-         
-         
-           
-             
-              <breadCrumb title="Charles" url="http://shadow000902.space/categories/Charles/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://shadow000902.space/2017/01/18/Extent%E6%B5%8B%E8%AF%95%E6%8A%A5%E5%91%8A%E4%BD%BF%E7%94%A8/</loc>
     <lastmod>2017-06-02T13:27:04.000Z</lastmod>
     <data>
@@ -339,23 +343,19 @@
 
     
   <url>
-    <loc>http://shadow000902.space/2016/09/19/Appium-Maven-Jenkins%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6/</loc>
+    <loc>http://shadow000902.space/2016/03/31/Appium%E5%AE%89%E8%A3%85/</loc>
     <lastmod>2017-06-02T13:27:04.000Z</lastmod>
     <data>
         <display>
-        <title>Appium-Maven-Jenkins自动化测试框架</title>
-        <pubTime>2016-09-19T06:07:38.000Z</pubTime>
+        <title>Appium安装</title>
+        <pubTime>2016-03-31T10:19:45.000Z</pubTime>
         
-        <tag>Appium</tag>
-         
-        <tag>Maven</tag>
-         
-        <tag>Jenkins</tag>
+        <tag>appium</tag>
          
          
            
              
-              <breadCrumb title="自动化" url="http://shadow000902.space/categories/%E8%87%AA%E5%8A%A8%E5%8C%96/"/>
+              <breadCrumb title="Appium" url="http://shadow000902.space/categories/Appium/"/>
           
         </display>
     </data>
@@ -719,9 +719,9 @@
         <title>Appium-Python各种元素定位及操作方法解析</title>
         <pubTime>2016-03-27T08:39:50.000Z</pubTime>
         
-        <tag>python</tag>
-         
         <tag>appium</tag>
+         
+        <tag>python</tag>
          
          
            
