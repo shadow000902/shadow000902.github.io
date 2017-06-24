@@ -19,6 +19,9 @@
 
 
 
+
+
+
 <meta http-equiv="Cache-Control" content="no-transform">
 <meta http-equiv="Cache-Control" content="no-siteapp">
 
@@ -127,7 +130,7 @@
 
 安装PostgreSQL
 1brew install postgresql -v">
-<meta property="og:updated_time" content="2017-02-10T11:56:25.000Z">
+<meta property="og:updated_time" content="2017-06-24T07:10:45.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mac 下Django 环境搭建">
 <meta name="twitter:description" content="安装Homebrew
@@ -169,10 +172,6 @@
 
 
   <title>Mac 下Django 环境搭建 | Shadow'S Site</title>
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
-
   
 
 
@@ -210,6 +209,9 @@
 
 
 
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
@@ -485,9 +487,9 @@
 </li>
 <li><p>安装<code>PostgreSQL</code></p>
 <figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install postgresql -v</div></pre></td></tr></table></figure>
+ <a id="more"></a>
 </li>
 </ol>
-<a id="more"></a>
 <p>2.1 初始化数据库<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">initdb /usr/local/var/postgres -E utf8</div></pre></td></tr></table></figure></p>
 <p>2.2 设成开机启动<code>PostgreSQL</code><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ln -sfv /usr/<span class="built_in">local</span>/opt/postgresql/*.plist ~/Library/LaunchAgents</div><div class="line">launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist</div></pre></td></tr></table></figure></p>
 <p>2.3 启动<code>PostgreSQL</code><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pg_ctl -D /usr/<span class="built_in">local</span>/var/postgres <span class="_">-l</span> /usr/<span class="built_in">local</span>/var/postgres/server.log start</div></pre></td></tr></table></figure></p>
@@ -573,7 +575,7 @@
       
 
       
-        
+      
       
 
       
@@ -1083,6 +1085,8 @@
 })();
 </script>
 
+
+  
 
   
 

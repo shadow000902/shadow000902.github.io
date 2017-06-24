@@ -19,6 +19,9 @@
 
 
 
+
+
+
 <meta http-equiv="Cache-Control" content="no-transform">
 <meta http-equiv="Cache-Control" content="no-siteapp">
 
@@ -114,18 +117,24 @@
 
 
 <meta name="description" content="现在多数App都是混合型的，有原生的也包含WebView的，appium测试的时候就需要在原生和WebView之间切换才能完成测试。
-查看所有context12Set&amp;lt;String&amp;gt; contextNames = driver.getContextHandles();System.print(contextNames);">
+查看所有context12Set&amp;lt;String&amp;gt; contextNames = driver.getContextHandles();System.print(contextNames);
+&amp;lt;!--more--&amp;gt;
+结果包含目前所有打开的app">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Appium-WebView测试">
 <meta property="og:url" content="http://shadow000902.space/2016/11/21/Appium-WebView测试/index.html">
 <meta property="og:site_name" content="Shadow'S Site">
 <meta property="og:description" content="现在多数App都是混合型的，有原生的也包含WebView的，appium测试的时候就需要在原生和WebView之间切换才能完成测试。
-查看所有context12Set&amp;lt;String&amp;gt; contextNames = driver.getContextHandles();System.print(contextNames);">
-<meta property="og:updated_time" content="2017-03-25T08:18:47.000Z">
+查看所有context12Set&amp;lt;String&amp;gt; contextNames = driver.getContextHandles();System.print(contextNames);
+&amp;lt;!--more--&amp;gt;
+结果包含目前所有打开的app">
+<meta property="og:updated_time" content="2017-06-24T07:10:45.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Appium-WebView测试">
 <meta name="twitter:description" content="现在多数App都是混合型的，有原生的也包含WebView的，appium测试的时候就需要在原生和WebView之间切换才能完成测试。
-查看所有context12Set&amp;lt;String&amp;gt; contextNames = driver.getContextHandles();System.print(contextNames);">
+查看所有context12Set&amp;lt;String&amp;gt; contextNames = driver.getContextHandles();System.print(contextNames);
+&amp;lt;!--more--&amp;gt;
+结果包含目前所有打开的app">
 
 
 
@@ -160,10 +169,6 @@
 
 
   <title>Appium-WebView测试 | Shadow'S Site</title>
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
-
   
 
 
@@ -201,6 +206,9 @@
 
 
 
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
@@ -472,8 +480,8 @@
       
         <p>现在多数App都是混合型的，有原生的也包含WebView的，appium测试的时候就需要在原生和WebView之间切换才能完成测试。</p>
 <h5 id="查看所有context"><a href="#查看所有context" class="headerlink" title="查看所有context"></a>查看所有context</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Set&lt;String&gt; contextNames = driver.getContextHandles();</div><div class="line">System.print(contextNames);</div></pre></td></tr></table></figure>
-<a id="more"></a>
-<p>结果包含目前所有打开的app<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[NATIVE_APP, WEBVIEW_com.test.android, WEBVIEW_com.estrongs.android.pop, WEBVIEW_com.xxxxx.sjj]</div></pre></td></tr></table></figure></p>
+<pre><code>&lt;!--more--&gt;
+</code></pre><p>结果包含目前所有打开的app<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[NATIVE_APP, WEBVIEW_com.test.android, WEBVIEW_com.estrongs.android.pop, WEBVIEW_com.xxxxx.sjj]</div></pre></td></tr></table></figure></p>
 <p>NATIVE_APP就是我的被测应用原生界面<br>WEBVIEW_com.test.android 是我的被测应用打开的WebView<br>另外两个一个是ES， 一个其他的应用（混合型的）</p>
 <h5 id="切换到WebView"><a href="#切换到WebView" class="headerlink" title="切换到WebView"></a>切换到WebView</h5><p>我们可以通过context方法切换到指定的应用<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;pre name=<span class="string">"code"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"java"</span>&gt;driver.context(<span class="string">"WEBVIEW_com.test.android"</span>);</div><div class="line">driver.findElementByID(<span class="string">"wd"</span>);</div></pre></td></tr></table></figure></p>
 <p>切换完成后就可以像测试web应用一样测试了，所有的定位和web相同。</p>
@@ -532,7 +540,7 @@
       
 
       
-        
+      
       
 
       
@@ -1067,6 +1075,8 @@
 })();
 </script>
 
+
+  
 
   
 

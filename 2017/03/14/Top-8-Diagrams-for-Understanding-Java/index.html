@@ -19,6 +19,9 @@
 
 
 
+
+
+
 <meta http-equiv="Cache-Control" content="no-transform">
 <meta http-equiv="Cache-Control" content="no-siteapp">
 
@@ -113,12 +116,18 @@
 
 
 
-<meta name="description" content="String Immutability【字符串不变性】The following diagram shows what happens for the following code:12String s = &quot;abcd&quot;;s = s.concat(&quot;ef&quot;);">
+<meta name="description" content="String Immutability【字符串不变性】The following diagram shows what happens for the following code:12String s = &quot;abcd&quot;;s = s.concat(&quot;ef&quot;);
+&amp;lt;!--more--&amp;gt;
+
+The equals() and hashCode() Contract【equals()方法、ha">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Top 8 Diagrams for Understanding Java">
 <meta property="og:url" content="http://shadow000902.space/2017/03/14/Top-8-Diagrams-for-Understanding-Java/index.html">
 <meta property="og:site_name" content="Shadow'S Site">
-<meta property="og:description" content="String Immutability【字符串不变性】The following diagram shows what happens for the following code:12String s = &quot;abcd&quot;;s = s.concat(&quot;ef&quot;);">
+<meta property="og:description" content="String Immutability【字符串不变性】The following diagram shows what happens for the following code:12String s = &quot;abcd&quot;;s = s.concat(&quot;ef&quot;);
+&amp;lt;!--more--&amp;gt;
+
+The equals() and hashCode() Contract【equals()方法、ha">
 <meta property="og:image" content="http://shadow000902.space/2017/03/14/Top-8-Diagrams-for-Understanding-Java/string-immutability.jpeg">
 <meta property="og:image" content="http://shadow000902.space/2017/03/14/Top-8-Diagrams-for-Understanding-Java/java-hashcode.jpeg">
 <meta property="og:image" content="http://shadow000902.space/2017/03/14/Top-8-Diagrams-for-Understanding-Java/Exception-Hierarchy-Diagram.jpeg">
@@ -128,10 +137,13 @@
 <meta property="og:image" content="http://shadow000902.space/2017/03/14/Top-8-Diagrams-for-Understanding-Java/JavaAliasing.jpeg">
 <meta property="og:image" content="http://shadow000902.space/2017/03/14/Top-8-Diagrams-for-Understanding-Java/Java-array-in-memory.png">
 <meta property="og:image" content="http://shadow000902.space/2017/03/14/Top-8-Diagrams-for-Understanding-Java/JVM-runtime-data-area.jpg">
-<meta property="og:updated_time" content="2017-06-03T02:44:38.000Z">
+<meta property="og:updated_time" content="2017-06-24T07:10:45.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Top 8 Diagrams for Understanding Java">
-<meta name="twitter:description" content="String Immutability【字符串不变性】The following diagram shows what happens for the following code:12String s = &quot;abcd&quot;;s = s.concat(&quot;ef&quot;);">
+<meta name="twitter:description" content="String Immutability【字符串不变性】The following diagram shows what happens for the following code:12String s = &quot;abcd&quot;;s = s.concat(&quot;ef&quot;);
+&amp;lt;!--more--&amp;gt;
+
+The equals() and hashCode() Contract【equals()方法、ha">
 <meta name="twitter:image" content="http://shadow000902.space/2017/03/14/Top-8-Diagrams-for-Understanding-Java/string-immutability.jpeg">
 
 
@@ -167,10 +179,6 @@
 
 
   <title>Top 8 Diagrams for Understanding Java | Shadow'S Site</title>
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
-
   
 
 
@@ -208,6 +216,9 @@
 
 
 
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
@@ -478,8 +489,8 @@
 
       
         <h4 id="String-Immutability【字符串不变性】"><a href="#String-Immutability【字符串不变性】" class="headerlink" title="String Immutability【字符串不变性】"></a>String Immutability【字符串不变性】</h4><p>The following diagram shows what happens for the following code:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">String s = <span class="string">"abcd"</span>;</div><div class="line">s = s.concat(<span class="string">"ef"</span>);</div></pre></td></tr></table></figure></p>
-<a id="more"></a>
-<img src="/2017/03/14/Top-8-Diagrams-for-Understanding-Java/string-immutability.jpeg" alt="string-immutability" title="string-immutability">
+<pre><code>&lt;!--more--&gt;
+</code></pre><img src="/2017/03/14/Top-8-Diagrams-for-Understanding-Java/string-immutability.jpeg" alt="string-immutability" title="string-immutability">
 <h4 id="The-equals-and-hashCode-Contract【equals-方法、hashCode-方法的区别】"><a href="#The-equals-and-hashCode-Contract【equals-方法、hashCode-方法的区别】" class="headerlink" title="The equals() and hashCode() Contract【equals()方法、hashCode()方法的区别】"></a>The equals() and hashCode() Contract【equals()方法、hashCode()方法的区别】</h4><p>HashCode is designed to improve performance. The contract between equals() and hasCode() is that:</p>
 <ol>
 <li>If two objects are equal, then they must have the same hash code.</li>
@@ -544,7 +555,7 @@
       
 
       
-        
+      
       
 
       
@@ -1079,6 +1090,8 @@
 })();
 </script>
 
+
+  
 
   
 

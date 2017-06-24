@@ -19,6 +19,9 @@
 
 
 
+
+
+
 <meta http-equiv="Cache-Control" content="no-transform">
 <meta http-equiv="Cache-Control" content="no-siteapp">
 
@@ -123,7 +126,7 @@
 <meta property="og:description" content="其实不能说是免密码登录，你在第一次登录进账户的时候还是需要密码的。但是再用该受信任用户身份访问其他节点的时候可以让你不用输入密码。也就是一次验证，处处通行。真正的术语叫做公钥登录。
 
 所谓”公钥登录”，原理很简单，就是用户将自己的公钥储存在远程主机上。登录的时候，远程主机会向用户发送一段随机字符串，用户用自己的私钥加密后，再发回来。远程主机用事先储存的公钥进行解密，如果成功，就证明用户是可信的，直">
-<meta property="og:updated_time" content="2016-06-28T04:53:05.000Z">
+<meta property="og:updated_time" content="2017-06-24T07:10:46.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ssh免密码登录">
 <meta name="twitter:description" content="其实不能说是免密码登录，你在第一次登录进账户的时候还是需要密码的。但是再用该受信任用户身份访问其他节点的时候可以让你不用输入密码。也就是一次验证，处处通行。真正的术语叫做公钥登录。
@@ -163,10 +166,6 @@
 
 
   <title>ssh免密码登录 | Shadow'S Site</title>
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
-
   
 
 
@@ -204,6 +203,9 @@
 
 
 
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
@@ -477,8 +479,8 @@
 <blockquote>
 <p>所谓”公钥登录”，原理很简单，就是用户将自己的公钥储存在远程主机上。登录的时候，远程主机会向用户发送一段随机字符串，用户用自己的私钥加密后，再发回来。远程主机用事先储存的公钥进行解密，如果成功，就证明用户是可信的，直接允许登录shell，不再要求密码。这种方法要求用户必须提供自己的公钥。如果没有现成的，可以直接用ssh-keygen生成一个。</p>
 </blockquote>
-<a id="more"></a>
-<p>具体的原理相对来说就比较复杂了。参见阮一峰的这篇博客<a href="http://www.ruanyifeng.com/blog/2011/12/ssh_remote_login.html" target="_blank" rel="external">SSH原理与运用(一):远程登录</a>。</p>
+<pre><code>&lt;!--more--&gt;
+</code></pre><p>具体的原理相对来说就比较复杂了。参见阮一峰的这篇博客<a href="http://www.ruanyifeng.com/blog/2011/12/ssh_remote_login.html" target="_blank" rel="external">SSH原理与运用(一):远程登录</a>。</p>
 <p>免密码登录：<br>生成本用户的密钥，再把公钥存成authorized_key文件。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh user@host <span class="string">'mkdir -p .ssh &amp;&amp; cat &gt;&gt; .ssh/authorized_keys'</span> &lt; ~/.ssh/id_rsa.pub</div></pre></td></tr></table></figure></p>
 <p>过程是：</p>
 <ol>
@@ -537,7 +539,7 @@
       
 
       
-        
+      
       
 
       
@@ -1047,6 +1049,8 @@
 })();
 </script>
 
+
+  
 
   
 

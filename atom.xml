@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://shadow000902.space/"/>
-  <updated>2017-06-24T06:56:28.000Z</updated>
+  <updated>2017-06-24T07:10:46.000Z</updated>
   <id>http://shadow000902.space/</id>
   
   <author>
@@ -20,12 +20,12 @@
     <link href="http://shadow000902.space/2017/06/24/Jenkins%E4%B8%ADslave%E7%9A%84%E8%AE%BE%E7%BD%AE/"/>
     <id>http://shadow000902.space/2017/06/24/Jenkins中slave的设置/</id>
     <published>2017-06-24T05:02:12.000Z</published>
-    <updated>2017-06-24T06:56:28.000Z</updated>
+    <updated>2017-06-24T07:10:46.000Z</updated>
     
     <content type="html"><![CDATA[<h5 id="在Jenkins中配置从节点"><a href="#在Jenkins中配置从节点" class="headerlink" title="在Jenkins中配置从节点"></a>在Jenkins中配置从节点</h5><img src="/2017/06/24/Jenkins中slave的设置/配置从节点.png" alt="配置从节点" title="配置从节点">
 <p>增加节点后，实际并没有直接连上，还需要在节点服务器上进行相应的配置</p>
-<a id="more"></a>
-<h5 id="在从节点服务器的host中的加入配置"><a href="#在从节点服务器的host中的加入配置" class="headerlink" title="在从节点服务器的host中的加入配置"></a>在从节点服务器的host中的加入配置</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo vim /etc/hosts</div></pre></td></tr></table></figure>
+<pre><code>&lt;!--more--&gt;
+</code></pre><h5 id="在从节点服务器的host中的加入配置"><a href="#在从节点服务器的host中的加入配置" class="headerlink" title="在从节点服务器的host中的加入配置"></a>在从节点服务器的host中的加入配置</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo vim /etc/hosts</div></pre></td></tr></table></figure>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">111.111.111.111 jenkins.shadow.com						<span class="comment"># 前部分IP为Jenkins的内网地址，后部分为Jenkins的对外访问域名</span></div></pre></td></tr></table></figure>
 <h5 id="从节点服务器上配置Jenkins节点配置"><a href="#从节点服务器上配置Jenkins节点配置" class="headerlink" title="从节点服务器上配置Jenkins节点配置"></a>从节点服务器上配置Jenkins节点配置</h5><img src="/2017/06/24/Jenkins中slave的设置/从节点配置要点.png" alt="从节点配置要点" title="从节点配置要点">
 <p>点击上图中的<code>slave.jar</code>的链接，下载该文件，放在上方指定的<code>Jenkins</code>工作目录下<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">test</span>@<span class="built_in">test</span>-devtesting-00001:~/jenkins$ ll</div><div class="line">total 760</div><div class="line">drwxrwxr-x  3 <span class="built_in">test</span> <span class="built_in">test</span>   4096 Jun 23 16:04 ./</div><div class="line">drwx------ 18 <span class="built_in">test</span> <span class="built_in">test</span>   4096 Jun 24 13:47 ../</div><div class="line">-rw-rw-r--  1 <span class="built_in">test</span> <span class="built_in">test</span>   7623 Jun 23 16:04 maven33-agent.jar</div><div class="line">-rw-rw-r--  1 <span class="built_in">test</span> <span class="built_in">test</span>  19971 Jun 23 16:04 maven33-interceptor.jar</div><div class="line">-rw-rw-r--  1 <span class="built_in">test</span> <span class="built_in">test</span>   6764 Jun 23 16:04 maven3-interceptor-commons.jar</div><div class="line">-rw-rw-r--  1 <span class="built_in">test</span> <span class="built_in">test</span>    738 Jun  8 16:52 slave-agent.jnlp</div><div class="line">-rw-rw-r--  1 <span class="built_in">test</span> <span class="built_in">test</span> 717563 May  2 17:29 slave.jar								<span class="comment"># 上方下载的slave.jar文件</span></div><div class="line">-rwxrwxr-x  1 <span class="built_in">test</span> <span class="built_in">test</span>    114 Jun  6 19:28 start_jenkins.sh*						<span class="comment"># 启动Jenkinsslave的脚本</span></div><div class="line">drwxrwxr-x 14 <span class="built_in">test</span> <span class="built_in">test</span>   4096 Jun 24 12:43 workspace/								<span class="comment"># Jenkins项目的工作目录</span></div></pre></td></tr></table></figure></p>
@@ -37,8 +37,7 @@
     
     <summary type="html">
     
-      &lt;h5 id=&quot;在Jenkins中配置从节点&quot;&gt;&lt;a href=&quot;#在Jenkins中配置从节点&quot; class=&quot;headerlink&quot; title=&quot;在Jenkins中配置从节点&quot;&gt;&lt;/a&gt;在Jenkins中配置从节点&lt;/h5&gt;&lt;img src=&quot;/2017/06/24/Jenkins中slave的设置/配置从节点.png&quot; alt=&quot;配置从节点&quot; title=&quot;配置从节点&quot;&gt;
-&lt;p&gt;增加节点后，实际并没有直接连上，还需要在节点服务器上进行相应的配置&lt;/p&gt;
+      &lt;h5 id=&quot;在Jenkins中配置从节点&quot;&gt;&lt;a href=&quot;#在Jenkins中配置从节点&quot; class=&quot;headerlink&quot; title=&quot;在Jenkins中配置从节点&quot;&gt;&lt;/a&gt;在Jenkins中配置从节点&lt;/h5&gt;&lt;img src=&quot;/2017/06/24/Jen
     
     </summary>
     
@@ -54,15 +53,15 @@
     <link href="http://shadow000902.space/2017/06/24/Maven-Web%E5%AE%9E%E4%BE%8B%E4%BB%8E%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2%E5%88%B0Jenkins%E9%9B%86%E6%88%90/"/>
     <id>http://shadow000902.space/2017/06/24/Maven-Web实例从服务器部署到Jenkins集成/</id>
     <published>2017-06-24T04:48:41.000Z</published>
-    <updated>2017-06-24T06:22:59.000Z</updated>
+    <updated>2017-06-24T07:10:46.000Z</updated>
     
     <content type="html"><![CDATA[<h5 id="Jenkins环境准备"><a href="#Jenkins环境准备" class="headerlink" title="Jenkins环境准备"></a>Jenkins环境准备</h5><ol>
 <li>Jenkins安装，这个就不说了</li>
 <li><p>Jenkins环境配置</p>
 <p> 进入 系统管理-Global Tool Configuration<br> 配置JDK：建议放到用户可操作的目录下，如：/home/test/devtool/jdk1.8.0_91<br> 配置MVN：建议放到用户可操作的目录下，如：/home/test/devtool/apache-maven-3.3.9</p>
+ <a id="more"></a>
 </li>
 </ol>
-<a id="more"></a>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">test</span>@<span class="built_in">test</span>-devtesting-00001:~/devtool$ ll</div><div class="line">total 8308</div><div class="line">drwxrwxr-x  3 <span class="built_in">test</span> <span class="built_in">test</span>    4096 Jun 23 16:18 ./</div><div class="line">drwx------ 18 <span class="built_in">test</span> <span class="built_in">test</span>    4096 Jun 24 12:43 ../</div><div class="line">drwxrwxr-x  6 <span class="built_in">test</span> <span class="built_in">test</span>    4096 Jun  6 21:39 apache-maven-3.3.9/</div><div class="line">lrwxrwxrwx  1 <span class="built_in">test</span> <span class="built_in">test</span>      25 Jun 23 16:18 jdk1.8.0_91/</div></pre></td></tr></table></figure>
 <h5 id="服务器环境准备"><a href="#服务器环境准备" class="headerlink" title="服务器环境准备"></a>服务器环境准备</h5><ol>
 <li>首先需要把服务器加入到Jenkins的slave中，即配置Jenkins的从节点</li>
@@ -117,8 +116,6 @@
 &lt;li&gt;Jenkins安装，这个就不说了&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Jenkins环境配置&lt;/p&gt;
 &lt;p&gt; 进入 系统管理-Global Tool Configuration&lt;br&gt; 配置JDK：建议放到用户可操作的目录下，如：/home/test/devtool/jdk1.8.0_91&lt;br&gt; 配置MVN：建议放到用户可操作的目录下，如：/home/test/devtool/apache-maven-3.3.9&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
     
     </summary>
     
@@ -134,12 +131,12 @@
     <link href="http://shadow000902.space/2017/06/18/Mac%E4%B8%8BRedis%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"/>
     <id>http://shadow000902.space/2017/06/18/Mac下Redis环境搭建/</id>
     <published>2017-06-18T10:08:44.000Z</published>
-    <updated>2017-06-18T10:51:41.000Z</updated>
+    <updated>2017-06-24T07:10:46.000Z</updated>
     
     <content type="html"><![CDATA[<h5 id="下载安装包"><a href="#下载安装包" class="headerlink" title="下载安装包"></a>下载安装包</h5><p>下载稳定版本的安装包<a href="http://download.redis.io/redis-stable.tar.gz" target="_blank" rel="external">redis-stable</a></p>
 <h5 id="安装Redis"><a href="#安装Redis" class="headerlink" title="安装Redis"></a>安装Redis</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">tar -xvf redis-stable.tar.gz</div><div class="line">cp ./redis-stable /opt/</div><div class="line"><span class="built_in">cd</span> /opt/redis-stable</div><div class="line">sudo make <span class="built_in">test</span></div><div class="line">sudo make install</div></pre></td></tr></table></figure>
-<a id="more"></a>
-<h5 id="配置Redis"><a href="#配置Redis" class="headerlink" title="配置Redis"></a>配置Redis</h5><ol>
+<pre><code>&lt;!--more--&gt;
+</code></pre><h5 id="配置Redis"><a href="#配置Redis" class="headerlink" title="配置Redis"></a>配置Redis</h5><ol>
 <li><p>创建需要的目录</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">mkdir bin</div><div class="line">mkdir etc</div><div class="line">mkdir db</div></pre></td></tr></table></figure>
 </li>
@@ -166,8 +163,7 @@
     
     <summary type="html">
     
-      &lt;h5 id=&quot;下载安装包&quot;&gt;&lt;a href=&quot;#下载安装包&quot; class=&quot;headerlink&quot; title=&quot;下载安装包&quot;&gt;&lt;/a&gt;下载安装包&lt;/h5&gt;&lt;p&gt;下载稳定版本的安装包&lt;a href=&quot;http://download.redis.io/redis-stable.tar.gz&quot;&gt;redis-stable&lt;/a&gt;&lt;/p&gt;
-&lt;h5 id=&quot;安装Redis&quot;&gt;&lt;a href=&quot;#安装Redis&quot; class=&quot;headerlink&quot; title=&quot;安装Redis&quot;&gt;&lt;/a&gt;安装Redis&lt;/h5&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;tar -xvf redis-stable.tar.gz&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;cp ./redis-stable /opt/&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;cd&lt;/span&gt; /opt/redis-stable&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;sudo make &lt;span class=&quot;built_in&quot;&gt;test&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;sudo make install&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+      &lt;h5 id=&quot;下载安装包&quot;&gt;&lt;a href=&quot;#下载安装包&quot; class=&quot;headerlink&quot; title=&quot;下载安装包&quot;&gt;&lt;/a&gt;下载安装包&lt;/h5&gt;&lt;p&gt;下载稳定版本的安装包&lt;a href=&quot;http://download.redis.io/redis-stable.t
     
     </summary>
     
@@ -183,7 +179,7 @@
     <link href="http://shadow000902.space/2017/06/03/Mac%E4%B8%8AMySQL%E7%9A%84%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/"/>
     <id>http://shadow000902.space/2017/06/03/Mac上MySQL的简单使用/</id>
     <published>2017-06-03T09:20:13.000Z</published>
-    <updated>2017-06-24T07:01:05.000Z</updated>
+    <updated>2017-06-24T07:10:46.000Z</updated>
     
     <content type="html"><![CDATA[<ol>
 <li><p>启动、停止、重启MySQL服务</p>
@@ -238,11 +234,11 @@
     <link href="http://shadow000902.space/2017/05/18/Mac%E5%88%87%E6%8D%A2Terminal%E4%B8%BAzsh/"/>
     <id>http://shadow000902.space/2017/05/18/Mac切换Terminal为zsh/</id>
     <published>2017-05-18T09:17:39.000Z</published>
-    <updated>2017-06-02T13:27:04.000Z</updated>
+    <updated>2017-06-24T07:10:46.000Z</updated>
     
     <content type="html"><![CDATA[<h5 id="下载一个-oh-my-zsh-配置"><a href="#下载一个-oh-my-zsh-配置" class="headerlink" title="下载一个 .oh-my-zsh 配置"></a>下载一个 .oh-my-zsh 配置</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git <span class="built_in">clone</span> git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh</div></pre></td></tr></table></figure>
-<a id="more"></a>
-<h5 id="创建新的配置"><a href="#创建新的配置" class="headerlink" title="创建新的配置"></a>创建新的配置</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cp ~/.zshrc ~/.zshrc.orig                                   <span class="comment"># 如果已经有一个 .zshrc 文件，备份一下</span></div><div class="line">cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc</div></pre></td></tr></table></figure>
+<pre><code>&lt;!--more--&gt;
+</code></pre><h5 id="创建新的配置"><a href="#创建新的配置" class="headerlink" title="创建新的配置"></a>创建新的配置</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cp ~/.zshrc ~/.zshrc.orig                                   <span class="comment"># 如果已经有一个 .zshrc 文件，备份一下</span></div><div class="line">cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc</div></pre></td></tr></table></figure>
 <h5 id="更新新的配置文件"><a href="#更新新的配置文件" class="headerlink" title="更新新的配置文件"></a>更新新的配置文件</h5><p>如果有些环境变量配置在<code>~/.bash_profile</code>的话，需要在新的配置里进行刷新<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">...</div><div class="line"><span class="built_in">export</span> ZSH=~/.oh-my-zsh/</div><div class="line">...</div><div class="line">ZSH_THEME=<span class="string">"fino-time"</span>                   <span class="comment"># 设置选择的主题。默认是robbyrussell</span></div><div class="line">...</div><div class="line">...</div><div class="line"><span class="built_in">source</span> <span class="variable">$ZSH</span>/oh-my-zsh.sh</div><div class="line"><span class="built_in">source</span> ~/.bash_profile</div><div class="line">...</div></pre></td></tr></table></figure></p>
 <h5 id="优化-terminal-样式"><a href="#优化-terminal-样式" class="headerlink" title="优化 terminal 样式"></a>优化 terminal 样式</h5><img src="/2017/05/18/Mac切换Terminal为zsh/终端样式修改.png" alt="终端样式修改" title="终端样式修改">
 <h5 id="切换-Terminal-到-zsh"><a href="#切换-Terminal-到-zsh" class="headerlink" title="切换 Terminal 到 zsh"></a>切换 Terminal 到 zsh</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">chsh <span class="_">-s</span> /bin/zsh</div></pre></td></tr></table></figure>
@@ -256,7 +252,7 @@
     
     <summary type="html">
     
-      &lt;h5 id=&quot;下载一个-oh-my-zsh-配置&quot;&gt;&lt;a href=&quot;#下载一个-oh-my-zsh-配置&quot; class=&quot;headerlink&quot; title=&quot;下载一个 .oh-my-zsh 配置&quot;&gt;&lt;/a&gt;下载一个 .oh-my-zsh 配置&lt;/h5&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;git &lt;span class=&quot;built_in&quot;&gt;clone&lt;/span&gt; git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+      &lt;h5 id=&quot;下载一个-oh-my-zsh-配置&quot;&gt;&lt;a href=&quot;#下载一个-oh-my-zsh-配置&quot; class=&quot;headerlink&quot; title=&quot;下载一个 .oh-my-zsh 配置&quot;&gt;&lt;/a&gt;下载一个 .oh-my-zsh 配置&lt;/h5&gt;&lt;figure cla
     
     </summary>
     
@@ -272,11 +268,11 @@
     <link href="http://shadow000902.space/2017/05/15/Robot-Framework%E8%B8%A9%E5%9D%91%E6%80%BB%E7%BB%93/"/>
     <id>http://shadow000902.space/2017/05/15/Robot-Framework踩坑总结/</id>
     <published>2017-05-15T12:16:55.000Z</published>
-    <updated>2017-05-16T11:50:21.000Z</updated>
+    <updated>2017-06-24T07:10:45.000Z</updated>
     
     <content type="html"><![CDATA[<h5 id="List中的字典循环"><a href="#List中的字典循环" class="headerlink" title="List中的字典循环"></a>List中的字典循环</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">*** Test Cases ***</div><div class="line">takeValueFromCircle</div><div class="line">	# 从返回结果中提取出List</div><div class="line">	@&#123;items&#125;=    set variable    $&#123;json[&quot;data&quot;][&quot;items&quot;]&#125;</div><div class="line">	# 循环List中的item</div><div class="line">	: FOR    $&#123;params&#125;    IN    @&#123;items&#125;</div><div class="line">	# 把item中的一个参数（每个参数都是一个字典）转化为Str格式，顺便去除 &quot;u&quot; 标识</div><div class="line">	\    $&#123;params&#125;    Dumps    $&#123;params&#125;</div><div class="line">	# 把字典转化为json</div><div class="line">	\    $&#123;params&#125;    to json    $&#123;params&#125;</div><div class="line">	#\    Log    $&#123;params[&quot;carId&quot;]&#125;</div><div class="line">	# 对每个item取出来的字典中的某个字段进行判断，如果是需要的值，就把另一个需要的值取出来，并打印出来</div><div class="line">	\    RUN KEYWORD IF    &quot;$&#123;params[&quot;carInfo&quot;][&quot;status&quot;]&#125;&quot;==&quot;评估中&quot;    Log    $&#123;params[&quot;carId&quot;]&#125;</div></pre></td></tr></table></figure>
-<a id="more"></a>
-<h5 id="wait-until-keyword-succeeds关键字使用"><a href="#wait-until-keyword-succeeds关键字使用" class="headerlink" title="wait until keyword succeeds关键字使用"></a>wait until keyword succeeds关键字使用</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">*** Test Cases ***</div><div class="line">&quot;Wait until ...&quot; with normal error</div><div class="line">    # Keyword is run multiple times, until timeout. Each run gives an exception</div><div class="line">    # traceback.</div><div class="line">    Wait Until Keyword Succeeds    1 sec    0.5    Keyword With Normal Error</div><div class="line"></div><div class="line">&quot;Wait until ...&quot; with AttributeError</div><div class="line">    # Keyword is run only once, even if there is time left until the timeout.</div><div class="line">    # There is no exception traceback like above.</div><div class="line">    Wait Until Keyword Succeeds    1 sec    0.5    Keyword With AttributeError</div><div class="line"></div><div class="line">*** Keywords ***</div><div class="line">Keyword With Normal Error</div><div class="line">    $&#123;obj&#125; =    Evaluate    &quot;foo&quot;</div><div class="line">    Should Be Equal As Strings    $&#123;obj&#125;    &quot;bar&quot;</div><div class="line"></div><div class="line">Keyword With AttributeError</div><div class="line">    # In real life, this would get an object and use some of its (valid) attributes.</div><div class="line">    # In case of an error, and in Teardown context (continue-on-failure), a None object</div><div class="line">    # is returned instead causing the next keyword to create an AttributeError.</div><div class="line">    $&#123;obj&#125; =    Evaluate    &quot;foo&quot;</div><div class="line">    Should Be Equal As Strings    $&#123;obj.bad_attr&#125;    &quot;foo&quot;</div></pre></td></tr></table></figure>
+<pre><code>&lt;!--more--&gt;
+</code></pre><h5 id="wait-until-keyword-succeeds关键字使用"><a href="#wait-until-keyword-succeeds关键字使用" class="headerlink" title="wait until keyword succeeds关键字使用"></a>wait until keyword succeeds关键字使用</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">*** Test Cases ***</div><div class="line">&quot;Wait until ...&quot; with normal error</div><div class="line">    # Keyword is run multiple times, until timeout. Each run gives an exception</div><div class="line">    # traceback.</div><div class="line">    Wait Until Keyword Succeeds    1 sec    0.5    Keyword With Normal Error</div><div class="line"></div><div class="line">&quot;Wait until ...&quot; with AttributeError</div><div class="line">    # Keyword is run only once, even if there is time left until the timeout.</div><div class="line">    # There is no exception traceback like above.</div><div class="line">    Wait Until Keyword Succeeds    1 sec    0.5    Keyword With AttributeError</div><div class="line"></div><div class="line">*** Keywords ***</div><div class="line">Keyword With Normal Error</div><div class="line">    $&#123;obj&#125; =    Evaluate    &quot;foo&quot;</div><div class="line">    Should Be Equal As Strings    $&#123;obj&#125;    &quot;bar&quot;</div><div class="line"></div><div class="line">Keyword With AttributeError</div><div class="line">    # In real life, this would get an object and use some of its (valid) attributes.</div><div class="line">    # In case of an error, and in Teardown context (continue-on-failure), a None object</div><div class="line">    # is returned instead causing the next keyword to create an AttributeError.</div><div class="line">    $&#123;obj&#125; =    Evaluate    &quot;foo&quot;</div><div class="line">    Should Be Equal As Strings    $&#123;obj.bad_attr&#125;    &quot;foo&quot;</div></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">*** Test Cases ***</div><div class="line">003.导出进度-/pc/export/taizhangaction/progress.json</div><div class="line">    wait until keyword succeeds    3 min    5 sec    导出进度-/pc/export/taizhangaction/progress.json</div><div class="line">    </div><div class="line">*** Keywords ***</div><div class="line">导出进度-/pc/export/taizhangaction/progress.json</div><div class="line">    $&#123;params&#125;=    Create Dictionary    jobId=$&#123;jobId&#125;</div><div class="line">    &amp;&#123;json&#125;=    Rest.Post    /pc/export/taizhangaction/progress.json    $&#123;params&#125;    form    $&#123;hosts[&quot;erp-online&quot;]&#125;</div><div class="line">    Should Be True    $&#123;json[&quot;success&quot;]&#125;</div><div class="line">	should be equal as strings    $&#123;json[&quot;data&quot;][&quot;progress&quot;]&#125;    100</div><div class="line">	$&#123;URL&#125;=    set variable    $&#123;json[&quot;data&quot;][&quot;url&quot;]&#125;</div></pre></td></tr></table></figure>
 <p>5秒执行一次关键字，如果<code>${json[&quot;data&quot;][&quot;progress&quot;]}!=100</code>，执行一次关键字，直到相等时，执行一次关键字中的最后一行代码。</p>
 <h5 id="一个完整的独立case"><a href="#一个完整的独立case" class="headerlink" title="一个完整的独立case"></a>一个完整的独立case</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">*** Test Cases ***</div><div class="line">登录</div><div class="line">    $&#123;dict&#125;=    Create Dictionary    Content-Type=application/x-www-form-urlencoded</div><div class="line">    Create Session    _session    http://dfc.souche.com    $&#123;dict&#125;</div><div class="line">    $&#123;params&#125;=    Create Dictionary    loginName=15558135526    password=souche2015    jPushId=jpushid001</div><div class="line">    $&#123;response&#125;=    Post Request    _session    /rest/account/login    params=$&#123;params&#125;    headers=$&#123;dict&#125;</div><div class="line">    Should Be Equal As Strings    $&#123;response.status_code&#125;    200</div><div class="line">    &amp;&#123;json&#125;=    Set Variable    $&#123;response.json()&#125;</div><div class="line">    Should Be True    &amp;&#123;json&#125;[success]</div><div class="line">    Log    &amp;&#123;json&#125;[success]</div></pre></td></tr></table></figure>
@@ -284,7 +280,7 @@
     
     <summary type="html">
     
-      &lt;h5 id=&quot;List中的字典循环&quot;&gt;&lt;a href=&quot;#List中的字典循环&quot; class=&quot;headerlink&quot; title=&quot;List中的字典循环&quot;&gt;&lt;/a&gt;List中的字典循环&lt;/h5&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;13&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;*** Test Cases ***&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;takeValueFromCircle&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	# 从返回结果中提取出List&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	@&amp;#123;items&amp;#125;=    set variable    $&amp;#123;json[&amp;quot;data&amp;quot;][&amp;quot;items&amp;quot;]&amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	# 循环List中的item&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	: FOR    $&amp;#123;params&amp;#125;    IN    @&amp;#123;items&amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	# 把item中的一个参数（每个参数都是一个字典）转化为Str格式，顺便去除 &amp;quot;u&amp;quot; 标识&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	\    $&amp;#123;params&amp;#125;    Dumps    $&amp;#123;params&amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	# 把字典转化为json&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	\    $&amp;#123;params&amp;#125;    to json    $&amp;#123;params&amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	#\    Log    $&amp;#123;params[&amp;quot;carId&amp;quot;]&amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	# 对每个item取出来的字典中的某个字段进行判断，如果是需要的值，就把另一个需要的值取出来，并打印出来&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	\    RUN KEYWORD IF    &amp;quot;$&amp;#123;params[&amp;quot;carInfo&amp;quot;][&amp;quot;status&amp;quot;]&amp;#125;&amp;quot;==&amp;quot;评估中&amp;quot;    Log    $&amp;#123;params[&amp;quot;carId&amp;quot;]&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+      &lt;h5 id=&quot;List中的字典循环&quot;&gt;&lt;a href=&quot;#List中的字典循环&quot; class=&quot;headerlink&quot; title=&quot;List中的字典循环&quot;&gt;&lt;/a&gt;List中的字典循环&lt;/h5&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;t
     
     </summary>
     
@@ -300,12 +296,12 @@
     <link href="http://shadow000902.space/2017/04/25/Charles%E5%B8%B8%E7%94%A8%E7%9A%84%E4%B9%9D%E5%A4%A7%E5%8A%9F%E8%83%BD/"/>
     <id>http://shadow000902.space/2017/04/25/Charles常用的九大功能/</id>
     <published>2017-04-25T09:57:15.000Z</published>
-    <updated>2017-06-02T13:27:04.000Z</updated>
+    <updated>2017-06-24T07:10:46.000Z</updated>
     
     <content type="html"><![CDATA[<h5 id="过滤网络请求"><a href="#过滤网络请求" class="headerlink" title="过滤网络请求"></a>过滤网络请求</h5><h6 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h6><p>在主界面的中部的 Filter 栏中填入需要过滤出来的关键字。</p>
 <h6 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h6><p>在 Charles 的菜单栏选择 <code>“Proxy”-&gt;”Recording Settings”</code>，然后选择 Include 栏，选择添加一个项目，然后填入需要监控的协议，主机地址，端口号。这样就可以只截取目标网站的封包了。</p>
-<a id="more"></a>
-<img src="/2017/04/25/Charles常用的九大功能/过滤网络请求.png" alt="过滤网络请求" title="过滤网络请求">
+<pre><code>&lt;!--more--&gt;
+</code></pre><img src="/2017/04/25/Charles常用的九大功能/过滤网络请求.png" alt="过滤网络请求" title="过滤网络请求">
 <p>通常情况下，我们使用方法一做一些临时性的封包过滤，使用方法二做一些经常性的封包过滤。</p>
 <h6 id="方法三"><a href="#方法三" class="headerlink" title="方法三"></a>方法三</h6><p>在想过滤的网络请求上右击，选择 “Focus”，之后在 Filter 一栏勾选上 Focussed 一项，这种方式可以临时性的，快速地过滤出一些没有通过关键字的一类网络请求。</p>
 <h5 id="截取客户端上的网络请求"><a href="#截取客户端上的网络请求" class="headerlink" title="截取客户端上的网络请求"></a>截取客户端上的网络请求</h5><h6 id="Charles上的设置"><a href="#Charles上的设置" class="headerlink" title="Charles上的设置"></a>Charles上的设置</h6><p>打开Charles代理功能。在 Charles 的菜单栏上选择 “Proxy”-&gt;”Proxy Settings”，填入代理端口 8888，并且勾上 “Enable transparent HTTP proxying” 就完成了在 Charles 上的设置<br><img src="/2017/04/25/Charles常用的九大功能/打开Charles代理功能.png" alt="打开Charles代理功能" title="打开Charles代理功能"></p>
@@ -324,8 +320,7 @@
     
     <summary type="html">
     
-      &lt;h5 id=&quot;过滤网络请求&quot;&gt;&lt;a href=&quot;#过滤网络请求&quot; class=&quot;headerlink&quot; title=&quot;过滤网络请求&quot;&gt;&lt;/a&gt;过滤网络请求&lt;/h5&gt;&lt;h6 id=&quot;方法一&quot;&gt;&lt;a href=&quot;#方法一&quot; class=&quot;headerlink&quot; title=&quot;方法一&quot;&gt;&lt;/a&gt;方法一&lt;/h6&gt;&lt;p&gt;在主界面的中部的 Filter 栏中填入需要过滤出来的关键字。&lt;/p&gt;
-&lt;h6 id=&quot;方法二&quot;&gt;&lt;a href=&quot;#方法二&quot; class=&quot;headerlink&quot; title=&quot;方法二&quot;&gt;&lt;/a&gt;方法二&lt;/h6&gt;&lt;p&gt;在 Charles 的菜单栏选择 &lt;code&gt;“Proxy”-&amp;gt;”Recording Settings”&lt;/code&gt;，然后选择 Include 栏，选择添加一个项目，然后填入需要监控的协议，主机地址，端口号。这样就可以只截取目标网站的封包了。&lt;/p&gt;
+      &lt;h5 id=&quot;过滤网络请求&quot;&gt;&lt;a href=&quot;#过滤网络请求&quot; class=&quot;headerlink&quot; title=&quot;过滤网络请求&quot;&gt;&lt;/a&gt;过滤网络请求&lt;/h5&gt;&lt;h6 id=&quot;方法一&quot;&gt;&lt;a href=&quot;#方法一&quot; class=&quot;headerlink&quot; title=&quot;方法一
     
     </summary>
     
@@ -341,11 +336,11 @@
     <link href="http://shadow000902.space/2017/03/14/vim%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/"/>
     <id>http://shadow000902.space/2017/03/14/vim的基本使用/</id>
     <published>2017-03-14T15:22:02.000Z</published>
-    <updated>2017-03-25T10:37:30.000Z</updated>
+    <updated>2017-06-24T07:10:46.000Z</updated>
     
     <content type="html"><![CDATA[<h4 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h4><figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">i                        # 进入插入模式  </div><div class="line">:q                       # 退出vim  </div><div class="line">:w                       # 保存  </div><div class="line">:wq                      # 保存并退出  </div><div class="line">:set syn=c               # 设置c风格的语法高亮</div></pre></td></tr></table></figure>
-<a id="more"></a>
-<h4 id="vim编辑器配置"><a href="#vim编辑器配置" class="headerlink" title="vim编辑器配置"></a>vim编辑器配置</h4><p>配置vim的配置文件【Mac】<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">~&gt; vim ~/.vimrc                     <span class="comment"># 默认不存在该文件，需要新建。该文件中不允许出现中文的空格和符合</span></div></pre></td></tr></table></figure></p>
+<pre><code>&lt;!--more--&gt;
+</code></pre><h4 id="vim编辑器配置"><a href="#vim编辑器配置" class="headerlink" title="vim编辑器配置"></a>vim编辑器配置</h4><p>配置vim的配置文件【Mac】<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">~&gt; vim ~/.vimrc                     <span class="comment"># 默认不存在该文件，需要新建。该文件中不允许出现中文的空格和符合</span></div></pre></td></tr></table></figure></p>
 <p>添加如下内容<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">syntax on                           "开启语法高亮  </div><div class="line">set tabstop=4                       "设置tab为4个字符</div><div class="line">set softtabstop=4</div><div class="line">set shiftwidth=4                    "缩进宽度  </div><div class="line">set autoindent                      "自动缩进  </div><div class="line">set cindent                         "c风格缩进  </div><div class="line">set nu                              "显示行号  </div><div class="line">set vb t_vb=  "close the bell       "关闭vim响铃</div></pre></td></tr></table></figure></p>
 <h4 id="移动光标类命令"><a href="#移动光标类命令" class="headerlink" title="移动光标类命令"></a>移动光标类命令</h4><figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">h                        # 光标左移一个字符</div><div class="line">l                        # 光标右移一个字符</div><div class="line">space                    # 光标右移一个字符</div><div class="line">Backspace                # 光标左移一个字符</div><div class="line">k或Ctrl+p                 # 光标上移一行 </div><div class="line">j或Ctrl+n                 # 光标下移一行 </div><div class="line">Enter                    # 光标下移一行 </div><div class="line">w或W                      # 光标右移一个字至字首 </div><div class="line">b或B                      # 光标左移一个字至字首 </div><div class="line">e或E                     # 光标右移一个字至字尾 </div><div class="line">)                       # 光标移至句尾 </div><div class="line">(                       # 光标移至句首 </div><div class="line">&#125;                       # 光标移至段落开头 </div><div class="line">&#123;                       # 光标移至段落结尾 </div><div class="line">nG                      # 光标移至第n行首 </div><div class="line">n+                      # 光标下移n行 </div><div class="line">n-                      # 光标上移n行 </div><div class="line">n$                      # 光标移至第n行尾 </div><div class="line">H                       # 光标移至屏幕顶行 </div><div class="line">M                       # 光标移至屏幕中间行 </div><div class="line">L                       # 光标移至屏幕最后行 </div><div class="line">0                       # （注意是数字零）光标移至当前行首 </div><div class="line">$                       # 光标移至当前行尾</div></pre></td></tr></table></figure>
 <h4 id="删除命令"><a href="#删除命令" class="headerlink" title="删除命令"></a>删除命令</h4><figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">x                        # 删除一个字符</div><div class="line">dd                       # 删除一行</div><div class="line">ndd                      # 删除光标所在行向下 n 行</div><div class="line">d1G                      # 删除光标所在行到第一行的所有数据</div><div class="line">dG                       # 删除光标所在行到最后一行的所有数据</div><div class="line">ctrl+v                   # 移动键盘上的“上下左右”键，将要删除的字符串选中，然后使用d就删除了</div></pre></td></tr></table></figure>
@@ -354,7 +349,7 @@
     
     <summary type="html">
     
-      &lt;h4 id=&quot;基本使用&quot;&gt;&lt;a href=&quot;#基本使用&quot; class=&quot;headerlink&quot; title=&quot;基本使用&quot;&gt;&lt;/a&gt;基本使用&lt;/h4&gt;&lt;figure class=&quot;highlight markdown&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;i                        # 进入插入模式  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;:q                       # 退出vim  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;:w                       # 保存  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;:wq                      # 保存并退出  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;:set syn=c               # 设置c风格的语法高亮&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+      &lt;h4 id=&quot;基本使用&quot;&gt;&lt;a href=&quot;#基本使用&quot; class=&quot;headerlink&quot; title=&quot;基本使用&quot;&gt;&lt;/a&gt;基本使用&lt;/h4&gt;&lt;figure class=&quot;highlight markdown&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;
     
     </summary>
     
@@ -370,11 +365,11 @@
     <link href="http://shadow000902.space/2017/03/14/Top-8-Diagrams-for-Understanding-Java/"/>
     <id>http://shadow000902.space/2017/03/14/Top-8-Diagrams-for-Understanding-Java/</id>
     <published>2017-03-14T09:10:45.000Z</published>
-    <updated>2017-06-03T02:44:38.000Z</updated>
+    <updated>2017-06-24T07:10:45.000Z</updated>
     
     <content type="html"><![CDATA[<h4 id="String-Immutability【字符串不变性】"><a href="#String-Immutability【字符串不变性】" class="headerlink" title="String Immutability【字符串不变性】"></a>String Immutability【字符串不变性】</h4><p>The following diagram shows what happens for the following code:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">String s = <span class="string">"abcd"</span>;</div><div class="line">s = s.concat(<span class="string">"ef"</span>);</div></pre></td></tr></table></figure></p>
-<a id="more"></a>
-<img src="/2017/03/14/Top-8-Diagrams-for-Understanding-Java/string-immutability.jpeg" alt="string-immutability" title="string-immutability">
+<pre><code>&lt;!--more--&gt;
+</code></pre><img src="/2017/03/14/Top-8-Diagrams-for-Understanding-Java/string-immutability.jpeg" alt="string-immutability" title="string-immutability">
 <h4 id="The-equals-and-hashCode-Contract【equals-方法、hashCode-方法的区别】"><a href="#The-equals-and-hashCode-Contract【equals-方法、hashCode-方法的区别】" class="headerlink" title="The equals() and hashCode() Contract【equals()方法、hashCode()方法的区别】"></a>The equals() and hashCode() Contract【equals()方法、hashCode()方法的区别】</h4><p>HashCode is designed to improve performance. The contract between equals() and hasCode() is that:</p>
 <ol>
 <li>If two objects are equal, then they must have the same hash code.</li>
@@ -392,7 +387,7 @@
     
     <summary type="html">
     
-      &lt;h4 id=&quot;String-Immutability【字符串不变性】&quot;&gt;&lt;a href=&quot;#String-Immutability【字符串不变性】&quot; class=&quot;headerlink&quot; title=&quot;String Immutability【字符串不变性】&quot;&gt;&lt;/a&gt;String Immutability【字符串不变性】&lt;/h4&gt;&lt;p&gt;The following diagram shows what happens for the following code:&lt;br&gt;&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;String s = &lt;span class=&quot;string&quot;&gt;&quot;abcd&quot;&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;s = s.concat(&lt;span class=&quot;string&quot;&gt;&quot;ef&quot;&lt;/span&gt;);&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+      &lt;h4 id=&quot;String-Immutability【字符串不变性】&quot;&gt;&lt;a href=&quot;#String-Immutability【字符串不变性】&quot; class=&quot;headerlink&quot; title=&quot;String Immutability【字符串不变性】&quot;&gt;&lt;/a&gt;Strin
     
     </summary>
     
@@ -408,19 +403,18 @@
     <link href="http://shadow000902.space/2017/03/05/%E5%BA%94%E7%94%A8%E9%87%8D%E7%AD%BE%E5%90%8D%E5%B7%A5%E5%85%B7re-sign-jar%E4%BD%BF%E7%94%A8/"/>
     <id>http://shadow000902.space/2017/03/05/应用重签名工具re-sign-jar使用/</id>
     <published>2017-03-05T06:46:33.000Z</published>
-    <updated>2017-06-03T02:51:39.000Z</updated>
+    <updated>2017-06-24T07:10:46.000Z</updated>
     
     <content type="html"><![CDATA[<h4 id="下载-re-sign-jar"><a href="#下载-re-sign-jar" class="headerlink" title="下载 re-sign.jar"></a>下载 re-sign.jar</h4><p><a href="http://download.csdn.net/download/christopher_lv/8569477" target="_blank" rel="external">下载地址</a></p>
-<h4 id="应用-re-sign-jar"><a href="#应用-re-sign-jar" class="headerlink" title="应用 re-sign.jar"></a>应用 re-sign.jar</h4><h5 id="把-re-sign-jar-放到-android-文件夹下"><a href="#把-re-sign-jar-放到-android-文件夹下" class="headerlink" title="把 re-sign.jar 放到 .android 文件夹下"></a>把 re-sign.jar 放到 .android 文件夹下</h5><a id="more"></a>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">➜  .android ll</div><div class="line">total 216</div><div class="line">-rw-r--r--   1 taoyi  staff   2.1K  7  5  2016 debug.keystore</div><div class="line">-rw-r--r--@  1 taoyi  staff    47K  3  4 22:35 re-sign.jar</div></pre></td></tr></table></figure>
+<h4 id="应用-re-sign-jar"><a href="#应用-re-sign-jar" class="headerlink" title="应用 re-sign.jar"></a>应用 re-sign.jar</h4><h5 id="把-re-sign-jar-放到-android-文件夹下"><a href="#把-re-sign-jar-放到-android-文件夹下" class="headerlink" title="把 re-sign.jar 放到 .android 文件夹下"></a>把 re-sign.jar 放到 .android 文件夹下</h5><pre><code>&lt;!--more--&gt;
+</code></pre><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">➜  .android ll</div><div class="line">total 216</div><div class="line">-rw-r--r--   1 taoyi  staff   2.1K  7  5  2016 debug.keystore</div><div class="line">-rw-r--r--@  1 taoyi  staff    47K  3  4 22:35 re-sign.jar</div></pre></td></tr></table></figure>
 <h5 id="运行-re-sign-jar"><a href="#运行-re-sign-jar" class="headerlink" title="运行 re-sign.jar"></a>运行 re-sign.jar</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> .android</div><div class="line">java -jar re-sign.jar</div></pre></td></tr></table></figure>
 <h5 id="把应用拖放到窗口进行重签名"><a href="#把应用拖放到窗口进行重签名" class="headerlink" title="把应用拖放到窗口进行重签名"></a>把应用拖放到窗口进行重签名</h5><img src="/2017/03/05/应用重签名工具re-sign-jar使用/重签名工具使用.png" alt="重签名工具使用" title="重签名工具使用">
 <p>重签名成功<br><img src="/2017/03/05/应用重签名工具re-sign-jar使用/重签名成功.png" alt="重签名成功" title="重签名成功"><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">➜  .android java -jar re-sign.jar                   </div><div class="line">Running jarsigner</div><div class="line">Command line: /Library/Java/JavaVirtualMachines/jdk1.8.0_91.jdk/Contents/Home/bin/jarsigner -keystore /Users/taoyi/.android/debug.keystore -storepass android -keypass android /var/folders/6c/t0zm0zy90p12fjr77h9qtktr0000gp/T/resigner3271202971406261445.apk androiddebugkey</div><div class="line">jarsigner finished with following output:</div><div class="line">jar å·²ç­¾åã</div><div class="line"></div><div class="line">è­¦å:</div><div class="line">æªæä¾ -tsa æ -tsacert, æ­¤ jar æ²¡ææ¶é´æ³ãå¦ææ²¡ææ¶é´æ³, åå¨ç­¾åèè¯ä¹¦çå°ææ¥æ (2046-06-28) æä»¥åçä»»ä½æ¤éæ¥æä¹å, ç¨æ·å¯è½æ æ³éªè¯æ­¤ jarã</div><div class="line">Running zipalign</div><div class="line">Command line: /opt/android-sdk-macosx/tools/zipalign <span class="_">-f</span> 4 /var/folders/6c/t0zm0zy90p12fjr77h9qtktr0000gp/T/resigner3271202971406261445.apk /Users/taoyi/git_projects/dfcAppium/res/app/android/fengche_debug.apk</div><div class="line">zipalign finished with following output:</div></pre></td></tr></table></figure></p>]]></content>
     
     <summary type="html">
     
-      &lt;h4 id=&quot;下载-re-sign-jar&quot;&gt;&lt;a href=&quot;#下载-re-sign-jar&quot; class=&quot;headerlink&quot; title=&quot;下载 re-sign.jar&quot;&gt;&lt;/a&gt;下载 re-sign.jar&lt;/h4&gt;&lt;p&gt;&lt;a href=&quot;http://download.csdn.net/download/christopher_lv/8569477&quot;&gt;下载地址&lt;/a&gt;&lt;/p&gt;
-&lt;h4 id=&quot;应用-re-sign-jar&quot;&gt;&lt;a href=&quot;#应用-re-sign-jar&quot; class=&quot;headerlink&quot; title=&quot;应用 re-sign.jar&quot;&gt;&lt;/a&gt;应用 re-sign.jar&lt;/h4&gt;&lt;h5 id=&quot;把-re-sign-jar-放到-android-文件夹下&quot;&gt;&lt;a href=&quot;#把-re-sign-jar-放到-android-文件夹下&quot; class=&quot;headerlink&quot; title=&quot;把 re-sign.jar 放到 .android 文件夹下&quot;&gt;&lt;/a&gt;把 re-sign.jar 放到 .android 文件夹下&lt;/h5&gt;
+      &lt;h4 id=&quot;下载-re-sign-jar&quot;&gt;&lt;a href=&quot;#下载-re-sign-jar&quot; class=&quot;headerlink&quot; title=&quot;下载 re-sign.jar&quot;&gt;&lt;/a&gt;下载 re-sign.jar&lt;/h4&gt;&lt;p&gt;&lt;a href=&quot;http://downlo
     
     </summary>
     
@@ -438,11 +432,11 @@
     <link href="http://shadow000902.space/2017/02/13/app-inspector%E5%85%83%E7%B4%A0%E5%AE%9A%E4%BD%8D%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8%E4%BB%8B%E7%BB%8D/"/>
     <id>http://shadow000902.space/2017/02/13/app-inspector元素定位工具使用介绍/</id>
     <published>2017-02-12T16:00:45.000Z</published>
-    <updated>2017-06-02T13:19:22.000Z</updated>
+    <updated>2017-06-24T07:10:45.000Z</updated>
     
     <content type="html"><![CDATA[<h5 id="前置安装配置，包括如下："><a href="#前置安装配置，包括如下：" class="headerlink" title="前置安装配置，包括如下："></a>前置安装配置，包括如下：</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">info AppiumDoctor  ✔ The Node.js binary was found at: /usr/<span class="built_in">local</span>/bin/node</div><div class="line">info AppiumDoctor  ✔ Node version is 6.9.0</div><div class="line">info AppiumDoctor  ✔ Xcode is installed at: /Applications/Xcode.app/Contents/Developer</div><div class="line">info AppiumDoctor  ✔ Xcode Command Line Tools are installed.</div><div class="line">info AppiumDoctor  ✔ DevToolsSecurity is enabled.</div><div class="line">info AppiumDoctor  ✔ The Authorization DB is <span class="built_in">set</span> up properly.</div><div class="line">info AppiumDoctor  ✔ Carthage was found at: /usr/<span class="built_in">local</span>/bin/carthage</div><div class="line">info AppiumDoctor  ✔ HOME is <span class="built_in">set</span> to: /Users/taoyi</div><div class="line">info AppiumDoctor  ✔ ANDROID_HOME is <span class="built_in">set</span> to: /opt/android-sdk-macosx</div><div class="line">info AppiumDoctor  ✔ JAVA_HOME is <span class="built_in">set</span> to: /Library/Java/JavaVirtualMachines/jdk1.8.0_91.jdk/Contents/Home</div><div class="line">info AppiumDoctor  ✔ adb exists at: /opt/android-sdk-macosx/platform-tools/adb</div><div class="line">info AppiumDoctor  ✔ android exists at: /opt/android-sdk-macosx/tools/android</div><div class="line">info AppiumDoctor  ✔ emulator exists at: /opt/android-sdk-macosx/tools/emulator</div><div class="line">info AppiumDoctor  ✔ B<span class="keyword">in</span> directory of <span class="variable">$JAVA_HOME</span> is <span class="built_in">set</span></div></pre></td></tr></table></figure>
-<a id="more"></a>
-<h5 id="安装app-inspector"><a href="#安装app-inspector" class="headerlink" title="安装app-inspector"></a>安装app-inspector</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g app-inspector</div></pre></td></tr></table></figure>
+<pre><code>&lt;!--more--&gt;
+</code></pre><h5 id="安装app-inspector"><a href="#安装app-inspector" class="headerlink" title="安装app-inspector"></a>安装app-inspector</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g app-inspector</div></pre></td></tr></table></figure>
 <h5 id="获取设备UDID"><a href="#获取设备UDID" class="headerlink" title="获取设备UDID"></a>获取设备UDID</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">adb devices                 <span class="comment"># android</span></div><div class="line">xcrun simctl list           <span class="comment"># IOS</span></div></pre></td></tr></table></figure>
 <h5 id="启动app-inspector"><a href="#启动app-inspector" class="headerlink" title="启动app-inspector"></a>启动app-inspector</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">app-inspector -u YOUR-DEVICE-ID</div></pre></td></tr></table></figure>
 <p>启动成功<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">➜  ~ app-inspector -u 0862E662-79FE-4831-9EF7-D0D0D1055FFF</div><div class="line">&gt;&gt; xctest-client start with port: 8900</div><div class="line">&gt;&gt; WebDriverAgent version: 1.0.41</div><div class="line">&gt;&gt; iOS device started: 0862E662-79FE-4831-9EF7-D0D0D1055FFF</div><div class="line">&gt;&gt; inspector start at: http://192.168.31.20:5678</div><div class="line">  &lt;-- GET /</div><div class="line">  --&gt; GET / 200</div><div class="line">  ...</div></pre></td></tr></table></figure></p>
@@ -452,7 +446,7 @@
     
     <summary type="html">
     
-      &lt;h5 id=&quot;前置安装配置，包括如下：&quot;&gt;&lt;a href=&quot;#前置安装配置，包括如下：&quot; class=&quot;headerlink&quot; title=&quot;前置安装配置，包括如下：&quot;&gt;&lt;/a&gt;前置安装配置，包括如下：&lt;/h5&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;13&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;14&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;info AppiumDoctor  ✔ The Node.js binary was found at: /usr/&lt;span class=&quot;built_in&quot;&gt;local&lt;/span&gt;/bin/node&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;info AppiumDoctor  ✔ Node version is 6.9.0&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;info AppiumDoctor  ✔ Xcode is installed at: /Applications/Xcode.app/Contents/Developer&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;info AppiumDoctor  ✔ Xcode Command Line Tools are installed.&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;info AppiumDoctor  ✔ DevToolsSecurity is enabled.&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;info AppiumDoctor  ✔ The Authorization DB is &lt;span class=&quot;built_in&quot;&gt;set&lt;/span&gt; up properly.&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;info AppiumDoctor  ✔ Carthage was found at: /usr/&lt;span class=&quot;built_in&quot;&gt;local&lt;/span&gt;/bin/carthage&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;info AppiumDoctor  ✔ HOME is &lt;span class=&quot;built_in&quot;&gt;set&lt;/span&gt; to: /Users/taoyi&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;info AppiumDoctor  ✔ ANDROID_HOME is &lt;span class=&quot;built_in&quot;&gt;set&lt;/span&gt; to: /opt/android-sdk-macosx&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;info AppiumDoctor  ✔ JAVA_HOME is &lt;span class=&quot;built_in&quot;&gt;set&lt;/span&gt; to: /Library/Java/JavaVirtualMachines/jdk1.8.0_91.jdk/Contents/Home&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;info AppiumDoctor  ✔ adb exists at: /opt/android-sdk-macosx/platform-tools/adb&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;info AppiumDoctor  ✔ android exists at: /opt/android-sdk-macosx/tools/android&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;info AppiumDoctor  ✔ emulator exists at: /opt/android-sdk-macosx/tools/emulator&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;info AppiumDoctor  ✔ B&lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; directory of &lt;span class=&quot;variable&quot;&gt;$JAVA_HOME&lt;/span&gt; is &lt;span class=&quot;built_in&quot;&gt;set&lt;/span&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+      &lt;h5 id=&quot;前置安装配置，包括如下：&quot;&gt;&lt;a href=&quot;#前置安装配置，包括如下：&quot; class=&quot;headerlink&quot; title=&quot;前置安装配置，包括如下：&quot;&gt;&lt;/a&gt;前置安装配置，包括如下：&lt;/h5&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;t
     
     </summary>
     
@@ -468,16 +462,16 @@
     <link href="http://shadow000902.space/2017/01/18/Extent%E6%B5%8B%E8%AF%95%E6%8A%A5%E5%91%8A%E4%BD%BF%E7%94%A8/"/>
     <id>http://shadow000902.space/2017/01/18/Extent测试报告使用/</id>
     <published>2017-01-17T16:13:28.000Z</published>
-    <updated>2017-06-02T13:27:04.000Z</updated>
+    <updated>2017-06-24T07:10:46.000Z</updated>
     
     <content type="html"><![CDATA[<h4 id="安装MongoDB数据库"><a href="#安装MongoDB数据库" class="headerlink" title="安装MongoDB数据库"></a>安装MongoDB数据库</h4><ol>
 <li>下载<a href="https://fastdl.mongodb.org/osx/mongodb-osx-x86_64-3.4.1.tgz" target="_blank" rel="external">MongoDB</a></li>
-<li>安装<code>MongoDB</code><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">tar -zxvf mongodb-osx-x86_64-3.4.1.tgz</div><div class="line">mv mongodb-osx-x86_64-3.4.1 /opt/mongodb-3.4.1/</div></pre></td></tr></table></figure>
+<li><p>安装<code>MongoDB</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">tar -zxvf mongodb-osx-x86_64-3.4.1.tgz</div><div class="line">mv mongodb-osx-x86_64-3.4.1 /opt/mongodb-3.4.1/</div></pre></td></tr></table></figure>
+ <a id="more"></a>
 </li>
-</ol>
-<a id="more"></a>
-<ol>
-<li>把<code>MongoDB</code>加入环境变量<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vim ~/.bash_profile</div></pre></td></tr></table></figure>
+<li><p>把<code>MongoDB</code>加入环境变量</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vim ~/.bash_profile</div></pre></td></tr></table></figure>
 </li>
 </ol>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">export</span> PATH=/opt/mongodb-3.4.1/bin:<span class="variable">$PATH</span></div></pre></td></tr></table></figure>
@@ -507,9 +501,8 @@
     
       &lt;h4 id=&quot;安装MongoDB数据库&quot;&gt;&lt;a href=&quot;#安装MongoDB数据库&quot; class=&quot;headerlink&quot; title=&quot;安装MongoDB数据库&quot;&gt;&lt;/a&gt;安装MongoDB数据库&lt;/h4&gt;&lt;ol&gt;
 &lt;li&gt;下载&lt;a href=&quot;https://fastdl.mongodb.org/osx/mongodb-osx-x86_64-3.4.1.tgz&quot;&gt;MongoDB&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;安装&lt;code&gt;MongoDB&lt;/code&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;tar -zxvf mongodb-osx-x86_64-3.4.1.tgz&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;mv mongodb-osx-x86_64-3.4.1 /opt/mongodb-3.4.1/&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
+&lt;li&gt;&lt;p&gt;安装&lt;code&gt;MongoDB&lt;/code&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;tar -zxvf mongodb-osx-x86_64-3.4.1.tgz&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;mv mongodb-osx-x86_64-3.4.1 /opt/mongodb-3.4.1/&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
     
     </summary>
     
@@ -525,11 +518,11 @@
     <link href="http://shadow000902.space/2017/01/11/web-py%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C%E4%BB%8B%E7%BB%8D/"/>
     <id>http://shadow000902.space/2017/01/11/web-py数据库操作介绍/</id>
     <published>2017-01-11T12:35:36.000Z</published>
-    <updated>2017-06-03T02:44:38.000Z</updated>
+    <updated>2017-06-24T07:10:46.000Z</updated>
     
     <content type="html"><![CDATA[<h4 id="安装MySQL数据库"><a href="#安装MySQL数据库" class="headerlink" title="安装MySQL数据库"></a>安装MySQL数据库</h4><h5 id="本地数据库的安装MySQL"><a href="#本地数据库的安装MySQL" class="headerlink" title="本地数据库的安装MySQL"></a>本地数据库的安装<a href="http://dev.mysql.com/downloads/mysql/" target="_blank" rel="external">MySQL</a></h5><p>安装完后，会给出一个默认密码：</p>
-<a id="more"></a>
-<img src="/2017/01/11/web-py数据库操作介绍/初始化密码.png" alt="初始化密码" title="初始化密码">
+<pre><code>&lt;!--more--&gt;
+</code></pre><img src="/2017/01/11/web-py数据库操作介绍/初始化密码.png" alt="初始化密码" title="初始化密码">
 <h5 id="启动本机上的MySQL"><a href="#启动本机上的MySQL" class="headerlink" title="启动本机上的MySQL"></a>启动本机上的MySQL</h5><img src="/2017/01/11/web-py数据库操作介绍/启动MySQL-1.png" alt="启动MySQL-1" title="启动MySQL-1">
 <img src="/2017/01/11/web-py数据库操作介绍/启动MySQL-2.png" alt="启动MySQL-2" title="启动MySQL-2">
 <img src="/2017/01/11/web-py数据库操作介绍/启动MySQL-3.png" alt="启动MySQL-3" title="启动MySQL-3">
@@ -561,7 +554,7 @@
     
     <summary type="html">
     
-      &lt;h4 id=&quot;安装MySQL数据库&quot;&gt;&lt;a href=&quot;#安装MySQL数据库&quot; class=&quot;headerlink&quot; title=&quot;安装MySQL数据库&quot;&gt;&lt;/a&gt;安装MySQL数据库&lt;/h4&gt;&lt;h5 id=&quot;本地数据库的安装MySQL&quot;&gt;&lt;a href=&quot;#本地数据库的安装MySQL&quot; class=&quot;headerlink&quot; title=&quot;本地数据库的安装MySQL&quot;&gt;&lt;/a&gt;本地数据库的安装&lt;a href=&quot;http://dev.mysql.com/downloads/mysql/&quot;&gt;MySQL&lt;/a&gt;&lt;/h5&gt;&lt;p&gt;安装完后，会给出一个默认密码：&lt;/p&gt;
+      &lt;h4 id=&quot;安装MySQL数据库&quot;&gt;&lt;a href=&quot;#安装MySQL数据库&quot; class=&quot;headerlink&quot; title=&quot;安装MySQL数据库&quot;&gt;&lt;/a&gt;安装MySQL数据库&lt;/h4&gt;&lt;h5 id=&quot;本地数据库的安装MySQL&quot;&gt;&lt;a href=&quot;#本地数据库的安装
     
     </summary>
     
@@ -581,11 +574,11 @@
     <link href="http://shadow000902.space/2017/01/02/%E5%85%AB%E5%A4%A7%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E7%9A%84Python%E5%AE%9E%E7%8E%B0/"/>
     <id>http://shadow000902.space/2017/01/02/八大排序算法的Python实现/</id>
     <published>2017-01-02T08:00:21.000Z</published>
-    <updated>2017-03-25T04:03:20.000Z</updated>
+    <updated>2017-06-24T07:10:46.000Z</updated>
     
     <content type="html"><![CDATA[<h4 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h4><p>它重复地走访过要排序的数列，一次比较两个元素，如果他们的顺序错误就把他们交换过来。走访数列的工作是重复地进行直到没有再需要交换，也就是说该数列已经排序完成。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">bubble_sort</span><span class="params">(lists)</span>:</span></div><div class="line">    <span class="comment"># 冒泡排序</span></div><div class="line">    count = len(lists)</div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, count):</div><div class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(i + <span class="number">1</span>, count):</div><div class="line">            <span class="keyword">if</span> lists[i] &gt; lists[j]:</div><div class="line">                lists[i], lists[j] = lists[j], lists[i]</div><div class="line">    <span class="keyword">return</span> lists</div></pre></td></tr></table></figure></p>
-<a id="more"></a>
-<h4 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h4><p>通过一趟排序将要排序的数据分割成独立的两部分，其中一部分的所有数据都比另外一部分的所有数据都要小，然后再按此方法对这两部分数据分别进行快速排序，整个排序过程可以递归进行，以此达到整个数据变成有序序列。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">quick_sort</span><span class="params">(lists, left, right)</span>:</span></div><div class="line">    <span class="comment"># 快速排序</span></div><div class="line">    <span class="keyword">if</span> left &gt;= right:</div><div class="line">        <span class="keyword">return</span> lists</div><div class="line">    key = lists[left]</div><div class="line">    low = left</div><div class="line">    high = right</div><div class="line">    <span class="keyword">while</span> left &lt; right:</div><div class="line">        <span class="keyword">while</span> left &lt; right <span class="keyword">and</span> lists[right] &gt;= key:</div><div class="line">            right -= <span class="number">1</span></div><div class="line">        lists[left] = lists[right]</div><div class="line">        <span class="keyword">while</span> left &lt; right <span class="keyword">and</span> lists[left] &lt;= key:</div><div class="line">            left += <span class="number">1</span></div><div class="line">        lists[right] = lists[left]</div><div class="line">    lists[right] = key</div><div class="line">    quick_sort(lists, low, left - <span class="number">1</span>)</div><div class="line">    quick_sort(lists, left + <span class="number">1</span>, high)</div><div class="line">    <span class="keyword">return</span> lists</div></pre></td></tr></table></figure></p>
+<pre><code>&lt;!--more--&gt;
+</code></pre><h4 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h4><p>通过一趟排序将要排序的数据分割成独立的两部分，其中一部分的所有数据都比另外一部分的所有数据都要小，然后再按此方法对这两部分数据分别进行快速排序，整个排序过程可以递归进行，以此达到整个数据变成有序序列。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">quick_sort</span><span class="params">(lists, left, right)</span>:</span></div><div class="line">    <span class="comment"># 快速排序</span></div><div class="line">    <span class="keyword">if</span> left &gt;= right:</div><div class="line">        <span class="keyword">return</span> lists</div><div class="line">    key = lists[left]</div><div class="line">    low = left</div><div class="line">    high = right</div><div class="line">    <span class="keyword">while</span> left &lt; right:</div><div class="line">        <span class="keyword">while</span> left &lt; right <span class="keyword">and</span> lists[right] &gt;= key:</div><div class="line">            right -= <span class="number">1</span></div><div class="line">        lists[left] = lists[right]</div><div class="line">        <span class="keyword">while</span> left &lt; right <span class="keyword">and</span> lists[left] &lt;= key:</div><div class="line">            left += <span class="number">1</span></div><div class="line">        lists[right] = lists[left]</div><div class="line">    lists[right] = key</div><div class="line">    quick_sort(lists, low, left - <span class="number">1</span>)</div><div class="line">    quick_sort(lists, left + <span class="number">1</span>, high)</div><div class="line">    <span class="keyword">return</span> lists</div></pre></td></tr></table></figure></p>
 <h4 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h4><p>插入排序的基本操作就是将一个数据插入到已经排好序的有序数据中，从而得到一个新的、个数加一的有序数据，算法适用于少量数据的排序，时间复杂度为O(n^2)。是稳定的排序方法。插入算法把要排序的数组分成两部分：第一部分包含了这个数组的所有元素，但将最后一个元素除外（让数组多一个空间才有插入的位置），而第二部分就只包含这一个元素（即待插入元素）。在第一部分排序完成后，再将这个最后元素插入到已排好序的第一部分中。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">insert_sort</span><span class="params">(lists)</span>:</span></div><div class="line">    <span class="comment"># 插入排序</span></div><div class="line">    count = len(lists)</div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, count):</div><div class="line">        key = lists[i]</div><div class="line">        j = i - <span class="number">1</span></div><div class="line">        <span class="keyword">while</span> j &gt;= <span class="number">0</span>:</div><div class="line">            <span class="keyword">if</span> lists[j] &gt; key:</div><div class="line">                lists[j + <span class="number">1</span>] = lists[j]</div><div class="line">                lists[j] = key</div><div class="line">            j -= <span class="number">1</span></div><div class="line">    <span class="keyword">return</span> lists</div></pre></td></tr></table></figure></p>
 <h4 id="希尔排序"><a href="#希尔排序" class="headerlink" title="希尔排序"></a>希尔排序</h4><p>希尔排序(Shell Sort)是插入排序的一种。也称缩小增量排序，是直接插入排序算法的一种更高效的改进版本。希尔排序是非稳定排序算法。该方法因DL．Shell于1959年提出而得名。 希尔排序是把记录按下标的一定增量分组，对每组使用直接插入排序算法排序；随着增量逐渐减少，每组包含的关键词越来越多，当增量减至1时，整个文件恰被分成一组，算法便终止。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">shell_sort</span><span class="params">(lists)</span>:</span></div><div class="line">    <span class="comment"># 希尔排序</span></div><div class="line">    count = len(lists)</div><div class="line">    step = <span class="number">2</span></div><div class="line">    group = count / step</div><div class="line">    <span class="keyword">while</span> group &gt; <span class="number">0</span>:</div><div class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, group):</div><div class="line">            j = i + group</div><div class="line">            <span class="keyword">while</span> j &lt; count:</div><div class="line">                k = j - group</div><div class="line">                key = lists[j]</div><div class="line">                <span class="keyword">while</span> k &gt;= <span class="number">0</span>:</div><div class="line">                    <span class="keyword">if</span> lists[k] &gt; key:</div><div class="line">                        lists[k + group] = lists[k]</div><div class="line">                        lists[k] = key</div><div class="line">                    k -= group</div><div class="line">                j += group</div><div class="line">        group /= step</div><div class="line">    <span class="keyword">return</span> lists</div></pre></td></tr></table></figure></p>
 <h4 id="直接选择排序"><a href="#直接选择排序" class="headerlink" title="直接选择排序"></a>直接选择排序</h4><p>基本思想：第1趟，在待排序记录r1 ~ r[n]中选出最小的记录，将它与r1交换；第2趟，在待排序记录r2 ~ r[n]中选出最小的记录，将它与r2交换；以此类推，第i趟在待排序记录r[i] ~ r[n]中选出最小的记录，将它与r[i]交换，使有序序列不断增长直到全部排序完毕。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">select_sort</span><span class="params">(lists)</span>:</span></div><div class="line">    <span class="comment"># 选择排序</span></div><div class="line">    count = len(lists)</div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, count):</div><div class="line">        min = i</div><div class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(i + <span class="number">1</span>, count):</div><div class="line">            <span class="keyword">if</span> lists[min] &gt; lists[j]:</div><div class="line">                min = j</div><div class="line">        lists[min], lists[i] = lists[i], lists[min]</div><div class="line">    <span class="keyword">return</span> lists</div></pre></td></tr></table></figure></p>
@@ -596,7 +589,7 @@
     
     <summary type="html">
     
-      &lt;h4 id=&quot;冒泡排序&quot;&gt;&lt;a href=&quot;#冒泡排序&quot; class=&quot;headerlink&quot; title=&quot;冒泡排序&quot;&gt;&lt;/a&gt;冒泡排序&lt;/h4&gt;&lt;p&gt;它重复地走访过要排序的数列，一次比较两个元素，如果他们的顺序错误就把他们交换过来。走访数列的工作是重复地进行直到没有再需要交换，也就是说该数列已经排序完成。&lt;br&gt;&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;bubble_sort&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(lists)&lt;/span&gt;:&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;# 冒泡排序&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    count = len(lists)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; i &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; range(&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;, count):&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; j &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; range(i + &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;, count):&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;            &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; lists[i] &amp;gt; lists[j]:&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;                lists[i], lists[j] = lists[j], lists[i]&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; lists&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+      &lt;h4 id=&quot;冒泡排序&quot;&gt;&lt;a href=&quot;#冒泡排序&quot; class=&quot;headerlink&quot; title=&quot;冒泡排序&quot;&gt;&lt;/a&gt;冒泡排序&lt;/h4&gt;&lt;p&gt;它重复地走访过要排序的数列，一次比较两个元素，如果他们的顺序错误就把他们交换过来。走访数列的工作是重复地进行直到没有再需要交
     
     </summary>
     
@@ -616,11 +609,11 @@
     <link href="http://shadow000902.space/2017/01/02/%E5%85%AB%E5%A4%A7%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E7%9A%84Java%E5%AE%9E%E7%8E%B0/"/>
     <id>http://shadow000902.space/2017/01/02/八大排序算法的Java实现/</id>
     <published>2017-01-02T06:46:07.000Z</published>
-    <updated>2017-03-24T17:52:52.000Z</updated>
+    <updated>2017-06-24T07:10:45.000Z</updated>
     
     <content type="html"><![CDATA[<h4 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h4><p>　　冒泡排序是一种简单的排序算法。它重复地走访过要排序的数列，一次比较两个元素，如果他们的顺序错误就把他们交换过来。走访数列的工作是重复地进行直到没有再需要交换，也就是说该数列已经排序完成。这个算法的名字由来是因为越小的元素会经由交换慢慢“浮”到数列的顶端。<br>　　冒泡排序的<strong>示例</strong>：<br><img src="http://upload-images.jianshu.io/upload_images/196518-49509183dfb68c64.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<a id="more"></a>
-<p>冒泡排序的<strong>算法实现</strong>如下:【排序后，数组从小到大排列】</p>
+<pre><code>&lt;!--more--&gt;
+</code></pre><p>冒泡排序的<strong>算法实现</strong>如下:【排序后，数组从小到大排列】</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 冒泡排序</div><div class="line"> * 比较相邻的元素。如果第一个比第二个大，就交换他们两个。  </div><div class="line"> * 对每一对相邻元素作同样的工作，从开始第一对到结尾的最后一对。在这一点，最后的元素应该会是最大的数。  </div><div class="line"> * 针对所有的元素重复以上的步骤，除了最后一个。</div><div class="line"> * 持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比较。</div><div class="line"> * <span class="doctag">@param</span> numbers 需要排序的整型数组</div><div class="line"> */</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">bubbleSort</span><span class="params">(<span class="keyword">int</span>[] numbers)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> temp = <span class="number">0</span>;</div><div class="line">    <span class="keyword">int</span> size = numbers.length;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span> ; i &lt; size-<span class="number">1</span>; i ++)</div><div class="line">    &#123;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span> ;j &lt; size-<span class="number">1</span>-i ; j++)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">if</span>(numbers[j] &gt; numbers[j+<span class="number">1</span>])  <span class="comment">//交换两数位置</span></div><div class="line">        &#123;</div><div class="line">        temp = numbers[j];</div><div class="line">        numbers[j] = numbers[j+<span class="number">1</span>];</div><div class="line">        numbers[j+<span class="number">1</span>] = temp;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <hr>
 <h4 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h4><p><strong>快速排序的基本思想</strong>：<br>      通过一趟排序将待排序记录分割成独立的两部分，其中一部分记录的关键字均比另一部分关键字小，则分别对这两部分继续进行排序，直到整个序列有序。<br>快速排序的<strong>示例</strong>：<br>（a）一趟排序的过程：<br><img src="http://upload-images.jianshu.io/upload_images/196518-d8f8ad1138df64c7.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>（b）排序的全过程：<br><img src="http://upload-images.jianshu.io/upload_images/196518-d7667720de515784.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>　　把整个序列看做一个数组，把第零个位置看做中轴，和最后一个比，如果比它小交换，比它大不做任何处理；交换了以后再和小的那端比，比它小不交换，比他大交换。这样循环往复，一趟排序完成，左边就是比中轴小的，右边就是比中轴大的，然后再用分治法，分别对这两个独立的数组进行排序。</p>
@@ -657,7 +650,7 @@
     
     <summary type="html">
     
-      &lt;h4 id=&quot;冒泡排序&quot;&gt;&lt;a href=&quot;#冒泡排序&quot; class=&quot;headerlink&quot; title=&quot;冒泡排序&quot;&gt;&lt;/a&gt;冒泡排序&lt;/h4&gt;&lt;p&gt;　　冒泡排序是一种简单的排序算法。它重复地走访过要排序的数列，一次比较两个元素，如果他们的顺序错误就把他们交换过来。走访数列的工作是重复地进行直到没有再需要交换，也就是说该数列已经排序完成。这个算法的名字由来是因为越小的元素会经由交换慢慢“浮”到数列的顶端。&lt;br&gt;　　冒泡排序的&lt;strong&gt;示例&lt;/strong&gt;：&lt;br&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/196518-49509183dfb68c64.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+      &lt;h4 id=&quot;冒泡排序&quot;&gt;&lt;a href=&quot;#冒泡排序&quot; class=&quot;headerlink&quot; title=&quot;冒泡排序&quot;&gt;&lt;/a&gt;冒泡排序&lt;/h4&gt;&lt;p&gt;　　冒泡排序是一种简单的排序算法。它重复地走访过要排序的数列，一次比较两个元素，如果他们的顺序错误就把他们交换过来。走访数列
     
     </summary>
     
@@ -713,7 +706,7 @@
     <link href="http://shadow000902.space/2016/11/29/MAC%E7%B3%BB%E7%BB%9F%E7%A9%BA%E9%97%B4%E6%B8%85%E7%90%86/"/>
     <id>http://shadow000902.space/2016/11/29/MAC系统空间清理/</id>
     <published>2016-11-29T10:03:51.000Z</published>
-    <updated>2017-02-05T10:10:37.000Z</updated>
+    <updated>2017-06-24T07:10:45.000Z</updated>
     
     <content type="html"><![CDATA[<ol>
 <li><p>删除Emacs——可以节省出60MB+的硬盘空间</p>
@@ -721,10 +714,8 @@
 </li>
 <li><p>移除系统嗓音文件——可以节省出500MB-3GB+硬盘空间</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd /System/Library/Speech/</div><div class="line">sudo rm -rf Voices/*</div></pre></td></tr></table></figure>
+ <a id="more"></a>
 </li>
-</ol>
-<a id="more"></a>
-<ol>
 <li><p>删除所有系统日志——可以节省出100MB-2GB硬盘空间</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo rm -rf /private/var/log/*</div></pre></td></tr></table></figure>
 </li>
@@ -750,8 +741,6 @@
 &lt;/li&gt;
 &lt;li&gt;&lt;p&gt;移除系统嗓音文件——可以节省出500MB-3GB+硬盘空间&lt;/p&gt;
 &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;cd /System/Library/Speech/&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;sudo rm -rf Voices/*&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
     
     </summary>
     
@@ -767,20 +756,19 @@
     <link href="http://shadow000902.space/2016/11/29/UBUNTU%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%AE%BE%E7%BD%AE%E5%B1%80%E5%9F%9F%E7%BD%91%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AE/"/>
     <id>http://shadow000902.space/2016/11/29/UBUNTU服务器设置局域网远程访问/</id>
     <published>2016-11-29T08:18:35.000Z</published>
-    <updated>2017-03-25T10:37:14.000Z</updated>
+    <updated>2017-06-24T07:10:45.000Z</updated>
     
     <content type="html"><![CDATA[<h5 id="安装ssh"><a href="#安装ssh" class="headerlink" title="安装ssh"></a>安装<code>ssh</code></h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install openssh-server</div></pre></td></tr></table></figure>
 <h5 id="查看ssh服务是否启动"><a href="#查看ssh服务是否启动" class="headerlink" title="查看ssh服务是否启动"></a>查看<code>ssh</code>服务是否启动</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ps -ef | grep ssh</div></pre></td></tr></table></figure>
-<a id="more"></a>
-<h5 id="如果ssh服务没有启动，启动ssh服务"><a href="#如果ssh服务没有启动，启动ssh服务" class="headerlink" title="如果ssh服务没有启动，启动ssh服务"></a>如果<code>ssh</code>服务没有启动，启动<code>ssh</code>服务</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">service ssh start</div></pre></td></tr></table></figure>
+<pre><code>&lt;!--more--&gt;
+</code></pre><h5 id="如果ssh服务没有启动，启动ssh服务"><a href="#如果ssh服务没有启动，启动ssh服务" class="headerlink" title="如果ssh服务没有启动，启动ssh服务"></a>如果<code>ssh</code>服务没有启动，启动<code>ssh</code>服务</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">service ssh start</div></pre></td></tr></table></figure>
 <h5 id="修改ssh配置文件"><a href="#修改ssh配置文件" class="headerlink" title="修改ssh配置文件"></a>修改<code>ssh</code>配置文件</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo vim /etc/ssh/sshd_config</div></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"># Authentication:</div><div class="line">LoginGraceTime 120</div><div class="line">#PermitRootLogin without-password               # 该行首加一个“#”注释掉该行</div><div class="line">PermitRootLogin yes                             # 添加该行，增加一个配置项</div><div class="line">StrictModes yes</div></pre></td></tr></table></figure>
 <h5 id="局域网远程访问"><a href="#局域网远程访问" class="headerlink" title="局域网远程访问"></a>局域网远程访问</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">ssh root@192.168.0.1</div><div class="line"># root 远程服务器访问用户名</div><div class="line"># 192.168.0.1 远程服务器局域网IP</div></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
-      &lt;h5 id=&quot;安装ssh&quot;&gt;&lt;a href=&quot;#安装ssh&quot; class=&quot;headerlink&quot; title=&quot;安装ssh&quot;&gt;&lt;/a&gt;安装&lt;code&gt;ssh&lt;/code&gt;&lt;/h5&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;sudo apt-get install openssh-server&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h5 id=&quot;查看ssh服务是否启动&quot;&gt;&lt;a href=&quot;#查看ssh服务是否启动&quot; class=&quot;headerlink&quot; title=&quot;查看ssh服务是否启动&quot;&gt;&lt;/a&gt;查看&lt;code&gt;ssh&lt;/code&gt;服务是否启动&lt;/h5&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;ps -ef | grep ssh&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+      &lt;h5 id=&quot;安装ssh&quot;&gt;&lt;a href=&quot;#安装ssh&quot; class=&quot;headerlink&quot; title=&quot;安装ssh&quot;&gt;&lt;/a&gt;安装&lt;code&gt;ssh&lt;/code&gt;&lt;/h5&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td c
     
     </summary>
     
@@ -798,12 +786,12 @@
     <link href="http://shadow000902.space/2016/11/21/Appium-WebView%E6%B5%8B%E8%AF%95/"/>
     <id>http://shadow000902.space/2016/11/21/Appium-WebView测试/</id>
     <published>2016-11-20T17:07:09.000Z</published>
-    <updated>2017-03-25T08:18:47.000Z</updated>
+    <updated>2017-06-24T07:10:45.000Z</updated>
     
     <content type="html"><![CDATA[<p>现在多数App都是混合型的，有原生的也包含WebView的，appium测试的时候就需要在原生和WebView之间切换才能完成测试。</p>
 <h5 id="查看所有context"><a href="#查看所有context" class="headerlink" title="查看所有context"></a>查看所有context</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Set&lt;String&gt; contextNames = driver.getContextHandles();</div><div class="line">System.print(contextNames);</div></pre></td></tr></table></figure>
-<a id="more"></a>
-<p>结果包含目前所有打开的app<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[NATIVE_APP, WEBVIEW_com.test.android, WEBVIEW_com.estrongs.android.pop, WEBVIEW_com.xxxxx.sjj]</div></pre></td></tr></table></figure></p>
+<pre><code>&lt;!--more--&gt;
+</code></pre><p>结果包含目前所有打开的app<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[NATIVE_APP, WEBVIEW_com.test.android, WEBVIEW_com.estrongs.android.pop, WEBVIEW_com.xxxxx.sjj]</div></pre></td></tr></table></figure></p>
 <p>NATIVE_APP就是我的被测应用原生界面<br>WEBVIEW_com.test.android 是我的被测应用打开的WebView<br>另外两个一个是ES， 一个其他的应用（混合型的）</p>
 <h5 id="切换到WebView"><a href="#切换到WebView" class="headerlink" title="切换到WebView"></a>切换到WebView</h5><p>我们可以通过context方法切换到指定的应用<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;pre name=<span class="string">"code"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"java"</span>&gt;driver.context(<span class="string">"WEBVIEW_com.test.android"</span>);</div><div class="line">driver.findElementByID(<span class="string">"wd"</span>);</div></pre></td></tr></table></figure></p>
 <p>切换完成后就可以像测试web应用一样测试了，所有的定位和web相同。</p>
@@ -814,7 +802,7 @@
     <summary type="html">
     
       &lt;p&gt;现在多数App都是混合型的，有原生的也包含WebView的，appium测试的时候就需要在原生和WebView之间切换才能完成测试。&lt;/p&gt;
-&lt;h5 id=&quot;查看所有context&quot;&gt;&lt;a href=&quot;#查看所有context&quot; class=&quot;headerlink&quot; title=&quot;查看所有context&quot;&gt;&lt;/a&gt;查看所有context&lt;/h5&gt;&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;Set&amp;lt;String&amp;gt; contextNames = driver.getContextHandles();&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;System.print(contextNames);&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h5 id=&quot;查看所有context&quot;&gt;&lt;a href=&quot;#查看所有context&quot; class=&quot;headerlink&quot; tit
     
     </summary>
     
@@ -832,11 +820,11 @@
     <link href="http://shadow000902.space/2016/11/21/Logcat%E6%97%A5%E5%BF%97%E8%BF%87%E6%BB%A4%E4%B8%8E%E8%A7%A3%E6%9E%90/"/>
     <id>http://shadow000902.space/2016/11/21/Logcat日志过滤与解析/</id>
     <published>2016-11-20T16:15:48.000Z</published>
-    <updated>2017-03-25T09:25:59.000Z</updated>
+    <updated>2017-06-24T07:10:45.000Z</updated>
     
     <content type="html"><![CDATA[<h5 id="logcat指定某APP輸出ERROR以上級別的日誌，显示同一个进程的所有输出"><a href="#logcat指定某APP輸出ERROR以上級別的日誌，显示同一个进程的所有输出" class="headerlink" title="logcat指定某APP輸出ERROR以上級別的日誌，显示同一个进程的所有输出"></a><code>logcat</code>指定<code>某APP</code>輸出<code>ERROR</code>以上級別的日誌，<code>显示同一个进程的所有输出</code></h5><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">#!/bin/sh  </div><div class="line">echo 本腳本實現顯示指定包名APP的ERROR以上級別的日誌，建議崩潰之後，重新開啓此腳本  </div><div class="line">package_name=$1  </div><div class="line">pid=`adb shell ps | grep $package_name |awk '&#123;print $2&#125;'`  </div><div class="line">adb logcat -v time *:E | grep -E --color=auto $pid</div></pre></td></tr></table></figure>
-<a id="more"></a>
-<h5 id="只显示需要的输出，白名单"><a href="#只显示需要的输出，白名单" class="headerlink" title="只显示需要的输出，白名单"></a>只显示需要的输出，白名单</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">adb logcat | grep MyApp</div><div class="line">adb logcat | grep -i myapp <span class="comment">#忽略大小写。</span></div><div class="line">adb logcat | grep --color=auto -i  myapp <span class="comment">#设置匹配字符串颜色。更多设置请查看 grep 帮助。</span></div></pre></td></tr></table></figure>
+<pre><code>&lt;!--more--&gt;
+</code></pre><h5 id="只显示需要的输出，白名单"><a href="#只显示需要的输出，白名单" class="headerlink" title="只显示需要的输出，白名单"></a>只显示需要的输出，白名单</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">adb logcat | grep MyApp</div><div class="line">adb logcat | grep -i myapp <span class="comment">#忽略大小写。</span></div><div class="line">adb logcat | grep --color=auto -i  myapp <span class="comment">#设置匹配字符串颜色。更多设置请查看 grep 帮助。</span></div></pre></td></tr></table></figure>
 <p>仅显示 Error 级别 tag 为 MyApp 的输出：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">adb logcat | grep &quot;^E.MyApp&quot;</div></pre></td></tr></table></figure></p>
 <p>也可以匹配多个，使用 | 分割多个匹配表达式，要加转义符。例如要匹配 tag 为 MyApp 和 MyActivity 的输出：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">adb logcat | grep &quot;^..MyApp\|^..MyActivity&quot;</div><div class="line">adb logcat | grep -E &quot;^..MyApp|^..MyActivity&quot;  #使用 egrep 无须转义符</div></pre></td></tr></table></figure></p>
 <h5 id="过滤不需要的输出，黑名单"><a href="#过滤不需要的输出，黑名单" class="headerlink" title="过滤不需要的输出，黑名单"></a>过滤不需要的输出，黑名单</h5><p>还是使用 grep，用法也跟上面的一样，加一个 -v 即可。例如要过滤 tag 为 MyApp 和 MyActivity 的输出：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">adb logcat | grep -v &quot;^..MyApp\|^..MyActivity&quot;</div><div class="line">adb logcat | grep -vE &quot;^..MyApp|^..MyActivity&quot;  #使用 egrep 无须转义符</div></pre></td></tr></table></figure></p>
@@ -852,7 +840,7 @@
     
     <summary type="html">
     
-      &lt;h5 id=&quot;logcat指定某APP輸出ERROR以上級別的日誌，显示同一个进程的所有输出&quot;&gt;&lt;a href=&quot;#logcat指定某APP輸出ERROR以上級別的日誌，显示同一个进程的所有输出&quot; class=&quot;headerlink&quot; title=&quot;logcat指定某APP輸出ERROR以上級別的日誌，显示同一个进程的所有输出&quot;&gt;&lt;/a&gt;&lt;code&gt;logcat&lt;/code&gt;指定&lt;code&gt;某APP&lt;/code&gt;輸出&lt;code&gt;ERROR&lt;/code&gt;以上級別的日誌，&lt;code&gt;显示同一个进程的所有输出&lt;/code&gt;&lt;/h5&gt;&lt;figure class=&quot;highlight&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;#!/bin/sh  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;echo 本腳本實現顯示指定包名APP的ERROR以上級別的日誌，建議崩潰之後，重新開啓此腳本  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;package_name=$1  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;pid=`adb shell ps | grep $package_name |awk &#39;&amp;#123;print $2&amp;#125;&#39;`  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;adb logcat -v time *:E | grep -E --color=auto $pid&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+      &lt;h5 id=&quot;logcat指定某APP輸出ERROR以上級別的日誌，显示同一个进程的所有输出&quot;&gt;&lt;a href=&quot;#logcat指定某APP輸出ERROR以上級別的日誌，显示同一个进程的所有输出&quot; class=&quot;headerlink&quot; title=&quot;logcat指定某APP輸出
     
     </summary>
     

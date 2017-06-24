@@ -19,6 +19,9 @@
 
 
 
+
+
+
 <meta http-equiv="Cache-Control" content="no-transform">
 <meta http-equiv="Cache-Control" content="no-siteapp">
 
@@ -113,16 +116,22 @@
 
 
 
-<meta name="description" content="基本使用12345i                        # 进入插入模式  :q                       # 退出vim  :w                       # 保存  :wq                      # 保存并退出  :set syn=c               # 设置c风格的语法高亮">
+<meta name="description" content="基本使用12345i                        # 进入插入模式  :q                       # 退出vim  :w                       # 保存  :wq                      # 保存并退出  :set syn=c               # 设置c风格的语法高亮
+&amp;lt;!--more--&amp;gt;
+v">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vim的基本使用">
 <meta property="og:url" content="http://shadow000902.space/2017/03/14/vim的基本使用/index.html">
 <meta property="og:site_name" content="Shadow'S Site">
-<meta property="og:description" content="基本使用12345i                        # 进入插入模式  :q                       # 退出vim  :w                       # 保存  :wq                      # 保存并退出  :set syn=c               # 设置c风格的语法高亮">
-<meta property="og:updated_time" content="2017-03-25T10:37:30.000Z">
+<meta property="og:description" content="基本使用12345i                        # 进入插入模式  :q                       # 退出vim  :w                       # 保存  :wq                      # 保存并退出  :set syn=c               # 设置c风格的语法高亮
+&amp;lt;!--more--&amp;gt;
+v">
+<meta property="og:updated_time" content="2017-06-24T07:10:46.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vim的基本使用">
-<meta name="twitter:description" content="基本使用12345i                        # 进入插入模式  :q                       # 退出vim  :w                       # 保存  :wq                      # 保存并退出  :set syn=c               # 设置c风格的语法高亮">
+<meta name="twitter:description" content="基本使用12345i                        # 进入插入模式  :q                       # 退出vim  :w                       # 保存  :wq                      # 保存并退出  :set syn=c               # 设置c风格的语法高亮
+&amp;lt;!--more--&amp;gt;
+v">
 
 
 
@@ -157,10 +166,6 @@
 
 
   <title>vim的基本使用 | Shadow'S Site</title>
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
-
   
 
 
@@ -198,6 +203,9 @@
 
 
 
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
@@ -468,8 +476,8 @@
 
       
         <h4 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h4><figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">i                        # 进入插入模式  </div><div class="line">:q                       # 退出vim  </div><div class="line">:w                       # 保存  </div><div class="line">:wq                      # 保存并退出  </div><div class="line">:set syn=c               # 设置c风格的语法高亮</div></pre></td></tr></table></figure>
-<a id="more"></a>
-<h4 id="vim编辑器配置"><a href="#vim编辑器配置" class="headerlink" title="vim编辑器配置"></a>vim编辑器配置</h4><p>配置vim的配置文件【Mac】<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">~&gt; vim ~/.vimrc                     <span class="comment"># 默认不存在该文件，需要新建。该文件中不允许出现中文的空格和符合</span></div></pre></td></tr></table></figure></p>
+<pre><code>&lt;!--more--&gt;
+</code></pre><h4 id="vim编辑器配置"><a href="#vim编辑器配置" class="headerlink" title="vim编辑器配置"></a>vim编辑器配置</h4><p>配置vim的配置文件【Mac】<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">~&gt; vim ~/.vimrc                     <span class="comment"># 默认不存在该文件，需要新建。该文件中不允许出现中文的空格和符合</span></div></pre></td></tr></table></figure></p>
 <p>添加如下内容<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">syntax on                           "开启语法高亮  </div><div class="line">set tabstop=4                       "设置tab为4个字符</div><div class="line">set softtabstop=4</div><div class="line">set shiftwidth=4                    "缩进宽度  </div><div class="line">set autoindent                      "自动缩进  </div><div class="line">set cindent                         "c风格缩进  </div><div class="line">set nu                              "显示行号  </div><div class="line">set vb t_vb=  "close the bell       "关闭vim响铃</div></pre></td></tr></table></figure></p>
 <h4 id="移动光标类命令"><a href="#移动光标类命令" class="headerlink" title="移动光标类命令"></a>移动光标类命令</h4><figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">h                        # 光标左移一个字符</div><div class="line">l                        # 光标右移一个字符</div><div class="line">space                    # 光标右移一个字符</div><div class="line">Backspace                # 光标左移一个字符</div><div class="line">k或Ctrl+p                 # 光标上移一行 </div><div class="line">j或Ctrl+n                 # 光标下移一行 </div><div class="line">Enter                    # 光标下移一行 </div><div class="line">w或W                      # 光标右移一个字至字首 </div><div class="line">b或B                      # 光标左移一个字至字首 </div><div class="line">e或E                     # 光标右移一个字至字尾 </div><div class="line">)                       # 光标移至句尾 </div><div class="line">(                       # 光标移至句首 </div><div class="line">&#125;                       # 光标移至段落开头 </div><div class="line">&#123;                       # 光标移至段落结尾 </div><div class="line">nG                      # 光标移至第n行首 </div><div class="line">n+                      # 光标下移n行 </div><div class="line">n-                      # 光标上移n行 </div><div class="line">n$                      # 光标移至第n行尾 </div><div class="line">H                       # 光标移至屏幕顶行 </div><div class="line">M                       # 光标移至屏幕中间行 </div><div class="line">L                       # 光标移至屏幕最后行 </div><div class="line">0                       # （注意是数字零）光标移至当前行首 </div><div class="line">$                       # 光标移至当前行尾</div></pre></td></tr></table></figure>
 <h4 id="删除命令"><a href="#删除命令" class="headerlink" title="删除命令"></a>删除命令</h4><figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">x                        # 删除一个字符</div><div class="line">dd                       # 删除一行</div><div class="line">ndd                      # 删除光标所在行向下 n 行</div><div class="line">d1G                      # 删除光标所在行到第一行的所有数据</div><div class="line">dG                       # 删除光标所在行到最后一行的所有数据</div><div class="line">ctrl+v                   # 移动键盘上的“上下左右”键，将要删除的字符串选中，然后使用d就删除了</div></pre></td></tr></table></figure>
@@ -525,7 +533,7 @@
       
 
       
-        
+      
       
 
       
@@ -1060,6 +1068,8 @@
 })();
 </script>
 
+
+  
 
   
 

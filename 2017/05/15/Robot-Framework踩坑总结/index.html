@@ -19,6 +19,9 @@
 
 
 
+
+
+
 <meta http-equiv="Cache-Control" content="no-transform">
 <meta http-equiv="Cache-Control" content="no-siteapp">
 
@@ -119,7 +122,7 @@
 <meta property="og:url" content="http://shadow000902.space/2017/05/15/Robot-Framework踩坑总结/index.html">
 <meta property="og:site_name" content="Shadow'S Site">
 <meta property="og:description" content="List中的字典循环12345678910111213*** Test Cases ***takeValueFromCircle	# 从返回结果中提取出List	@&amp;#123;items&amp;#125;=    set variable    $&amp;#123;json[&amp;quot;data&amp;quot;][&amp;quot;items&amp;quot;]&amp;#125;	# 循环List中的item	: FOR    $">
-<meta property="og:updated_time" content="2017-05-16T11:50:21.000Z">
+<meta property="og:updated_time" content="2017-06-24T07:10:45.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Robot-Framework踩坑总结">
 <meta name="twitter:description" content="List中的字典循环12345678910111213*** Test Cases ***takeValueFromCircle	# 从返回结果中提取出List	@&amp;#123;items&amp;#125;=    set variable    $&amp;#123;json[&amp;quot;data&amp;quot;][&amp;quot;items&amp;quot;]&amp;#125;	# 循环List中的item	: FOR    $">
@@ -157,10 +160,6 @@
 
 
   <title>Robot-Framework踩坑总结 | Shadow'S Site</title>
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
-
   
 
 
@@ -198,6 +197,9 @@
 
 
 
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
@@ -468,8 +470,8 @@
 
       
         <h5 id="List中的字典循环"><a href="#List中的字典循环" class="headerlink" title="List中的字典循环"></a>List中的字典循环</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">*** Test Cases ***</div><div class="line">takeValueFromCircle</div><div class="line">	# 从返回结果中提取出List</div><div class="line">	@&#123;items&#125;=    set variable    $&#123;json[&quot;data&quot;][&quot;items&quot;]&#125;</div><div class="line">	# 循环List中的item</div><div class="line">	: FOR    $&#123;params&#125;    IN    @&#123;items&#125;</div><div class="line">	# 把item中的一个参数（每个参数都是一个字典）转化为Str格式，顺便去除 &quot;u&quot; 标识</div><div class="line">	\    $&#123;params&#125;    Dumps    $&#123;params&#125;</div><div class="line">	# 把字典转化为json</div><div class="line">	\    $&#123;params&#125;    to json    $&#123;params&#125;</div><div class="line">	#\    Log    $&#123;params[&quot;carId&quot;]&#125;</div><div class="line">	# 对每个item取出来的字典中的某个字段进行判断，如果是需要的值，就把另一个需要的值取出来，并打印出来</div><div class="line">	\    RUN KEYWORD IF    &quot;$&#123;params[&quot;carInfo&quot;][&quot;status&quot;]&#125;&quot;==&quot;评估中&quot;    Log    $&#123;params[&quot;carId&quot;]&#125;</div></pre></td></tr></table></figure>
-<a id="more"></a>
-<h5 id="wait-until-keyword-succeeds关键字使用"><a href="#wait-until-keyword-succeeds关键字使用" class="headerlink" title="wait until keyword succeeds关键字使用"></a>wait until keyword succeeds关键字使用</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">*** Test Cases ***</div><div class="line">&quot;Wait until ...&quot; with normal error</div><div class="line">    # Keyword is run multiple times, until timeout. Each run gives an exception</div><div class="line">    # traceback.</div><div class="line">    Wait Until Keyword Succeeds    1 sec    0.5    Keyword With Normal Error</div><div class="line"></div><div class="line">&quot;Wait until ...&quot; with AttributeError</div><div class="line">    # Keyword is run only once, even if there is time left until the timeout.</div><div class="line">    # There is no exception traceback like above.</div><div class="line">    Wait Until Keyword Succeeds    1 sec    0.5    Keyword With AttributeError</div><div class="line"></div><div class="line">*** Keywords ***</div><div class="line">Keyword With Normal Error</div><div class="line">    $&#123;obj&#125; =    Evaluate    &quot;foo&quot;</div><div class="line">    Should Be Equal As Strings    $&#123;obj&#125;    &quot;bar&quot;</div><div class="line"></div><div class="line">Keyword With AttributeError</div><div class="line">    # In real life, this would get an object and use some of its (valid) attributes.</div><div class="line">    # In case of an error, and in Teardown context (continue-on-failure), a None object</div><div class="line">    # is returned instead causing the next keyword to create an AttributeError.</div><div class="line">    $&#123;obj&#125; =    Evaluate    &quot;foo&quot;</div><div class="line">    Should Be Equal As Strings    $&#123;obj.bad_attr&#125;    &quot;foo&quot;</div></pre></td></tr></table></figure>
+<pre><code>&lt;!--more--&gt;
+</code></pre><h5 id="wait-until-keyword-succeeds关键字使用"><a href="#wait-until-keyword-succeeds关键字使用" class="headerlink" title="wait until keyword succeeds关键字使用"></a>wait until keyword succeeds关键字使用</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">*** Test Cases ***</div><div class="line">&quot;Wait until ...&quot; with normal error</div><div class="line">    # Keyword is run multiple times, until timeout. Each run gives an exception</div><div class="line">    # traceback.</div><div class="line">    Wait Until Keyword Succeeds    1 sec    0.5    Keyword With Normal Error</div><div class="line"></div><div class="line">&quot;Wait until ...&quot; with AttributeError</div><div class="line">    # Keyword is run only once, even if there is time left until the timeout.</div><div class="line">    # There is no exception traceback like above.</div><div class="line">    Wait Until Keyword Succeeds    1 sec    0.5    Keyword With AttributeError</div><div class="line"></div><div class="line">*** Keywords ***</div><div class="line">Keyword With Normal Error</div><div class="line">    $&#123;obj&#125; =    Evaluate    &quot;foo&quot;</div><div class="line">    Should Be Equal As Strings    $&#123;obj&#125;    &quot;bar&quot;</div><div class="line"></div><div class="line">Keyword With AttributeError</div><div class="line">    # In real life, this would get an object and use some of its (valid) attributes.</div><div class="line">    # In case of an error, and in Teardown context (continue-on-failure), a None object</div><div class="line">    # is returned instead causing the next keyword to create an AttributeError.</div><div class="line">    $&#123;obj&#125; =    Evaluate    &quot;foo&quot;</div><div class="line">    Should Be Equal As Strings    $&#123;obj.bad_attr&#125;    &quot;foo&quot;</div></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">*** Test Cases ***</div><div class="line">003.导出进度-/pc/export/taizhangaction/progress.json</div><div class="line">    wait until keyword succeeds    3 min    5 sec    导出进度-/pc/export/taizhangaction/progress.json</div><div class="line">    </div><div class="line">*** Keywords ***</div><div class="line">导出进度-/pc/export/taizhangaction/progress.json</div><div class="line">    $&#123;params&#125;=    Create Dictionary    jobId=$&#123;jobId&#125;</div><div class="line">    &amp;&#123;json&#125;=    Rest.Post    /pc/export/taizhangaction/progress.json    $&#123;params&#125;    form    $&#123;hosts[&quot;erp-online&quot;]&#125;</div><div class="line">    Should Be True    $&#123;json[&quot;success&quot;]&#125;</div><div class="line">	should be equal as strings    $&#123;json[&quot;data&quot;][&quot;progress&quot;]&#125;    100</div><div class="line">	$&#123;URL&#125;=    set variable    $&#123;json[&quot;data&quot;][&quot;url&quot;]&#125;</div></pre></td></tr></table></figure>
 <p>5秒执行一次关键字，如果<code>${json[&quot;data&quot;][&quot;progress&quot;]}!=100</code>，执行一次关键字，直到相等时，执行一次关键字中的最后一行代码。</p>
 <h5 id="一个完整的独立case"><a href="#一个完整的独立case" class="headerlink" title="一个完整的独立case"></a>一个完整的独立case</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">*** Test Cases ***</div><div class="line">登录</div><div class="line">    $&#123;dict&#125;=    Create Dictionary    Content-Type=application/x-www-form-urlencoded</div><div class="line">    Create Session    _session    http://dfc.souche.com    $&#123;dict&#125;</div><div class="line">    $&#123;params&#125;=    Create Dictionary    loginName=15558135526    password=souche2015    jPushId=jpushid001</div><div class="line">    $&#123;response&#125;=    Post Request    _session    /rest/account/login    params=$&#123;params&#125;    headers=$&#123;dict&#125;</div><div class="line">    Should Be Equal As Strings    $&#123;response.status_code&#125;    200</div><div class="line">    &amp;&#123;json&#125;=    Set Variable    $&#123;response.json()&#125;</div><div class="line">    Should Be True    &amp;&#123;json&#125;[success]</div><div class="line">    Log    &amp;&#123;json&#125;[success]</div></pre></td></tr></table></figure>
@@ -524,7 +526,7 @@
       
 
       
-        
+      
       
 
       
@@ -1059,6 +1061,8 @@
 })();
 </script>
 
+
+  
 
   
 

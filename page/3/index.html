@@ -19,6 +19,9 @@
 
 
 
+
+
+
 <meta http-equiv="Cache-Control" content="no-transform">
 <meta http-equiv="Cache-Control" content="no-siteapp">
 
@@ -156,10 +159,6 @@
 
 
   <title>Shadow'S Site</title>
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
-
   
 
 
@@ -197,6 +196,9 @@
 
 
 
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
@@ -475,8 +477,6 @@
 </li>
 <li><p>安装<code>PostgreSQL</code></p>
 <figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install postgresql -v</div></pre></td></tr></table></figure>
-</li>
-</ol>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2016/11/03/Mac-下Django-环境搭建/#more" rel="contents">
@@ -486,7 +486,7 @@
           <!--/noindex-->
         
       
-    </div>
+    </li></ol></div>
 
     <div>
       
@@ -637,15 +637,20 @@
 
       
         
-          <h4 id="官方网站"><a href="#官方网站" class="headerlink" title="官方网站"></a>官方网站</h4><p><a href="https://ibotpeaches.github.io/Apktool/">Apktool</a></p>
+          
+            <h4 id="官方网站"><a href="#官方网站" class="headerlink" title="官方网站"></a>官方网站</h4><p><a href="https://ibotpeaches.github.io/Apktool/" target="_blank" rel="external">Apktool</a></p>
 <h4 id="aapt"><a href="#aapt" class="headerlink" title="aapt"></a>aapt</h4><h5 id="Androidmanifest-xml文件解析"><a href="#Androidmanifest-xml文件解析" class="headerlink" title="Androidmanifest.xml文件解析"></a><code>Androidmanifest.xml</code>文件解析</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./aapt dump xmltree  /Users/taoyi/Downloads/de4aa7e390346478bd6a54549d27787b.apk AndroidManifest.xml</div></pre></td></tr></table></figure>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2016/10/25/反编译工具介绍/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+<pre><code>&lt;!--more--&gt;
+</code></pre><h5 id="apk-包信息获取"><a href="#apk-包信息获取" class="headerlink" title="apk 包信息获取"></a><code>apk</code> 包信息获取</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./aapt dump badging /Users/taoyi/Downloads/fengche.apk</div></pre></td></tr></table></figure>
+<h5 id="搜索当前目录下所有文件中包含XXX的语句和所在文件"><a href="#搜索当前目录下所有文件中包含XXX的语句和所在文件" class="headerlink" title="搜索当前目录下所有文件中包含XXX的语句和所在文件"></a>搜索当前目录下所有文件中包含<code>XXX</code>的语句和所在文件</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">grep -R &quot;百度贴吧&quot; .</div></pre></td></tr></table></figure>
+<h5 id="解压-apk"><a href="#解压-apk" class="headerlink" title="解压 apk"></a>解压 <code>apk</code></h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">unzip /Users/taoyi/Downloads/fengche.apk</div></pre></td></tr></table></figure>
+<h4 id="Apktool"><a href="#Apktool" class="headerlink" title="Apktool"></a>Apktool</h4><h5 id="使用教程（-MAC-下）"><a href="#使用教程（-MAC-下）" class="headerlink" title="使用教程（ MAC 下）"></a>使用教程（ MAC 下）</h5><p>1). 下载<a href="https://raw.githubusercontent.com/iBotPeaches/Apktool/master/scripts/osx/apktool" target="_blank" rel="external">脚本</a>，保存到 apktool 文件<br>2). 下载<a href="https://bitbucket.org/iBotPeaches/apktool/downloads" target="_blank" rel="external">apktool_x.jar</a>，目前最新的为2.2.1版本，重命名为 <code>apktool.jar</code><br>3). 将两个文件移动到<code>/usr/local/bin</code>目录下<br>4). 给两个文件赋予可执行权限<br>    <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo chmod a+x apktool</div><div class="line">sudo chmod a+x apktool.jar</div></pre></td></tr></table></figure></p>
+<p>5). 执行反编译命令<br>    <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">apktool d XXX.apk</div></pre></td></tr></table></figure></p>
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">➜  ./apktool d XXX.apk</div><div class="line">I: Using Apktool 2.2.1 on XXX.apk</div><div class="line">I: Loading resource table...</div><div class="line">I: Decoding AndroidManifest.xml with resources...</div><div class="line">I: Loading resource table from file: /Users/taoyi/Library/apktool/framework/1.apk</div><div class="line">I: Regular manifest package...</div><div class="line">I: Decoding file-resources...</div><div class="line">I: Decoding values */* XMLs...</div><div class="line">I: Baksmaling classes.dex...</div><div class="line">I: Copying assets and libs...</div><div class="line">I: Copying unknown files...</div><div class="line">I: Copying original files...</div></pre></td></tr></table></figure>
+</code></pre><p>6). 重新编译回 apk<br>    <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">apktool b XXX</div></pre></td></tr></table></figure></p>
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">➜  ./apktool b XXX</div><div class="line">I: Using Apktool 2.2.1</div><div class="line">I: Checking whether sources has changed...</div><div class="line">I: Smaling smali folder into classes.dex...</div><div class="line">I: Checking whether resources has changed...</div><div class="line">I: Building resources...</div><div class="line">I: Copying libs... (/lib)</div><div class="line">I: Building apk file...</div><div class="line">I: Copying unknown files/dir...</div></pre></td></tr></table></figure>
+</code></pre><h5 id="反编译失败解决方法"><a href="#反编译失败解决方法" class="headerlink" title="反编译失败解决方法"></a>反编译失败解决方法</h5><p>1). 删除 <code>/Users/your user/Library/apktool/framework/1.apk</code><br>2). 导出手机 <code>/system/framework/framework-res.apk</code> 放入上面目录<br>3). 重新反编译</p>
+          
         
       
     </div>
@@ -799,14 +804,15 @@
 
       
         
-          <h4 id="安装shadowsocks命令行程序，配置命令"><a href="#安装shadowsocks命令行程序，配置命令" class="headerlink" title="安装shadowsocks命令行程序，配置命令"></a>安装shadowsocks命令行程序，配置命令</h4><h5 id="python-pip安装shadowsocks"><a href="#python-pip安装shadowsocks" class="headerlink" title="python pip安装shadowsocks"></a><code>python</code> <code>pip</code>安装<code>shadowsocks</code></h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">sudo apt-get update</div><div class="line">sudo apt-get install python-pip</div><div class="line">sudo apt-get install python-setuptools m2crypto</div><div class="line">pip install shadowsocks</div><div class="line">sudo apt install shadowsocks                                            # ubuntu 16.04的安装方法</div></pre></td></tr></table></figure>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2016/10/09/Linux-安装-shadowsocks/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
+            <h4 id="安装shadowsocks命令行程序，配置命令"><a href="#安装shadowsocks命令行程序，配置命令" class="headerlink" title="安装shadowsocks命令行程序，配置命令"></a>安装shadowsocks命令行程序，配置命令</h4><h5 id="python-pip安装shadowsocks"><a href="#python-pip安装shadowsocks" class="headerlink" title="python pip安装shadowsocks"></a><code>python</code> <code>pip</code>安装<code>shadowsocks</code></h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">sudo apt-get update</div><div class="line">sudo apt-get install python-pip</div><div class="line">sudo apt-get install python-setuptools m2crypto</div><div class="line">pip install shadowsocks</div><div class="line">sudo apt install shadowsocks                                            # ubuntu 16.04的安装方法</div></pre></td></tr></table></figure>
+<pre><code>&lt;!--more--&gt;
+</code></pre><h5 id="启动shadowsocks"><a href="#启动shadowsocks" class="headerlink" title="启动shadowsocks"></a>启动<code>shadowsocks</code></h5><p>安装好后，在本地需要用到<code>sslocal</code>，<br>使用方法：<code>sslocal -c</code> 后面加上我们的<code>json</code>配置文件，或者像下面这样直接命令参数写上运行.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">sslocal -s 11.22.33.44 -p 50003 -k &quot;123456&quot; -l 1080 -t 600 -m aes-256-cfb</div><div class="line">-s                          # 代表服务IP</div><div class="line">-p                          # 代表服务器的端口</div><div class="line">-k                          # 代表密码，需要加双引号（&quot;&quot;）</div><div class="line">-l                          # 代表本地端口</div><div class="line">-t                          # 代表超时时间，单位毫秒</div><div class="line">-m                          # 代表加密方法，默认为（aes-256-cfb）</div></pre></td></tr></table></figure></p>
+<p>为了方便我推荐直接用 <code>sslcoal -c</code> 配置文件路径 这样的方式，简单好用。<br>在<code>/home/user/</code>下新建一个<code>shadowsocks.json</code>文件。<br>内容如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    &quot;server&quot;:&quot;11.22.33.44&quot;,</div><div class="line">    &quot;server_port&quot;:50003,</div><div class="line">    &quot;local_port&quot;:1080,</div><div class="line">    &quot;password&quot;:&quot;123456&quot;,</div><div class="line">    &quot;timeout&quot;:600,</div><div class="line">    &quot;method&quot;:&quot;aes-256-cfb&quot;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>运行<code>shadowsocks</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sslocal -c /home/user/shadowsocks.json</div></pre></td></tr></table></figure></p>
+<h4 id="安装shadowsocks-GUI图形界面程序"><a href="#安装shadowsocks-GUI图形界面程序" class="headerlink" title="安装shadowsocks GUI图形界面程序"></a>安装shadowsocks GUI图形界面程序</h4><p>在<code>ubuntu</code>上可以通过<code>PPA</code>源码安装<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo add-apt-repository ppa:hzwhuang/ss-qt5</div><div class="line">sudo apt-get update</div><div class="line">sudo apt-get install shadowsocks-qt5</div></pre></td></tr></table></figure></p>
+<p>然后在应用程序中就可以找到，之后的配置和windows一样。</p>
+          
         
       
     </div>
@@ -972,9 +978,8 @@
       
         
           <h4 id="实时日志抓取"><a href="#实时日志抓取" class="headerlink" title="实时日志抓取"></a>实时日志抓取</h4><ol>
-<li>抓取应用程序的日志<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">logcat -b main -v threadtime &gt; /sdcard/main.log</div></pre></td></tr></table></figure>
-</li>
-</ol>
+<li><p>抓取应用程序的日志</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">logcat -b main -v threadtime &gt; /sdcard/main.log</div></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2016/10/08/Android-Log那些事儿/#more" rel="contents">
@@ -984,7 +989,7 @@
           <!--/noindex-->
         
       
-    </div>
+    </li></ol></div>
 
     <div>
       
@@ -1308,8 +1313,7 @@
 <li><code>Appium</code>安装［<code>node</code>安装，<code>npm</code>安装］</li>
 <li><code>Maven</code>安装</li>
 <li><code>Jenkins slave</code>设置</li>
-<li><code>Android SDK</code>安装</li>
-</ol>
+<li><p><code>Android SDK</code>安装</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2016/09/19/Appium-Maven-Jenkins自动化测试框架/#more" rel="contents">
@@ -1319,7 +1323,7 @@
           <!--/noindex-->
         
       
-    </div>
+    </li></ol></div>
 
     <div>
       
@@ -1635,9 +1639,8 @@
       
         
           <ol>
-<li>安装<code>mitmproxy</code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo -H pip install mitmproxy --upgrade --ignore-installed six</div></pre></td></tr></table></figure>
-</li>
-</ol>
+<li><p>安装<code>mitmproxy</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo -H pip install mitmproxy --upgrade --ignore-installed six</div></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2016/08/08/pip命令使用/#more" rel="contents">
@@ -1647,7 +1650,7 @@
           <!--/noindex-->
         
       
-    </div>
+    </li></ol></div>
 
     <div>
       
@@ -1798,14 +1801,14 @@
 
       
         
-          <h5 id="启动Appium服务器"><a href="#启动Appium服务器" class="headerlink" title="启动Appium服务器"></a>启动Appium服务器</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">TaoYi-Mac:~ taoyi$  appium --session-override -p 4730 --no-reset</div></pre></td></tr></table></figure>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2016/07/19/Appcrawler执行/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
+            <h5 id="启动Appium服务器"><a href="#启动Appium服务器" class="headerlink" title="启动Appium服务器"></a>启动Appium服务器</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">TaoYi-Mac:~ taoyi$  appium --session-override -p 4730 --no-reset</div></pre></td></tr></table></figure>
+<pre><code>&lt;!--more--&gt;
+</code></pre><h5 id="运行appcrawler，执行测试"><a href="#运行appcrawler，执行测试" class="headerlink" title="运行appcrawler，执行测试"></a>运行appcrawler，执行测试</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">TaoYi-Mac:appcrawler taoyi$ java -jar appcrawler-1.2.1.jar <span class="_">-a</span> /usr/<span class="built_in">local</span>/TestGroupCode/appcrawler/fengche.apk</div></pre></td></tr></table></figure>
+<p>如果APP的包名和启动时的Activity无法自动识别的话，需要手动指定<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">TaoYi-Mac:appcrawler taoyi$ java -jar appcrawler-1.2.1.jar <span class="_">-a</span> /usr/<span class="built_in">local</span>/TestGroupCode/appcrawler/fengche.apk --capability appPackage=com.souche.fengche,appActivity=com.souche.fengche.ui.activity.SplashActivity</div></pre></td></tr></table></figure></p>
+<p>使用配置文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">-c /usr/<span class="built_in">local</span>/TestGroupCode/appcrawler/fengche_profile.yml</div></pre></td></tr></table></figure></p>
+<p>帮助文档<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line">Usage: appcrawler [options]</div><div class="line"></div><div class="line">  <span class="_">-a</span>, --app &lt;value&gt;        Android或者iOS的文件地址, 可以是网络地址, 赋值给appium的app选项</div><div class="line">  -c, --conf &lt;value&gt;       配置文件地址</div><div class="line">  -p, --platform &lt;value&gt;   平台类型android或者ios, 默认会根据app后缀名自动判断</div><div class="line">  -t, --maxTime &lt;value&gt;    最大运行时间. 单位为秒. 超过此值会退出. 默认最长运行3个小时</div><div class="line">  -u, --appium &lt;value&gt;     appium的url地址</div><div class="line">  -o, --output &lt;value&gt;     遍历结果的保存目录. 里面会存放遍历生成的截图, 思维导图和日志</div><div class="line">  --capability k1=v1,k2=v2...</div><div class="line">                           appium capability选项, 这个参数会覆盖-c指定的配置模板参数, 用于在模板配置之上的参数微调</div><div class="line">  -r, --report &lt;value&gt;     输出html和xml报告</div><div class="line">  --template &lt;value&gt;       输出代码模板</div><div class="line">  --master &lt;value&gt;         master的diff.yml文件地址</div><div class="line">  --candidate &lt;value&gt;      candidate环境的diff.yml文件</div><div class="line">  --diff                   执行diff对比</div><div class="line">  -vv, --verbose           是否展示更多debug信息</div><div class="line">  --help                   </div><div class="line">示例</div><div class="line">appcrawler <span class="_">-a</span> xueqiu.apk</div><div class="line">appcrawler <span class="_">-a</span> xueqiu.apk --capability noReset=<span class="literal">true</span></div><div class="line">appcrawler -c conf/xueqiu.json -p android -o result/</div><div class="line">appcrawler -c xueqiu.json --capability udid=[你的udid] <span class="_">-a</span> Snowball.app</div><div class="line">appcrawler -c xueqiu.json <span class="_">-a</span> Snowball.app -u 4730</div><div class="line">appcrawler -c xueqiu.json <span class="_">-a</span> Snowball.app -u http://127.0.0.1:4730/wd/hub</div><div class="line"></div><div class="line"><span class="comment">#启动已经安装过的app</span></div><div class="line">appcrawler --capability appPackage=com.xueqiu.android,appActivity=.welcomeActivity</div><div class="line"></div><div class="line"><span class="comment">#从已经结束的结果中重新生成报告</span></div><div class="line">appcrawler --report result/</div><div class="line"></div><div class="line"><span class="comment">#新老版本对比</span></div><div class="line">appcrawler --candidate result/ --master pre/ --report ./</div><div class="line"></div><div class="line"><span class="comment">#自动生成Page Object代码模板文件</span></div><div class="line">appcrawler --template PageObjectDemo.ssp --output result/</div><div class="line"></div><div class="line"><span class="comment">#根据wda的inspector生成测试用例代码</span></div><div class="line">appcrawler --template PageObjectDemo.ssp -u http://localhost:8100</div></pre></td></tr></table></figure></p>
+          
         
       
     </div>
@@ -1959,15 +1962,19 @@
 
       
         
-          <h5 id="提升Android原生模拟器速度的方法"><a href="#提升Android原生模拟器速度的方法" class="headerlink" title="提升Android原生模拟器速度的方法"></a>提升Android原生模拟器速度的方法</h5><p>在Android SDK Manager中勾选中Inter X86 Emulator Accelerator (HAXM installer)，然后安装它</p>
+          
+            <h5 id="提升Android原生模拟器速度的方法"><a href="#提升Android原生模拟器速度的方法" class="headerlink" title="提升Android原生模拟器速度的方法"></a>提升Android原生模拟器速度的方法</h5><p>在Android SDK Manager中勾选中Inter X86 Emulator Accelerator (HAXM installer)，然后安装它</p>
 <h5 id="查看支持的模拟器Android版本号"><a href="#查看支持的模拟器Android版本号" class="headerlink" title="查看支持的模拟器Android版本号"></a>查看支持的模拟器Android版本号</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">android list</div></pre></td></tr></table></figure>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2016/07/14/Linux命令创建及启动Android虚拟机/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+<pre><code>&lt;!--more--&gt;
+</code></pre><p>显示如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div></pre></td><td class="code"><pre><div class="line">TaoYi-Mac:~ taoyi$ android list</div><div class="line">Available Android targets:</div><div class="line">----------</div><div class="line">id: 1 or &quot;android-23&quot;</div><div class="line">     Name: Android 6.0</div><div class="line">     Type: Platform</div><div class="line">     API level: 23</div><div class="line">     Revision: 3</div><div class="line">     Skins: HVGA, QVGA, WQVGA400, WQVGA432, WSVGA, WVGA800 (default), WVGA854, WXGA720, WXGA800, WXGA800-7in</div><div class="line"> Tag/ABIs : default/armeabi-v7a, default/x86, default/x86_64, google_apis/armeabi-v7a, google_apis/x86, google_apis/x86_64</div><div class="line">----------</div><div class="line">id: 2 or &quot;android-24&quot;</div><div class="line">     Name: Android N</div><div class="line">     Type: Platform</div><div class="line">     API level: 24</div><div class="line">     Revision: 1</div><div class="line">     Skins: HVGA, QVGA, WQVGA400, WQVGA432, WSVGA, WVGA800 (default), WVGA854, WXGA720, WXGA800, WXGA800-7in</div><div class="line"> Tag/ABIs : no ABIs.</div><div class="line">----------</div><div class="line">id: 3 or &quot;Google Inc.:Google APIs:23&quot;</div><div class="line">     Name: Google APIs</div><div class="line">     Type: Add-On</div><div class="line">     Vendor: Google Inc.</div><div class="line">     Revision: 1</div><div class="line">     Description: Android + Google APIs</div><div class="line">     Based on Android 6.0 (API level 23)</div><div class="line">     Libraries:</div><div class="line">      * com.android.future.usb.accessory (usb.jar)</div><div class="line">          API for USB Accessories</div><div class="line">      * com.google.android.media.effects (effects.jar)</div><div class="line">          Collection of video effects</div><div class="line">      * com.google.android.maps (maps.jar)</div><div class="line">          API for Google Maps</div><div class="line">     Skins: HVGA, QVGA, WQVGA400, WQVGA432, WSVGA, WVGA800 (default), WVGA854, WXGA720, WXGA800, WXGA800-7in</div><div class="line"> Tag/ABIs : no ABIs.</div><div class="line">Available Android Virtual Devices:</div><div class="line">Available devices definitions:</div><div class="line">id: 0 or &quot;tv_1080p&quot;</div><div class="line">    Name: Android TV (1080p)</div><div class="line">    OEM : Google</div><div class="line">    Tag : android-tv</div><div class="line">---------</div><div class="line">id: 1 or &quot;tv_720p&quot;</div><div class="line">    Name: Android TV (720p)</div><div class="line">    OEM : Google</div><div class="line">    Tag : android-tv</div><div class="line">---------</div><div class="line">id: 2 or &quot;wear_round&quot;</div><div class="line">    Name: Android Wear Round</div><div class="line">    OEM : Google</div><div class="line">    Tag : android-wear</div><div class="line">---------</div><div class="line">id: 3 or &quot;wear_round_chin_320_290&quot;</div><div class="line">    Name: Android Wear Round Chin</div><div class="line">    OEM : Google</div><div class="line">    Tag : android-wear</div><div class="line">---------</div><div class="line">id: 4 or &quot;wear_square&quot;</div><div class="line">    Name: Android Wear Square</div><div class="line">    OEM : Google</div><div class="line">    Tag : android-wear</div><div class="line">---------</div><div class="line">id: 5 or &quot;Device001&quot;</div><div class="line">    Name: Device001</div><div class="line">    OEM : User</div><div class="line">---------</div><div class="line">id: 6 or &quot;Galaxy Nexus&quot;</div><div class="line">    Name: Galaxy Nexus</div><div class="line">    OEM : Google</div><div class="line">---------</div><div class="line">id: 7 or &quot;Nexus 10&quot;</div><div class="line">    Name: Nexus 10</div><div class="line">    OEM : Google</div><div class="line">---------</div><div class="line">id: 8 or &quot;Nexus 4&quot;</div><div class="line">    Name: Nexus 4</div><div class="line">    OEM : Google</div><div class="line">---------</div><div class="line">id: 9 or &quot;Nexus 5&quot;</div><div class="line">    Name: Nexus 5</div><div class="line">    OEM : Google</div><div class="line">---------</div><div class="line">id: 10 or &quot;Nexus 6&quot;</div><div class="line">    Name: Nexus 6</div><div class="line">    OEM : Google</div><div class="line">---------</div><div class="line">id: 11 or &quot;Nexus 7 2013&quot;</div><div class="line">    Name: Nexus 7</div><div class="line">    OEM : Google</div><div class="line">---------</div><div class="line">id: 12 or &quot;Nexus 7&quot;</div><div class="line">    Name: Nexus 7 (2012)</div><div class="line">    OEM : Google</div><div class="line">---------</div><div class="line">id: 13 or &quot;Nexus 9&quot;</div><div class="line">    Name: Nexus 9</div><div class="line">    OEM : Google</div><div class="line">---------</div><div class="line">id: 14 or &quot;Nexus One&quot;</div><div class="line">    Name: Nexus One</div><div class="line">    OEM : Google</div><div class="line">---------</div><div class="line">id: 15 or &quot;Nexus S&quot;</div><div class="line">    Name: Nexus S</div><div class="line">    OEM : Google</div><div class="line">---------</div><div class="line">id: 16 or &quot;2.7in QVGA&quot;</div><div class="line">    Name: 2.7&quot; QVGA</div><div class="line">    OEM : Generic</div><div class="line">---------</div><div class="line">id: 17 or &quot;2.7in QVGA slider&quot;</div><div class="line">    Name: 2.7&quot; QVGA slider</div><div class="line">    OEM : Generic</div><div class="line">---------</div><div class="line">id: 18 or &quot;3.2in HVGA slider (ADP1)&quot;</div><div class="line">    Name: 3.2&quot; HVGA slider (ADP1)</div><div class="line">    OEM : Generic</div><div class="line">---------</div><div class="line">id: 19 or &quot;3.2in QVGA (ADP2)&quot;</div><div class="line">    Name: 3.2&quot; QVGA (ADP2)</div><div class="line">    OEM : Generic</div><div class="line">---------</div><div class="line">id: 20 or &quot;3.3in WQVGA&quot;</div><div class="line">    Name: 3.3&quot; WQVGA</div><div class="line">    OEM : Generic</div><div class="line">---------</div><div class="line">id: 21 or &quot;3.4in WQVGA&quot;</div><div class="line">    Name: 3.4&quot; WQVGA</div><div class="line">    OEM : Generic</div><div class="line">---------</div><div class="line">id: 22 or &quot;3.7 FWVGA slider&quot;</div><div class="line">    Name: 3.7&quot; FWVGA slider</div><div class="line">    OEM : Generic</div><div class="line">---------</div><div class="line">id: 23 or &quot;3.7in WVGA (Nexus One)&quot;</div><div class="line">    Name: 3.7&quot; WVGA (Nexus One)</div><div class="line">    OEM : Generic</div><div class="line">---------</div><div class="line">id: 24 or &quot;4in WVGA (Nexus S)&quot;</div><div class="line">    Name: 4&quot; WVGA (Nexus S)</div><div class="line">    OEM : Generic</div><div class="line">---------</div><div class="line">id: 25 or &quot;4.65in 720p (Galaxy Nexus)&quot;</div><div class="line">    Name: 4.65&quot; 720p (Galaxy Nexus)</div><div class="line">    OEM : Generic</div><div class="line">---------</div><div class="line">id: 26 or &quot;4.7in WXGA&quot;</div><div class="line">    Name: 4.7&quot; WXGA</div><div class="line">    OEM : Generic</div><div class="line">---------</div><div class="line">id: 27 or &quot;5.1in WVGA&quot;</div><div class="line">    Name: 5.1&quot; WVGA</div><div class="line">    OEM : Generic</div><div class="line">---------</div><div class="line">id: 28 or &quot;5.4in FWVGA&quot;</div><div class="line">    Name: 5.4&quot; FWVGA</div><div class="line">    OEM : Generic</div><div class="line">---------</div><div class="line">id: 29 or &quot;7in WSVGA (Tablet)&quot;</div><div class="line">    Name: 7&quot; WSVGA (Tablet)</div><div class="line">    OEM : Generic</div><div class="line">---------</div><div class="line">id: 30 or &quot;10.1in WXGA (Tablet)&quot;</div><div class="line">    Name: 10.1&quot; WXGA (Tablet)</div><div class="line">    OEM : Generic</div></pre></td></tr></table></figure></p>
+<h5 id="创建AVD模拟器"><a href="#创建AVD模拟器" class="headerlink" title="创建AVD模拟器"></a>创建AVD模拟器</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">android create avd -n TestDevices001 -t 1 -b armeabi-v7a</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">-t --target         # 新的AVD的Target ID（必须）</div><div class="line">-c --sdcard         # 指定一个共享的SD存储卡的路径或者是为新的AVD定制的新的SD存储卡的容量大小，如：-t 512M。（“M”必须大写）</div><div class="line">-p --path           # 新的AVD将被创建的位置路径</div><div class="line">-n --Name           # 新的AVD的名字（必须）</div><div class="line">-f --force          # 强制创建（覆盖已存在的AVD）</div><div class="line">-s --skin           # 新的AVD的皮肤</div><div class="line">-b --abi            # 例如android-24里面的abi有armeabi-v7a/x86/x86_64，此时就需要指定，如果只有一个abi，则不需要指定</div></pre></td></tr></table></figure>
+<h5 id="查看AVD是否创建成功"><a href="#查看AVD是否创建成功" class="headerlink" title="查看AVD是否创建成功"></a>查看AVD是否创建成功</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">android list avd</div></pre></td></tr></table></figure>
+<p>结果如下，就说明创建成功了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">TaoYi-Mac:~ taoyi$ android list avd</div><div class="line">Available Android Virtual Devices:</div><div class="line">    Name: TestDevices001</div><div class="line">    Path: /Users/taoyi/.android/avd/TestDevices001.avd</div><div class="line">  Target: Android 6.0 (API level 23)</div><div class="line"> Tag/ABI: default/armeabi-v7a</div><div class="line">    Skin: WVGA800</div></pre></td></tr></table></figure></p>
+<h5 id="启动AVD"><a href="#启动AVD" class="headerlink" title="启动AVD"></a>启动AVD</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">TaoYi-Mac:~ taoyi$ emulator -avd TestDevices001</div><div class="line">emulator: WARNING: Increasing RAM size to 1024MB</div><div class="line">emulator: WARNING: Classic qemu does not support SMP. The hw.cpu.ncore option from your config file is ignored.</div><div class="line">Creating filesystem with parameters:</div><div class="line">    Size: 69206016</div><div class="line">    Block size: 4096</div><div class="line">    Blocks per group: 32768</div><div class="line">    Inodes per group: 4224</div><div class="line">    Inode size: 256</div><div class="line">    Journal blocks: 1024</div><div class="line">    Label:</div><div class="line">    Blocks: 16896</div><div class="line">    Block groups: 1</div><div class="line">    Reserved block group size: 7</div><div class="line">Created filesystem with 11/4224 inodes and 1302/16896 blocks</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">TaoYi-Mac:~ taoyi$ emulator  -port 5676  -avd TestDevices001  -no-window -no-skin -no-audio -no-boot-anim &amp;</div><div class="line">sh: 1: glxinfo: not found</div><div class="line">emulator: WARNING: Increasing RAM size to 1024MB</div><div class="line">sh: 1: glxinfo: not found</div><div class="line">emulator: WARNING: Classic qemu does not support SMP. The hw.cpu.ncore option from your config file is ignored.</div><div class="line"></div><div class="line">Your emulator is out of date, please update by launching Android Studio:</div><div class="line"> - Start Android Studio</div><div class="line"> - Select menu &quot;Tools &gt; Android &gt; SDK Manager&quot;</div><div class="line"> - Click &quot;SDK Tools&quot; tab</div><div class="line"> - Check &quot;Android SDK Tools&quot; checkbox</div><div class="line"> - Click &quot;OK&quot;</div></pre></td></tr></table></figure>
+<h5 id="删除AVD"><a href="#删除AVD" class="headerlink" title="删除AVD"></a>删除AVD</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">android delete avd -n TestDevices001</div></pre></td></tr></table></figure>
+          
         
       
     </div>
@@ -2270,6 +2277,10 @@
 
 
   
+    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+  
 
   
 
@@ -2463,6 +2474,8 @@
 })();
 </script>
 
+
+  
 
   
 

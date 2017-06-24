@@ -19,6 +19,9 @@
 
 
 
+
+
+
 <meta http-equiv="Cache-Control" content="no-transform">
 <meta http-equiv="Cache-Control" content="no-siteapp">
 
@@ -113,16 +116,22 @@
 
 
 
-<meta name="description" content="每次运行测试，app都会重新安装1.1 在case里不要设置app的安装路径，只要设置desired_caps[&amp;#39;appPackage&amp;#39;]（app的包名）和desired_caps[&amp;#39;appActivity&amp;#39;]（启动时的activity）即可1.2 在启动appium的时候，加上--no-reset参数">
+<meta name="description" content="每次运行测试，app都会重新安装1.1 在case里不要设置app的安装路径，只要设置desired_caps[&amp;#39;appPackage&amp;#39;]（app的包名）和desired_caps[&amp;#39;appActivity&amp;#39;]（启动时的activity）即可1.2 在启动appium的时候，加上--no-reset参数
+&amp;lt;!--more--&amp;gt;
+等待操作2.1 尽量不要使">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Appium踩过的坑">
 <meta property="og:url" content="http://shadow000902.space/2016/05/31/Appium踩过的坑/index.html">
 <meta property="og:site_name" content="Shadow'S Site">
-<meta property="og:description" content="每次运行测试，app都会重新安装1.1 在case里不要设置app的安装路径，只要设置desired_caps[&amp;#39;appPackage&amp;#39;]（app的包名）和desired_caps[&amp;#39;appActivity&amp;#39;]（启动时的activity）即可1.2 在启动appium的时候，加上--no-reset参数">
-<meta property="og:updated_time" content="2017-03-25T08:31:21.000Z">
+<meta property="og:description" content="每次运行测试，app都会重新安装1.1 在case里不要设置app的安装路径，只要设置desired_caps[&amp;#39;appPackage&amp;#39;]（app的包名）和desired_caps[&amp;#39;appActivity&amp;#39;]（启动时的activity）即可1.2 在启动appium的时候，加上--no-reset参数
+&amp;lt;!--more--&amp;gt;
+等待操作2.1 尽量不要使">
+<meta property="og:updated_time" content="2017-06-24T07:10:46.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Appium踩过的坑">
-<meta name="twitter:description" content="每次运行测试，app都会重新安装1.1 在case里不要设置app的安装路径，只要设置desired_caps[&amp;#39;appPackage&amp;#39;]（app的包名）和desired_caps[&amp;#39;appActivity&amp;#39;]（启动时的activity）即可1.2 在启动appium的时候，加上--no-reset参数">
+<meta name="twitter:description" content="每次运行测试，app都会重新安装1.1 在case里不要设置app的安装路径，只要设置desired_caps[&amp;#39;appPackage&amp;#39;]（app的包名）和desired_caps[&amp;#39;appActivity&amp;#39;]（启动时的activity）即可1.2 在启动appium的时候，加上--no-reset参数
+&amp;lt;!--more--&amp;gt;
+等待操作2.1 尽量不要使">
 
 
 
@@ -157,10 +166,6 @@
 
 
   <title>Appium踩过的坑 | Shadow'S Site</title>
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
-
   
 
 
@@ -198,6 +203,9 @@
 
 
 
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
@@ -468,8 +476,8 @@
 
       
         <h5 id="每次运行测试，app都会重新安装"><a href="#每次运行测试，app都会重新安装" class="headerlink" title="每次运行测试，app都会重新安装"></a>每次运行测试，app都会重新安装</h5><p>1.1 在case里不要设置app的安装路径，只要设置<code>desired_caps[&#39;appPackage&#39;]</code>（app的包名）和<code>desired_caps[&#39;appActivity&#39;]</code>（启动时的activity）即可<br>1.2 在启动appium的时候，加上<code>--no-reset</code>参数</p>
-<a id="more"></a>
-<h5 id="等待操作"><a href="#等待操作" class="headerlink" title="等待操作"></a>等待操作</h5><p>2.1 尽量不要使用sleep方法<br>2.2 使用<code>implicitly_wait(1000)</code>方法，<strong>隐性等待/如果一个无素没有出现都会默认等待你所设定的时间，直到超时或者元素出现</strong><br>2.3 <code>WebDriverWait()</code>，同样也是 webdirver 提供的方法。<strong>在设置时间内，默认每隔一段时间检测一次当前。页面元素是否存在，如果超过设置时间检测不到则抛出异常。</strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> selenium.webdriver.support.ui <span class="keyword">import</span> WebDriverWait</div><div class="line">element = WebDriverWait(driver, <span class="number">10</span>).until(<span class="keyword">lambda</span> x: x.find_element_by_id(“someId”))</div><div class="line">is_disappeared = WebDriverWait(driver, <span class="number">30</span>, <span class="number">1</span>, (ElementNotVisibleException)).</div><div class="line">until_not(<span class="keyword">lambda</span> x: x.find_element_by_id(“someId”).is_displayed())</div></pre></td></tr></table></figure></p>
+<pre><code>&lt;!--more--&gt;
+</code></pre><h5 id="等待操作"><a href="#等待操作" class="headerlink" title="等待操作"></a>等待操作</h5><p>2.1 尽量不要使用sleep方法<br>2.2 使用<code>implicitly_wait(1000)</code>方法，<strong>隐性等待/如果一个无素没有出现都会默认等待你所设定的时间，直到超时或者元素出现</strong><br>2.3 <code>WebDriverWait()</code>，同样也是 webdirver 提供的方法。<strong>在设置时间内，默认每隔一段时间检测一次当前。页面元素是否存在，如果超过设置时间检测不到则抛出异常。</strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> selenium.webdriver.support.ui <span class="keyword">import</span> WebDriverWait</div><div class="line">element = WebDriverWait(driver, <span class="number">10</span>).until(<span class="keyword">lambda</span> x: x.find_element_by_id(“someId”))</div><div class="line">is_disappeared = WebDriverWait(driver, <span class="number">30</span>, <span class="number">1</span>, (ElementNotVisibleException)).</div><div class="line">until_not(<span class="keyword">lambda</span> x: x.find_element_by_id(“someId”).is_displayed())</div></pre></td></tr></table></figure></p>
 <h5 id="元素无法定位"><a href="#元素无法定位" class="headerlink" title="元素无法定位"></a>元素无法定位</h5><p>3.1 使用元素坐标点定位，有两种点击方法，一种是<code>tap([(100, 20), (100, 60), (100, 100)], 500)</code>，还有一种是使用<code>swipe(630, 320, 630, 320, 500)</code>方法<br>3.2 使用<code>class_name</code>来定位：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">checkboxes = self.driver.find_elements_by_class_name(<span class="string">'android.widget.CheckBox'</span>)     <span class="comment"># 获取页面class_name为android.widget.CheckBox的所有元素，形成一个list</span></div><div class="line">checkboxes[<span class="number">0</span>].click()                                                               <span class="comment"># 指定元素进行操作</span></div><div class="line">checkboxes[<span class="number">1</span>].click()                                                               <span class="comment"># 指定元素进行操作</span></div></pre></td></tr></table></figure></p>
 <h5 id="长按操作"><a href="#长按操作" class="headerlink" title="长按操作"></a>长按操作</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">action1 = TouchAction(self.driver)</div><div class="line">el_3 = self.driver.find_element_by_id(<span class="string">'cn.highing.hichat:id/topic_voice_send'</span>)</div><div class="line">action1.long_press(el_3).wait(<span class="number">10000</span>).perform()</div></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">action2 = TouchAction(self.driver)</div><div class="line">el_3 = self.driver.find_element_by_id(<span class="string">'cn.highing.hichat:id/topic_voice_send'</span>)</div><div class="line">action2.moveTo(el_3).release().perform()</div></pre></td></tr></table></figure>
@@ -536,7 +544,7 @@
       
 
       
-        
+      
       
 
       
@@ -1071,6 +1079,8 @@
 })();
 </script>
 
+
+  
 
   
 
