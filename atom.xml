@@ -183,14 +183,13 @@
     <link href="http://shadow000902.space/2017/06/03/Mac%E4%B8%8AMySQL%E7%9A%84%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/"/>
     <id>http://shadow000902.space/2017/06/03/Mac上MySQL的简单使用/</id>
     <published>2017-06-03T09:20:13.000Z</published>
-    <updated>2017-06-19T12:11:56.000Z</updated>
+    <updated>2017-06-24T07:01:05.000Z</updated>
     
     <content type="html"><![CDATA[<ol>
-<li>启动、停止、重启MySQL服务<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo /usr/<span class="built_in">local</span>/MySQL/support-files/mysql.server start</div><div class="line">sudo /usr/<span class="built_in">local</span>/mysql/support-files/mysql.server stop</div><div class="line">sudo /usr/<span class="built_in">local</span>/mysql/support-files/mysql.server restart</div></pre></td></tr></table></figure>
+<li><p>启动、停止、重启MySQL服务</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo /usr/<span class="built_in">local</span>/MySQL/support-files/mysql.server start</div><div class="line">sudo /usr/<span class="built_in">local</span>/mysql/support-files/mysql.server stop</div><div class="line">sudo /usr/<span class="built_in">local</span>/mysql/support-files/mysql.server restart</div></pre></td></tr></table></figure>
+ <a id="more"></a>
 </li>
-</ol>
-<a id="more"></a>
-<ol>
 <li><p>登录MySQL数据库</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysql -h 地址 -P 端口 -u 用户名 -p 密码</div></pre></td></tr></table></figure>
 </li>
@@ -222,9 +221,8 @@
     <summary type="html">
     
       &lt;ol&gt;
-&lt;li&gt;启动、停止、重启MySQL服务&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;sudo /usr/&lt;span class=&quot;built_in&quot;&gt;local&lt;/span&gt;/MySQL/support-files/mysql.server start&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;sudo /usr/&lt;span class=&quot;built_in&quot;&gt;local&lt;/span&gt;/mysql/support-files/mysql.server stop&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;sudo /usr/&lt;span class=&quot;built_in&quot;&gt;local&lt;/span&gt;/mysql/support-files/mysql.server restart&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
+&lt;li&gt;&lt;p&gt;启动、停止、重启MySQL服务&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;sudo /usr/&lt;span class=&quot;built_in&quot;&gt;local&lt;/span&gt;/MySQL/support-files/mysql.server start&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;sudo /usr/&lt;span class=&quot;built_in&quot;&gt;local&lt;/span&gt;/mysql/support-files/mysql.server stop&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;sudo /usr/&lt;span class=&quot;built_in&quot;&gt;local&lt;/span&gt;/mysql/support-files/mysql.server restart&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
     
     </summary>
     
