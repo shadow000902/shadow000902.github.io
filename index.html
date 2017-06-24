@@ -471,20 +471,15 @@
 
       
         
-          
-            <h5 id="在Jenkins中配置从节点"><a href="#在Jenkins中配置从节点" class="headerlink" title="在Jenkins中配置从节点"></a>在Jenkins中配置从节点</h5><img src="/2017/06/24/Jenkins中slave的设置/配置从节点.png" alt="配置从节点" title="配置从节点">
+          <h5 id="在Jenkins中配置从节点"><a href="#在Jenkins中配置从节点" class="headerlink" title="在Jenkins中配置从节点"></a>在Jenkins中配置从节点</h5><img src="/2017/06/24/Jenkins中slave的设置/配置从节点.png" alt="配置从节点" title="配置从节点">
 <p>增加节点后，实际并没有直接连上，还需要在节点服务器上进行相应的配置</p>
-<pre><code>&lt;!--more--&gt;
-</code></pre><h5 id="在从节点服务器的host中的加入配置"><a href="#在从节点服务器的host中的加入配置" class="headerlink" title="在从节点服务器的host中的加入配置"></a>在从节点服务器的host中的加入配置</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo vim /etc/hosts</div></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">111.111.111.111 jenkins.shadow.com						<span class="comment"># 前部分IP为Jenkins的内网地址，后部分为Jenkins的对外访问域名</span></div></pre></td></tr></table></figure>
-<h5 id="从节点服务器上配置Jenkins节点配置"><a href="#从节点服务器上配置Jenkins节点配置" class="headerlink" title="从节点服务器上配置Jenkins节点配置"></a>从节点服务器上配置Jenkins节点配置</h5><img src="/2017/06/24/Jenkins中slave的设置/从节点配置要点.png" alt="从节点配置要点" title="从节点配置要点">
-<p>点击上图中的<code>slave.jar</code>的链接，下载该文件，放在上方指定的<code>Jenkins</code>工作目录下<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">test</span>@<span class="built_in">test</span>-devtesting-00001:~/jenkins$ ll</div><div class="line">total 760</div><div class="line">drwxrwxr-x  3 <span class="built_in">test</span> <span class="built_in">test</span>   4096 Jun 23 16:04 ./</div><div class="line">drwx------ 18 <span class="built_in">test</span> <span class="built_in">test</span>   4096 Jun 24 13:47 ../</div><div class="line">-rw-rw-r--  1 <span class="built_in">test</span> <span class="built_in">test</span>   7623 Jun 23 16:04 maven33-agent.jar</div><div class="line">-rw-rw-r--  1 <span class="built_in">test</span> <span class="built_in">test</span>  19971 Jun 23 16:04 maven33-interceptor.jar</div><div class="line">-rw-rw-r--  1 <span class="built_in">test</span> <span class="built_in">test</span>   6764 Jun 23 16:04 maven3-interceptor-commons.jar</div><div class="line">-rw-rw-r--  1 <span class="built_in">test</span> <span class="built_in">test</span>    738 Jun  8 16:52 slave-agent.jnlp</div><div class="line">-rw-rw-r--  1 <span class="built_in">test</span> <span class="built_in">test</span> 717563 May  2 17:29 slave.jar								<span class="comment"># 上方下载的slave.jar文件</span></div><div class="line">-rwxrwxr-x  1 <span class="built_in">test</span> <span class="built_in">test</span>    114 Jun  6 19:28 start_jenkins.sh*						<span class="comment"># 启动Jenkinsslave的脚本</span></div><div class="line">drwxrwxr-x 14 <span class="built_in">test</span> <span class="built_in">test</span>   4096 Jun 24 12:43 workspace/								<span class="comment"># Jenkins项目的工作目录</span></div></pre></td></tr></table></figure></p>
-<p>将提示中的启动<code>Jenkins</code>的脚本写入文件<code>start_jenkins.sh</code>中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">java -jar slave.jar -jnlpUrl http://jenkins.shadow.com/computer/test-devtesting-00001/slave-agent.jnlp 2&gt;&amp;1 &amp;</div></pre></td></tr></table></figure></p>
-<p>赋予<code>start_jenkins.sh</code>执行权限<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">chmod a+x start_jenkins.sh</div></pre></td></tr></table></figure></p>
-<p>启动slave<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./start_jenkins.sh</div></pre></td></tr></table></figure></p>
-<p>回到Jenkins节点列表，查看添加的节点，状态如图就说明启动成功了。<br><img src="/2017/06/24/Jenkins中slave的设置/节点列表.png" alt="节点列表" title="节点列表"></p>
-<p>至此，slave节点就配置并启动完毕了。</p>
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/06/24/Jenkins中slave的设置/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -642,6 +637,8 @@
 <li>Jenkins安装，这个就不说了</li>
 <li><p>Jenkins环境配置</p>
 <p> 进入 系统管理-Global Tool Configuration<br> 配置JDK：建议放到用户可操作的目录下，如：/home/test/devtool/jdk1.8.0_91<br> 配置MVN：建议放到用户可操作的目录下，如：/home/test/devtool/apache-maven-3.3.9</p>
+</li>
+</ol>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/06/24/Maven-Web实例从服务器部署到Jenkins集成/#more" rel="contents">
@@ -651,7 +648,7 @@
           <!--/noindex-->
         
       
-    </li></ol></div>
+    </div>
 
     <div>
       
@@ -802,35 +799,15 @@
 
       
         
-          
-            <h5 id="下载安装包"><a href="#下载安装包" class="headerlink" title="下载安装包"></a>下载安装包</h5><p>下载稳定版本的安装包<a href="http://download.redis.io/redis-stable.tar.gz" target="_blank" rel="external">redis-stable</a></p>
+          <h5 id="下载安装包"><a href="#下载安装包" class="headerlink" title="下载安装包"></a>下载安装包</h5><p>下载稳定版本的安装包<a href="http://download.redis.io/redis-stable.tar.gz">redis-stable</a></p>
 <h5 id="安装Redis"><a href="#安装Redis" class="headerlink" title="安装Redis"></a>安装Redis</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">tar -xvf redis-stable.tar.gz</div><div class="line">cp ./redis-stable /opt/</div><div class="line"><span class="built_in">cd</span> /opt/redis-stable</div><div class="line">sudo make <span class="built_in">test</span></div><div class="line">sudo make install</div></pre></td></tr></table></figure>
-<pre><code>&lt;!--more--&gt;
-</code></pre><h5 id="配置Redis"><a href="#配置Redis" class="headerlink" title="配置Redis"></a>配置Redis</h5><ol>
-<li><p>创建需要的目录</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">mkdir bin</div><div class="line">mkdir etc</div><div class="line">mkdir db</div></pre></td></tr></table></figure>
-</li>
-<li><p>拷贝安装好的<code>redis</code>文件到创建的<code>bin</code>目录下</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cp /usr/bin/redis-* /opt/redis-stable/bin/</div></pre></td></tr></table></figure>
-<p> 结果<code>/opt/redis-stable/bin/</code>目录下的内容如下</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">╭─taoyi at TaoYi-Mac <span class="keyword">in</span> /opt/redis-stable/bin using ‹› 17-06-18 - 18:06:48</div><div class="line">╰─○ ll</div><div class="line">total 6648</div><div class="line">-rwxr-xr-x  1 taoyi  staff    98K  6 18 18:06 redis-benchmark</div><div class="line">-rwxr-xr-x  1 taoyi  staff    14K  6 18 18:06 redis-check-aof</div><div class="line">-rwxr-xr-x  1 taoyi  staff   1.0M  6 18 18:06 redis-check-rdb</div><div class="line">-rwxr-xr-x  1 taoyi  staff   159K  6 18 18:06 redis-cli</div><div class="line">-rwxr-xr-x  1 taoyi  staff   1.0M  6 18 18:06 redis-sentinel</div><div class="line">-rwxr-xr-x  1 taoyi  staff   1.0M  6 18 18:06 redis-server</div></pre></td></tr></table></figure>
-</li>
-<li><p>拷贝安装目录<code>src</code>目录下的<code>mkreleasehdr.sh</code>到安装目录下</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cp /opt/redis-stable/src/mkreleasehdr.sh /opt/redis-stable/</div></pre></td></tr></table></figure>
-</li>
-<li><p>拷贝安装目录下的<code>redis.conf</code>到创建的<code>etc</code>目录下</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cp /opt/redis-stable/redis.conf /opt/redis-stable/etc/</div></pre></td></tr></table></figure>
-</li>
-<li><p>修改<code>redis.conf</code></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#修改为守护模式</span></div><div class="line">daemonize yes</div><div class="line"><span class="comment">#设置进程锁文件</span></div><div class="line">pidfile /opt/redis-stable/redis.pid</div><div class="line"><span class="comment">#端口</span></div><div class="line">port 6379</div><div class="line"><span class="comment">#客户端超时时间</span></div><div class="line">timeout 300</div><div class="line"><span class="comment">#日志级别</span></div><div class="line">loglevel debug</div><div class="line"><span class="comment">#日志文件位置</span></div><div class="line">logfile /opt/redis-stable/<span class="built_in">log</span>-redis.log</div><div class="line"><span class="comment">#设置数据库的数量，默认数据库为0，可以使用SELECT &lt;dbid&gt;命令在连接上指定数据库id</span></div><div class="line">databases 8</div><div class="line"><span class="comment">##指定在多长时间内，有多少次更新操作，就将数据同步到数据文件，可以多个条件配合</span></div><div class="line"><span class="comment">#save &lt;seconds&gt; &lt;changes&gt;</span></div><div class="line"><span class="comment">#Redis默认配置文件中提供了三个条件：</span></div><div class="line">save 900 1</div><div class="line">save 300 10</div><div class="line">save 60 10000</div><div class="line"><span class="comment">#指定存储至本地数据库时是否压缩数据，默认为yes，Redis采用LZF压缩，如果为了节省CPU时间，</span></div><div class="line"><span class="comment">#可以关闭该#选项，但会导致数据库文件变的巨大</span></div><div class="line">rdbcompression yes</div><div class="line"><span class="comment">#指定本地数据库文件名</span></div><div class="line">dbfilename dump.rdb</div><div class="line"><span class="comment">#指定本地数据库路径</span></div><div class="line">dir /opt/redis-stable/db/</div><div class="line"><span class="comment">#指定是否在每次更新操作后进行日志记录，Redis在默认情况下是异步的把数据写入磁盘，如果不开启，可能</span></div><div class="line"><span class="comment">#会在断电时导致一段时间内的数据丢失。因为 redis本身同步数据文件是按上面save条件来同步的，所以有</span></div><div class="line"><span class="comment">#的数据会在一段时间内只存在于内存中</span></div><div class="line">appendonly no</div><div class="line"><span class="comment">#指定更新日志条件，共有3个可选值：</span></div><div class="line"><span class="comment">#no：表示等操作系统进行数据缓存同步到磁盘（快）</span></div><div class="line"><span class="comment">#always：表示每次更新操作后手动调用fsync()将数据写到磁盘（慢，安全）</span></div><div class="line"><span class="comment">#everysec：表示每秒同步一次（折衷，默认值）</span></div><div class="line">appendfsync everysec</div></pre></td></tr></table></figure>
-</li>
-<li><p>修改<code>redis</code>目录的所有者</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">chown -R taoyi /opt/redis-stable</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<h5 id="启动Redis服务"><a href="#启动Redis服务" class="headerlink" title="启动Redis服务"></a>启动Redis服务</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./opt/redis-stable/bin/redis-server ./opt/redis-stable/etc/redis.conf</div></pre></td></tr></table></figure>
-<h5 id="访问Redis服务"><a href="#访问Redis服务" class="headerlink" title="访问Redis服务"></a>访问Redis服务</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./opt/redis-stable/bin/redis-cli</div></pre></td></tr></table></figure>
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/06/18/Mac下Redis环境搭建/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -985,8 +962,9 @@
       
         
           <ol>
-<li><p>启动、停止、重启MySQL服务</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo /usr/<span class="built_in">local</span>/MySQL/support-files/mysql.server start</div><div class="line">sudo /usr/<span class="built_in">local</span>/mysql/support-files/mysql.server stop</div><div class="line">sudo /usr/<span class="built_in">local</span>/mysql/support-files/mysql.server restart</div></pre></td></tr></table></figure>
+<li>启动、停止、重启MySQL服务<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo /usr/<span class="built_in">local</span>/MySQL/support-files/mysql.server start</div><div class="line">sudo /usr/<span class="built_in">local</span>/mysql/support-files/mysql.server stop</div><div class="line">sudo /usr/<span class="built_in">local</span>/mysql/support-files/mysql.server restart</div></pre></td></tr></table></figure>
+</li>
+</ol>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/06/03/Mac上MySQL的简单使用/#more" rel="contents">
@@ -996,7 +974,7 @@
           <!--/noindex-->
         
       
-    </li></ol></div>
+    </div>
 
     <div>
       
@@ -1147,21 +1125,14 @@
 
       
         
-          
-            <h5 id="下载一个-oh-my-zsh-配置"><a href="#下载一个-oh-my-zsh-配置" class="headerlink" title="下载一个 .oh-my-zsh 配置"></a>下载一个 .oh-my-zsh 配置</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git <span class="built_in">clone</span> git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh</div></pre></td></tr></table></figure>
-<pre><code>&lt;!--more--&gt;
-</code></pre><h5 id="创建新的配置"><a href="#创建新的配置" class="headerlink" title="创建新的配置"></a>创建新的配置</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cp ~/.zshrc ~/.zshrc.orig                                   <span class="comment"># 如果已经有一个 .zshrc 文件，备份一下</span></div><div class="line">cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc</div></pre></td></tr></table></figure>
-<h5 id="更新新的配置文件"><a href="#更新新的配置文件" class="headerlink" title="更新新的配置文件"></a>更新新的配置文件</h5><p>如果有些环境变量配置在<code>~/.bash_profile</code>的话，需要在新的配置里进行刷新<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">...</div><div class="line"><span class="built_in">export</span> ZSH=~/.oh-my-zsh/</div><div class="line">...</div><div class="line">ZSH_THEME=<span class="string">"fino-time"</span>                   <span class="comment"># 设置选择的主题。默认是robbyrussell</span></div><div class="line">...</div><div class="line">...</div><div class="line"><span class="built_in">source</span> <span class="variable">$ZSH</span>/oh-my-zsh.sh</div><div class="line"><span class="built_in">source</span> ~/.bash_profile</div><div class="line">...</div></pre></td></tr></table></figure></p>
-<h5 id="优化-terminal-样式"><a href="#优化-terminal-样式" class="headerlink" title="优化 terminal 样式"></a>优化 terminal 样式</h5><img src="/2017/05/18/Mac切换Terminal为zsh/终端样式修改.png" alt="终端样式修改" title="终端样式修改">
-<h5 id="切换-Terminal-到-zsh"><a href="#切换-Terminal-到-zsh" class="headerlink" title="切换 Terminal 到 zsh"></a>切换 Terminal 到 zsh</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">chsh <span class="_">-s</span> /bin/zsh</div></pre></td></tr></table></figure>
-<p>重启一下 Terminal 之后，就生效了。</p>
-<h5 id="效果如图"><a href="#效果如图" class="headerlink" title="效果如图"></a>效果如图</h5><img src="/2017/05/18/Mac切换Terminal为zsh/Terminal效果图.png" alt="Terminal效果图" title="Terminal效果图">
-<h5 id="如果使用-fino-time-主题"><a href="#如果使用-fino-time-主题" class="headerlink" title="如果使用 fino-time 主题"></a>如果使用 fino-time 主题</h5><p>如果使用该主题的话，会遇到一个错误：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">zsh: <span class="built_in">command</span> not found: rvm-prompt</div><div class="line">╭─taoyi at TaoYi-Mac <span class="keyword">in</span> ~ using ‹› 17-05-18 - 20:44:28</div><div class="line">╰─○</div></pre></td></tr></table></figure></p>
-<p>每次一条命令前都会有这条报错。<br>主要原因就是该主题依赖于<code>rvm-prompt</code>，这样的话，就需要安装上该组件。<br>安装步骤：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install gnupg gnupg2</div></pre></td></tr></table></figure></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3</div><div class="line">\curl <span class="_">-s</span>SL https://get.rvm.io | bash <span class="_">-s</span> stable</div></pre></td></tr></table></figure>
-<p>在<code>~/.zshrc</code>文件中加入支持：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">alias</span> rvm-prompt=<span class="variable">$HOME</span>/.rvm/bin/rvm-prompt</div></pre></td></tr></table></figure></p>
-<p>这样后，就完美了，不会再有这个报错了。</p>
-          
+          <h5 id="下载一个-oh-my-zsh-配置"><a href="#下载一个-oh-my-zsh-配置" class="headerlink" title="下载一个 .oh-my-zsh 配置"></a>下载一个 .oh-my-zsh 配置</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git <span class="built_in">clone</span> git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh</div></pre></td></tr></table></figure>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/05/18/Mac切换Terminal为zsh/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1315,15 +1286,14 @@
 
       
         
-          
-            <h5 id="List中的字典循环"><a href="#List中的字典循环" class="headerlink" title="List中的字典循环"></a>List中的字典循环</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">*** Test Cases ***</div><div class="line">takeValueFromCircle</div><div class="line">	# 从返回结果中提取出List</div><div class="line">	@&#123;items&#125;=    set variable    $&#123;json[&quot;data&quot;][&quot;items&quot;]&#125;</div><div class="line">	# 循环List中的item</div><div class="line">	: FOR    $&#123;params&#125;    IN    @&#123;items&#125;</div><div class="line">	# 把item中的一个参数（每个参数都是一个字典）转化为Str格式，顺便去除 &quot;u&quot; 标识</div><div class="line">	\    $&#123;params&#125;    Dumps    $&#123;params&#125;</div><div class="line">	# 把字典转化为json</div><div class="line">	\    $&#123;params&#125;    to json    $&#123;params&#125;</div><div class="line">	#\    Log    $&#123;params[&quot;carId&quot;]&#125;</div><div class="line">	# 对每个item取出来的字典中的某个字段进行判断，如果是需要的值，就把另一个需要的值取出来，并打印出来</div><div class="line">	\    RUN KEYWORD IF    &quot;$&#123;params[&quot;carInfo&quot;][&quot;status&quot;]&#125;&quot;==&quot;评估中&quot;    Log    $&#123;params[&quot;carId&quot;]&#125;</div></pre></td></tr></table></figure>
-<pre><code>&lt;!--more--&gt;
-</code></pre><h5 id="wait-until-keyword-succeeds关键字使用"><a href="#wait-until-keyword-succeeds关键字使用" class="headerlink" title="wait until keyword succeeds关键字使用"></a>wait until keyword succeeds关键字使用</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">*** Test Cases ***</div><div class="line">&quot;Wait until ...&quot; with normal error</div><div class="line">    # Keyword is run multiple times, until timeout. Each run gives an exception</div><div class="line">    # traceback.</div><div class="line">    Wait Until Keyword Succeeds    1 sec    0.5    Keyword With Normal Error</div><div class="line"></div><div class="line">&quot;Wait until ...&quot; with AttributeError</div><div class="line">    # Keyword is run only once, even if there is time left until the timeout.</div><div class="line">    # There is no exception traceback like above.</div><div class="line">    Wait Until Keyword Succeeds    1 sec    0.5    Keyword With AttributeError</div><div class="line"></div><div class="line">*** Keywords ***</div><div class="line">Keyword With Normal Error</div><div class="line">    $&#123;obj&#125; =    Evaluate    &quot;foo&quot;</div><div class="line">    Should Be Equal As Strings    $&#123;obj&#125;    &quot;bar&quot;</div><div class="line"></div><div class="line">Keyword With AttributeError</div><div class="line">    # In real life, this would get an object and use some of its (valid) attributes.</div><div class="line">    # In case of an error, and in Teardown context (continue-on-failure), a None object</div><div class="line">    # is returned instead causing the next keyword to create an AttributeError.</div><div class="line">    $&#123;obj&#125; =    Evaluate    &quot;foo&quot;</div><div class="line">    Should Be Equal As Strings    $&#123;obj.bad_attr&#125;    &quot;foo&quot;</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">*** Test Cases ***</div><div class="line">003.导出进度-/pc/export/taizhangaction/progress.json</div><div class="line">    wait until keyword succeeds    3 min    5 sec    导出进度-/pc/export/taizhangaction/progress.json</div><div class="line">    </div><div class="line">*** Keywords ***</div><div class="line">导出进度-/pc/export/taizhangaction/progress.json</div><div class="line">    $&#123;params&#125;=    Create Dictionary    jobId=$&#123;jobId&#125;</div><div class="line">    &amp;&#123;json&#125;=    Rest.Post    /pc/export/taizhangaction/progress.json    $&#123;params&#125;    form    $&#123;hosts[&quot;erp-online&quot;]&#125;</div><div class="line">    Should Be True    $&#123;json[&quot;success&quot;]&#125;</div><div class="line">	should be equal as strings    $&#123;json[&quot;data&quot;][&quot;progress&quot;]&#125;    100</div><div class="line">	$&#123;URL&#125;=    set variable    $&#123;json[&quot;data&quot;][&quot;url&quot;]&#125;</div></pre></td></tr></table></figure>
-<p>5秒执行一次关键字，如果<code>${json[&quot;data&quot;][&quot;progress&quot;]}!=100</code>，执行一次关键字，直到相等时，执行一次关键字中的最后一行代码。</p>
-<h5 id="一个完整的独立case"><a href="#一个完整的独立case" class="headerlink" title="一个完整的独立case"></a>一个完整的独立case</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">*** Test Cases ***</div><div class="line">登录</div><div class="line">    $&#123;dict&#125;=    Create Dictionary    Content-Type=application/x-www-form-urlencoded</div><div class="line">    Create Session    _session    http://dfc.souche.com    $&#123;dict&#125;</div><div class="line">    $&#123;params&#125;=    Create Dictionary    loginName=15558135526    password=souche2015    jPushId=jpushid001</div><div class="line">    $&#123;response&#125;=    Post Request    _session    /rest/account/login    params=$&#123;params&#125;    headers=$&#123;dict&#125;</div><div class="line">    Should Be Equal As Strings    $&#123;response.status_code&#125;    200</div><div class="line">    &amp;&#123;json&#125;=    Set Variable    $&#123;response.json()&#125;</div><div class="line">    Should Be True    &amp;&#123;json&#125;[success]</div><div class="line">    Log    &amp;&#123;json&#125;[success]</div></pre></td></tr></table></figure>
-<h5 id="对请求proxy、tag、headers、session、response的整体封装"><a href="#对请求proxy、tag、headers、session、response的整体封装" class="headerlink" title="对请求proxy、tag、headers、session、response的整体封装"></a>对请求proxy、tag、headers、session、response的整体封装</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">*** Keywords ***</div><div class="line">Rest.Post</div><div class="line">    [Arguments]    $&#123;uri&#125;    $&#123;params&#125;    $&#123;type&#125;=form    $&#123;cur_host&#125;=$&#123;EMPTY&#125;</div><div class="line">    #设置代理服务器，这样方便调试代码</div><div class="line">    &amp;&#123;proxy&#125;=    Create Dictionary    http=http://127.0.0.1:8888</div><div class="line">    #根据tag来区分请求应使用哪个host</div><div class="line">    $&#123;host&#125;=    Set Variable    \ \ $&#123;EMPTY&#125;</div><div class="line">    : FOR    $&#123;tag&#125;    IN    @&#123;TEST TAGS&#125;</div><div class="line">    \    $&#123;host&#125;=    Evaluate    $hosts.get($tag,&quot;&quot;)</div><div class="line">    \    Run Keyword If    &quot;$&#123;host&#125;&quot;!=&quot;&quot;    Exit For Loop</div><div class="line">    #创建session,跨域模式，不需要维护Session</div><div class="line">    Run Keyword If    &quot;$&#123;cur_host&#125;&quot;!=&quot;&quot;    Create Session    _session    $&#123;cur_host&#125;    proxies=$&#123;proxy&#125;</div><div class="line">    ...    ELSE    Create Session    _session    $&#123;host&#125;    proxies=$&#123;proxy&#125;</div><div class="line">    #已登录的用户在请求中带上token</div><div class="line">    Run Keyword If    &quot;$&#123;token&#125;&quot;!=&quot;&quot;    Set To Dictionary    $&#123;params&#125;    token=$&#123;token&#125;</div><div class="line">    Log    $&#123;token&#125;</div><div class="line">    #根据请求数据的类型设置header</div><div class="line">    &amp;&#123;headers&#125;=    Run Keyword If    &quot;$&#123;type&#125;&quot;==&quot;form&quot;    Create Dictionary    Content-Type=application/x-www-form-urlencoded    TT=$&#123;token&#125;</div><div class="line">    ...    ELSE IF    &quot;$&#123;type&#125;&quot;==&quot;json&quot;    Create Dictionary    Content-Type=application/json    TT=$&#123;token&#125;</div><div class="line">    $&#123;response&#125;=    Post Request    _session    $&#123;uri&#125;    $&#123;params&#125;    headers=&amp;&#123;headers&#125;</div><div class="line">    Should Be Equal As Strings    $&#123;response.status_code&#125;    200</div><div class="line">    &amp;&#123;json&#125;=    Set Variable    $&#123;response.json()&#125;</div><div class="line">    [Return]    &amp;&#123;json&#125;</div></pre></td></tr></table></figure>
-          
+          <h5 id="List中的字典循环"><a href="#List中的字典循环" class="headerlink" title="List中的字典循环"></a>List中的字典循环</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">*** Test Cases ***</div><div class="line">takeValueFromCircle</div><div class="line">	# 从返回结果中提取出List</div><div class="line">	@&#123;items&#125;=    set variable    $&#123;json[&quot;data&quot;][&quot;items&quot;]&#125;</div><div class="line">	# 循环List中的item</div><div class="line">	: FOR    $&#123;params&#125;    IN    @&#123;items&#125;</div><div class="line">	# 把item中的一个参数（每个参数都是一个字典）转化为Str格式，顺便去除 &quot;u&quot; 标识</div><div class="line">	\    $&#123;params&#125;    Dumps    $&#123;params&#125;</div><div class="line">	# 把字典转化为json</div><div class="line">	\    $&#123;params&#125;    to json    $&#123;params&#125;</div><div class="line">	#\    Log    $&#123;params[&quot;carId&quot;]&#125;</div><div class="line">	# 对每个item取出来的字典中的某个字段进行判断，如果是需要的值，就把另一个需要的值取出来，并打印出来</div><div class="line">	\    RUN KEYWORD IF    &quot;$&#123;params[&quot;carInfo&quot;][&quot;status&quot;]&#125;&quot;==&quot;评估中&quot;    Log    $&#123;params[&quot;carId&quot;]&#125;</div></pre></td></tr></table></figure>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/05/15/Robot-Framework踩坑总结/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1477,27 +1447,15 @@
 
       
         
-          
-            <h5 id="过滤网络请求"><a href="#过滤网络请求" class="headerlink" title="过滤网络请求"></a>过滤网络请求</h5><h6 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h6><p>在主界面的中部的 Filter 栏中填入需要过滤出来的关键字。</p>
+          <h5 id="过滤网络请求"><a href="#过滤网络请求" class="headerlink" title="过滤网络请求"></a>过滤网络请求</h5><h6 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h6><p>在主界面的中部的 Filter 栏中填入需要过滤出来的关键字。</p>
 <h6 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h6><p>在 Charles 的菜单栏选择 <code>“Proxy”-&gt;”Recording Settings”</code>，然后选择 Include 栏，选择添加一个项目，然后填入需要监控的协议，主机地址，端口号。这样就可以只截取目标网站的封包了。</p>
-<pre><code>&lt;!--more--&gt;
-</code></pre><img src="/2017/04/25/Charles常用的九大功能/过滤网络请求.png" alt="过滤网络请求" title="过滤网络请求">
-<p>通常情况下，我们使用方法一做一些临时性的封包过滤，使用方法二做一些经常性的封包过滤。</p>
-<h6 id="方法三"><a href="#方法三" class="headerlink" title="方法三"></a>方法三</h6><p>在想过滤的网络请求上右击，选择 “Focus”，之后在 Filter 一栏勾选上 Focussed 一项，这种方式可以临时性的，快速地过滤出一些没有通过关键字的一类网络请求。</p>
-<h5 id="截取客户端上的网络请求"><a href="#截取客户端上的网络请求" class="headerlink" title="截取客户端上的网络请求"></a>截取客户端上的网络请求</h5><h6 id="Charles上的设置"><a href="#Charles上的设置" class="headerlink" title="Charles上的设置"></a>Charles上的设置</h6><p>打开Charles代理功能。在 Charles 的菜单栏上选择 “Proxy”-&gt;”Proxy Settings”，填入代理端口 8888，并且勾上 “Enable transparent HTTP proxying” 就完成了在 Charles 上的设置<br><img src="/2017/04/25/Charles常用的九大功能/打开Charles代理功能.png" alt="打开Charles代理功能" title="打开Charles代理功能"></p>
-<h6 id="客户端上设置网络代理"><a href="#客户端上设置网络代理" class="headerlink" title="客户端上设置网络代理"></a>客户端上设置网络代理</h6><img src="/2017/04/25/Charles常用的九大功能/客户端上代理设置.png" alt="客户端上代理设置" title="客户端上代理设置">
-<p>设置好之后，我们打开 客户端 上的任意需要网络通讯的程序，就可以看到 Charles 弹出 客户端 请求连接的确认菜单（如下图所示），点击 “Allow” 即可完成设置。<br><img src="/2017/04/25/Charles常用的九大功能/同意请求.png" alt="同意请求" title="同意请求"></p>
-<h5 id="抓取-Https-请求"><a href="#抓取-Https-请求" class="headerlink" title="抓取 Https 请求"></a>抓取 Https 请求</h5><h6 id="客户端安装证书"><a href="#客户端安装证书" class="headerlink" title="客户端安装证书"></a>客户端安装证书</h6><p>点击 Charles 的顶部菜单，选择 “Help” -&gt; “SSL Proxying” -&gt; “Install Charles Root Certificate on a Mobile Device or Remote Browser”<br><img src="/2017/04/25/Charles常用的九大功能/安装证书链接.png" alt="安装证书链接" title="安装证书链接"><br>按照我们之前说的教程，在设备上设置好 Charles 为代理后，在手机浏览器中访问地址：chls.pro/ssl，即可打开证书安装的界面，安装完证书后，就可以截取手机上的 Https 通讯内容了。不过同样需要注意，默认情况下 Charles 并不做截取，你还需要在要截取的网络请求上右击，选择 SSL proxy 菜单项。<br><img src="/2017/04/25/Charles常用的九大功能/要抓取HTTPS请求的域名.png" alt="要抓取HTTPS请求的域名" title="要抓取HTTPS请求的域名"><br>还可以直接在对应的 HTTPS 请求上右键，选择<code>Enable SSL Proxying</code>。</p>
-<h5 id="模拟慢速网络"><a href="#模拟慢速网络" class="headerlink" title="模拟慢速网络"></a>模拟慢速网络</h5><p>在做移动开发的时候，我们常常需要模拟慢速网络或者高延迟的网络，以测试在移动网络下，应用的表现是否正常。Charles 对此需求提供了很好的支持。<br>在 Charles 的菜单上，选择 “Proxy”-&gt;”Throttle Setting” 项，在之后弹出的对话框中，我们可以勾选上 “Enable Throttling”，并且可以设置 Throttle Preset 的类型。如下图所示：<br><img src="/2017/04/25/Charles常用的九大功能/慢速网络设置.png" alt="慢速网络设置" title="慢速网络设置"><br>如果我们只想模拟指定网站的慢速网络，可以再勾选上图中的 “Only for selected hosts” 项，然后在对话框的下半部分设置中增加指定的 hosts 项即可。</p>
-<h5 id="压力测试"><a href="#压力测试" class="headerlink" title="压力测试"></a>压力测试</h5><p>我们可以使用 Charles 的 Repeat 功能来简单地测试服务器的并发处理能力，方法如下。<br>我们在想打压的网络请求上（POST 或 GET 请求均可）右击，然后选择 「Repeat Advanced」菜单项，接着我们就可以在弹出的对话框中，选择打压的并发线程数以及打压次数，确定之后，即可开始打压。<br><img src="/2017/04/25/Charles常用的九大功能/压力测试.png" alt="压力测试" title="压力测试"></p>
-<h5 id="修改服务器返回内容"><a href="#修改服务器返回内容" class="headerlink" title="修改服务器返回内容"></a>修改服务器返回内容</h5><p>有些时候我们想让服务器返回一些指定的内容，方便我们调试一些特殊情况。例如列表页面为空的情况，数据异常的情况，部分耗时的网络请求超时的情况等。如果没有 Charles，要服务器配合构造相应的数据显得会比较麻烦。这个时候，使用 Charles 相关的功能就可以满足我们的需求。<br>根据具体的需求，Charles 提供了 Map 功能、 Rewrite 功能以及 Breakpoints 功能，都可以达到修改服务器返回内容的目的。这三者在功能上的差异是：<br>Map 功能适合长期地将某一些请求重定向到另一个网络地址或本地文件。<br>Rewrite 功能适合对网络请求进行一些正则替换。<br>Breakpoints 功能适合做一些临时性的修改。</p>
-<h5 id="Map-重定向功能"><a href="#Map-重定向功能" class="headerlink" title="Map 重定向功能"></a>Map 重定向功能</h5><p>Charles 的 Map 功能分 Map Remote 和 Map Local 两种，顾名思义，Map Remote 是将指定的网络请求重定向到另一个网址请求地址，Map Local 是将指定的网络请求重定向到本地文件。<br>在 Charles 的菜单中，选择 “Tools”-&gt;”Map Remote” 或 “Map Local” 即可进入到相应功能的设置页面。</p>
-<h6 id="Map-Remote"><a href="#Map-Remote" class="headerlink" title="Map Remote"></a>Map Remote</h6><p>对于 Map Remote 功能，我们需要分别填写网络重定向的源地址和目的地址，对于不需要限制的条件，可以留空。<br><img src="/2017/04/25/Charles常用的九大功能/MapRemote.png" alt="MapRemote" title="MapRemote"></p>
-<h6 id="Map-Local"><a href="#Map-Local" class="headerlink" title="Map Local"></a>Map Local</h6><p>对于 Map Local 功能，我们需要填写的重定向的源地址和本地的目标文件。对于有一些复杂的网络请求结果，我们可以先使用 Charles 提供的 “Save Response…” 功能，将请求结果保存到本地（如下图所示），然后稍加修改，成为我们的目标映射文件。</p>
-<h5 id="Rewrite-功能"><a href="#Rewrite-功能" class="headerlink" title="Rewrite 功能"></a>Rewrite 功能</h5><p>Rewrite 功能功能适合对某一类网络请求进行一些正则替换，以达到修改结果的目的。<br><img src="/2017/04/25/Charles常用的九大功能/RewriteRule.png" alt="RewriteRule" title="RewriteRule"><br>设置完后，每次请求到对应的值就会被替代。</p>
-<h5 id="Breakpoints-功能"><a href="#Breakpoints-功能" class="headerlink" title="Breakpoints 功能"></a>Breakpoints 功能</h5><p>上面提供的 Rewrite 功能最适合做批量和长期的替换，但是很多时候，我们只是想临时修改一次网络请求结果，这个时候，使用 Rewrite 功能虽然也可以达到目的，但是过于麻烦，对于临时性的修改，我们最好使用 Breakpoints 功能。<br>Breakpoints 功能类似我们在 Xcode 中设置的断点一样，当指定的网络请求发生时，Charles 会截获该请求，这个时候，我们可以在 Charles 中临时修改网络请求的返回内容。</p>
-<h6 id="breakpoints⭐️-方法实践过程"><a href="#breakpoints⭐️-方法实践过程" class="headerlink" title="breakpoints⭐️ 方法实践过程"></a>breakpoints⭐️ 方法实践过程</h6><p>在charless上要mock数据的url上右点击，弹出的列表选中breakpoint，要点击两次 Excute 才能完成一次 HTTP 请求，原因是，Charles 的断点功能分别提供了修改 HTTP Request 和 Response 的机会映射本地文件。<br><img src="/2017/04/25/Charles常用的九大功能/EditRequest.png" alt="EditRequest" title="EditRequest"><br><img src="/2017/04/25/Charles常用的九大功能/EditResponse.png" alt="EditResponse" title="EditResponse"><br>通过修改 response 就可以修改请求的结果成为自己想要的结果，从而在客户端上查看效果。</p>
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/04/25/Charles常用的九大功能/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1651,16 +1609,14 @@
 
       
         
-          
-            <h4 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h4><figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">i                        # 进入插入模式  </div><div class="line">:q                       # 退出vim  </div><div class="line">:w                       # 保存  </div><div class="line">:wq                      # 保存并退出  </div><div class="line">:set syn=c               # 设置c风格的语法高亮</div></pre></td></tr></table></figure>
-<pre><code>&lt;!--more--&gt;
-</code></pre><h4 id="vim编辑器配置"><a href="#vim编辑器配置" class="headerlink" title="vim编辑器配置"></a>vim编辑器配置</h4><p>配置vim的配置文件【Mac】<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">~&gt; vim ~/.vimrc                     <span class="comment"># 默认不存在该文件，需要新建。该文件中不允许出现中文的空格和符合</span></div></pre></td></tr></table></figure></p>
-<p>添加如下内容<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">syntax on                           "开启语法高亮  </div><div class="line">set tabstop=4                       "设置tab为4个字符</div><div class="line">set softtabstop=4</div><div class="line">set shiftwidth=4                    "缩进宽度  </div><div class="line">set autoindent                      "自动缩进  </div><div class="line">set cindent                         "c风格缩进  </div><div class="line">set nu                              "显示行号  </div><div class="line">set vb t_vb=  "close the bell       "关闭vim响铃</div></pre></td></tr></table></figure></p>
-<h4 id="移动光标类命令"><a href="#移动光标类命令" class="headerlink" title="移动光标类命令"></a>移动光标类命令</h4><figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">h                        # 光标左移一个字符</div><div class="line">l                        # 光标右移一个字符</div><div class="line">space                    # 光标右移一个字符</div><div class="line">Backspace                # 光标左移一个字符</div><div class="line">k或Ctrl+p                 # 光标上移一行 </div><div class="line">j或Ctrl+n                 # 光标下移一行 </div><div class="line">Enter                    # 光标下移一行 </div><div class="line">w或W                      # 光标右移一个字至字首 </div><div class="line">b或B                      # 光标左移一个字至字首 </div><div class="line">e或E                     # 光标右移一个字至字尾 </div><div class="line">)                       # 光标移至句尾 </div><div class="line">(                       # 光标移至句首 </div><div class="line">&#125;                       # 光标移至段落开头 </div><div class="line">&#123;                       # 光标移至段落结尾 </div><div class="line">nG                      # 光标移至第n行首 </div><div class="line">n+                      # 光标下移n行 </div><div class="line">n-                      # 光标上移n行 </div><div class="line">n$                      # 光标移至第n行尾 </div><div class="line">H                       # 光标移至屏幕顶行 </div><div class="line">M                       # 光标移至屏幕中间行 </div><div class="line">L                       # 光标移至屏幕最后行 </div><div class="line">0                       # （注意是数字零）光标移至当前行首 </div><div class="line">$                       # 光标移至当前行尾</div></pre></td></tr></table></figure>
-<h4 id="删除命令"><a href="#删除命令" class="headerlink" title="删除命令"></a>删除命令</h4><figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">x                        # 删除一个字符</div><div class="line">dd                       # 删除一行</div><div class="line">ndd                      # 删除光标所在行向下 n 行</div><div class="line">d1G                      # 删除光标所在行到第一行的所有数据</div><div class="line">dG                       # 删除光标所在行到最后一行的所有数据</div><div class="line">ctrl+v                   # 移动键盘上的“上下左右”键，将要删除的字符串选中，然后使用d就删除了</div></pre></td></tr></table></figure>
-<h4 id="撤销命令"><a href="#撤销命令" class="headerlink" title="撤销命令"></a>撤销命令</h4><figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">u                        # 恢复一次删除，恢复多次可以按多次u</div><div class="line">ctrl+r                   # 恢复后又想删除</div></pre></td></tr></table></figure>
-<h4 id="复制命令"><a href="#复制命令" class="headerlink" title="复制命令"></a>复制命令</h4><figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">yy                       # 复制光标所在的那一行</div><div class="line">nyy                      # 复制光标所在行向下 n 行</div><div class="line">y1G                      # 复制光标所在行到第一行的所有数据</div><div class="line">yG                       # 复制光标所在行到最后一行的所有数据</div></pre></td></tr></table></figure>
-          
+          <h4 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h4><figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">i                        # 进入插入模式  </div><div class="line">:q                       # 退出vim  </div><div class="line">:w                       # 保存  </div><div class="line">:wq                      # 保存并退出  </div><div class="line">:set syn=c               # 设置c风格的语法高亮</div></pre></td></tr></table></figure>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/03/14/vim的基本使用/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1814,25 +1770,14 @@
 
       
         
-          
-            <h4 id="String-Immutability【字符串不变性】"><a href="#String-Immutability【字符串不变性】" class="headerlink" title="String Immutability【字符串不变性】"></a>String Immutability【字符串不变性】</h4><p>The following diagram shows what happens for the following code:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">String s = <span class="string">"abcd"</span>;</div><div class="line">s = s.concat(<span class="string">"ef"</span>);</div></pre></td></tr></table></figure></p>
-<pre><code>&lt;!--more--&gt;
-</code></pre><img src="/2017/03/14/Top-8-Diagrams-for-Understanding-Java/string-immutability.jpeg" alt="string-immutability" title="string-immutability">
-<h4 id="The-equals-and-hashCode-Contract【equals-方法、hashCode-方法的区别】"><a href="#The-equals-and-hashCode-Contract【equals-方法、hashCode-方法的区别】" class="headerlink" title="The equals() and hashCode() Contract【equals()方法、hashCode()方法的区别】"></a>The equals() and hashCode() Contract【equals()方法、hashCode()方法的区别】</h4><p>HashCode is designed to improve performance. The contract between equals() and hasCode() is that:</p>
-<ol>
-<li>If two objects are equal, then they must have the same hash code.</li>
-<li>If two objects have the same hashcode, they may or may not be equal.<img src="/2017/03/14/Top-8-Diagrams-for-Understanding-Java/java-hashcode.jpeg" alt="java-hashcode" title="java-hashcode">
-</li>
-</ol>
-<h4 id="Java-Exception-Class-Hierarchy【Java异常类的层次结构】"><a href="#Java-Exception-Class-Hierarchy【Java异常类的层次结构】" class="headerlink" title="Java Exception Class Hierarchy【Java异常类的层次结构】"></a>Java Exception Class Hierarchy【Java异常类的层次结构】</h4><p>Red colored are checked exceptions which must either be caught or declared in the method’s throws clause.<br><img src="/2017/03/14/Top-8-Diagrams-for-Understanding-Java/Exception-Hierarchy-Diagram.jpeg" alt="Exception-Hierarchy-Diagram" title="Exception-Hierarchy-Diagram"></p>
-<h4 id="Collections-Class-Hierarchy【集合类的层次结构】"><a href="#Collections-Class-Hierarchy【集合类的层次结构】" class="headerlink" title="Collections Class Hierarchy【集合类的层次结构】"></a>Collections Class Hierarchy【集合类的层次结构】</h4><p>Note the difference between Collections and Collection.<br><img src="/2017/03/14/Top-8-Diagrams-for-Understanding-Java/Collections.jpeg" alt="Collections" title="Collections"><br><img src="/2017/03/14/Top-8-Diagrams-for-Understanding-Java/java-collection-hierarchy.jpeg" alt="java-collection-hierarchy" title="java-collection-hierarchy"></p>
-<h4 id="Java-synchronization【Java同步】"><a href="#Java-synchronization【Java同步】" class="headerlink" title="Java synchronization【Java同步】"></a>Java synchronization【Java同步】</h4><p>Java synchronization mechanism can be illustrated by an analogy to a building.<br><img src="/2017/03/14/Top-8-Diagrams-for-Understanding-Java/Java-Monitor.jpg" alt="Java-Monitor" title="Java-Monitor"></p>
-<h4 id="Aliasing【别名】"><a href="#Aliasing【别名】" class="headerlink" title="Aliasing【别名】"></a>Aliasing【别名】</h4><p>Aliasing means there are multiple aliases to a location that can be updated, and these aliases have different types.<br><img src="/2017/03/14/Top-8-Diagrams-for-Understanding-Java/JavaAliasing.jpeg" alt="JavaAliasing" title="JavaAliasing"></p>
-<h4 id="Stack-and-Heap【堆和栈】"><a href="#Stack-and-Heap【堆和栈】" class="headerlink" title="Stack and Heap【堆和栈】"></a>Stack and Heap【堆和栈】</h4><p>This diagram shows where methods and objects are in run-time memory.<br><img src="/2017/03/14/Top-8-Diagrams-for-Understanding-Java/Java-array-in-memory.png" alt="Java-array-in-memory" title="Java-array-in-memory"></p>
-<h4 id="JVM-Run-Time-Data-Areas【Java虚拟机运行时数据区域】"><a href="#JVM-Run-Time-Data-Areas【Java虚拟机运行时数据区域】" class="headerlink" title="JVM Run-Time Data Areas【Java虚拟机运行时数据区域】"></a>JVM Run-Time Data Areas【Java虚拟机运行时数据区域】</h4><img src="/2017/03/14/Top-8-Diagrams-for-Understanding-Java/JVM-runtime-data-area.jpg" alt="JVM-runtime-data-area" title="JVM-runtime-data-area">
-<hr>
-<p><em>原文链接： programcreek 翻译： ImportNew.com - era_misa</em><br><em>译文链接： <a href="http://www.importnew.com/11725.html" target="_blank" rel="external">http://www.importnew.com/11725.html</a></em></p>
-          
+          <h4 id="String-Immutability【字符串不变性】"><a href="#String-Immutability【字符串不变性】" class="headerlink" title="String Immutability【字符串不变性】"></a>String Immutability【字符串不变性】</h4><p>The following diagram shows what happens for the following code:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">String s = <span class="string">"abcd"</span>;</div><div class="line">s = s.concat(<span class="string">"ef"</span>);</div></pre></td></tr></table></figure></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/03/14/Top-8-Diagrams-for-Understanding-Java/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1986,14 +1931,15 @@
 
       
         
-          
-            <h4 id="下载-re-sign-jar"><a href="#下载-re-sign-jar" class="headerlink" title="下载 re-sign.jar"></a>下载 re-sign.jar</h4><p><a href="http://download.csdn.net/download/christopher_lv/8569477" target="_blank" rel="external">下载地址</a></p>
-<h4 id="应用-re-sign-jar"><a href="#应用-re-sign-jar" class="headerlink" title="应用 re-sign.jar"></a>应用 re-sign.jar</h4><h5 id="把-re-sign-jar-放到-android-文件夹下"><a href="#把-re-sign-jar-放到-android-文件夹下" class="headerlink" title="把 re-sign.jar 放到 .android 文件夹下"></a>把 re-sign.jar 放到 .android 文件夹下</h5><pre><code>&lt;!--more--&gt;
-</code></pre><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">➜  .android ll</div><div class="line">total 216</div><div class="line">-rw-r--r--   1 taoyi  staff   2.1K  7  5  2016 debug.keystore</div><div class="line">-rw-r--r--@  1 taoyi  staff    47K  3  4 22:35 re-sign.jar</div></pre></td></tr></table></figure>
-<h5 id="运行-re-sign-jar"><a href="#运行-re-sign-jar" class="headerlink" title="运行 re-sign.jar"></a>运行 re-sign.jar</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> .android</div><div class="line">java -jar re-sign.jar</div></pre></td></tr></table></figure>
-<h5 id="把应用拖放到窗口进行重签名"><a href="#把应用拖放到窗口进行重签名" class="headerlink" title="把应用拖放到窗口进行重签名"></a>把应用拖放到窗口进行重签名</h5><img src="/2017/03/05/应用重签名工具re-sign-jar使用/重签名工具使用.png" alt="重签名工具使用" title="重签名工具使用">
-<p>重签名成功<br><img src="/2017/03/05/应用重签名工具re-sign-jar使用/重签名成功.png" alt="重签名成功" title="重签名成功"><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">➜  .android java -jar re-sign.jar                   </div><div class="line">Running jarsigner</div><div class="line">Command line: /Library/Java/JavaVirtualMachines/jdk1.8.0_91.jdk/Contents/Home/bin/jarsigner -keystore /Users/taoyi/.android/debug.keystore -storepass android -keypass android /var/folders/6c/t0zm0zy90p12fjr77h9qtktr0000gp/T/resigner3271202971406261445.apk androiddebugkey</div><div class="line">jarsigner finished with following output:</div><div class="line">jar å·²ç­¾åã</div><div class="line"></div><div class="line">è­¦å:</div><div class="line">æªæä¾ -tsa æ -tsacert, æ­¤ jar æ²¡ææ¶é´æ³ãå¦ææ²¡ææ¶é´æ³, åå¨ç­¾åèè¯ä¹¦çå°ææ¥æ (2046-06-28) æä»¥åçä»»ä½æ¤éæ¥æä¹å, ç¨æ·å¯è½æ æ³éªè¯æ­¤ jarã</div><div class="line">Running zipalign</div><div class="line">Command line: /opt/android-sdk-macosx/tools/zipalign <span class="_">-f</span> 4 /var/folders/6c/t0zm0zy90p12fjr77h9qtktr0000gp/T/resigner3271202971406261445.apk /Users/taoyi/git_projects/dfcAppium/res/app/android/fengche_debug.apk</div><div class="line">zipalign finished with following output:</div></pre></td></tr></table></figure></p>
-          
+          <h4 id="下载-re-sign-jar"><a href="#下载-re-sign-jar" class="headerlink" title="下载 re-sign.jar"></a>下载 re-sign.jar</h4><p><a href="http://download.csdn.net/download/christopher_lv/8569477">下载地址</a></p>
+<h4 id="应用-re-sign-jar"><a href="#应用-re-sign-jar" class="headerlink" title="应用 re-sign.jar"></a>应用 re-sign.jar</h4><h5 id="把-re-sign-jar-放到-android-文件夹下"><a href="#把-re-sign-jar-放到-android-文件夹下" class="headerlink" title="把 re-sign.jar 放到 .android 文件夹下"></a>把 re-sign.jar 放到 .android 文件夹下</h5>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/03/05/应用重签名工具re-sign-jar使用/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>

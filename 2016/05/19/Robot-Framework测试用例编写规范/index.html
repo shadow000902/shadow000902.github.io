@@ -116,22 +116,16 @@
 
 
 
-<meta name="description" content="命名测试套件的命名Robotframework 的套件名称是直接从文件/目录的名字转换来的。文件的后缀名被去掉了而且下划线会被转换成空格，如果你的用到的单词都是小写的，那么开头字母会被转换成大写的。比如 login_test.txt 会被转换成 Login Test, DHCP_and_DNS 会被转换成 DHCP and DNS。
-&amp;lt;!--more--&amp;gt;
-测试用例的命名表达你需要做什">
+<meta name="description" content="命名测试套件的命名Robotframework 的套件名称是直接从文件/目录的名字转换来的。文件的后缀名被去掉了而且下划线会被转换成空格，如果你的用到的单词都是小写的，那么开头字母会被转换成大写的。比如 login_test.txt 会被转换成 Login Test, DHCP_and_DNS 会被转换成 DHCP and DNS。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Robot-Framework测试用例编写规范">
 <meta property="og:url" content="http://shadow000902.space/2016/05/19/Robot-Framework测试用例编写规范/index.html">
 <meta property="og:site_name" content="Shadow'S Site">
-<meta property="og:description" content="命名测试套件的命名Robotframework 的套件名称是直接从文件/目录的名字转换来的。文件的后缀名被去掉了而且下划线会被转换成空格，如果你的用到的单词都是小写的，那么开头字母会被转换成大写的。比如 login_test.txt 会被转换成 Login Test, DHCP_and_DNS 会被转换成 DHCP and DNS。
-&amp;lt;!--more--&amp;gt;
-测试用例的命名表达你需要做什">
-<meta property="og:updated_time" content="2017-06-24T07:38:07.000Z">
+<meta property="og:description" content="命名测试套件的命名Robotframework 的套件名称是直接从文件/目录的名字转换来的。文件的后缀名被去掉了而且下划线会被转换成空格，如果你的用到的单词都是小写的，那么开头字母会被转换成大写的。比如 login_test.txt 会被转换成 Login Test, DHCP_and_DNS 会被转换成 DHCP and DNS。">
+<meta property="og:updated_time" content="2017-06-24T07:41:48.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Robot-Framework测试用例编写规范">
-<meta name="twitter:description" content="命名测试套件的命名Robotframework 的套件名称是直接从文件/目录的名字转换来的。文件的后缀名被去掉了而且下划线会被转换成空格，如果你的用到的单词都是小写的，那么开头字母会被转换成大写的。比如 login_test.txt 会被转换成 Login Test, DHCP_and_DNS 会被转换成 DHCP and DNS。
-&amp;lt;!--more--&amp;gt;
-测试用例的命名表达你需要做什">
+<meta name="twitter:description" content="命名测试套件的命名Robotframework 的套件名称是直接从文件/目录的名字转换来的。文件的后缀名被去掉了而且下划线会被转换成空格，如果你的用到的单词都是小写的，那么开头字母会被转换成大写的。比如 login_test.txt 会被转换成 Login Test, DHCP_and_DNS 会被转换成 DHCP and DNS。">
 
 
 
@@ -476,8 +470,8 @@
 
       
         <h4 id="命名"><a href="#命名" class="headerlink" title="命名"></a>命名</h4><h5 id="测试套件的命名"><a href="#测试套件的命名" class="headerlink" title="测试套件的命名"></a>测试套件的命名</h5><p>Robotframework 的套件名称是直接从文件/目录的名字转换来的。文件的后缀名被去掉了而且下划线会被转换成空格，如果你的用到的单词都是小写的，那么开头字母会被转换成大写的。<br>比如 login_test.txt 会被转换成 Login Test, DHCP_and_DNS 会被转换成 DHCP and DNS。</p>
-<pre><code>&lt;!--more--&gt;
-</code></pre><h5 id="测试用例的命名"><a href="#测试用例的命名" class="headerlink" title="测试用例的命名"></a>测试用例的命名</h5><p>表达你需要做什么。</p>
+<a id="more"></a>
+<h5 id="测试用例的命名"><a href="#测试用例的命名" class="headerlink" title="测试用例的命名"></a>测试用例的命名</h5><p>表达你需要做什么。</p>
 <h5 id="关键词命名"><a href="#关键词命名" class="headerlink" title="关键词命名"></a>关键词命名</h5><p>表达这个关键词干了什么，而不是如何去做。<br>关键词应该是非常不同的抽象层次（比如，「输入字符」或者「用户登录到系统」）。</p>
 <h5 id="生成和分解的命名"><a href="#生成和分解的命名" class="headerlink" title="生成和分解的命名"></a>生成和分解的命名</h5><p>用名称来描述这个步骤完成了什么。<br>如果生成或者分解包含了不相关的步骤，那么可以接受更抽象一点的名称<br>    4.1 在名称中列举步骤是一个重复化和维护的问题（比如：登入系统，添加用户，激活警报和检查平衡）。<br>    4.2 或许需要用到一些通用一些的名称比如「初始化系统」<br>每个用到这几个测试用例的人都需要明白这几个生成或者分解动作是干什么的</p>
 <h4 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h4><h5 id="测试套件的结构"><a href="#测试套件的结构" class="headerlink" title="测试套件的结构"></a>测试套件的结构</h5><p>在套件中的用例应该是互相相关的。<br>    1.1 如果测试用例拥有同样的生成或者分解部分，那么他们应该是属于一个套件的。<br>    1.2 除非是数据驱动的，在一个套件中不要放10个以上的测试用例。<br>    1.3 测试用例应该是独立的，用生成和分解来初始化他们。<br>    1.4 如果测试用例之间无法避免地相关联。比如说，它可能是因为把所有的用例独立出来要化太多的时间在初始化上。<br>        相关联的测试用例就那么几个（最多4到5个）。<br>        下一个用例是用来验证上一个用例的结果的。（用${PREV TEST STATUS} 这个变量）。</p>

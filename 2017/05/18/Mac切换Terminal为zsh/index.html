@@ -116,24 +116,18 @@
 
 
 
-<meta name="description" content="下载一个 .oh-my-zsh 配置1git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
-&amp;lt;!--more--&amp;gt;
-创建新的配置12cp ~/.zshrc ~/.zshrc.orig                                   # 如果已经有一个 .zshrc 文件，备份一下cp ~">
+<meta name="description" content="下载一个 .oh-my-zsh 配置1git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Mac切换Terminal为zsh">
 <meta property="og:url" content="http://shadow000902.space/2017/05/18/Mac切换Terminal为zsh/index.html">
 <meta property="og:site_name" content="Shadow'S Site">
-<meta property="og:description" content="下载一个 .oh-my-zsh 配置1git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
-&amp;lt;!--more--&amp;gt;
-创建新的配置12cp ~/.zshrc ~/.zshrc.orig                                   # 如果已经有一个 .zshrc 文件，备份一下cp ~">
+<meta property="og:description" content="下载一个 .oh-my-zsh 配置1git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh">
 <meta property="og:image" content="http://shadow000902.space/2017/05/18/Mac切换Terminal为zsh/终端样式修改.png">
 <meta property="og:image" content="http://shadow000902.space/2017/05/18/Mac切换Terminal为zsh/Terminal效果图.png">
-<meta property="og:updated_time" content="2017-06-24T07:38:07.000Z">
+<meta property="og:updated_time" content="2017-06-24T07:41:48.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mac切换Terminal为zsh">
-<meta name="twitter:description" content="下载一个 .oh-my-zsh 配置1git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
-&amp;lt;!--more--&amp;gt;
-创建新的配置12cp ~/.zshrc ~/.zshrc.orig                                   # 如果已经有一个 .zshrc 文件，备份一下cp ~">
+<meta name="twitter:description" content="下载一个 .oh-my-zsh 配置1git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh">
 <meta name="twitter:image" content="http://shadow000902.space/2017/05/18/Mac切换Terminal为zsh/终端样式修改.png">
 
 
@@ -479,8 +473,8 @@
 
       
         <h5 id="下载一个-oh-my-zsh-配置"><a href="#下载一个-oh-my-zsh-配置" class="headerlink" title="下载一个 .oh-my-zsh 配置"></a>下载一个 .oh-my-zsh 配置</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git <span class="built_in">clone</span> git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh</div></pre></td></tr></table></figure>
-<pre><code>&lt;!--more--&gt;
-</code></pre><h5 id="创建新的配置"><a href="#创建新的配置" class="headerlink" title="创建新的配置"></a>创建新的配置</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cp ~/.zshrc ~/.zshrc.orig                                   <span class="comment"># 如果已经有一个 .zshrc 文件，备份一下</span></div><div class="line">cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<h5 id="创建新的配置"><a href="#创建新的配置" class="headerlink" title="创建新的配置"></a>创建新的配置</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cp ~/.zshrc ~/.zshrc.orig                                   <span class="comment"># 如果已经有一个 .zshrc 文件，备份一下</span></div><div class="line">cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc</div></pre></td></tr></table></figure>
 <h5 id="更新新的配置文件"><a href="#更新新的配置文件" class="headerlink" title="更新新的配置文件"></a>更新新的配置文件</h5><p>如果有些环境变量配置在<code>~/.bash_profile</code>的话，需要在新的配置里进行刷新<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">...</div><div class="line"><span class="built_in">export</span> ZSH=~/.oh-my-zsh/</div><div class="line">...</div><div class="line">ZSH_THEME=<span class="string">"fino-time"</span>                   <span class="comment"># 设置选择的主题。默认是robbyrussell</span></div><div class="line">...</div><div class="line">...</div><div class="line"><span class="built_in">source</span> <span class="variable">$ZSH</span>/oh-my-zsh.sh</div><div class="line"><span class="built_in">source</span> ~/.bash_profile</div><div class="line">...</div></pre></td></tr></table></figure></p>
 <h5 id="优化-terminal-样式"><a href="#优化-terminal-样式" class="headerlink" title="优化 terminal 样式"></a>优化 terminal 样式</h5><img src="/2017/05/18/Mac切换Terminal为zsh/终端样式修改.png" alt="终端样式修改" title="终端样式修改">
 <h5 id="切换-Terminal-到-zsh"><a href="#切换-Terminal-到-zsh" class="headerlink" title="切换 Terminal 到 zsh"></a>切换 Terminal 到 zsh</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">chsh <span class="_">-s</span> /bin/zsh</div></pre></td></tr></table></figure>

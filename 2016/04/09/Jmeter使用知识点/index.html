@@ -116,22 +116,16 @@
 
 
 
-<meta name="description" content="HTTP 请求默认值一个线程组或者集合中，所用的请求都使用相同的“Web服务器”，就可以添加一个“HTTP 请求默认值”组件，在其中设置好“服务器地址”、“端口号”、“延时”，这样所有的请求就都会使用该组件中的设置。
-&amp;lt;!--more--&amp;gt;
-HTTP Cookie 管理器需要在登录状态下才能发起的请求，在线程组中有一个登录的请求，这样再在该线程组中添加一个“HTTP Cookie 管理">
+<meta name="description" content="HTTP 请求默认值一个线程组或者集合中，所用的请求都使用相同的“Web服务器”，就可以添加一个“HTTP 请求默认值”组件，在其中设置好“服务器地址”、“端口号”、“延时”，这样所有的请求就都会使用该组件中的设置。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Jmeter使用知识点">
 <meta property="og:url" content="http://shadow000902.space/2016/04/09/Jmeter使用知识点/index.html">
 <meta property="og:site_name" content="Shadow'S Site">
-<meta property="og:description" content="HTTP 请求默认值一个线程组或者集合中，所用的请求都使用相同的“Web服务器”，就可以添加一个“HTTP 请求默认值”组件，在其中设置好“服务器地址”、“端口号”、“延时”，这样所有的请求就都会使用该组件中的设置。
-&amp;lt;!--more--&amp;gt;
-HTTP Cookie 管理器需要在登录状态下才能发起的请求，在线程组中有一个登录的请求，这样再在该线程组中添加一个“HTTP Cookie 管理">
-<meta property="og:updated_time" content="2017-06-24T07:38:07.000Z">
+<meta property="og:description" content="HTTP 请求默认值一个线程组或者集合中，所用的请求都使用相同的“Web服务器”，就可以添加一个“HTTP 请求默认值”组件，在其中设置好“服务器地址”、“端口号”、“延时”，这样所有的请求就都会使用该组件中的设置。">
+<meta property="og:updated_time" content="2017-06-24T07:41:48.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Jmeter使用知识点">
-<meta name="twitter:description" content="HTTP 请求默认值一个线程组或者集合中，所用的请求都使用相同的“Web服务器”，就可以添加一个“HTTP 请求默认值”组件，在其中设置好“服务器地址”、“端口号”、“延时”，这样所有的请求就都会使用该组件中的设置。
-&amp;lt;!--more--&amp;gt;
-HTTP Cookie 管理器需要在登录状态下才能发起的请求，在线程组中有一个登录的请求，这样再在该线程组中添加一个“HTTP Cookie 管理">
+<meta name="twitter:description" content="HTTP 请求默认值一个线程组或者集合中，所用的请求都使用相同的“Web服务器”，就可以添加一个“HTTP 请求默认值”组件，在其中设置好“服务器地址”、“端口号”、“延时”，这样所有的请求就都会使用该组件中的设置。">
 
 
 
@@ -476,8 +470,8 @@ HTTP Cookie 管理器需要在登录状态下才能发起的请求，在线程�
 
       
         <h5 id="HTTP-请求默认值"><a href="#HTTP-请求默认值" class="headerlink" title="HTTP 请求默认值"></a>HTTP 请求默认值</h5><p>一个线程组或者集合中，所用的请求都使用相同的“Web服务器”，就可以添加一个“HTTP 请求默认值”组件，在其中设置好“服务器地址”、“端口号”、“延时”，这样所有的请求就都会使用该组件中的设置。</p>
-<pre><code>&lt;!--more--&gt;
-</code></pre><h5 id="HTTP-Cookie-管理器"><a href="#HTTP-Cookie-管理器" class="headerlink" title="HTTP Cookie 管理器"></a>HTTP Cookie 管理器</h5><p>需要在登录状态下才能发起的请求，在线程组中有一个登录的请求，这样再在该线程组中添加一个“HTTP Cookie 管理器”组件，登录请求完成时，该组件就会自动保存登录的Cookie，这样其他需要登录态才能进行的请求就也能成功进行。</p>
+<a id="more"></a>
+<h5 id="HTTP-Cookie-管理器"><a href="#HTTP-Cookie-管理器" class="headerlink" title="HTTP Cookie 管理器"></a>HTTP Cookie 管理器</h5><p>需要在登录状态下才能发起的请求，在线程组中有一个登录的请求，这样再在该线程组中添加一个“HTTP Cookie 管理器”组件，登录请求完成时，该组件就会自动保存登录的Cookie，这样其他需要登录态才能进行的请求就也能成功进行。</p>
 <h5 id="HTTP-信息头管理器"><a href="#HTTP-信息头管理器" class="headerlink" title="HTTP 信息头管理器"></a>HTTP 信息头管理器</h5><p>有些服务器限制了需要正常的浏览器才能访问，但是Jmeter在发送请求时，默认使用的“User-Agent”是“Apache-HttpClient/4.2.6 (java 1.5)”，所以需要添加一个“HTTP 信息头管理器”组件，用于模拟正常的浏览器，模拟的内容需要自己手动添加到该组件中，如：User-Agent | Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:45.0) Gecko/20100101 Firefox/45.0</p>
 <h5 id="正则表达式提取器"><a href="#正则表达式提取器" class="headerlink" title="正则表达式提取器"></a>正则表达式提取器</h5><p>要检查的响应字段<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">table</span>&gt;</span></div><div class="line"></div><div class="line">||应用名称||token||    ||</div><div class="line">||正则表达式||name="_token" value="(.+)"||. 表示一个字符    + 表示多个字符||</div><div class="line">||模板||$1$||1 表示匹配的第一个||</div><div class="line">||匹配数字（0代表随机）||1||1 表示具体的||</div><div class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></div></pre></td></tr></table></figure></p>
       
