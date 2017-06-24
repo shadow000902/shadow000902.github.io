@@ -4,8 +4,65 @@
 
     
   <url>
+    <loc>http://shadow000902.space/2017/06/24/Maven-Web%E5%AE%9E%E4%BE%8B%E4%BB%8E%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2%E5%88%B0Jenkins%E9%9B%86%E6%88%90/</loc>
+    <lastmod>2017-06-24T06:13:08.000Z</lastmod>
+    <data>
+        <display>
+        <title>Maven-Web实例从服务器部署到Jenkins集成</title>
+        <pubTime>2017-06-24T04:48:41.000Z</pubTime>
+        
+        <tag>jenkins</tag>
+         
+         
+           
+             
+              <breadCrumb title="Jenkins" url="http://shadow000902.space/categories/Jenkins/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://shadow000902.space/2017/06/24/Jenkins%E4%B8%ADslave%E7%9A%84%E8%AE%BE%E7%BD%AE/</loc>
+    <lastmod>2017-06-24T05:02:12.000Z</lastmod>
+    <data>
+        <display>
+        <title>Jenkins中slave的设置</title>
+        <pubTime>2017-06-24T05:02:12.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://shadow000902.space/2016/03/18/%E5%88%A9%E7%94%A8Hexo%E5%9C%A8Github%20Page%E4%B8%8A%E9%83%A8%E7%BD%B2%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</loc>
+    <lastmod>2017-06-19T12:59:30.000Z</lastmod>
+    <data>
+        <display>
+        <title>利用Hexo在Github Page上部署个人博客</title>
+        <pubTime>2016-03-17T16:06:40.000Z</pubTime>
+        
+        <tag>hexo</tag>
+         
+        <tag>github</tag>
+         
+         
+           
+             
+              <breadCrumb title="Hexo" url="http://shadow000902.space/categories/Hexo/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://shadow000902.space/2017/06/03/Mac%E4%B8%8AMySQL%E7%9A%84%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</loc>
-    <lastmod>2017-06-19T11:59:32.000Z</lastmod>
+    <lastmod>2017-06-19T12:11:56.000Z</lastmod>
     <data>
         <display>
         <title>Mac上MySQL的简单使用</title>
@@ -18,21 +75,6 @@
              
               <breadCrumb title="MySQL" url="http://shadow000902.space/categories/MySQL/"/>
           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://shadow000902.space/2017/06/19/%E4%B8%80%E5%8D%83%E8%A1%8CMySQL%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</loc>
-    <lastmod>2017-06-19T07:03:31.000Z</lastmod>
-    <data>
-        <display>
-        <title>一千行MySQL学习笔记</title>
-        <pubTime>2017-06-19T07:02:26.000Z</pubTime>
-        
-         
-           
         </display>
     </data>
     </url>
@@ -52,28 +94,6 @@
            
              
               <breadCrumb title="Redis" url="http://shadow000902.space/categories/Redis/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://shadow000902.space/2016/03/18/%E5%88%A9%E7%94%A8Hexo%E5%9C%A8Github%20Page%E4%B8%8A%E9%83%A8%E7%BD%B2%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</loc>
-    <lastmod>2017-06-03T03:33:07.000Z</lastmod>
-    <data>
-        <display>
-        <title>利用Hexo在Github Page上部署个人博客</title>
-        <pubTime>2016-03-17T16:06:40.000Z</pubTime>
-        
-        <tag>hexo</tag>
-         
-        <tag>github</tag>
-         
-         
-           
-             
-              <breadCrumb title="Hexo" url="http://shadow000902.space/categories/Hexo/"/>
           
         </display>
     </data>
@@ -167,6 +187,26 @@
 
     
   <url>
+    <loc>http://shadow000902.space/2017/03/14/Top-8-Diagrams-for-Understanding-Java/</loc>
+    <lastmod>2017-06-03T02:44:38.000Z</lastmod>
+    <data>
+        <display>
+        <title>Top 8 Diagrams for Understanding Java</title>
+        <pubTime>2017-03-14T09:10:45.000Z</pubTime>
+        
+        <tag>java</tag>
+         
+         
+           
+             
+              <breadCrumb title="Java" url="http://shadow000902.space/categories/Java/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://shadow000902.space/2016/03/18/%E4%B8%8A%E4%BC%A0%E6%9C%AC%E5%9C%B0%E4%BB%A3%E7%A0%81%E5%88%B0Github/</loc>
     <lastmod>2017-06-03T02:44:38.000Z</lastmod>
     <data>
@@ -187,19 +227,19 @@
 
     
   <url>
-    <loc>http://shadow000902.space/2017/03/14/Top-8-Diagrams-for-Understanding-Java/</loc>
+    <loc>http://shadow000902.space/2016/05/08/Robot-Framework%E7%A7%BB%E5%8A%A8%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E5%88%9D%E8%AF%86/</loc>
     <lastmod>2017-06-03T02:44:38.000Z</lastmod>
     <data>
         <display>
-        <title>Top 8 Diagrams for Understanding Java</title>
-        <pubTime>2017-03-14T09:10:45.000Z</pubTime>
+        <title>Robot-Framework移动自动化测试初识</title>
+        <pubTime>2016-05-08T11:44:12.000Z</pubTime>
         
-        <tag>java</tag>
+        <tag>robot-framework</tag>
          
          
            
              
-              <breadCrumb title="Java" url="http://shadow000902.space/categories/Java/"/>
+              <breadCrumb title="Robot-Framework" url="http://shadow000902.space/categories/Robot-Framework/"/>
           
         </display>
     </data>
@@ -254,19 +294,19 @@
 
     
   <url>
-    <loc>http://shadow000902.space/2016/05/08/Robot-Framework%E7%A7%BB%E5%8A%A8%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E5%88%9D%E8%AF%86/</loc>
-    <lastmod>2017-06-03T02:44:38.000Z</lastmod>
+    <loc>http://shadow000902.space/2016/03/31/Appium%E5%AE%89%E8%A3%85/</loc>
+    <lastmod>2017-06-02T13:27:04.000Z</lastmod>
     <data>
         <display>
-        <title>Robot-Framework移动自动化测试初识</title>
-        <pubTime>2016-05-08T11:44:12.000Z</pubTime>
+        <title>Appium安装</title>
+        <pubTime>2016-03-31T10:19:45.000Z</pubTime>
         
-        <tag>robot-framework</tag>
+        <tag>appium</tag>
          
          
            
              
-              <breadCrumb title="Robot-Framework" url="http://shadow000902.space/categories/Robot-Framework/"/>
+              <breadCrumb title="Appium" url="http://shadow000902.space/categories/Appium/"/>
           
         </display>
     </data>
@@ -294,26 +334,6 @@
 
     
   <url>
-    <loc>http://shadow000902.space/2017/05/18/Mac%E5%88%87%E6%8D%A2Terminal%E4%B8%BAzsh/</loc>
-    <lastmod>2017-06-02T13:27:04.000Z</lastmod>
-    <data>
-        <display>
-        <title>Mac切换Terminal为zsh</title>
-        <pubTime>2017-05-18T09:17:39.000Z</pubTime>
-        
-        <tag>terminal</tag>
-         
-         
-           
-             
-              <breadCrumb title="Terminal" url="http://shadow000902.space/categories/Terminal/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://shadow000902.space/2017/04/25/Charles%E5%B8%B8%E7%94%A8%E7%9A%84%E4%B9%9D%E5%A4%A7%E5%8A%9F%E8%83%BD/</loc>
     <lastmod>2017-06-02T13:27:04.000Z</lastmod>
     <data>
@@ -327,26 +347,6 @@
            
              
               <breadCrumb title="Charles" url="http://shadow000902.space/categories/Charles/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://shadow000902.space/2016/03/31/Appium%E5%AE%89%E8%A3%85/</loc>
-    <lastmod>2017-06-02T13:27:04.000Z</lastmod>
-    <data>
-        <display>
-        <title>Appium安装</title>
-        <pubTime>2016-03-31T10:19:45.000Z</pubTime>
-        
-        <tag>appium</tag>
-         
-         
-           
-             
-              <breadCrumb title="Appium" url="http://shadow000902.space/categories/Appium/"/>
           
         </display>
     </data>
@@ -378,19 +378,19 @@
 
     
   <url>
-    <loc>http://shadow000902.space/2017/02/13/app-inspector%E5%85%83%E7%B4%A0%E5%AE%9A%E4%BD%8D%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8%E4%BB%8B%E7%BB%8D/</loc>
-    <lastmod>2017-06-02T13:19:22.000Z</lastmod>
+    <loc>http://shadow000902.space/2017/05/18/Mac%E5%88%87%E6%8D%A2Terminal%E4%B8%BAzsh/</loc>
+    <lastmod>2017-06-02T13:27:04.000Z</lastmod>
     <data>
         <display>
-        <title>app-inspector元素定位工具使用介绍</title>
-        <pubTime>2017-02-12T16:00:45.000Z</pubTime>
+        <title>Mac切换Terminal为zsh</title>
+        <pubTime>2017-05-18T09:17:39.000Z</pubTime>
         
-        <tag>app-inspector</tag>
+        <tag>terminal</tag>
          
          
            
              
-              <breadCrumb title="App-inspector" url="http://shadow000902.space/categories/App-inspector/"/>
+              <breadCrumb title="Terminal" url="http://shadow000902.space/categories/Terminal/"/>
           
         </display>
     </data>
@@ -411,6 +411,26 @@
            
              
               <breadCrumb title="Adb" url="http://shadow000902.space/categories/Adb/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://shadow000902.space/2017/02/13/app-inspector%E5%85%83%E7%B4%A0%E5%AE%9A%E4%BD%8D%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8%E4%BB%8B%E7%BB%8D/</loc>
+    <lastmod>2017-06-02T13:19:22.000Z</lastmod>
+    <data>
+        <display>
+        <title>app-inspector元素定位工具使用介绍</title>
+        <pubTime>2017-02-12T16:00:45.000Z</pubTime>
+        
+        <tag>app-inspector</tag>
+         
+         
+           
+             
+              <breadCrumb title="App-inspector" url="http://shadow000902.space/categories/App-inspector/"/>
           
         </display>
     </data>
@@ -734,9 +754,9 @@
         <title>Appium-Python各种元素定位及操作方法解析</title>
         <pubTime>2016-03-27T08:39:50.000Z</pubTime>
         
-        <tag>python</tag>
-         
         <tag>appium</tag>
+         
+        <tag>python</tag>
          
          
            
@@ -1295,46 +1315,6 @@
 
     
   <url>
-    <loc>http://shadow000902.space/2016/05/26/ssh%E5%85%8D%E5%AF%86%E7%A0%81%E7%99%BB%E5%BD%95/</loc>
-    <lastmod>2016-06-28T04:53:05.000Z</lastmod>
-    <data>
-        <display>
-        <title>ssh免密码登录</title>
-        <pubTime>2016-05-25T17:32:43.000Z</pubTime>
-        
-        <tag>ssh</tag>
-         
-         
-           
-             
-              <breadCrumb title="SSH" url="http://shadow000902.space/categories/SSH/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://shadow000902.space/2016/03/31/Appium%E6%A0%B9%E6%8D%AExpath%E8%8E%B7%E5%8F%96%E6%8E%A7%E4%BB%B6/</loc>
-    <lastmod>2016-06-28T04:53:05.000Z</lastmod>
-    <data>
-        <display>
-        <title>Appium根据xpath获取控件</title>
-        <pubTime>2016-03-31T10:38:58.000Z</pubTime>
-        
-        <tag>appium</tag>
-         
-         
-           
-             
-              <breadCrumb title="Appium" url="http://shadow000902.space/categories/Appium/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://shadow000902.space/2016/04/09/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/</loc>
     <lastmod>2016-06-28T04:53:05.000Z</lastmod>
     <data>
@@ -1354,6 +1334,25 @@
     </url>
 
     
+  <url>
+    <loc>http://shadow000902.space/2016/05/26/ssh%E5%85%8D%E5%AF%86%E7%A0%81%E7%99%BB%E5%BD%95/</loc>
+    <lastmod>2016-06-28T04:53:05.000Z</lastmod>
+    <data>
+        <display>
+        <title>ssh免密码登录</title>
+        <pubTime>2016-05-25T17:32:43.000Z</pubTime>
+        
+        <tag>ssh</tag>
+         
+         
+           
+             
+              <breadCrumb title="SSH" url="http://shadow000902.space/categories/SSH/"/>
+          
+        </display>
+    </data>
+    </url>
+
     
   <url>
     <loc>http://shadow000902.space/2016/05/19/git%E6%94%BE%E5%BC%83%E6%9C%AC%E5%9C%B0%E4%BF%AE%E6%94%B9%E7%9B%B4%E6%8E%A5%E6%8B%89%E5%8F%96%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%9B%B4%E6%96%B0/</loc>
@@ -1376,4 +1375,25 @@
 
     
     
+    
+    
+  <url>
+    <loc>http://shadow000902.space/2016/03/31/Appium%E6%A0%B9%E6%8D%AExpath%E8%8E%B7%E5%8F%96%E6%8E%A7%E4%BB%B6/</loc>
+    <lastmod>2016-06-28T04:53:05.000Z</lastmod>
+    <data>
+        <display>
+        <title>Appium根据xpath获取控件</title>
+        <pubTime>2016-03-31T10:38:58.000Z</pubTime>
+        
+        <tag>appium</tag>
+         
+         
+           
+             
+              <breadCrumb title="Appium" url="http://shadow000902.space/categories/Appium/"/>
+          
+        </display>
+    </data>
+    </url>
+
 </urlset>
