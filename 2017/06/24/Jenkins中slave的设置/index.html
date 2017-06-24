@@ -95,7 +95,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css">
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="jenkins,">
 
 
 
@@ -113,16 +113,23 @@
 
 
 
-<meta name="description" content="谁当声震人间，必长久深自缄默。谁当划破闪电，必长久如云漂泊。">
+<meta name="description" content="在Jenkins中配置从节点
+增加节点后，实际并没有直接连上，还需要在节点服务器上进行相应的配置">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Jenkins中slave的设置">
 <meta property="og:url" content="http://shadow000902.space/2017/06/24/Jenkins中slave的设置/index.html">
 <meta property="og:site_name" content="Shadow'S Site">
-<meta property="og:description" content="谁当声震人间，必长久深自缄默。谁当划破闪电，必长久如云漂泊。">
-<meta property="og:updated_time" content="2017-06-24T05:02:12.000Z">
+<meta property="og:description" content="在Jenkins中配置从节点
+增加节点后，实际并没有直接连上，还需要在节点服务器上进行相应的配置">
+<meta property="og:image" content="http://shadow000902.space/2017/06/24/Jenkins中slave的设置/配置从节点.png">
+<meta property="og:image" content="http://shadow000902.space/2017/06/24/Jenkins中slave的设置/从节点配置要点.png">
+<meta property="og:image" content="http://shadow000902.space/2017/06/24/Jenkins中slave的设置/节点列表.png">
+<meta property="og:updated_time" content="2017-06-24T06:56:28.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Jenkins中slave的设置">
-<meta name="twitter:description" content="谁当声震人间，必长久深自缄默。谁当划破闪电，必长久如云漂泊。">
+<meta name="twitter:description" content="在Jenkins中配置从节点
+增加节点后，实际并没有直接连上，还需要在节点服务器上进行相应的配置">
+<meta name="twitter:image" content="http://shadow000902.space/2017/06/24/Jenkins中slave的设置/配置从节点.png">
 
 
 
@@ -398,6 +405,28 @@
           </span>
 
           
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Jenkins/" itemprop="url" rel="index">
+                    <span itemprop="name">Jenkins</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -445,7 +474,18 @@
       
 
       
-        
+        <h5 id="在Jenkins中配置从节点"><a href="#在Jenkins中配置从节点" class="headerlink" title="在Jenkins中配置从节点"></a>在Jenkins中配置从节点</h5><img src="/2017/06/24/Jenkins中slave的设置/配置从节点.png" alt="配置从节点" title="配置从节点">
+<p>增加节点后，实际并没有直接连上，还需要在节点服务器上进行相应的配置</p>
+<a id="more"></a>
+<h5 id="在从节点服务器的host中的加入配置"><a href="#在从节点服务器的host中的加入配置" class="headerlink" title="在从节点服务器的host中的加入配置"></a>在从节点服务器的host中的加入配置</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo vim /etc/hosts</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">111.111.111.111 jenkins.shadow.com						<span class="comment"># 前部分IP为Jenkins的内网地址，后部分为Jenkins的对外访问域名</span></div></pre></td></tr></table></figure>
+<h5 id="从节点服务器上配置Jenkins节点配置"><a href="#从节点服务器上配置Jenkins节点配置" class="headerlink" title="从节点服务器上配置Jenkins节点配置"></a>从节点服务器上配置Jenkins节点配置</h5><img src="/2017/06/24/Jenkins中slave的设置/从节点配置要点.png" alt="从节点配置要点" title="从节点配置要点">
+<p>点击上图中的<code>slave.jar</code>的链接，下载该文件，放在上方指定的<code>Jenkins</code>工作目录下<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">test</span>@<span class="built_in">test</span>-devtesting-00001:~/jenkins$ ll</div><div class="line">total 760</div><div class="line">drwxrwxr-x  3 <span class="built_in">test</span> <span class="built_in">test</span>   4096 Jun 23 16:04 ./</div><div class="line">drwx------ 18 <span class="built_in">test</span> <span class="built_in">test</span>   4096 Jun 24 13:47 ../</div><div class="line">-rw-rw-r--  1 <span class="built_in">test</span> <span class="built_in">test</span>   7623 Jun 23 16:04 maven33-agent.jar</div><div class="line">-rw-rw-r--  1 <span class="built_in">test</span> <span class="built_in">test</span>  19971 Jun 23 16:04 maven33-interceptor.jar</div><div class="line">-rw-rw-r--  1 <span class="built_in">test</span> <span class="built_in">test</span>   6764 Jun 23 16:04 maven3-interceptor-commons.jar</div><div class="line">-rw-rw-r--  1 <span class="built_in">test</span> <span class="built_in">test</span>    738 Jun  8 16:52 slave-agent.jnlp</div><div class="line">-rw-rw-r--  1 <span class="built_in">test</span> <span class="built_in">test</span> 717563 May  2 17:29 slave.jar								<span class="comment"># 上方下载的slave.jar文件</span></div><div class="line">-rwxrwxr-x  1 <span class="built_in">test</span> <span class="built_in">test</span>    114 Jun  6 19:28 start_jenkins.sh*						<span class="comment"># 启动Jenkinsslave的脚本</span></div><div class="line">drwxrwxr-x 14 <span class="built_in">test</span> <span class="built_in">test</span>   4096 Jun 24 12:43 workspace/								<span class="comment"># Jenkins项目的工作目录</span></div></pre></td></tr></table></figure></p>
+<p>将提示中的启动<code>Jenkins</code>的脚本写入文件<code>start_jenkins.sh</code>中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">java -jar slave.jar -jnlpUrl http://jenkins.shadow.com/computer/test-devtesting-00001/slave-agent.jnlp 2&gt;&amp;1 &amp;</div></pre></td></tr></table></figure></p>
+<p>赋予<code>start_jenkins.sh</code>执行权限<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">chmod a+x start_jenkins.sh</div></pre></td></tr></table></figure></p>
+<p>启动slave<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./start_jenkins.sh</div></pre></td></tr></table></figure></p>
+<p>回到Jenkins节点列表，查看添加的节点，状态如图就说明启动成功了。<br><img src="/2017/06/24/Jenkins中slave的设置/节点列表.png" alt="节点列表" title="节点列表"></p>
+<p>至此，slave节点就配置并启动完毕了。</p>
       
     </div>
 
@@ -487,6 +527,12 @@
     </div>
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/jenkins/" rel="tag"># jenkins</a>
+          
+        </div>
       
 
       
@@ -560,8 +606,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="shadow">
           <p class="site-author-name" itemprop="name">shadow</p>
@@ -666,6 +721,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#在Jenkins中配置从节点"><span class="nav-number">1.</span> <span class="nav-text">在Jenkins中配置从节点</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#在从节点服务器的host中的加入配置"><span class="nav-number">2.</span> <span class="nav-text">在从节点服务器的host中的加入配置</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#从节点服务器上配置Jenkins节点配置"><span class="nav-number">3.</span> <span class="nav-text">从节点服务器上配置Jenkins节点配置</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
