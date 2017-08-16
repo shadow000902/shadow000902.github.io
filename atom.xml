@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://shadow000902.space/"/>
-  <updated>2017-06-24T07:41:48.000Z</updated>
+  <updated>2017-08-16T16:51:08.000Z</updated>
   <id>http://shadow000902.space/</id>
   
   <author>
@@ -14,6 +14,96 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Jenkins持续集成平台搭建</title>
+    <link href="http://shadow000902.space/2017/08/16/Jenkins%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90%E5%B9%B3%E5%8F%B0%E6%90%AD%E5%BB%BA/"/>
+    <id>http://shadow000902.space/2017/08/16/Jenkins持续集成平台搭建/</id>
+    <published>2017-08-16T03:55:43.000Z</published>
+    <updated>2017-08-16T16:51:08.000Z</updated>
+    
+    <content type="html"><![CDATA[<h5 id="Jenkins-部署"><a href="#Jenkins-部署" class="headerlink" title="Jenkins 部署"></a>Jenkins 部署</h5><ol>
+<li>创建<code>Jenkins</code>运行目录<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">mkdir /opt/Jenkins/Home						<span class="comment"># Jenkins主目录</span></div><div class="line">mkdir /opt/Jenkins/tmp							<span class="comment"># Jenkins缓存位置</span></div><div class="line">mkdir /opt/Jenkins/script						<span class="comment"># 脚本存放位置</span></div></pre></td></tr></table></figure>
+</li>
+</ol>
+<a id="more"></a>
+<ol>
+<li><p>下载<code>jenkins.war</code><br><a href="https://jenkins.io/download/" target="_blank" rel="external">下载地址</a><br>把下载的<code>war</code>包放入<code>/opt/Jenkins</code>目录下</p>
+</li>
+<li><p>编写启动脚本</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">/usr/bin/java -Dfile.encoding=UTF-8 \</div><div class="line">                    -XX:PermSize=256m -XX:MaxPermSize=512m -Xms256m -Xmx512m \</div><div class="line">                    -Djava.io.tmpdir=/opt/Jenkins/tmp \</div><div class="line">                    -jar /opt/Jenkins/jenkins.war \</div><div class="line">                    --httpPort=8080 \</div><div class="line">                    &gt;&gt; /opt/Jenkins/nohup.out \</div><div class="line">                    2&gt;&amp;1 &amp;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">-Dfile.encoding=UTF-8																			<span class="comment"># 设置编码格式</span></div><div class="line">-XX:PermSize=256m -XX:MaxPermSize=512m -Xms256m -Xmx512m			<span class="comment"># 设置内存占用</span></div><div class="line">-Djava.io.tmpdir=/opt/Jenkins/tmp														<span class="comment"># 指定Jenkins运行缓存位置</span></div><div class="line">-jar /opt/Jenkins/jenkins.war																<span class="comment"># 指定执行的war包</span></div><div class="line">--httpPort=8080																					<span class="comment"># 指定本地端口</span></div><div class="line">&gt;&gt; /opt/Jenkins/nohup.out																	<span class="comment"># 指定Jenkins运行日志输出位置</span></div><div class="line">2&gt;&amp;1 &amp;																								<span class="comment"># 设置进程在后台运行</span></div></pre></td></tr></table></figure>
+<p>新建脚本文件存放脚本<code>startJenkins.sh</code>，放到<code>script</code>目录下。<br>执行脚本：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">chmod a+x startJenkins.sh																	<span class="comment"># 赋予可执行权限</span></div><div class="line">./startJenkins.sh																				<span class="comment"># 执行脚本，启动Jenkins</span></div></pre></td></tr></table></figure></p>
+<ol>
+<li><code>Jenkins</code>主目录介绍<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">-rw-r--r--   1 taoyi  wheel   1.6K  8 16 01:43 config.xml																<span class="comment"># jenkins主配置文件</span></div><div class="line">-rw-r--r--   1 taoyi  wheel   159B  8 16 01:43 hudson.model.UpdateCenter.xml</div><div class="line">-rw-------   1 taoyi  wheel   1.7K  8 16 01:27 identity.key.enc</div><div class="line">-rw-r--r--   1 taoyi  wheel    94B  8 16 01:27 jenkins.CLI.xml</div><div class="line">-rw-r--r--   1 taoyi  wheel     4B  8 16 01:43 jenkins.install.InstallUtil.lastExecVersion</div><div class="line">-rw-r--r--   1 taoyi  wheel     4B  8 16 01:30 jenkins.install.UpgradeWizard.state</div><div class="line">drwxr-xr-x   4 taoyi  wheel   136B  8 16 09:35 <span class="built_in">jobs</span>																<span class="comment"># 包含所有的项目，包含所有项目对应的配置文件，包括挂到slave中的项目的配置文件</span></div><div class="line">drwxr-xr-x   4 taoyi  wheel   136B  8 16 01:29 logs</div><div class="line">-rw-r--r--   1 taoyi  wheel   907B  8 16 01:43 nodeMonitors.xml</div><div class="line">drwxr-xr-x   2 taoyi  wheel    68B  8 16 01:27 nodes																<span class="comment"># 所有的slave节点配置文件</span></div><div class="line">drwxr-xr-x   2 taoyi  wheel    68B  8 16 01:27 plugins																<span class="comment"># Jenkins插件</span></div><div class="line">-rw-r--r--   1 taoyi  wheel    64B  8 16 01:27 secret.key</div><div class="line">-rw-r--r--   1 taoyi  wheel     0B  8 16 01:27 secret.key.not-so-secret</div><div class="line">drwx------  15 taoyi  wheel   510B  8 16 01:44 secrets</div><div class="line">drwxr-xr-x   5 taoyi  wheel   170B  8 16 01:27 updates</div><div class="line">drwxr-xr-x   3 taoyi  wheel   102B  8 16 01:27 userContent</div><div class="line">drwxr-xr-x   4 taoyi  wheel   136B  8 16 01:40 users																<span class="comment"># 在Jenkins中添加的所有用户都会在这个目录下新建文件夹管理，每个用户都会有一个config.xml配置文件</span></div><div class="line">drwxr-xr-x  25 taoyi  wheel   850B  8 16 01:27 war</div><div class="line">drwxr-xr-x   3 taoyi  wheel   102B  8 16 01:44 workspace															<span class="comment"># 挂在本机下的所有项目的工作空间</span></div></pre></td></tr></table></figure>
+</li>
+</ol>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h5 id=&quot;Jenkins-部署&quot;&gt;&lt;a href=&quot;#Jenkins-部署&quot; class=&quot;headerlink&quot; title=&quot;Jenkins 部署&quot;&gt;&lt;/a&gt;Jenkins 部署&lt;/h5&gt;&lt;ol&gt;
+&lt;li&gt;创建&lt;code&gt;Jenkins&lt;/code&gt;运行目录&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;mkdir /opt/Jenkins/Home						&lt;span class=&quot;comment&quot;&gt;# Jenkins主目录&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;mkdir /opt/Jenkins/tmp							&lt;span class=&quot;comment&quot;&gt;# Jenkins缓存位置&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;mkdir /opt/Jenkins/script						&lt;span class=&quot;comment&quot;&gt;# 脚本存放位置&lt;/span&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+    
+    </summary>
+    
+      <category term="Jenkins" scheme="http://shadow000902.space/categories/Jenkins/"/>
+    
+    
+      <category term="jenkins" scheme="http://shadow000902.space/tags/jenkins/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Mac下删除安装的pkg</title>
+    <link href="http://shadow000902.space/2017/08/06/Mac%E4%B8%8B%E5%88%A0%E9%99%A4%E5%AE%89%E8%A3%85%E7%9A%84pkg/"/>
+    <id>http://shadow000902.space/2017/08/06/Mac下删除安装的pkg/</id>
+    <published>2017-08-06T05:10:45.000Z</published>
+    <updated>2017-08-06T05:49:10.000Z</updated>
+    
+    <content type="html"><![CDATA[<h5 id="使用pkg-uninstaller来卸载pkg安装的软件"><a href="#使用pkg-uninstaller来卸载pkg安装的软件" class="headerlink" title="使用pkg_uninstaller来卸载pkg安装的软件"></a>使用<code>pkg_uninstaller</code>来卸载<code>pkg</code>安装的软件</h5><ol>
+<li>安装<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> ~</div><div class="line">[sudo] bash &lt; &lt;(curl <span class="_">-s</span>L https://raw.github.com/mpapis/pkg_uninstaller/master/pkg-install)</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<a id="more"></a>
+<ol>
+<li><p>加入到环境变量</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">echo</span> <span class="string">'PATH=$PATH:$HOME/.pkg_uninstaller'</span> &gt;&gt; <span class="variable">$HOME</span>/.bash_profile</div></pre></td></tr></table></figure>
+</li>
+<li><p>列出包含某字符串的包名</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">pkg-list [name]</div><div class="line">pkgutil --pkgs | grep -i [name]</div></pre></td></tr></table></figure>
+</li>
+<li><p>列出<code>pkg</code>软件的所有安装文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pkg-util --files [pkg_name]</div></pre></td></tr></table></figure>
+</li>
+<li><p>卸载<code>pkg</code>软件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[sudo] pkg-uninstall [pkg_name]</div></pre></td></tr></table></figure>
+<p> 不论是手动还是使用命令全自动删除，最终你还得告诉系统你删了这个包</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[sudo] pkgutil --forget [pkg_name]</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h5 id="使用pkg管理软件来卸载"><a href="#使用pkg管理软件来卸载" class="headerlink" title="使用pkg管理软件来卸载"></a>使用<code>pkg</code>管理软件来卸载</h5><ol>
+<li>下载地址<br><a href="https://pan.baidu.com/s/1hsxMhHM" target="_blank" rel="external">破解版地址</a><br><a href="https://www.corecode.io/uninstallpkg/" target="_blank" rel="external">官网地址</a></li>
+</ol>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h5 id=&quot;使用pkg-uninstaller来卸载pkg安装的软件&quot;&gt;&lt;a href=&quot;#使用pkg-uninstaller来卸载pkg安装的软件&quot; class=&quot;headerlink&quot; title=&quot;使用pkg_uninstaller来卸载pkg安装的软件&quot;&gt;&lt;/a&gt;使用&lt;code&gt;pkg_uninstaller&lt;/code&gt;来卸载&lt;code&gt;pkg&lt;/code&gt;安装的软件&lt;/h5&gt;&lt;ol&gt;
+&lt;li&gt;安装&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;cd&lt;/span&gt; ~&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;[sudo] bash &amp;lt; &amp;lt;(curl &lt;span class=&quot;_&quot;&gt;-s&lt;/span&gt;L https://raw.github.com/mpapis/pkg_uninstaller/master/pkg-install)&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+    
+    </summary>
+    
+      <category term="Mac" scheme="http://shadow000902.space/categories/Mac/"/>
+    
+    
+      <category term="mac" scheme="http://shadow000902.space/tags/mac/"/>
+    
+  </entry>
   
   <entry>
     <title>Jenkins中slave的设置</title>
@@ -842,78 +932,6 @@
     
     
       <category term="ubuntu" scheme="http://shadow000902.space/tags/ubuntu/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Appium-WebView测试</title>
-    <link href="http://shadow000902.space/2016/11/21/Appium-WebView%E6%B5%8B%E8%AF%95/"/>
-    <id>http://shadow000902.space/2016/11/21/Appium-WebView测试/</id>
-    <published>2016-11-20T17:07:09.000Z</published>
-    <updated>2017-06-24T07:41:48.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>现在多数App都是混合型的，有原生的也包含WebView的，appium测试的时候就需要在原生和WebView之间切换才能完成测试。</p>
-<h5 id="查看所有context"><a href="#查看所有context" class="headerlink" title="查看所有context"></a>查看所有context</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Set&lt;String&gt; contextNames = driver.getContextHandles();</div><div class="line">System.print(contextNames);</div></pre></td></tr></table></figure>
-<a id="more"></a>
-<p>结果包含目前所有打开的app<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[NATIVE_APP, WEBVIEW_com.test.android, WEBVIEW_com.estrongs.android.pop, WEBVIEW_com.xxxxx.sjj]</div></pre></td></tr></table></figure></p>
-<p>NATIVE_APP就是我的被测应用原生界面<br>WEBVIEW_com.test.android 是我的被测应用打开的WebView<br>另外两个一个是ES， 一个其他的应用（混合型的）</p>
-<h5 id="切换到WebView"><a href="#切换到WebView" class="headerlink" title="切换到WebView"></a>切换到WebView</h5><p>我们可以通过context方法切换到指定的应用<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;pre name=<span class="string">"code"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"java"</span>&gt;driver.context(<span class="string">"WEBVIEW_com.test.android"</span>);</div><div class="line">driver.findElementByID(<span class="string">"wd"</span>);</div></pre></td></tr></table></figure></p>
-<p>切换完成后就可以像测试web应用一样测试了，所有的定位和web相同。</p>
-<h5 id="切换到NativeApp"><a href="#切换到NativeApp" class="headerlink" title="切换到NativeApp"></a>切换到NativeApp</h5><p>测试完web应用，需要操作原生应用的时候就需要切换回NATIVE_APP<br>我们可以通过context方法切换到原生应用<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;pre name=<span class="string">"code"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"java"</span>&gt;driver.context(<span class="string">"NATIVE_APP"</span>);</div></pre></td></tr></table></figure></p>
-<p>这样之后的操作就都是原生应用的操作了</p>
-<h5 id="DEMO"><a href="#DEMO" class="headerlink" title="DEMO"></a>DEMO</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">    <span class="comment">/**</span></div><div class="line">     * Switch to NATIVE_APP or WEBVIEW</div><div class="line">     * <span class="doctag">@param</span> sWindow window name</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">switchToWindow</span><span class="params">(String sWindow)</span> </span>&#123;</div><div class="line">        LogManager.getLogger(<span class="keyword">this</span>.getClass()).info(<span class="string">"Swith to window: "</span> + sWindow);</div><div class="line">        Set&lt;String&gt; contextNames = driver.getContextHandles();</div><div class="line">        LogManager.getLogger(<span class="keyword">this</span>.getClass()).info(<span class="string">"Exists windows: "</span> + contextNames.toString());</div><div class="line">        <span class="keyword">for</span> (String contextName : contextNames) &#123;</div><div class="line">            <span class="keyword">if</span> (contextName.contains(sWindow)) &#123;</div><div class="line">                driver.context(contextName);</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">switchToWindow(<span class="string">"WEBVIEW_com.test.android"</span>);</div><div class="line">switchToWindow(<span class="string">"NATIVE_APP"</span>);</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;现在多数App都是混合型的，有原生的也包含WebView的，appium测试的时候就需要在原生和WebView之间切换才能完成测试。&lt;/p&gt;
-&lt;h5 id=&quot;查看所有context&quot;&gt;&lt;a href=&quot;#查看所有context&quot; class=&quot;headerlink&quot; title=&quot;查看所有context&quot;&gt;&lt;/a&gt;查看所有context&lt;/h5&gt;&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;Set&amp;lt;String&amp;gt; contextNames = driver.getContextHandles();&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;System.print(contextNames);&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-    
-    </summary>
-    
-      <category term="Appium" scheme="http://shadow000902.space/categories/Appium/"/>
-    
-    
-      <category term="appium" scheme="http://shadow000902.space/tags/appium/"/>
-    
-      <category term="webview" scheme="http://shadow000902.space/tags/webview/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Logcat日志过滤与解析</title>
-    <link href="http://shadow000902.space/2016/11/21/Logcat%E6%97%A5%E5%BF%97%E8%BF%87%E6%BB%A4%E4%B8%8E%E8%A7%A3%E6%9E%90/"/>
-    <id>http://shadow000902.space/2016/11/21/Logcat日志过滤与解析/</id>
-    <published>2016-11-20T16:15:48.000Z</published>
-    <updated>2017-06-24T07:41:48.000Z</updated>
-    
-    <content type="html"><![CDATA[<h5 id="logcat指定某APP輸出ERROR以上級別的日誌，显示同一个进程的所有输出"><a href="#logcat指定某APP輸出ERROR以上級別的日誌，显示同一个进程的所有输出" class="headerlink" title="logcat指定某APP輸出ERROR以上級別的日誌，显示同一个进程的所有输出"></a><code>logcat</code>指定<code>某APP</code>輸出<code>ERROR</code>以上級別的日誌，<code>显示同一个进程的所有输出</code></h5><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">#!/bin/sh  </div><div class="line">echo 本腳本實現顯示指定包名APP的ERROR以上級別的日誌，建議崩潰之後，重新開啓此腳本  </div><div class="line">package_name=$1  </div><div class="line">pid=`adb shell ps | grep $package_name |awk '&#123;print $2&#125;'`  </div><div class="line">adb logcat -v time *:E | grep -E --color=auto $pid</div></pre></td></tr></table></figure>
-<a id="more"></a>
-<h5 id="只显示需要的输出，白名单"><a href="#只显示需要的输出，白名单" class="headerlink" title="只显示需要的输出，白名单"></a>只显示需要的输出，白名单</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">adb logcat | grep MyApp</div><div class="line">adb logcat | grep -i myapp <span class="comment">#忽略大小写。</span></div><div class="line">adb logcat | grep --color=auto -i  myapp <span class="comment">#设置匹配字符串颜色。更多设置请查看 grep 帮助。</span></div></pre></td></tr></table></figure>
-<p>仅显示 Error 级别 tag 为 MyApp 的输出：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">adb logcat | grep &quot;^E.MyApp&quot;</div></pre></td></tr></table></figure></p>
-<p>也可以匹配多个，使用 | 分割多个匹配表达式，要加转义符。例如要匹配 tag 为 MyApp 和 MyActivity 的输出：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">adb logcat | grep &quot;^..MyApp\|^..MyActivity&quot;</div><div class="line">adb logcat | grep -E &quot;^..MyApp|^..MyActivity&quot;  #使用 egrep 无须转义符</div></pre></td></tr></table></figure></p>
-<h5 id="过滤不需要的输出，黑名单"><a href="#过滤不需要的输出，黑名单" class="headerlink" title="过滤不需要的输出，黑名单"></a>过滤不需要的输出，黑名单</h5><p>还是使用 grep，用法也跟上面的一样，加一个 -v 即可。例如要过滤 tag 为 MyApp 和 MyActivity 的输出：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">adb logcat | grep -v &quot;^..MyApp\|^..MyActivity&quot;</div><div class="line">adb logcat | grep -vE &quot;^..MyApp|^..MyActivity&quot;  #使用 egrep 无须转义符</div></pre></td></tr></table></figure></p>
-<h5 id="从当前开始显示"><a href="#从当前开始显示" class="headerlink" title="从当前开始显示"></a>从当前开始显示</h5><p>logcat 有缓存，如果仅需要查看当前开始的 log，需要清空之前的。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">adb logcat -c &amp;&amp; adb logcat</div></pre></td></tr></table></figure></p>
-<h5 id="过滤log文件"><a href="#过滤log文件" class="headerlink" title="过滤log文件"></a>过滤<code>log</code>文件</h5><p>有时需要分析 log 文件，过滤 log 文件还是使用 grep。例如 log 文件为 myapp.log，要匹配 tag 为 MyApp 和 MyActivity 的输出，然后输出到 newmyapp.log：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cat myapp.log | grep &quot;^..MyApp\|^..MyActivity&quot; &gt; newmyapp.log</div></pre></td></tr></table></figure></p>
-<h5 id="logcat-详细用法"><a href="#logcat-详细用法" class="headerlink" title="logcat 详细用法"></a>logcat 详细用法</h5><h6 id="日志输出优先级"><a href="#日志输出优先级" class="headerlink" title="日志输出优先级"></a>日志输出优先级</h6><p>优先级有下列集中，是按照从低到高顺利排列的:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">V — Verbose (lowest priority)</div><div class="line">D — Debug</div><div class="line">I — Info</div><div class="line">W — Warning</div><div class="line">E — Error</div><div class="line">F — Fatal</div><div class="line">S — Silent (highest priority, on which nothing is ever printed)</div></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">adb logcat ActivityManager:I MyApp:D *:S</div><div class="line">adb logcat *:W                                                                  # 输出日志等级高于``Warning``的日志</div></pre></td></tr></table></figure>
-<h6 id="日志输出的格式"><a href="#日志输出的格式" class="headerlink" title="日志输出的格式"></a>日志输出的格式</h6><p>日志信息包括了许多元数据域包括标签和优先级。可以修改日志的输出格式，所以可以显示出特 定的元数据域。可以通过 -v 选项得到格式化输出日志的相关信息。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">brief — Display priority/tag and PID of originating process (the default format).</div><div class="line">process — Display PID only.</div><div class="line">tag — Display the priority/tag only.</div><div class="line">thread — Display process:thread and priority/tag only.</div><div class="line">raw — Display the raw log message, with no other metadata fields.</div><div class="line">time — Display the date, invocation time, priority/tag, and PID of the originating process.</div><div class="line">long — Display all metadata fields and separate messages with a blank lines.</div></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">adb logcat -v thread</div></pre></td></tr></table></figure>
-<p>只能通过 <code>-v</code>选项来规定输出格式 <code>option</code></p>
-<h6 id="查看可用日志的缓冲区"><a href="#查看可用日志的缓冲区" class="headerlink" title="查看可用日志的缓冲区"></a>查看可用日志的缓冲区</h6><p>Android日志系统有循环缓冲区，并不是所有的日志系统都有默认循环缓冲区。为了得到 日志信息，你需要通过-b 选项来启动logcat 。如果要使用循环缓冲区，你需要查看剩余的 循环缓冲期:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">radio — 查看缓冲区的相关的信息.</div><div class="line">events — 查看和事件相关的的缓冲区.</div><div class="line">main — 查看主要的日志缓冲区</div></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">adb logcat -b radio</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h5 id=&quot;logcat指定某APP輸出ERROR以上級別的日誌，显示同一个进程的所有输出&quot;&gt;&lt;a href=&quot;#logcat指定某APP輸出ERROR以上級別的日誌，显示同一个进程的所有输出&quot; class=&quot;headerlink&quot; title=&quot;logcat指定某APP輸出ERROR以上級別的日誌，显示同一个进程的所有输出&quot;&gt;&lt;/a&gt;&lt;code&gt;logcat&lt;/code&gt;指定&lt;code&gt;某APP&lt;/code&gt;輸出&lt;code&gt;ERROR&lt;/code&gt;以上級別的日誌，&lt;code&gt;显示同一个进程的所有输出&lt;/code&gt;&lt;/h5&gt;&lt;figure class=&quot;highlight&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;#!/bin/sh  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;echo 本腳本實現顯示指定包名APP的ERROR以上級別的日誌，建議崩潰之後，重新開啓此腳本  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;package_name=$1  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;pid=`adb shell ps | grep $package_name |awk &#39;&amp;#123;print $2&amp;#125;&#39;`  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;adb logcat -v time *:E | grep -E --color=auto $pid&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-    
-    </summary>
-    
-      <category term="Logcat" scheme="http://shadow000902.space/categories/Logcat/"/>
-    
-    
-      <category term="adb" scheme="http://shadow000902.space/tags/adb/"/>
-    
-      <category term="logcat" scheme="http://shadow000902.space/tags/logcat/"/>
     
   </entry>
   
