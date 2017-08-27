@@ -13,6 +13,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta name="theme-color" content="#222">
 
 
 
@@ -24,6 +25,7 @@
 
 <meta http-equiv="Cache-Control" content="no-transform">
 <meta http-equiv="Cache-Control" content="no-siteapp">
+
 
 
 
@@ -95,7 +97,7 @@
 
 <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css">
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
 
 
   <meta name="keywords" content="linux,">
@@ -109,7 +111,7 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1">
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2">
 
 
 
@@ -128,7 +130,7 @@ cp(copy)
 
 cp(copy)
 1cp -r /opt/android/tools /opt/      # -r 复制文件夹">
-<meta property="og:updated_time" content="2017-06-24T07:41:48.000Z">
+<meta property="og:updated_time" content="2017-08-22T09:58:03.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux常用命令">
 <meta name="twitter:description" content="mv
@@ -143,8 +145,10 @@ cp(copy)
   var CONFIG = {
     root: '/',
     scheme: 'Pisces',
-    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false,"onmobile":false},
+    version: '5.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
+    tabs: true,
     motion: true,
     duoshuo: {
       userId: '436785',
@@ -196,12 +200,6 @@ cp(copy)
       s.parentNode.insertBefore(hm, s);
     })();
   </script>
-
-
-
-
-
-
 
 
 
@@ -369,6 +367,10 @@ cp(copy)
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://shadow000902.space/2016/05/15/Linux常用命令/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -456,7 +458,7 @@ cp(copy)
                  <i class="fa fa-eye"></i>
                </span>
                
-                 <span class="post-meta-item-text">阅读次数 </span>
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
                
                  <span class="leancloud-visitors-count"></span>
              </span>
@@ -472,6 +474,9 @@ cp(copy)
       </header>
     
 
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -524,6 +529,9 @@ cp(copy)
 <li><p>cat</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">一次显示整个文件:cat filename</div><div class="line">从键盘创建一个文件:cat &gt; filename 只能创建新文件,不能编辑已有文件.</div><div class="line">将几个文件合并为一个文件:cat file1 file2 &gt; file</div></pre></td></tr></table></figure>
 </li>
+</ol>
+<p>13.1 <em>合并文件</em><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cat *.csv &gt; all-in-one.csv														<span class="comment"># 合并多个CSV文件，不考虑顺序</span></div><div class="line">cat file1.csv file2.csv file3.csv ... file[n].csv &gt; all-in-one.csv				<span class="comment"># 合并多个CSV文件，考虑顺序</span></div></pre></td></tr></table></figure></p>
+<ol>
 <li><p>chmod(change mode)    # 更改文件／文件夹权限</p>
 </li>
 <li><p>chown(change owner)   # 更改文件／文件夹所有者</p>
@@ -594,18 +602,40 @@ cp(copy)
 </ol>
 <p>32.2<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">df -h              <span class="comment"># 查看每个根路径的分区大小</span></div><div class="line">du -sh [目录名]     <span class="comment"># 返回该目录的大小</span></div><div class="line">du -sm [文件夹]     <span class="comment"># 返回该文件夹总M数</span></div><div class="line">df --help          <span class="comment"># 查看更多功能</span></div><div class="line">du --help          <span class="comment"># 查看更多功能</span></div></pre></td></tr></table></figure></p>
 <p>32.3<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">du -sh xmldb/</div><div class="line">du -sm * | sort -n      <span class="comment"># 统计当前目录大小并按大小排序</span></div><div class="line">du -sk * | grep taoyi   <span class="comment"># 查看一个人的大小</span></div><div class="line">du -m | cut <span class="string">"/"</span> <span class="_">-f</span> 2    <span class="comment"># 查看第二个/字符前的文字</span></div><div class="line">wc [-lmw]               <span class="comment"># -l: 多少行；-m: 多少字符；-w: 多少字</span></div></pre></td></tr></table></figure></p>
+<p>32.4 查看当前目录下各文件夹的大小<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">du -h --max-depth=1</div></pre></td></tr></table></figure></p>
+<p><code>--max-depth=n</code>表示深入到第<code>n</code>层目录，此处设置为<code>1</code>，即表示深入<code>1</code>层，即查看当前目录下各个文件夹的大小；如果设置为<code>0</code>，表示不深入到子目录，那得出的就是当前目录的总大小。</p>
+<p>32.5 du命令参数<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">du [-abcDhHklmsSx] [-L &lt;符号连接&gt;][-X &lt;文件&gt;][--block-size][--exclude=&lt;目录或文件&gt;] [--max-depth=&lt;目录层数&gt;][--help][--version][目录或文件]</div></pre></td></tr></table></figure></p>
+<ul>
+<li><code>-a或-all</code>：为每个指定文件显示磁盘使用情况，或者为目录中每个文件显示各自磁盘使用情况。</li>
+<li><code>-b或-bytes</code>：显示目录或文件大小时，以byte为单位。</li>
+<li><code>-c或–total</code>：除了显示目录或文件的大小外，同时也显示所有目录或文件的总和。</li>
+<li><code>-D或–dereference-args</code>：显示指定符号连接的源文件大小。</li>
+<li><code>-h或–human-readable</code>：以K，M，G为单位，提高信息的可读性。</li>
+<li><code>-H或–si</code>：与-h参数相同，但是K，M，G是以1000为换算单位,而不是以1024为换算单位。</li>
+<li><code>-k或–kilobytes</code>：以1024 bytes为单位。</li>
+<li><code>-l或–count-links</code>：重复计算硬件连接的文件。</li>
+<li><code>-L&lt;符号连接&gt;或–dereference&lt;符号连接&gt;</code>：显示选项中所指定符号连接的源文件大小。</li>
+<li><code>-m或–megabytes</code>：以1MB为单位。</li>
+<li><code>-s或–summarize</code>：仅显示总计，即当前目录的大小。</li>
+<li><code>-S或–separate-dirs</code>：显示每个目录的大小时，并不含其子目录的大小。</li>
+<li><code>-x或–one-file-xystem</code>：以一开始处理时的文件系统为准，若遇上其它不同的文件系统目录则略过。</li>
+<li><code>-X&lt;文件&gt;或–exclude-from=&lt;文件&gt;</code>：在&lt;文件&gt;指定目录或文件。</li>
+<li><code>–exclude=&lt;目录或文件&gt;</code>：略过指定的目录或文件。</li>
+<li><code>–max-depth=&lt;目录层数&gt;</code>：超过指定层数的目录后，予以忽略。</li>
+<li><code>–help</code>：显示帮助。</li>
+<li><code>–version</code>：显示版本信息。</li>
+<li><code>-0</code>：（杠零）表示每列出一个目录的信息，不换行，而是直接输出下一个目录的信息。</li>
+</ul>
       
     </div>
+    
+    
+    
 
-    <div>
-      
-        
+    
 
-      
-    </div>
-
-    <div>
-      
+    
+      <div>
         
   <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center">
     <div></div>
@@ -621,18 +651,31 @@ cp(copy)
         </div>
       
     </div>
+<div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none">
+
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/pay.png" alt="shadow Alipay">
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
   </div>
+</div>
 
+      </div>
+    
 
-      
-    </div>
-
-    <div>
-      
-        
-
-      
-    </div>
+    
 
     <footer class="post-footer">
       
@@ -672,7 +715,11 @@ cp(copy)
       
       
     </footer>
-  </article>
+  </div>
+  
+  
+  
+  </div></article>
 
 
 
@@ -732,7 +779,9 @@ cp(copy)
 
           
             <div class="site-state-item site-state-posts">
+            
               <a href="/archives">
+            
                 <span class="site-state-item-count">68</span>
                 <span class="site-state-item-name">日志</span>
               </a>
@@ -780,7 +829,9 @@ cp(copy)
                   
                     <i class="fa fa-fw fa-github"></i>
                   
-                  github
+                    
+                      github
+                    
                 </a>
               </span>
             
@@ -789,7 +840,9 @@ cp(copy)
                   
                     <i class="fa fa-fw fa-weibo"></i>
                   
-                  weibo
+                    
+                      weibo
+                    
                 </a>
               </span>
             
@@ -798,7 +851,9 @@ cp(copy)
                   
                     <i class="fa fa-fw fa-twitter"></i>
                   
-                  twitter
+                    
+                      twitter
+                    
                 </a>
               </span>
             
@@ -807,7 +862,9 @@ cp(copy)
                   
                     <i class="fa fa-fw fa-facebook"></i>
                   
-                  facebook
+                    
+                      facebook
+                    
                 </a>
               </span>
             
@@ -841,18 +898,18 @@ cp(copy)
       <div class="footer-inner">
         <div class="copyright">
   
-  &copy;  2015 - 
+  &copy;  2015 &mdash; 
   <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">shadow</span>
+
+  
 </div>
 
 
-<div class="powered-by">
-  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
-</div>
+  <div class="powered-by">由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动</div>
 
 <div class="theme-info">
   主题 -
@@ -872,8 +929,19 @@ cp(copy)
 <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
 </script>
 
+  <span class="post-meta-divider">|</span>
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.2</div>
+
+
 
         
+
+
+
+
+
+
 
         
       </div>
@@ -939,32 +1007,32 @@ cp(copy)
   
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
 
 
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
 
 
 
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
 
 
 
@@ -1009,6 +1077,8 @@ cp(copy)
 
 
 
+
+
   
 
 
@@ -1024,7 +1094,7 @@ cp(copy)
   <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
   
 
-  <script src="/js/src/algolia-search.js?v=5.1.1"></script>
+  <script src="/js/src/algolia-search.js?v=5.1.2"></script>
 
 
 

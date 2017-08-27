@@ -13,6 +13,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta name="theme-color" content="#222">
 
 
 
@@ -24,6 +25,7 @@
 
 <meta http-equiv="Cache-Control" content="no-transform">
 <meta http-equiv="Cache-Control" content="no-siteapp">
+
 
 
 
@@ -95,7 +97,7 @@
 
 <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css">
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
 
 
   <meta name="keywords" content="robot-framework,">
@@ -109,7 +111,7 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1">
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2">
 
 
 
@@ -122,7 +124,7 @@
 <meta property="og:url" content="http://shadow000902.space/2016/05/06/Robot-Framework测试环境搭建/index.html">
 <meta property="og:site_name" content="Shadow'S Site">
 <meta property="og:description" content="安装python环境。由于Robot Framework是基于python2开发的，所以必须选择安装python2版本，不然会造成很多异常，之后需要的一些依赖python2的库也无法安装。这里我选择安装的是Anaconda2，它自身就包含较多的python库，比较好用。">
-<meta property="og:updated_time" content="2017-06-24T07:41:48.000Z">
+<meta property="og:updated_time" content="2017-08-22T08:24:57.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Robot-Framework测试环境搭建">
 <meta name="twitter:description" content="安装python环境。由于Robot Framework是基于python2开发的，所以必须选择安装python2版本，不然会造成很多异常，之后需要的一些依赖python2的库也无法安装。这里我选择安装的是Anaconda2，它自身就包含较多的python库，比较好用。">
@@ -134,8 +136,10 @@
   var CONFIG = {
     root: '/',
     scheme: 'Pisces',
-    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false,"onmobile":false},
+    version: '5.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
+    tabs: true,
     motion: true,
     duoshuo: {
       userId: '436785',
@@ -187,12 +191,6 @@
       s.parentNode.insertBefore(hm, s);
     })();
   </script>
-
-
-
-
-
-
 
 
 
@@ -360,6 +358,10 @@
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://shadow000902.space/2016/05/06/Robot-Framework测试环境搭建/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -447,7 +449,7 @@
                  <i class="fa fa-eye"></i>
                </span>
                
-                 <span class="post-meta-item-text">阅读次数 </span>
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
                
                  <span class="leancloud-visitors-count"></span>
              </span>
@@ -463,6 +465,9 @@
       </header>
     
 
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -489,18 +494,17 @@
 <h5 id="mac-强制安装-wxpython2-8-12-1"><a href="#mac-强制安装-wxpython2-8-12-1" class="headerlink" title="mac 强制安装 wxpython2.8.12.1"></a>mac 强制安装 wxpython2.8.12.1</h5><p>下载<a href="https://sourceforge.net/projects/wxpython/files/wxPython/2.8.12.1/wxPython2.8-osx-unicode-2.8.12.1-universal-py2.7.dmg/download" target="_blank" rel="external">wxPython2.8-osx-unicode-2.8.12.1-universal-py2.7.dmg</a>；打开得到<code>wxPython2.8-osx-unicode-universal-py2.7.pkg</code>；右键显示包内容，再得到<code>wxPython2.8-osx-unicode-universal-py2.7.pax.gz</code>和<code>postflight</code>；解压<code>wxPython2.8-osx-unicode-universal-py2.7.pax.gz</code>，再得到<code>/usr/local/lib/wxPython-unicode-2.8.12.1</code>，把该文件夹放入系统的<code>/usr/local/lib/</code>中，切换到<code>postflight</code>目录，运行命令<code>sudo ./postflight</code>，安装好wxpython2.8.12.1。<br>执行<code>ride.py</code>提示：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">python should be executed <span class="keyword">in</span> 32-bit mode with wxPython on OSX.</div></pre></td></tr></table></figure></p>
 <p>是因为wxpython是32位的，而我们安装的是64位的。<br>输入以下命令强制执行32位：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">defaults write com.apple.versioner.python Prefer-32-Bit -bool yes</div></pre></td></tr></table></figure></p>
 <h5 id="ride-一次使用后再次打开崩溃的问题"><a href="#ride-一次使用后再次打开崩溃的问题" class="headerlink" title="ride 一次使用后再次打开崩溃的问题"></a>ride 一次使用后再次打开崩溃的问题</h5><p>因为用<code>pip install robotframework-ride</code>安装的<code>ride</code>是1.5.2.1版本，会出现这个问题，所以安装指定的1.5.2版本<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pip install robotframework-ride==1.5.2</div></pre></td></tr></table></figure></p>
+<h5 id="所有的安装内容"><a href="#所有的安装内容" class="headerlink" title="所有的安装内容"></a>所有的安装内容</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">pip install robotframework</div><div class="line">pip install robotframework-ride</div><div class="line">pip install robotframework-appiumlibrary</div><div class="line">pip install robotframework-selenium2library</div><div class="line">pip install robotframework-databaselibrary</div><div class="line">pip install requests</div><div class="line">pip install PyMySQL</div></pre></td></tr></table></figure>
       
     </div>
+    
+    
+    
 
-    <div>
-      
-        
+    
 
-      
-    </div>
-
-    <div>
-      
+    
+      <div>
         
   <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center">
     <div></div>
@@ -516,18 +520,31 @@
         </div>
       
     </div>
+<div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none">
+
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/pay.png" alt="shadow Alipay">
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
   </div>
+</div>
 
+      </div>
+    
 
-      
-    </div>
-
-    <div>
-      
-        
-
-      
-    </div>
+    
 
     <footer class="post-footer">
       
@@ -567,7 +584,11 @@
       
       
     </footer>
-  </article>
+  </div>
+  
+  
+  
+  </div></article>
 
 
 
@@ -636,7 +657,9 @@
 
           
             <div class="site-state-item site-state-posts">
+            
               <a href="/archives">
+            
                 <span class="site-state-item-count">68</span>
                 <span class="site-state-item-name">日志</span>
               </a>
@@ -684,7 +707,9 @@
                   
                     <i class="fa fa-fw fa-github"></i>
                   
-                  github
+                    
+                      github
+                    
                 </a>
               </span>
             
@@ -693,7 +718,9 @@
                   
                     <i class="fa fa-fw fa-weibo"></i>
                   
-                  weibo
+                    
+                      weibo
+                    
                 </a>
               </span>
             
@@ -702,7 +729,9 @@
                   
                     <i class="fa fa-fw fa-twitter"></i>
                   
-                  twitter
+                    
+                      twitter
+                    
                 </a>
               </span>
             
@@ -711,7 +740,9 @@
                   
                     <i class="fa fa-fw fa-facebook"></i>
                   
-                  facebook
+                    
+                      facebook
+                    
                 </a>
               </span>
             
@@ -739,7 +770,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#安装python环境。"><span class="nav-number">1.</span> <span class="nav-text">安装python环境。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装Appium。如果安装过程中遇到问题，还请看Appium安装"><span class="nav-number">2.</span> <span class="nav-text">安装Appium。如果安装过程中遇到问题，还请看Appium安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装Robot-Framework"><span class="nav-number">3.</span> <span class="nav-text">安装Robot Framework</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#源码安装。下载地址"><span class="nav-number">3.1.</span> <span class="nav-text">源码安装。下载地址</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#通过pip安装"><span class="nav-number">3.2.</span> <span class="nav-text">通过pip安装</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装wxPython。下载地址"><span class="nav-number">4.</span> <span class="nav-text">安装wxPython。下载地址</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#windows环境：exe文件，正常安装"><span class="nav-number">4.1.</span> <span class="nav-text">windows环境：exe文件，正常安装</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#mac环境：brew安装，修改源码"><span class="nav-number">4.2.</span> <span class="nav-text">mac环境：brew安装，修改源码</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装ride。"><span class="nav-number">5.</span> <span class="nav-text">安装ride。</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#源码安装。下载地址-1"><span class="nav-number">5.1.</span> <span class="nav-text">源码安装。下载地址</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#通过pip安装-1"><span class="nav-number">5.2.</span> <span class="nav-text">通过pip安装</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#命令行启动ride"><span class="nav-number">6.</span> <span class="nav-text">命令行启动ride</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Windows"><span class="nav-number">6.1.</span> <span class="nav-text">Windows</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#mac"><span class="nav-number">6.2.</span> <span class="nav-text">mac</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装robotframework-appiumlibrary"><span class="nav-number">7.</span> <span class="nav-text">安装robotframework-appiumlibrary</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装robotframework-selenium2library"><span class="nav-number">8.</span> <span class="nav-text">安装robotframework-selenium2library</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#问题解决"><span class="nav-number">9.</span> <span class="nav-text">问题解决</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#遇到ride无法启动的问题【Windows】"><span class="nav-number">9.1.</span> <span class="nav-text">遇到ride无法启动的问题【Windows】</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#mac-强制安装-wxpython2-8-12-1"><span class="nav-number">9.2.</span> <span class="nav-text">mac 强制安装 wxpython2.8.12.1</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#ride-一次使用后再次打开崩溃的问题"><span class="nav-number">9.3.</span> <span class="nav-text">ride 一次使用后再次打开崩溃的问题</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#安装python环境。"><span class="nav-number">1.</span> <span class="nav-text">安装python环境。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装Appium。如果安装过程中遇到问题，还请看Appium安装"><span class="nav-number">2.</span> <span class="nav-text">安装Appium。如果安装过程中遇到问题，还请看Appium安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装Robot-Framework"><span class="nav-number">3.</span> <span class="nav-text">安装Robot Framework</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#源码安装。下载地址"><span class="nav-number">3.1.</span> <span class="nav-text">源码安装。下载地址</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#通过pip安装"><span class="nav-number">3.2.</span> <span class="nav-text">通过pip安装</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装wxPython。下载地址"><span class="nav-number">4.</span> <span class="nav-text">安装wxPython。下载地址</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#windows环境：exe文件，正常安装"><span class="nav-number">4.1.</span> <span class="nav-text">windows环境：exe文件，正常安装</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#mac环境：brew安装，修改源码"><span class="nav-number">4.2.</span> <span class="nav-text">mac环境：brew安装，修改源码</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装ride。"><span class="nav-number">5.</span> <span class="nav-text">安装ride。</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#源码安装。下载地址-1"><span class="nav-number">5.1.</span> <span class="nav-text">源码安装。下载地址</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#通过pip安装-1"><span class="nav-number">5.2.</span> <span class="nav-text">通过pip安装</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#命令行启动ride"><span class="nav-number">6.</span> <span class="nav-text">命令行启动ride</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Windows"><span class="nav-number">6.1.</span> <span class="nav-text">Windows</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#mac"><span class="nav-number">6.2.</span> <span class="nav-text">mac</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装robotframework-appiumlibrary"><span class="nav-number">7.</span> <span class="nav-text">安装robotframework-appiumlibrary</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装robotframework-selenium2library"><span class="nav-number">8.</span> <span class="nav-text">安装robotframework-selenium2library</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#问题解决"><span class="nav-number">9.</span> <span class="nav-text">问题解决</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#遇到ride无法启动的问题【Windows】"><span class="nav-number">9.1.</span> <span class="nav-text">遇到ride无法启动的问题【Windows】</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#mac-强制安装-wxpython2-8-12-1"><span class="nav-number">9.2.</span> <span class="nav-text">mac 强制安装 wxpython2.8.12.1</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#ride-一次使用后再次打开崩溃的问题"><span class="nav-number">9.3.</span> <span class="nav-text">ride 一次使用后再次打开崩溃的问题</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#所有的安装内容"><span class="nav-number">9.4.</span> <span class="nav-text">所有的安装内容</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -761,18 +792,18 @@
       <div class="footer-inner">
         <div class="copyright">
   
-  &copy;  2015 - 
+  &copy;  2015 &mdash; 
   <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">shadow</span>
+
+  
 </div>
 
 
-<div class="powered-by">
-  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
-</div>
+  <div class="powered-by">由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动</div>
 
 <div class="theme-info">
   主题 -
@@ -792,8 +823,19 @@
 <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
 </script>
 
+  <span class="post-meta-divider">|</span>
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.2</div>
+
+
 
         
+
+
+
+
+
+
 
         
       </div>
@@ -859,32 +901,32 @@
   
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
 
 
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
 
 
 
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
 
 
 
@@ -929,6 +971,8 @@
 
 
 
+
+
   
 
 
@@ -944,7 +988,7 @@
   <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
   
 
-  <script src="/js/src/algolia-search.js?v=5.1.1"></script>
+  <script src="/js/src/algolia-search.js?v=5.1.2"></script>
 
 
 

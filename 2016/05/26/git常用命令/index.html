@@ -13,6 +13,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta name="theme-color" content="#222">
 
 
 
@@ -24,6 +25,7 @@
 
 <meta http-equiv="Cache-Control" content="no-transform">
 <meta http-equiv="Cache-Control" content="no-siteapp">
+
 
 
 
@@ -95,7 +97,7 @@
 
 <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css">
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
 
 
   <meta name="keywords" content="git,">
@@ -109,7 +111,7 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1">
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2">
 
 
 
@@ -122,7 +124,7 @@
 <meta property="og:url" content="http://shadow000902.space/2016/05/26/git常用命令/index.html">
 <meta property="og:site_name" content="Shadow'S Site">
 <meta property="og:description" content="初始配置123mkdir d:\git_testgit config -global user.name &quot;Your name&quot;git config -global user.email &quot;you@example.com&quot;">
-<meta property="og:updated_time" content="2017-06-24T07:41:48.000Z">
+<meta property="og:updated_time" content="2017-08-23T07:15:19.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git常用命令">
 <meta name="twitter:description" content="初始配置123mkdir d:\git_testgit config -global user.name &quot;Your name&quot;git config -global user.email &quot;you@example.com&quot;">
@@ -134,8 +136,10 @@
   var CONFIG = {
     root: '/',
     scheme: 'Pisces',
-    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false,"onmobile":false},
+    version: '5.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
+    tabs: true,
     motion: true,
     duoshuo: {
       userId: '436785',
@@ -187,12 +191,6 @@
       s.parentNode.insertBefore(hm, s);
     })();
   </script>
-
-
-
-
-
-
 
 
 
@@ -360,6 +358,10 @@
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://shadow000902.space/2016/05/26/git常用命令/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -447,7 +449,7 @@
                  <i class="fa fa-eye"></i>
                </span>
                
-                 <span class="post-meta-item-text">阅读次数 </span>
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
                
                  <span class="leancloud-visitors-count"></span>
              </span>
@@ -463,6 +465,9 @@
       </header>
     
 
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -476,18 +481,34 @@
 <h4 id="创建分支"><a href="#创建分支" class="headerlink" title="创建分支"></a>创建分支</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">git branch                      <span class="comment"># 查看分支列表</span></div><div class="line">git branch experiment           <span class="comment"># 创建experiment分支</span></div><div class="line">git checkout experiment         <span class="comment"># 切换到experiment分支</span></div><div class="line">git commit <span class="_">-a</span>                   <span class="comment"># 在分支上提交工作</span></div><div class="line">git checkout master             <span class="comment"># 切换到主干道</span></div><div class="line">git merge experiment            <span class="comment"># 合并分支到主干道</span></div><div class="line">git branch <span class="_">-d</span> experiment        <span class="comment"># -d，表示“在分支已经合并到主干后删除分支”。如果使用大写的-D的话，则表示“不论如何都删除分支”</span></div></pre></td></tr></table></figure>
 <h4 id="撤销一次已经提交到Github的内容"><a href="#撤销一次已经提交到Github的内容" class="headerlink" title="撤销一次已经提交到Github的内容"></a>撤销一次已经提交到Github的内容</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git reset --hard HEAD~1</div><div class="line">git push --force</div></pre></td></tr></table></figure>
 <p>该命令执行后，会隐藏掉Github库中的被撤销掉的记录，但是指定到该被隐藏掉的记录来访问，依旧可以访问。</p>
+<h4 id="GitHub更新自己fork的代码"><a href="#GitHub更新自己fork的代码" class="headerlink" title="GitHub更新自己fork的代码"></a>GitHub更新自己fork的代码</h4><ol>
+<li><p><code>clone</code>已经<code>fork</code>到自己账号的代码</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git <span class="built_in">clone</span> https://github.com/shadow000902/ApiTestEngine.git</div><div class="line"><span class="built_in">cd</span> ApiTestEngine</div></pre></td></tr></table></figure>
+</li>
+<li><p>查看远程分支列表</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">╭─taoyi at TaoYi-Mac <span class="keyword">in</span> ~/git_projects/GitHub/ApiTestEngine on master✔ using ‹› 17-08-23 - 15:01:23</div><div class="line">╰─○ git remote -v</div><div class="line">debugtalk	https://github.com/debugtalk/ApiTestEngine.git (fetch)</div><div class="line">debugtalk	https://github.com/debugtalk/ApiTestEngine.git (push)</div><div class="line">origin	https://github.com/shadow000902/ApiTestEngine.git (fetch)</div><div class="line">origin	https://github.com/shadow000902/ApiTestEngine.git (push)</div></pre></td></tr></table></figure>
+</li>
+<li><p><code>fetch</code>原始源代码的新版本到本地</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git fetch debugtalk</div></pre></td></tr></table></figure>
+</li>
+<li><p>合并两个版本的代码</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git merge debugtalk/master</div></pre></td></tr></table></figure>
+</li>
+<li><p>如果合并代码后有冲突，解决冲突</p>
+</li>
+<li>把合并好的最新的代码提交到自己的<code>GitHub</code>账号上<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git push origin master</div></pre></td></tr></table></figure>
+</li>
+</ol>
       
     </div>
+    
+    
+    
 
-    <div>
-      
-        
+    
 
-      
-    </div>
-
-    <div>
-      
+    
+      <div>
         
   <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center">
     <div></div>
@@ -503,18 +524,31 @@
         </div>
       
     </div>
+<div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none">
+
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/pay.png" alt="shadow Alipay">
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
   </div>
+</div>
 
+      </div>
+    
 
-      
-    </div>
-
-    <div>
-      
-        
-
-      
-    </div>
+    
 
     <footer class="post-footer">
       
@@ -554,7 +588,11 @@
       
       
     </footer>
-  </article>
+  </div>
+  
+  
+  
+  </div></article>
 
 
 
@@ -623,7 +661,9 @@
 
           
             <div class="site-state-item site-state-posts">
+            
               <a href="/archives">
+            
                 <span class="site-state-item-count">68</span>
                 <span class="site-state-item-name">日志</span>
               </a>
@@ -671,7 +711,9 @@
                   
                     <i class="fa fa-fw fa-github"></i>
                   
-                  github
+                    
+                      github
+                    
                 </a>
               </span>
             
@@ -680,7 +722,9 @@
                   
                     <i class="fa fa-fw fa-weibo"></i>
                   
-                  weibo
+                    
+                      weibo
+                    
                 </a>
               </span>
             
@@ -689,7 +733,9 @@
                   
                     <i class="fa fa-fw fa-twitter"></i>
                   
-                  twitter
+                    
+                      twitter
+                    
                 </a>
               </span>
             
@@ -698,7 +744,9 @@
                   
                     <i class="fa fa-fw fa-facebook"></i>
                   
-                  facebook
+                    
+                      facebook
+                    
                 </a>
               </span>
             
@@ -726,7 +774,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#初始配置"><span class="nav-number">1.</span> <span class="nav-text">初始配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用"><span class="nav-number">2.</span> <span class="nav-text">使用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#创建分支"><span class="nav-number">3.</span> <span class="nav-text">创建分支</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#撤销一次已经提交到Github的内容"><span class="nav-number">4.</span> <span class="nav-text">撤销一次已经提交到Github的内容</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#初始配置"><span class="nav-number">1.</span> <span class="nav-text">初始配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用"><span class="nav-number">2.</span> <span class="nav-text">使用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#创建分支"><span class="nav-number">3.</span> <span class="nav-text">创建分支</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#撤销一次已经提交到Github的内容"><span class="nav-number">4.</span> <span class="nav-text">撤销一次已经提交到Github的内容</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#GitHub更新自己fork的代码"><span class="nav-number">5.</span> <span class="nav-text">GitHub更新自己fork的代码</span></a></li></ol></div>
             
 
           </div>
@@ -748,18 +796,18 @@
       <div class="footer-inner">
         <div class="copyright">
   
-  &copy;  2015 - 
+  &copy;  2015 &mdash; 
   <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">shadow</span>
+
+  
 </div>
 
 
-<div class="powered-by">
-  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
-</div>
+  <div class="powered-by">由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动</div>
 
 <div class="theme-info">
   主题 -
@@ -779,8 +827,19 @@
 <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
 </script>
 
+  <span class="post-meta-divider">|</span>
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.2</div>
+
+
 
         
+
+
+
+
+
+
 
         
       </div>
@@ -846,32 +905,32 @@
   
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
 
 
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
 
 
 
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
 
 
 
@@ -916,6 +975,8 @@
 
 
 
+
+
   
 
 
@@ -931,7 +992,7 @@
   <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
   
 
-  <script src="/js/src/algolia-search.js?v=5.1.1"></script>
+  <script src="/js/src/algolia-search.js?v=5.1.2"></script>
 
 
 

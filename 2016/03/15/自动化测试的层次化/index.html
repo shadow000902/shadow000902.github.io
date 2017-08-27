@@ -13,6 +13,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta name="theme-color" content="#222">
 
 
 
@@ -24,6 +25,7 @@
 
 <meta http-equiv="Cache-Control" content="no-transform">
 <meta http-equiv="Cache-Control" content="no-siteapp">
+
 
 
 
@@ -95,7 +97,7 @@
 
 <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css">
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
 
 
   <meta name="keywords" content="自动化,">
@@ -109,7 +111,7 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1">
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2">
 
 
 
@@ -133,8 +135,10 @@
   var CONFIG = {
     root: '/',
     scheme: 'Pisces',
-    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false,"onmobile":false},
+    version: '5.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
+    tabs: true,
     motion: true,
     duoshuo: {
       userId: '436785',
@@ -186,12 +190,6 @@
       s.parentNode.insertBefore(hm, s);
     })();
   </script>
-
-
-
-
-
-
 
 
 
@@ -359,6 +357,10 @@
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://shadow000902.space/2016/03/15/自动化测试的层次化/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -446,7 +448,7 @@
                  <i class="fa fa-eye"></i>
                </span>
                
-                 <span class="post-meta-item-text">阅读次数 </span>
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
                
                  <span class="leancloud-visitors-count"></span>
              </span>
@@ -462,6 +464,9 @@
       </header>
     
 
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -478,16 +483,14 @@
 <p>UI测试：这一层主要由测试同学负责，使用各种UI自动化工具进行测试脚本的开发，我们可以使用AutomanX或者Selenium等工具实现UI层的自动化测试。<br>为什么要画成一个金字塔形，则不是长方形或倒三角形呢？这是为了表示不同阶段所投入自动化测试的比例。如果一个产品从没有做单元测试与接口测试，只做UI层的自动化测试是不科学的，从而很难从本质上保证产品的质量。如果你妄图实现全面的UI层的自动化测试，那更是一个劳民伤财的举动，投入了大量人力时间，最终获得的收益可能会远远低于所支付的成本。因为越往上层，其维护成本越高。尤其是UI层的元素会时常的发生改变。所以，我们应该把更多的自动化测试放在单元测试与接口测试阶段进行。<br>既然UI层的自动化测试这么劳民伤财，那我们只做单元测试与接口测试好了。NO！因为不管什么样的产品，最终呈现给用户的是UI层。所以，测试人员应该更多的精力放在UI层。那么也正是因为测试人员在UI层投入大量的精力，所以，我们有必要通过自动化的方式帮助我们“部分解放”重复的劳动。<br>至于在金字塔中三种测试的比例要根据实际的项目需求来划分。在《google测试之道》一书，对于google产品，70%的投入为单元测试，20%为集成、接口测试，10%为UI层的自动化测试。</p>
       
     </div>
+    
+    
+    
 
-    <div>
-      
-        
+    
 
-      
-    </div>
-
-    <div>
-      
+    
+      <div>
         
   <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center">
     <div></div>
@@ -503,18 +506,31 @@
         </div>
       
     </div>
+<div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none">
+
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/pay.png" alt="shadow Alipay">
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
   </div>
+</div>
 
+      </div>
+    
 
-      
-    </div>
-
-    <div>
-      
-        
-
-      
-    </div>
+    
 
     <footer class="post-footer">
       
@@ -554,7 +570,11 @@
       
       
     </footer>
-  </article>
+  </div>
+  
+  
+  
+  </div></article>
 
 
 
@@ -614,7 +634,9 @@
 
           
             <div class="site-state-item site-state-posts">
+            
               <a href="/archives">
+            
                 <span class="site-state-item-count">68</span>
                 <span class="site-state-item-name">日志</span>
               </a>
@@ -662,7 +684,9 @@
                   
                     <i class="fa fa-fw fa-github"></i>
                   
-                  github
+                    
+                      github
+                    
                 </a>
               </span>
             
@@ -671,7 +695,9 @@
                   
                     <i class="fa fa-fw fa-weibo"></i>
                   
-                  weibo
+                    
+                      weibo
+                    
                 </a>
               </span>
             
@@ -680,7 +706,9 @@
                   
                     <i class="fa fa-fw fa-twitter"></i>
                   
-                  twitter
+                    
+                      twitter
+                    
                 </a>
               </span>
             
@@ -689,7 +717,9 @@
                   
                     <i class="fa fa-fw fa-facebook"></i>
                   
-                  facebook
+                    
+                      facebook
+                    
                 </a>
               </span>
             
@@ -723,18 +753,18 @@
       <div class="footer-inner">
         <div class="copyright">
   
-  &copy;  2015 - 
+  &copy;  2015 &mdash; 
   <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">shadow</span>
+
+  
 </div>
 
 
-<div class="powered-by">
-  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
-</div>
+  <div class="powered-by">由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动</div>
 
 <div class="theme-info">
   主题 -
@@ -754,8 +784,19 @@
 <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
 </script>
 
+  <span class="post-meta-divider">|</span>
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.2</div>
+
+
 
         
+
+
+
+
+
+
 
         
       </div>
@@ -821,32 +862,32 @@
   
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
 
 
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
 
 
 
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
 
 
 
@@ -891,6 +932,8 @@
 
 
 
+
+
   
 
 
@@ -906,7 +949,7 @@
   <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
   
 
-  <script src="/js/src/algolia-search.js?v=5.1.1"></script>
+  <script src="/js/src/algolia-search.js?v=5.1.2"></script>
 
 
 

@@ -13,6 +13,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta name="theme-color" content="#222">
 
 
 
@@ -24,6 +25,7 @@
 
 <meta http-equiv="Cache-Control" content="no-transform">
 <meta http-equiv="Cache-Control" content="no-siteapp">
+
 
 
 
@@ -95,7 +97,7 @@
 
 <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css">
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
 
 
   <meta name="keywords" content="appium,">
@@ -109,7 +111,7 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1">
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2">
 
 
 
@@ -139,8 +141,10 @@
   var CONFIG = {
     root: '/',
     scheme: 'Pisces',
-    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false,"onmobile":false},
+    version: '5.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
+    tabs: true,
     motion: true,
     duoshuo: {
       userId: '436785',
@@ -192,12 +196,6 @@
       s.parentNode.insertBefore(hm, s);
     })();
   </script>
-
-
-
-
-
-
 
 
 
@@ -365,6 +363,10 @@
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://shadow000902.space/2016/03/31/Appium安装/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -452,7 +454,7 @@
                  <i class="fa fa-eye"></i>
                </span>
                
-                 <span class="post-meta-item-text">阅读次数 </span>
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
                
                  <span class="leancloud-visitors-count"></span>
              </span>
@@ -468,6 +470,9 @@
       </header>
     
 
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -527,16 +532,14 @@
 <h4 id="Mac成功安装Appium1-5-3版本［我有翻墙，不知道不翻墙行不行］"><a href="#Mac成功安装Appium1-5-3版本［我有翻墙，不知道不翻墙行不行］" class="headerlink" title="Mac成功安装Appium1.5.3版本［我有翻墙，不知道不翻墙行不行］"></a><code>Mac</code>成功安装<code>Appium1.5.3</code>版本［我有翻墙，不知道不翻墙行不行］</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div></pre></td><td class="code"><pre><div class="line">Last login: Mon Aug 15 14:28:23 on ttys003</div><div class="line">➜  ~ appium -v</div><div class="line">1.5.3</div><div class="line">➜  ~ npm -v</div><div class="line">3.9.3</div><div class="line">➜  ~ node -v</div><div class="line">v6.2.1</div><div class="line">➜  ~ npm -g install appium</div><div class="line">loadRequestedDeps → netwo ▀ ╢████████████████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░╟</div><div class="line">^C</div><div class="line">➜  ~ npm -g install appium --registry=http://registry.npm.taobao.org</div><div class="line">/usr/local/bin/appium -&gt; /usr/local/lib/node_modules/appium/build/lib/main.js</div><div class="line">/usr/local/bin/authorize-ios -&gt; /usr/local/lib/node_modules/appium/node_modules/.bin/authorize-ios</div><div class="line"></div><div class="line">&gt; fsevents@1.0.14 install /usr/local/lib/node_modules/appium/node_modules/fsevents</div><div class="line">&gt; node-pre-gyp install --fallback-to-build</div><div class="line"></div><div class="line">[fsevents] Success: &quot;/usr/local/lib/node_modules/appium/node_modules/fsevents/lib/binding/Release/node-v48-darwin-x64/fse.node&quot; is installed via remote</div><div class="line">- ansi@0.3.1 node_modules/appium/node_modules/fsevents/node_modules/ansi</div><div class="line">- pseudomap@1.0.2 node_modules/appium/node_modules/fsevents/node_modules/aws4/node_modules/lru-cache/node_modules/pseudomap</div><div class="line">- yallist@2.0.0 node_modules/appium/node_modules/fsevents/node_modules/aws4/node_modules/lru-cache/node_modules/yallist</div><div class="line">- lru-cache@4.0.1 node_modules/appium/node_modules/fsevents/node_modules/aws4/node_modules/lru-cache</div><div class="line">- balanced-match@0.3.0 node_modules/appium/node_modules/fsevents/node_modules/fstream-ignore/node_modules/minimatch/node_modules/brace-expansion/node_modules/balanced-match</div><div class="line">- concat-map@0.0.1 node_modules/appium/node_modules/fsevents/node_modules/fstream-ignore/node_modules/minimatch/node_modules/brace-expansion/node_modules/concat-map</div><div class="line">- brace-expansion@1.1.3 node_modules/appium/node_modules/fsevents/node_modules/fstream-ignore/node_modules/minimatch/node_modules/brace-expansion</div><div class="line">- minimatch@3.0.0 node_modules/appium/node_modules/fsevents/node_modules/fstream-ignore/node_modules/minimatch</div><div class="line">- lodash.tostring@4.1.2 node_modules/appium/node_modules/fsevents/node_modules/lodash.tostring</div><div class="line">- lodash.repeat@4.0.0 node_modules/appium/node_modules/fsevents/node_modules/lodash.repeat</div><div class="line">- lodash.padstart@4.2.0 node_modules/appium/node_modules/fsevents/node_modules/lodash.padstart</div><div class="line">- lodash.padend@4.2.0 node_modules/appium/node_modules/fsevents/node_modules/lodash.padend</div><div class="line">- lodash.pad@4.1.0 node_modules/appium/node_modules/fsevents/node_modules/lodash.pad</div><div class="line">- abbrev@1.0.7 node_modules/appium/node_modules/fsevents/node_modules/node-pre-gyp/node_modules/nopt/node_modules/abbrev</div><div class="line">- nopt@3.0.6 node_modules/appium/node_modules/fsevents/node_modules/node-pre-gyp/node_modules/nopt</div><div class="line">- wrappy@1.0.1 node_modules/appium/node_modules/fsevents/node_modules/rimraf/node_modules/glob/node_modules/inflight/node_modules/wrappy</div><div class="line">- inherits@2.0.1 node_modules/appium/node_modules/fsevents/node_modules/rimraf/node_modules/glob/node_modules/inherits</div><div class="line">- balanced-match@0.3.0 node_modules/appium/node_modules/fsevents/node_modules/rimraf/node_modules/glob/node_modules/minimatch/node_modules/brace-expansion/node_modules/balanced-match</div><div class="line">- concat-map@0.0.1 node_modules/appium/node_modules/fsevents/node_modules/rimraf/node_modules/glob/node_modules/minimatch/node_modules/brace-expansion/node_modules/concat-map</div><div class="line">- brace-expansion@1.1.3 node_modules/appium/node_modules/fsevents/node_modules/rimraf/node_modules/glob/node_modules/minimatch/node_modules/brace-expansion</div><div class="line">- minimatch@3.0.0 node_modules/appium/node_modules/fsevents/node_modules/rimraf/node_modules/glob/node_modules/minimatch</div><div class="line">- wrappy@1.0.1 node_modules/appium/node_modules/fsevents/node_modules/rimraf/node_modules/glob/node_modules/once/node_modules/wrappy</div><div class="line">- once@1.3.3 node_modules/appium/node_modules/fsevents/node_modules/rimraf/node_modules/glob/node_modules/once</div><div class="line">- inflight@1.0.4 node_modules/appium/node_modules/fsevents/node_modules/rimraf/node_modules/glob/node_modules/inflight</div><div class="line">- path-is-absolute@1.0.0 node_modules/appium/node_modules/fsevents/node_modules/rimraf/node_modules/glob/node_modules/path-is-absolute</div><div class="line">- glob@7.0.3 node_modules/appium/node_modules/fsevents/node_modules/rimraf/node_modules/glob</div><div class="line">/usr/local/lib</div><div class="line">└─┬ appium@1.5.3</div><div class="line">  └─┬ fsevents@1.0.14</div><div class="line">    ├── nan@2.4.0</div><div class="line">    └─┬ node-pre-gyp@0.6.29</div><div class="line">      ├─┬ nopt@3.0.6</div><div class="line">      │ └── abbrev@1.0.9</div><div class="line">      ├─┬ npmlog@3.1.2</div><div class="line">      │ ├── console-control-strings@1.1.0</div><div class="line">      │ ├─┬ gauge@2.6.0</div><div class="line">      │ │ ├── aproba@1.0.4</div><div class="line">      │ │ ├── has-color@0.1.7</div><div class="line">      │ │ ├── has-unicode@2.0.1</div><div class="line">      │ │ ├── object-assign@4.1.0</div><div class="line">      │ │ ├── signal-exit@3.0.0</div><div class="line">      │ │ ├─┬ string-width@1.0.1</div><div class="line">      │ │ │ ├─┬ code-point-at@1.0.0</div><div class="line">      │ │ │ │ └── number-is-nan@1.0.0</div><div class="line">      │ │ │ └── is-fullwidth-code-point@1.0.0</div><div class="line">      │ │ └── wide-align@1.1.0</div><div class="line">      │ └── set-blocking@2.0.0</div><div class="line">      ├─┬ request@2.73.0</div><div class="line">      │ ├── aws4@1.4.1</div><div class="line">      │ ├─┬ bl@1.1.2</div><div class="line">      │ │ └── readable-stream@2.0.6</div><div class="line">      │ ├─┬ har-validator@2.0.6</div><div class="line">      │ │ └── pinkie-promise@2.0.1</div><div class="line">      │ ├─┬ http-signature@1.1.1</div><div class="line">      │ │ ├── jsprim@1.3.0</div><div class="line">      │ │ └─┬ sshpk@1.8.3</div><div class="line">      │ │   ├── assert-plus@1.0.0</div><div class="line">      │ │   ├── dashdash@1.14.0</div><div class="line">      │ │   ├─┬ getpass@0.1.6</div><div class="line">      │ │   │ └── assert-plus@1.0.0</div><div class="line">      │ │   └── tweetnacl@0.13.3</div><div class="line">      │ ├─┬ mime-types@2.1.11</div><div class="line">      │ │ └── mime-db@1.23.0</div><div class="line">      │ ├── oauth-sign@0.8.2</div><div class="line">      │ ├── qs@6.2.0</div><div class="line">      │ └── tunnel-agent@0.4.3</div><div class="line">      ├─┬ rimraf@2.5.3</div><div class="line">      │ └─┬ glob@7.0.5</div><div class="line">      │   ├── fs.realpath@1.0.0</div><div class="line">      │   ├── inflight@1.0.5</div><div class="line">      │   ├─┬ minimatch@3.0.2</div><div class="line">      │   │ └─┬ brace-expansion@1.1.5</div><div class="line">      │   │   ├── balanced-match@0.4.2</div><div class="line">      │   │   └── concat-map@0.0.1</div><div class="line">      │   └── path-is-absolute@1.0.0</div><div class="line">      ├── semver@5.2.0</div><div class="line">      ├─┬ tar@2.2.1</div><div class="line">      │ ├── block-stream@0.0.9</div><div class="line">      │ └─┬ fstream@1.0.10</div><div class="line">      │   └── graceful-fs@4.1.4</div><div class="line">      └─┬ tar-pack@3.1.4</div><div class="line">        ├── fstream-ignore@1.0.5</div><div class="line">        ├─┬ once@1.3.3</div><div class="line">        │ └── wrappy@1.0.2</div><div class="line">        └─┬ readable-stream@2.1.4</div><div class="line">          ├── buffer-shims@1.0.0</div><div class="line">          └── process-nextick-args@1.0.7</div><div class="line"></div><div class="line">➜  ~</div></pre></td></tr></table></figure>
       
     </div>
+    
+    
+    
 
-    <div>
-      
-        
+    
 
-      
-    </div>
-
-    <div>
-      
+    
+      <div>
         
   <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center">
     <div></div>
@@ -552,18 +555,31 @@
         </div>
       
     </div>
+<div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none">
+
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/pay.png" alt="shadow Alipay">
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
   </div>
+</div>
 
+      </div>
+    
 
-      
-    </div>
-
-    <div>
-      
-        
-
-      
-    </div>
+    
 
     <footer class="post-footer">
       
@@ -603,7 +619,11 @@
       
       
     </footer>
-  </article>
+  </div>
+  
+  
+  
+  </div></article>
 
 
 
@@ -672,7 +692,9 @@
 
           
             <div class="site-state-item site-state-posts">
+            
               <a href="/archives">
+            
                 <span class="site-state-item-count">68</span>
                 <span class="site-state-item-name">日志</span>
               </a>
@@ -720,7 +742,9 @@
                   
                     <i class="fa fa-fw fa-github"></i>
                   
-                  github
+                    
+                      github
+                    
                 </a>
               </span>
             
@@ -729,7 +753,9 @@
                   
                     <i class="fa fa-fw fa-weibo"></i>
                   
-                  weibo
+                    
+                      weibo
+                    
                 </a>
               </span>
             
@@ -738,7 +764,9 @@
                   
                     <i class="fa fa-fw fa-twitter"></i>
                   
-                  twitter
+                    
+                      twitter
+                    
                 </a>
               </span>
             
@@ -747,7 +775,9 @@
                   
                     <i class="fa fa-fw fa-facebook"></i>
                   
-                  facebook
+                    
+                      facebook
+                    
                 </a>
               </span>
             
@@ -797,18 +827,18 @@
       <div class="footer-inner">
         <div class="copyright">
   
-  &copy;  2015 - 
+  &copy;  2015 &mdash; 
   <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">shadow</span>
+
+  
 </div>
 
 
-<div class="powered-by">
-  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
-</div>
+  <div class="powered-by">由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动</div>
 
 <div class="theme-info">
   主题 -
@@ -828,8 +858,19 @@
 <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
 </script>
 
+  <span class="post-meta-divider">|</span>
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.2</div>
+
+
 
         
+
+
+
+
+
+
 
         
       </div>
@@ -895,32 +936,32 @@
   
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
 
 
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
 
 
 
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
 
 
 
@@ -965,6 +1006,8 @@
 
 
 
+
+
   
 
 
@@ -980,7 +1023,7 @@
   <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
   
 
-  <script src="/js/src/algolia-search.js?v=5.1.1"></script>
+  <script src="/js/src/algolia-search.js?v=5.1.2"></script>
 
 
 
