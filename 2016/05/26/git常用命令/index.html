@@ -124,7 +124,7 @@
 <meta property="og:url" content="http://shadow000902.space/2016/05/26/git常用命令/index.html">
 <meta property="og:site_name" content="Shadow'S Site">
 <meta property="og:description" content="初始配置123mkdir d:\git_testgit config -global user.name &quot;Your name&quot;git config -global user.email &quot;you@example.com&quot;">
-<meta property="og:updated_time" content="2017-08-23T07:15:19.000Z">
+<meta property="og:updated_time" content="2017-08-28T02:37:05.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git常用命令">
 <meta name="twitter:description" content="初始配置123mkdir d:\git_testgit config -global user.name &quot;Your name&quot;git config -global user.email &quot;you@example.com&quot;">
@@ -450,8 +450,8 @@
                </span>
                
                  <span class="post-meta-item-text">阅读次数&#58;</span>
-               
                  <span class="leancloud-visitors-count"></span>
+               
              </span>
           
 
@@ -499,6 +499,16 @@
 <li>把合并好的最新的代码提交到自己的<code>GitHub</code>账号上<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git push origin master</div></pre></td></tr></table></figure>
 </li>
 </ol>
+<h4 id="git撤销最后一次commit"><a href="#git撤销最后一次commit" class="headerlink" title="git撤销最后一次commit"></a>git撤销最后一次commit</h4><ol>
+<li>使用<code>git log</code>查看<code>commit</code>记录<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">commit-id1</div><div class="line">commit-id2</div><div class="line">commit-id3</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>如果想要撤销<code>commit-id1</code>的话，就要选择<code>commit-id2</code></p>
+<ol>
+<li>使用命令撤销提交<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git reset commit-id2				<span class="comment"># 只是撤销提交，修改的内容不变</span></div></pre></td></tr></table></figure>
+</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git reset --hard commit-id2			<span class="comment"># 撤销提交，并撤销修改的内容</span></div><div class="line">git push origin HARD --force		<span class="comment"># 撤销后，强制提交并push到远程分支</span></div></pre></td></tr></table></figure>
       
     </div>
     
@@ -664,7 +674,7 @@
             
               <a href="/archives">
             
-                <span class="site-state-item-count">68</span>
+                <span class="site-state-item-count">69</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -774,7 +784,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#初始配置"><span class="nav-number">1.</span> <span class="nav-text">初始配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用"><span class="nav-number">2.</span> <span class="nav-text">使用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#创建分支"><span class="nav-number">3.</span> <span class="nav-text">创建分支</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#撤销一次已经提交到Github的内容"><span class="nav-number">4.</span> <span class="nav-text">撤销一次已经提交到Github的内容</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#GitHub更新自己fork的代码"><span class="nav-number">5.</span> <span class="nav-text">GitHub更新自己fork的代码</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#初始配置"><span class="nav-number">1.</span> <span class="nav-text">初始配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用"><span class="nav-number">2.</span> <span class="nav-text">使用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#创建分支"><span class="nav-number">3.</span> <span class="nav-text">创建分支</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#撤销一次已经提交到Github的内容"><span class="nav-number">4.</span> <span class="nav-text">撤销一次已经提交到Github的内容</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#GitHub更新自己fork的代码"><span class="nav-number">5.</span> <span class="nav-text">GitHub更新自己fork的代码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#git撤销最后一次commit"><span class="nav-number">6.</span> <span class="nav-text">git撤销最后一次commit</span></a></li></ol></div>
             
 
           </div>
