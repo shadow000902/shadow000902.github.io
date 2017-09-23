@@ -140,7 +140,7 @@
     sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
     tabs: true,
-    motion: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn"}},
     duoshuo: {
       userId: '436785',
       author: 'shadow'
@@ -243,7 +243,7 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
             
             首页
           </a>
@@ -253,7 +253,7 @@
         <li class="menu-item menu-item-categories">
           <a href="/categories" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
             
             分类
           </a>
@@ -263,7 +263,7 @@
         <li class="menu-item menu-item-about">
           <a href="/about" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
             
             关于
           </a>
@@ -273,7 +273,7 @@
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
             
             归档
           </a>
@@ -283,7 +283,7 @@
         <li class="menu-item menu-item-tags">
           <a href="/tags" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
             
             标签
           </a>
@@ -633,11 +633,11 @@
 
       <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="shadow">
-          <p class="site-author-name" itemprop="name">shadow</p>
-           
-              <p class="site-description motion-element" itemprop="description">谁当声震人间，必长久深自缄默。谁当划破闪电，必长久如云漂泊。</p>
           
+            <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="shadow">
+          
+            <p class="site-author-name" itemprop="name">shadow</p>
+            <p class="site-description motion-element" itemprop="description">谁当声震人间，必长久深自缄默。谁当划破闪电，必长久如云漂泊。</p>
         </div>
         <nav class="site-state motion-element">
 
@@ -691,7 +691,7 @@
               <span class="links-of-author-item">
                 <a href="https://github.com/shadow000902" target="_blank" title="github">
                   
-                    <i class="fa fa-fw fa-github"></i>
+                    <i class="fa fa-fw fa-globe"></i>
                   
                     
                       github
@@ -702,7 +702,7 @@
               <span class="links-of-author-item">
                 <a href="http://weibo.com/1716962871" target="_blank" title="weibo">
                   
-                    <i class="fa fa-fw fa-weibo"></i>
+                    <i class="fa fa-fw fa-globe"></i>
                   
                     
                       weibo
@@ -713,7 +713,7 @@
               <span class="links-of-author-item">
                 <a href="https://twitter.com/shadow000902" target="_blank" title="twitter">
                   
-                    <i class="fa fa-fw fa-twitter"></i>
+                    <i class="fa fa-fw fa-globe"></i>
                   
                     
                       twitter
@@ -724,7 +724,7 @@
               <span class="links-of-author-item">
                 <a href="https://facebook.com/shadow000902" target="_blank" title="facebook">
                   
-                    <i class="fa fa-fw fa-facebook"></i>
+                    <i class="fa fa-fw fa-globe"></i>
                   
                     
                       facebook
@@ -901,6 +901,10 @@
 
   <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
 
+
+
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
 
 
   
