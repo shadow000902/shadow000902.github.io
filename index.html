@@ -486,45 +486,20 @@
 
       
         
-          
-            <ol>
-<li><p>在手机上安装<code>QPython</code><br>GitHub上的<a href="https://github.com/qpython-android/qpython/releases" target="_blank" rel="external">下载链接</a></p>
+          <ol>
+<li><p>在手机上安装<code>QPython</code><br>GitHub上的<a href="https://github.com/qpython-android/qpython/releases">下载链接</a></p>
 </li>
 <li><p>在手机上打开<code>QPython</code>软件的<code>Terminal</code>，安装<code>uiautomator2</code></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Since uiautomator2 is still developing, you have to add --pre to install development version</span></div><div class="line">pip install --pre uiautomator2</div></pre></td></tr></table></figure>
 </li>
-<li><p>在手机上安装<code>app-uiautomator.apk</code><br>最新版<a href="https://github.com/openatx/android-uiautomator-server/releases" target="_blank" rel="external">下载链接</a></p>
-</li>
-<li><p>导入最新版的<code>atx-agent</code>到手机中<br>最新版<a href="https://github.com/openatx/atx-agent/releases" target="_blank" rel="external">下载地址</a><br>下载以<code>linux_armv7.tar.gz</code>结尾的二进制包。绝大部分手机都是linux-arm架构的。<br>解压出<code>atx-agent</code>文件，导入到手机中并启动：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">adb push atx-agent /data/<span class="built_in">local</span>/tmp</div><div class="line">adb shell chmod 755 /data/<span class="built_in">local</span>/tmp/atx-agent</div><div class="line"><span class="comment"># launch atx-agent in daemon mode</span></div><div class="line">adb shell /data/<span class="built_in">local</span>/tmp/atx-agent <span class="_">-d</span></div><div class="line"><span class="comment"># example: server started, listening on 192.168.28.230:7912</span></div></pre></td></tr></table></figure>
-</li>
 </ol>
-<p>假设手机的地址是<code>$DEVICE_URL</code>(eg: <code>http://192.168.28.230:7912</code>)</p>
-<ol>
-<li><p>无线访问手机系统</p>
-<ol>
-<li><p>获取当前程序版本</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">curl <span class="variable">$DEVICE_URL</span>/version</div><div class="line"><span class="comment"># expect example: 0.0.7</span></div></pre></td></tr></table></figure>
-</li>
-<li><p>安装应用</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">curl -X POST <span class="_">-d</span> url=<span class="string">"http://some-host/some.apk"</span> <span class="variable">$DEVICE_URL</span>/install</div><div class="line"><span class="comment"># expect example: install id</span></div></pre></td></tr></table></figure>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># get install progress</span></div><div class="line">curl -X GET <span class="variable">$DEVICE_URL</span>/install/1</div><div class="line">&#123;<span class="string">"id"</span>:<span class="string">"1"</span>,<span class="string">"totalSize"</span>:985435,<span class="string">"copiedSize"</span>:16951,<span class="string">"message"</span>:<span class="string">"downloading"</span>&#125;</div><div class="line"><span class="comment"># or</span></div><div class="line">&#123;<span class="string">"id"</span>:<span class="string">"1"</span>,<span class="string">"totalSize"</span>:985435,<span class="string">"copiedSize"</span>:985435,<span class="string">"message"</span>:<span class="string">"success installed"</span>&#125;</div><div class="line"><span class="comment"># or</span></div><div class="line">&#123;<span class="string">"id"</span>:<span class="string">"1"</span>,<span class="string">"totalSize"</span>:985435,<span class="string">"copiedSize"</span>:342641,<span class="string">"message"</span>:<span class="string">"error install"</span>,<span class="string">"error"</span>:<span class="string">"exit status 1"</span>&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>上传文件</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 上传到/sdcard目录下 (url以/结尾)</span></div><div class="line">curl -F <span class="string">"file=@somefile.txt"</span> <span class="variable">$DEVICE_URL</span>/upload/sdcard/</div><div class="line"></div><div class="line"><span class="comment"># 上传到/sdcard/tmp.txt</span></div><div class="line">curl -F <span class="string">"file=@somefile.txt"</span> <span class="variable">$DEVICE_URL</span>/upload/sdcard/tmp.txt</div></pre></td></tr></table></figure>
-</li>
-<li><p>程序自升级<br> 升级程序从gihub releases里面直接下载，升级完后自动重启</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 升级到最新版</span></div><div class="line">curl 10.0.0.1:7912/upgrade</div></pre></td></tr></table></figure>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 指定升级的版本</span></div><div class="line">curl <span class="string">"<span class="variable">$DEVICE_URL</span>/upgrade?version=0.0.7"</span></div></pre></td></tr></table></figure>
-</li>
-<li><p><code>ATX Log Path</code></p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/sdcard/atx-agent.log</div></pre></td></tr></table></figure>
-</li>
-</ol>
-</li>
-</ol>
-<p>RESOURCE:<br>    <a href="https://testerhome.com/topics/10361" target="_blank" rel="external">testerhome_10361</a><br>    <a href="https://testerhome.com/topics/10298" target="_blank" rel="external">testerhome_10298</a><br>    <a href="https://github.com/openatx/uiautomator2" target="_blank" rel="external">github_uiautomator2</a><br>    <a href="https://github.com/openatx/android-uiautomator-server" target="_blank" rel="external">github_android-uiautomator-server</a><br>    <a href="https://github.com/openatx/atx-agent" target="_blank" rel="external">github_atx-agent</a><br>    <a href="https://github.com/qpython-android/qpython" target="_blank" rel="external">github_qpython</a></p>
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/11/04/安卓无线ADB连接/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
