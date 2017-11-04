@@ -1,0 +1,1184 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="google-site-verification" content="icHwxZMwWfYpn47DgI1Za6CeqXvoEj-7y1sEoJvdVSo">
+<meta name="baidu-site-verification" content="e5lNxffZa8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|Monaco:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="hexo,github,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Shadow'S Site" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="准备工作
+安装node.js
+安装git客户端
+安装github for windows客户端
+安装hexo框架">
+<meta property="og:type" content="article">
+<meta property="og:title" content="利用Hexo在Github Page上部署个人博客">
+<meta property="og:url" content="http://shadow000902.space/2016/03/18/利用Hexo在Github Page上部署个人博客/index.html">
+<meta property="og:site_name" content="Shadow'S Site">
+<meta property="og:description" content="准备工作
+安装node.js
+安装git客户端
+安装github for windows客户端
+安装hexo框架">
+<meta property="og:image" content="http://shadow000902.space/2016/03/18/利用Hexo在Github%20Page上部署个人博客/默认模板效果.jpg">
+<meta property="og:image" content="http://shadow000902.space/2016/03/18/利用Hexo在Github%20Page上部署个人博客/设置域名解析.png">
+<meta property="og:image" content="http://shadow000902.space/2016/03/18/利用Hexo在Github%20Page上部署个人博客/修改域名提供商下的域名DNS服务器.jpg">
+<meta property="og:updated_time" content="2017-06-24T07:41:48.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="利用Hexo在Github Page上部署个人博客">
+<meta name="twitter:description" content="准备工作
+安装node.js
+安装git客户端
+安装github for windows客户端
+安装hexo框架">
+<meta name="twitter:image" content="http://shadow000902.space/2016/03/18/利用Hexo在Github%20Page上部署个人博客/默认模板效果.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '436785',
+      author: 'shadow'
+    },
+    algolia: {
+      applicationID: '0HPI7IYB5V',
+      apiKey: 'c41b4c8f05b63867c231cd2ef194a34f',
+      indexName: 'Hexo_search',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"请输入关键字","hits_empty":"没有找到与【${query}】相关的内容","hits_stats":"${hits} 条记录，共耗时 ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://shadow000902.space/2016/03/18/利用Hexo在Github Page上部署个人博客/">
+
+
+
+
+
+  <title>利用Hexo在Github Page上部署个人博客 | Shadow'S Site</title>
+  
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-18711495-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?b2e7edb34a402c6fa45e71e2a2456518";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Shadow'S Site</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">谁当声震人间，必长久深自缄默。谁当划破闪电，必长久如云漂泊。</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+
+          <!-- 增加下面语句 -->
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://shadow000902.space/2016/03/18/利用Hexo在Github Page上部署个人博客/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="shadow">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Shadow'S Site">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">利用Hexo在Github Page上部署个人博客</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-03-18T00:06:40+08:00">
+                2016-03-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Hexo/" itemprop="url" rel="index">
+                    <span itemprop="name">Hexo</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            <!--noindex-->
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/03/18/利用Hexo在Github Page上部署个人博客/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count hc-comment-count" data-xid="2016/03/18/利用Hexo在Github Page上部署个人博客/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+              <!--/noindex-->
+            
+          
+
+          
+          
+             <span id="/2016/03/18/利用Hexo在Github Page上部署个人博客/" class="leancloud_visitors" data-flag-title="利用Hexo在Github Page上部署个人博客">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h4><ol>
+<li>安装node.js</li>
+<li>安装git客户端</li>
+<li>安装github for windows客户端</li>
+<li>安装hexo框架</li>
+</ol>
+<a id="more"></a>
+<h4 id="开始安装"><a href="#开始安装" class="headerlink" title="开始安装"></a>开始安装</h4><h5 id="创建一个hexo安装目录，比如：E-hexo"><a href="#创建一个hexo安装目录，比如：E-hexo" class="headerlink" title="创建一个hexo安装目录，比如：E:/hexo"></a>创建一个hexo安装目录，比如：E:/hexo</h5><h5 id="安装hexo框架"><a href="#安装hexo框架" class="headerlink" title="安装hexo框架"></a>安装hexo框架</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">npm install -g hexo</div><div class="line"><span class="built_in">cd</span> E:/hexo</div><div class="line">hexo init</div><div class="line">npm install</div></pre></td></tr></table></figure>
+<h5 id="在本地查看博客"><a href="#在本地查看博客" class="headerlink" title="在本地查看博客"></a>在本地查看博客</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo server</div></pre></td></tr></table></figure>
+<p>现在用浏览器访问：<a href="http://localhost:4000/，效果如下图" target="_blank" rel="external">http://localhost:4000/，效果如下图</a></p>
+<img src="/2016/03/18/利用Hexo在Github%20Page上部署个人博客/默认模板效果.jpg" alt="默认模板效果" title="默认模板效果">
+<p>如果要停止 hexo 服务：在 Git Bash 下按 Ctrl + C 即可</p>
+<h5 id="安装next主题"><a href="#安装next主题" class="headerlink" title="安装next主题"></a>安装next主题</h5><p>在E:/hexo下，打开git bash，<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git <span class="built_in">clone</span> https://github.com/MOxFIVE/hexo-theme-next.git themes/next</div></pre></td></tr></table></figure></p>
+<h5 id="应用next主题"><a href="#应用next主题" class="headerlink" title="应用next主题"></a>应用next主题</h5><p>在E:/hexo下，打开_config.yml，修改：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">theme: landscape    -&gt;</div><div class="line">theme: next</div></pre></td></tr></table></figure></p>
+<h5 id="重新生成静态网页"><a href="#重新生成静态网页" class="headerlink" title="重新生成静态网页"></a>重新生成静态网页</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo generate</div></pre></td></tr></table></figure>
+<h4 id="创建-Github-pages-并-SSH-授权"><a href="#创建-Github-pages-并-SSH-授权" class="headerlink" title="创建 Github pages 并 SSH 授权"></a>创建 Github pages 并 SSH 授权</h4><ol>
+<li>创建名为 <strong>shadow000902</strong>.github.io的新的仓库（repository），<strong>shadow000902</strong> 必须为自己的用户名</li>
+<li><p>在本地生成SSH密钥，用于提交本地代码到github上：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh-keygen -t rsa -C <span class="string">"shadow000902@gmail.com"</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>默认密钥生成后,存放于C:/Users/shadow/.ssh/中，打开id_rsa.pub文件，复制其中的所有内容</p>
+</li>
+<li>在自己创建的shadow000902.github.io仓库的setting中，打开Deploy keys, 点击add deploy key，把刚才复制的内容黏贴进去保存，Title任意取</li>
+</ol>
+<h4 id="上传本地博客内容到github上"><a href="#上传本地博客内容到github上" class="headerlink" title="上传本地博客内容到github上"></a>上传本地博客内容到github上</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">npm install hexo -server --save</div><div class="line">npm install hexo-deployer-git --save</div></pre></td></tr></table></figure>
+<h4 id="更新博客"><a href="#更新博客" class="headerlink" title="更新博客"></a>更新博客</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">hexo clean          <span class="comment"># 清楚本地静态网页public文件夹</span></div><div class="line">hexo generate       <span class="comment"># 重新生成静态网页</span></div><div class="line">hexo deploy         <span class="comment"># 部署本地静态网页到github上，以便在shadow000902.github.io域名下访问</span></div></pre></td></tr></table></figure>
+<h4 id="绑定域名"><a href="#绑定域名" class="headerlink" title="绑定域名"></a>绑定域名</h4><ol>
+<li>在E:/hexo/source下新建一个CNAME文件，把自己申请的域名（比如我申请的：shadow000902.space）填写在该文件里保存</li>
+<li>在<a href="https://www.dnspod.cn/" target="_blank" rel="external">DNSPOD</a>网站里，设置域名解析：<img src="/2016/03/18/利用Hexo在Github%20Page上部署个人博客/设置域名解析.png" alt="设置域名解析" title="设置域名解析"></li>
+<li>修改域名提供商下的域名DNS服务器为github提供的DNS：<img src="/2016/03/18/利用Hexo在Github%20Page上部署个人博客/修改域名提供商下的域名DNS服务器.jpg" alt="修改域名提供商下的域名DNS服务器" title="修改域名提供商下的域名DNS服务器">
+</li>
+</ol>
+<h4 id="插件"><a href="#插件" class="headerlink" title="插件"></a>插件</h4><h5 id="插件基本命令"><a href="#插件基本命令" class="headerlink" title="插件基本命令"></a>插件基本命令</h5><p>1.1 安装插件：                                   npm install 插件名 –save<br>1.2 卸载插件：                                   npm uninstall 插件名 –save<br>1.3 更新插件和博客框架（需要在 E:\hexo 目录下）：     npm update<br>它实质上是通过项目根目录下 package.json 文件更新各大组件</p>
+<h5 id="必备插件"><a href="#必备插件" class="headerlink" title="必备插件"></a>必备插件</h5><p>2.1 支持RSS：             npm install hexo-generator-feed –save<br>2.2 生成站点地图：         npm install hexo-generator-sitemap –save<br>2.3 生成百度站点地图：      npm install hexo-generator-baidu-sitemap –save<br><del>2.4 HTML 压缩：           npm install hexo-html-minifier –save</del><br><del>2.5 JavaScript 压缩：     npm install hexo-uglify –save</del><br><del>2.6 CSS 压缩插件：         npm install hexo-clean-css –save</del><br>2.7 SEO优化：             npm install hexo-generator-seo-friendly-sitemap –save</p>
+<h4 id="统计功能"><a href="#统计功能" class="headerlink" title="统计功能"></a>统计功能</h4><p><a href="http://ibruce.info/2015/04/04/busuanzi/" target="_blank" rel="external">为hexo博客添加访问次数统计功能</a></p>
+<h4 id="附加"><a href="#附加" class="headerlink" title="附加"></a>附加</h4><p><a href="http://ibruce.info/2013/11/22/hexo-your-blog/" target="_blank" rel="external">Hexo你的博客</a></p>
+<h4 id="问题解决"><a href="#问题解决" class="headerlink" title="问题解决"></a>问题解决</h4><h5 id="执行任何一条含hexo的命令都会报以下错误："><a href="#执行任何一条含hexo的命令都会报以下错误：" class="headerlink" title="执行任何一条含hexo的命令都会报以下错误："></a>执行任何一条含<code>hexo</code>的命令都会报以下错误：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&#123; Error: Cannot find module &apos;./build/Release/DTraceProviderBindings&apos;</div><div class="line">    ...</div><div class="line">    at Module.load (module.js:458:32) code: &apos;MODULE_NOT_FOUND&apos; &#125;</div></pre></td></tr></table></figure>
+<p>解决办法：<br>Try to install <code>hexo</code> with <code>--no-optional</code> option.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g hexo --no-optional --registry=https://registry.npm.taobao.org/</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">➜  blog_source git:(master) hexo -v</div><div class="line">hexo: 3.2.2</div><div class="line">hexo-cli: 1.0.2</div><div class="line">os: Darwin 16.3.0 darwin x64</div><div class="line">http_parser: 2.7.0</div><div class="line">node: 6.9.0</div><div class="line">v8: 5.1.281.84</div><div class="line">uv: 1.9.1</div><div class="line">zlib: 1.2.8</div><div class="line">ares: 1.10.1-DEV</div><div class="line">icu: 57.1</div><div class="line">modules: 48</div><div class="line">openssl: 1.0.2j</div><div class="line">➜  blog_source git:(master)</div></pre></td></tr></table></figure>
+<h5 id="执行每条命令都会报以下错误："><a href="#执行每条命令都会报以下错误：" class="headerlink" title="执行每条命令都会报以下错误："></a>执行每条命令都会报以下错误：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">➜  blog_source git:(master) ✗ hexo -v</div><div class="line">ERROR Plugin load failed: hexo-generator-baidu-sitemap</div><div class="line">ReferenceError: hexo is not defined</div><div class="line">    at Object.&lt;anonymous&gt; (/usr/local/git_projects/blog_source/node_modules/hexo-generator-baidu-sitemap/baidusitemap.js:4:10)</div><div class="line">    at Module._compile (module.js:541:32)</div><div class="line">    at Object.Module._extensions..js (module.js:550:10)</div><div class="line">    at Module.load (module.js:458:32)</div><div class="line">    at tryModuleLoad (module.js:417:12)</div><div class="line">    at Function.Module._load (module.js:409:3)</div><div class="line">    at Module.require (module.js:468:17)</div><div class="line">    at require (/usr/local/git_projects/blog_source/node_modules/hexo/lib/hexo/index.js:213:21)</div><div class="line">    at /usr/local/git_projects/blog_source/node_modules/hexo-generator-baidu-sitemap/index.js:6:38</div><div class="line">    at /usr/local/git_projects/blog_source/node_modules/hexo/lib/hexo/index.js:229:12</div><div class="line">    at tryCatcher (/usr/local/git_projects/blog_source/node_modules/bluebird/js/release/util.js:16:23)</div><div class="line">    at Promise._settlePromiseFromHandler (/usr/local/git_projects/blog_source/node_modules/bluebird/js/release/promise.js:502:31)</div><div class="line">    at Promise._settlePromise (/usr/local/git_projects/blog_source/node_modules/bluebird/js/release/promise.js:559:18)</div><div class="line">    at Promise._settlePromise0 (/usr/local/git_projects/blog_source/node_modules/bluebird/js/release/promise.js:604:10)</div><div class="line">    at Promise._settlePromises (/usr/local/git_projects/blog_source/node_modules/bluebird/js/release/promise.js:683:18)</div><div class="line">    at Promise._fulfill (/usr/local/git_projects/blog_source/node_modules/bluebird/js/release/promise.js:628:18)</div><div class="line">    at Promise._resolveCallback (/usr/local/git_projects/blog_source/node_modules/bluebird/js/release/promise.js:423:57)</div><div class="line">    at Promise._settlePromiseFromHandler (/usr/local/git_projects/blog_source/node_modules/bluebird/js/release/promise.js:514:17)</div><div class="line">    at Promise._settlePromise (/usr/local/git_projects/blog_source/node_modules/bluebird/js/release/promise.js:559:18)</div><div class="line">    at Promise._settlePromise0 (/usr/local/git_projects/blog_source/node_modules/bluebird/js/release/promise.js:604:10)</div><div class="line">    at Promise._settlePromises (/usr/local/git_projects/blog_source/node_modules/bluebird/js/release/promise.js:683:18)</div><div class="line">    at Promise._fulfill (/usr/local/git_projects/blog_source/node_modules/bluebird/js/release/promise.js:628:18)</div></pre></td></tr></table></figure>
+<p>解决方法：<br><code>if your hexo version is 2.x.x, you should install as follow:</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo-generator-baidu-sitemap@0.0.8 --save</div></pre></td></tr></table></figure></p>
+<p><code>if your hexo version is 3.x.x, you should install as follow:</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo-generator-baidu-sitemap@0.1.1 --save</div></pre></td></tr></table></figure></p>
+<p><code>Maybe response is &quot;hexo is not definded&quot;,then you should:</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd node_modules/hexo-generator-baidu-sitemap/</div><div class="line">npm install</div></pre></td></tr></table></figure></p>
+<h5 id="ERROR-Asset-render-failed-lib-canvas-ribbon-canvas-ribbon-js"><a href="#ERROR-Asset-render-failed-lib-canvas-ribbon-canvas-ribbon-js" class="headerlink" title="ERROR Asset render failed: lib/canvas-ribbon/canvas-ribbon.js"></a>ERROR Asset render failed: lib/canvas-ribbon/canvas-ribbon.js</h5><p>这个错主要是安装了 JS 压缩的插件引起的<br>所以要做的就是卸载所有相关的插件。</p>
+<h5 id="博客部署很慢的问题解决"><a href="#博客部署很慢的问题解决" class="headerlink" title="博客部署很慢的问题解决"></a>博客部署很慢的问题解决</h5><p>这个还是 JS 压缩引起的。<br>所以主要做的还是卸载所有相关的插件：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">npm uninstall hexo-uglify</div><div class="line">npm uninstall uglify</div><div class="line">npm uninstall uglify-js</div></pre></td></tr></table></figure></p>
+<p>卸载该插件后，60篇博客，部署时间大概在30s左右，generate时间在10~20s，比之前的5~6min好了不知道多少。</p>
+<h5 id="文章加密"><a href="#文章加密" class="headerlink" title="文章加密"></a>文章加密</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">	<span class="keyword">if</span>(<span class="string">"123456"</span>==prompt(<span class="string">"Please input password"</span>))</div><div class="line">	&#123;</div><div class="line">		alert(<span class="string">"Right"</span>); </div><div class="line">	&#125;</div><div class="line">	<span class="keyword">else</span></div><div class="line">	&#123;</div><div class="line">		alert(<span class="string">"Wrong"</span>); </div><div class="line">		location=<span class="string">"http://shadow000902.space"</span>;</div><div class="line">	&#125;</div><div class="line">&lt;<span class="regexp">/script&gt;</span></div></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center">
+    <div></div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none">
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/pay.png" alt="shadow Alipay">
+          <p>支付宝&微信打赏</p>
+        </div>
+      
+    </div>
+<div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none">
+
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/pay.png" alt="shadow 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/hexo/" rel="tag"># hexo</a>
+          
+            <a href="/tags/github/" rel="tag"># github</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/03/16/常用Adb命令列表/" rel="next" title="常用Adb命令列表">
+                <i class="fa fa-chevron-left"></i> 常用Adb命令列表
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/03/18/上传本地代码到Github/" rel="prev" title="上传本地代码到Github">
+                上传本地代码到Github <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </div></article>
+
+
+
+    <div class="ds-share-icons-16">
+      
+        <!-- Go to www.addthis.com/dashboard to customize your tools -->
+<div class="addthis_inline_share_toolbox">
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-591af85feb91bba8" async="async"></script>
+</div>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="hypercomments_widget"></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="shadow">
+            
+              <p class="site-author-name" itemprop="name">shadow</p>
+              <p class="site-description motion-element" itemprop="description">谁当声震人间，必长久深自缄默。谁当划破闪电，必长久如云漂泊。</p>
+          </div>
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">71</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">46</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">55</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/shadow000902" target="_blank" title="github">
+                    
+                      <i class="fa fa-fw fa-globe"></i>github</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://weibo.com/1716962871" target="_blank" title="weibo">
+                    
+                      <i class="fa fa-fw fa-globe"></i>weibo</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://twitter.com/shadow000902" target="_blank" title="twitter">
+                    
+                      <i class="fa fa-fw fa-globe"></i>twitter</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://facebook.com/shadow000902" target="_blank" title="facebook">
+                    
+                      <i class="fa fa-fw fa-globe"></i>facebook</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#准备工作"><span class="nav-number">1.</span> <span class="nav-text">准备工作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#开始安装"><span class="nav-number">2.</span> <span class="nav-text">开始安装</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#创建一个hexo安装目录，比如：E-hexo"><span class="nav-number">2.1.</span> <span class="nav-text">创建一个hexo安装目录，比如：E:/hexo</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#安装hexo框架"><span class="nav-number">2.2.</span> <span class="nav-text">安装hexo框架</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#在本地查看博客"><span class="nav-number">2.3.</span> <span class="nav-text">在本地查看博客</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#安装next主题"><span class="nav-number">2.4.</span> <span class="nav-text">安装next主题</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#应用next主题"><span class="nav-number">2.5.</span> <span class="nav-text">应用next主题</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#重新生成静态网页"><span class="nav-number">2.6.</span> <span class="nav-text">重新生成静态网页</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#创建-Github-pages-并-SSH-授权"><span class="nav-number">3.</span> <span class="nav-text">创建 Github pages 并 SSH 授权</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#上传本地博客内容到github上"><span class="nav-number">4.</span> <span class="nav-text">上传本地博客内容到github上</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#更新博客"><span class="nav-number">5.</span> <span class="nav-text">更新博客</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#绑定域名"><span class="nav-number">6.</span> <span class="nav-text">绑定域名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#插件"><span class="nav-number">7.</span> <span class="nav-text">插件</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#插件基本命令"><span class="nav-number">7.1.</span> <span class="nav-text">插件基本命令</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#必备插件"><span class="nav-number">7.2.</span> <span class="nav-text">必备插件</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#统计功能"><span class="nav-number">8.</span> <span class="nav-text">统计功能</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#附加"><span class="nav-number">9.</span> <span class="nav-text">附加</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#问题解决"><span class="nav-number">10.</span> <span class="nav-text">问题解决</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#执行任何一条含hexo的命令都会报以下错误："><span class="nav-number">10.1.</span> <span class="nav-text">执行任何一条含hexo的命令都会报以下错误：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#执行每条命令都会报以下错误："><span class="nav-number">10.2.</span> <span class="nav-text">执行每条命令都会报以下错误：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#ERROR-Asset-render-failed-lib-canvas-ribbon-canvas-ribbon-js"><span class="nav-number">10.3.</span> <span class="nav-text">ERROR Asset render failed: lib/canvas-ribbon/canvas-ribbon.js</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#博客部署很慢的问题解决"><span class="nav-number">10.4.</span> <span class="nav-text">博客部署很慢的问题解决</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#文章加密"><span class="nav-number">10.5.</span> <span class="nav-text">文章加密</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">shadow</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+<span id="busuanzi_container_site_uv">
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;您是第 <span id="busuanzi_value_site_uv"></span> 位访客
+</span>
+
+<span id="busuanzi_container_site_pv">
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;您是第 <span id="busuanzi_value_site_pv"></span> 次访问者
+</span>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.3</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+		<script type="text/javascript">
+		_hcwp = window._hcwp || [];
+
+		_hcwp.push({widget:"Bloggerstream", widget_id: 90954, selector:".hc-comment-count", label: "{\%COUNT%\}" });
+
+		
+		_hcwp.push({widget:"Stream", widget_id: 90954, xid: "2016/03/18/利用Hexo在Github Page上部署个人博客/"});
+		
+
+		(function() {
+		if("HC_LOAD_INIT" in window)return;
+		HC_LOAD_INIT = true;
+		var lang = (navigator.language || navigator.systemLanguage || navigator.userLanguage || "en").substr(0, 2).toLowerCase();
+		var hcc = document.createElement("script"); hcc.type = "text/javascript"; hcc.async = true;
+		hcc.src = ("https:" == document.location.protocol ? "https" : "http")+"://w.hypercomments.com/widget/hc/90954/"+lang+"/widget.js";
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(hcc, s.nextSibling);
+		})();
+		</script>
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.3"></script>
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("qjdKXm0RH80J6HWCj1X3DREC-gzGzoHsz", "4rSep9EijQDvdmVi5cPCzgxz");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
