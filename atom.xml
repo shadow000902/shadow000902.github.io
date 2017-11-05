@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://shadow000902.space/"/>
-  <updated>2017-11-04T15:16:04.000Z</updated>
+  <updated>2017-11-05T13:55:05.000Z</updated>
   <id>http://shadow000902.space/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://shadow000902.space/2017/11/04/%E5%AE%89%E5%8D%93%E6%97%A0%E7%BA%BFADB%E8%BF%9E%E6%8E%A5/"/>
     <id>http://shadow000902.space/2017/11/04/安卓无线ADB连接/</id>
     <published>2017-11-04T14:00:31.000Z</published>
-    <updated>2017-11-04T15:16:04.000Z</updated>
+    <updated>2017-11-05T13:55:05.000Z</updated>
     
     <content type="html"><![CDATA[<ol>
 <li><p>在手机上安装<code>QPython</code><br>GitHub上的<a href="https://github.com/qpython-android/qpython/releases" target="_blank" rel="external">下载链接</a></p>
@@ -75,7 +75,7 @@
     
     </summary>
     
-      <category term="Adb" scheme="http://shadow000902.space/categories/Adb/"/>
+      <category term="ANDROID" scheme="http://shadow000902.space/categories/ANDROID/"/>
     
     
       <category term="adb" scheme="http://shadow000902.space/tags/adb/"/>
@@ -87,7 +87,7 @@
     <link href="http://shadow000902.space/2017/11/04/Shell%E5%B0%8F%E8%84%9A%E6%9C%AC/"/>
     <id>http://shadow000902.space/2017/11/04/Shell小脚本/</id>
     <published>2017-11-04T07:51:48.000Z</published>
-    <updated>2017-11-04T08:38:12.000Z</updated>
+    <updated>2017-11-05T13:52:29.000Z</updated>
     
     <content type="html"><![CDATA[<h5 id="删除目录下的除今天外的所有文件夹"><a href="#删除目录下的除今天外的所有文件夹" class="headerlink" title="删除目录下的除今天外的所有文件夹"></a>删除目录下的除今天外的所有文件夹</h5><ol>
 <li>目录下的文件夹规律【年月日时分秒】<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># taoyi @ TaoYi-Mac in ~/Desktop/test0001 [15:54:29] </span></div><div class="line">$ ll</div><div class="line">total 0</div><div class="line">drwxr-xr-x  2 taoyi  staff    68B 11  3 18:29 20171027121219</div><div class="line">drwxr-xr-x  3 taoyi  staff   102B 11  3 18:30 20171101124273</div><div class="line">drwxr-xr-x  3 taoyi  staff   102B 11  3 18:29 20171102124212</div><div class="line">drwxr-xr-x  2 taoyi  staff    68B 11  3 18:29 20171103121216</div><div class="line">drwxr-xr-x  3 taoyi  staff   102B 11  3 18:29 20171103124211</div><div class="line">drwxr-xr-x  2 taoyi  staff    68B 11  3 18:29 20171103124216</div><div class="line">drwxr-xr-x  2 taoyi  staff    68B 11  3 18:29 20171104124212</div></pre></td></tr></table></figure>
@@ -111,7 +111,7 @@
     
     </summary>
     
-      <category term="Shell" scheme="http://shadow000902.space/categories/Shell/"/>
+      <category term="TIPS" scheme="http://shadow000902.space/categories/TIPS/"/>
     
     
       <category term="shell" scheme="http://shadow000902.space/tags/shell/"/>
@@ -123,7 +123,7 @@
     <link href="http://shadow000902.space/2017/08/28/Robot-Framework%E6%A1%86%E6%9E%B6%E7%B3%BB%E7%BB%9F%E5%85%B3%E9%94%AE%E5%AD%97%E4%B9%8B%E6%96%AD%E8%A8%80/"/>
     <id>http://shadow000902.space/2017/08/28/Robot-Framework框架系统关键字之断言/</id>
     <published>2017-08-27T17:07:24.000Z</published>
-    <updated>2017-09-04T14:24:36.000Z</updated>
+    <updated>2017-11-05T13:52:29.000Z</updated>
     
     <content type="html"><![CDATA[<h5 id="准备数据"><a href="#准备数据" class="headerlink" title="准备数据"></a>准备数据</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 三个list变量：list_a、list_b、list_c；</span></div><div class="line">@&#123;list_a&#125;    create list    1    a    <span class="variable">$&#123;21&#125;</span>    21    12</div><div class="line">@&#123;list_b&#125;    <span class="built_in">set</span> variable    1.0    a    <span class="variable">$&#123;21&#125;</span>    21    21</div><div class="line">@&#123;list_c&#125;    create list</div><div class="line"><span class="comment"># 两个scalar变量：string和name</span></div><div class="line"><span class="variable">$&#123;string&#125;</span>    <span class="built_in">set</span> variable    taoyi is <span class="keyword">in</span> hangzhou</div><div class="line"><span class="variable">$&#123;name&#125;</span>    <span class="built_in">set</span> variable    ty</div></pre></td></tr></table></figure>
 <a id="more"></a>
@@ -170,7 +170,7 @@
     
     </summary>
     
-      <category term="Robot-Framework" scheme="http://shadow000902.space/categories/Robot-Framework/"/>
+      <category term="ROBOTFRAMEWORK" scheme="http://shadow000902.space/categories/ROBOTFRAMEWORK/"/>
     
     
       <category term="robot-framework" scheme="http://shadow000902.space/tags/robot-framework/"/>
@@ -182,7 +182,7 @@
     <link href="http://shadow000902.space/2017/08/16/Jenkins%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90%E5%B9%B3%E5%8F%B0%E6%90%AD%E5%BB%BA/"/>
     <id>http://shadow000902.space/2017/08/16/Jenkins持续集成平台搭建/</id>
     <published>2017-08-16T03:55:43.000Z</published>
-    <updated>2017-08-16T16:51:08.000Z</updated>
+    <updated>2017-11-05T13:44:46.000Z</updated>
     
     <content type="html"><![CDATA[<h5 id="Jenkins-部署"><a href="#Jenkins-部署" class="headerlink" title="Jenkins 部署"></a>Jenkins 部署</h5><ol>
 <li>创建<code>Jenkins</code>运行目录<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">mkdir /opt/Jenkins/Home						<span class="comment"># Jenkins主目录</span></div><div class="line">mkdir /opt/Jenkins/tmp							<span class="comment"># Jenkins缓存位置</span></div><div class="line">mkdir /opt/Jenkins/script						<span class="comment"># 脚本存放位置</span></div></pre></td></tr></table></figure>
@@ -212,7 +212,7 @@
     
     </summary>
     
-      <category term="Jenkins" scheme="http://shadow000902.space/categories/Jenkins/"/>
+      <category term="JENKINS" scheme="http://shadow000902.space/categories/JENKINS/"/>
     
     
       <category term="jenkins" scheme="http://shadow000902.space/tags/jenkins/"/>
@@ -224,7 +224,7 @@
     <link href="http://shadow000902.space/2017/08/06/Mac%E4%B8%8B%E5%88%A0%E9%99%A4%E5%AE%89%E8%A3%85%E7%9A%84pkg/"/>
     <id>http://shadow000902.space/2017/08/06/Mac下删除安装的pkg/</id>
     <published>2017-08-06T05:10:45.000Z</published>
-    <updated>2017-08-06T05:49:10.000Z</updated>
+    <updated>2017-11-05T13:52:29.000Z</updated>
     
     <content type="html"><![CDATA[<h5 id="使用pkg-uninstaller来卸载pkg安装的软件"><a href="#使用pkg-uninstaller来卸载pkg安装的软件" class="headerlink" title="使用pkg_uninstaller来卸载pkg安装的软件"></a>使用<code>pkg_uninstaller</code>来卸载<code>pkg</code>安装的软件</h5><ol>
 <li>安装<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> ~</div><div class="line">[sudo] bash &lt; &lt;(curl <span class="_">-s</span>L https://raw.github.com/mpapis/pkg_uninstaller/master/pkg-install)</div></pre></td></tr></table></figure>
@@ -260,7 +260,7 @@
     
     </summary>
     
-      <category term="Mac" scheme="http://shadow000902.space/categories/Mac/"/>
+      <category term="TIPS" scheme="http://shadow000902.space/categories/TIPS/"/>
     
     
       <category term="mac" scheme="http://shadow000902.space/tags/mac/"/>
@@ -272,7 +272,7 @@
     <link href="http://shadow000902.space/2017/06/24/Jenkins%E4%B8%ADslave%E7%9A%84%E8%AE%BE%E7%BD%AE/"/>
     <id>http://shadow000902.space/2017/06/24/Jenkins中slave的设置/</id>
     <published>2017-06-24T05:02:12.000Z</published>
-    <updated>2017-06-24T07:41:48.000Z</updated>
+    <updated>2017-11-05T13:44:46.000Z</updated>
     
     <content type="html"><![CDATA[<h5 id="在Jenkins中配置从节点"><a href="#在Jenkins中配置从节点" class="headerlink" title="在Jenkins中配置从节点"></a>在Jenkins中配置从节点</h5><img src="/2017/06/24/Jenkins中slave的设置/配置从节点.png" alt="配置从节点" title="配置从节点">
 <p>增加节点后，实际并没有直接连上，还需要在节点服务器上进行相应的配置</p>
@@ -294,7 +294,7 @@
     
     </summary>
     
-      <category term="Jenkins" scheme="http://shadow000902.space/categories/Jenkins/"/>
+      <category term="JENKINS" scheme="http://shadow000902.space/categories/JENKINS/"/>
     
     
       <category term="jenkins" scheme="http://shadow000902.space/tags/jenkins/"/>
@@ -306,7 +306,7 @@
     <link href="http://shadow000902.space/2017/06/24/Maven-Web%E5%AE%9E%E4%BE%8B%E4%BB%8E%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2%E5%88%B0Jenkins%E9%9B%86%E6%88%90/"/>
     <id>http://shadow000902.space/2017/06/24/Maven-Web实例从服务器部署到Jenkins集成/</id>
     <published>2017-06-24T04:48:41.000Z</published>
-    <updated>2017-06-26T12:13:26.000Z</updated>
+    <updated>2017-11-05T13:52:29.000Z</updated>
     
     <content type="html"><![CDATA[<h5 id="Jenkins环境准备"><a href="#Jenkins环境准备" class="headerlink" title="Jenkins环境准备"></a>Jenkins环境准备</h5><ol>
 <li>Jenkins安装，这个就不说了</li>
@@ -380,7 +380,7 @@
     
     </summary>
     
-      <category term="Jenkins" scheme="http://shadow000902.space/categories/Jenkins/"/>
+      <category term="JENKINS" scheme="http://shadow000902.space/categories/JENKINS/"/>
     
     
       <category term="jenkins" scheme="http://shadow000902.space/tags/jenkins/"/>
@@ -392,7 +392,7 @@
     <link href="http://shadow000902.space/2017/06/18/Mac%E4%B8%8BRedis%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"/>
     <id>http://shadow000902.space/2017/06/18/Mac下Redis环境搭建/</id>
     <published>2017-06-18T10:08:44.000Z</published>
-    <updated>2017-06-24T07:41:48.000Z</updated>
+    <updated>2017-11-05T13:45:48.000Z</updated>
     
     <content type="html"><![CDATA[<h5 id="下载安装包"><a href="#下载安装包" class="headerlink" title="下载安装包"></a>下载安装包</h5><p>下载稳定版本的安装包<a href="http://download.redis.io/redis-stable.tar.gz" target="_blank" rel="external">redis-stable</a></p>
 <h5 id="安装Redis"><a href="#安装Redis" class="headerlink" title="安装Redis"></a>安装Redis</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">tar -xvf redis-stable.tar.gz</div><div class="line">cp ./redis-stable /opt/</div><div class="line"><span class="built_in">cd</span> /opt/redis-stable</div><div class="line">sudo make <span class="built_in">test</span></div><div class="line">sudo make install</div></pre></td></tr></table></figure>
@@ -429,7 +429,7 @@
     
     </summary>
     
-      <category term="Redis" scheme="http://shadow000902.space/categories/Redis/"/>
+      <category term="TOOLS" scheme="http://shadow000902.space/categories/TOOLS/"/>
     
     
       <category term="redis" scheme="http://shadow000902.space/tags/redis/"/>
@@ -441,7 +441,7 @@
     <link href="http://shadow000902.space/2017/06/03/Mac%E4%B8%8AMySQL%E7%9A%84%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/"/>
     <id>http://shadow000902.space/2017/06/03/Mac上MySQL的简单使用/</id>
     <published>2017-06-03T09:20:13.000Z</published>
-    <updated>2017-06-24T07:41:48.000Z</updated>
+    <updated>2017-11-05T13:44:46.000Z</updated>
     
     <content type="html"><![CDATA[<ol>
 <li>启动、停止、重启MySQL服务<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo /usr/<span class="built_in">local</span>/MySQL/support-files/mysql.server start</div><div class="line">sudo /usr/<span class="built_in">local</span>/mysql/support-files/mysql.server stop</div><div class="line">sudo /usr/<span class="built_in">local</span>/mysql/support-files/mysql.server restart</div></pre></td></tr></table></figure>
@@ -486,7 +486,7 @@
     
     </summary>
     
-      <category term="MySQL" scheme="http://shadow000902.space/categories/MySQL/"/>
+      <category term="DATABASE" scheme="http://shadow000902.space/categories/DATABASE/"/>
     
     
       <category term="mysql" scheme="http://shadow000902.space/tags/mysql/"/>
@@ -498,7 +498,7 @@
     <link href="http://shadow000902.space/2017/05/18/Mac%E5%88%87%E6%8D%A2Terminal%E4%B8%BAzsh/"/>
     <id>http://shadow000902.space/2017/05/18/Mac切换Terminal为zsh/</id>
     <published>2017-05-18T09:17:39.000Z</published>
-    <updated>2017-06-24T07:41:48.000Z</updated>
+    <updated>2017-11-05T13:52:29.000Z</updated>
     
     <content type="html"><![CDATA[<h5 id="下载一个-oh-my-zsh-配置"><a href="#下载一个-oh-my-zsh-配置" class="headerlink" title="下载一个 .oh-my-zsh 配置"></a>下载一个 .oh-my-zsh 配置</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git <span class="built_in">clone</span> git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh</div></pre></td></tr></table></figure>
 <a id="more"></a>
@@ -520,7 +520,7 @@
     
     </summary>
     
-      <category term="Terminal" scheme="http://shadow000902.space/categories/Terminal/"/>
+      <category term="TIPS" scheme="http://shadow000902.space/categories/TIPS/"/>
     
     
       <category term="terminal" scheme="http://shadow000902.space/tags/terminal/"/>
@@ -532,7 +532,7 @@
     <link href="http://shadow000902.space/2017/05/15/Robot-Framework%E8%B8%A9%E5%9D%91%E6%80%BB%E7%BB%93/"/>
     <id>http://shadow000902.space/2017/05/15/Robot-Framework踩坑总结/</id>
     <published>2017-05-15T12:16:55.000Z</published>
-    <updated>2017-06-24T07:41:48.000Z</updated>
+    <updated>2017-11-05T13:52:29.000Z</updated>
     
     <content type="html"><![CDATA[<h5 id="List中的字典循环"><a href="#List中的字典循环" class="headerlink" title="List中的字典循环"></a>List中的字典循环</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">*** Test Cases ***</div><div class="line">takeValueFromCircle</div><div class="line">	# 从返回结果中提取出List</div><div class="line">	@&#123;items&#125;=    set variable    $&#123;json[&quot;data&quot;][&quot;items&quot;]&#125;</div><div class="line">	# 循环List中的item</div><div class="line">	: FOR    $&#123;params&#125;    IN    @&#123;items&#125;</div><div class="line">	# 把item中的一个参数（每个参数都是一个字典）转化为Str格式，顺便去除 &quot;u&quot; 标识</div><div class="line">	\    $&#123;params&#125;    Dumps    $&#123;params&#125;</div><div class="line">	# 把字典转化为json</div><div class="line">	\    $&#123;params&#125;    to json    $&#123;params&#125;</div><div class="line">	#\    Log    $&#123;params[&quot;carId&quot;]&#125;</div><div class="line">	# 对每个item取出来的字典中的某个字段进行判断，如果是需要的值，就把另一个需要的值取出来，并打印出来</div><div class="line">	\    RUN KEYWORD IF    &quot;$&#123;params[&quot;carInfo&quot;][&quot;status&quot;]&#125;&quot;==&quot;评估中&quot;    Log    $&#123;params[&quot;carId&quot;]&#125;</div></pre></td></tr></table></figure>
 <a id="more"></a>
@@ -548,7 +548,7 @@
     
     </summary>
     
-      <category term="Robot-Framework" scheme="http://shadow000902.space/categories/Robot-Framework/"/>
+      <category term="ROBOTFRAMEWORK" scheme="http://shadow000902.space/categories/ROBOTFRAMEWORK/"/>
     
     
       <category term="robot-framework" scheme="http://shadow000902.space/tags/robot-framework/"/>
@@ -560,7 +560,7 @@
     <link href="http://shadow000902.space/2017/04/25/Charles%E5%B8%B8%E7%94%A8%E7%9A%84%E4%B9%9D%E5%A4%A7%E5%8A%9F%E8%83%BD/"/>
     <id>http://shadow000902.space/2017/04/25/Charles常用的九大功能/</id>
     <published>2017-04-25T09:57:15.000Z</published>
-    <updated>2017-06-24T07:41:48.000Z</updated>
+    <updated>2017-11-05T13:39:53.000Z</updated>
     
     <content type="html"><![CDATA[<h5 id="过滤网络请求"><a href="#过滤网络请求" class="headerlink" title="过滤网络请求"></a>过滤网络请求</h5><h6 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h6><p>在主界面的中部的 Filter 栏中填入需要过滤出来的关键字。</p>
 <h6 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h6><p>在 Charles 的菜单栏选择 <code>“Proxy”-&gt;”Recording Settings”</code>，然后选择 Include 栏，选择添加一个项目，然后填入需要监控的协议，主机地址，端口号。这样就可以只截取目标网站的封包了。</p>
@@ -589,7 +589,7 @@
     
     </summary>
     
-      <category term="Charles" scheme="http://shadow000902.space/categories/Charles/"/>
+      <category term="TOOLS" scheme="http://shadow000902.space/categories/TOOLS/"/>
     
     
       <category term="charles" scheme="http://shadow000902.space/tags/charles/"/>
@@ -601,7 +601,7 @@
     <link href="http://shadow000902.space/2017/03/14/vim%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/"/>
     <id>http://shadow000902.space/2017/03/14/vim的基本使用/</id>
     <published>2017-03-14T15:22:02.000Z</published>
-    <updated>2017-06-24T07:41:48.000Z</updated>
+    <updated>2017-11-05T13:52:29.000Z</updated>
     
     <content type="html"><![CDATA[<h4 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h4><figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">i                        # 进入插入模式  </div><div class="line">:q                       # 退出vim  </div><div class="line">:w                       # 保存  </div><div class="line">:wq                      # 保存并退出  </div><div class="line">:set syn=c               # 设置c风格的语法高亮</div></pre></td></tr></table></figure>
 <a id="more"></a>
@@ -618,7 +618,7 @@
     
     </summary>
     
-      <category term="Vim" scheme="http://shadow000902.space/categories/Vim/"/>
+      <category term="TOOLS" scheme="http://shadow000902.space/categories/TOOLS/"/>
     
     
       <category term="vim" scheme="http://shadow000902.space/tags/vim/"/>
@@ -630,7 +630,7 @@
     <link href="http://shadow000902.space/2017/03/14/Top-8-Diagrams-for-Understanding-Java/"/>
     <id>http://shadow000902.space/2017/03/14/Top-8-Diagrams-for-Understanding-Java/</id>
     <published>2017-03-14T09:10:45.000Z</published>
-    <updated>2017-06-24T07:41:48.000Z</updated>
+    <updated>2017-11-05T13:52:29.000Z</updated>
     
     <content type="html"><![CDATA[<h4 id="String-Immutability【字符串不变性】"><a href="#String-Immutability【字符串不变性】" class="headerlink" title="String Immutability【字符串不变性】"></a>String Immutability【字符串不变性】</h4><p>The following diagram shows what happens for the following code:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">String s = <span class="string">"abcd"</span>;</div><div class="line">s = s.concat(<span class="string">"ef"</span>);</div></pre></td></tr></table></figure></p>
 <a id="more"></a>
@@ -656,7 +656,7 @@
     
     </summary>
     
-      <category term="Java" scheme="http://shadow000902.space/categories/Java/"/>
+      <category term="JAVA" scheme="http://shadow000902.space/categories/JAVA/"/>
     
     
       <category term="java" scheme="http://shadow000902.space/tags/java/"/>
@@ -668,7 +668,7 @@
     <link href="http://shadow000902.space/2017/03/05/%E5%BA%94%E7%94%A8%E9%87%8D%E7%AD%BE%E5%90%8D%E5%B7%A5%E5%85%B7re-sign-jar%E4%BD%BF%E7%94%A8/"/>
     <id>http://shadow000902.space/2017/03/05/应用重签名工具re-sign-jar使用/</id>
     <published>2017-03-05T06:46:33.000Z</published>
-    <updated>2017-06-24T07:41:48.000Z</updated>
+    <updated>2017-11-05T13:55:05.000Z</updated>
     
     <content type="html"><![CDATA[<h4 id="下载-re-sign-jar"><a href="#下载-re-sign-jar" class="headerlink" title="下载 re-sign.jar"></a>下载 re-sign.jar</h4><p><a href="http://download.csdn.net/download/christopher_lv/8569477" target="_blank" rel="external">下载地址</a></p>
 <h4 id="应用-re-sign-jar"><a href="#应用-re-sign-jar" class="headerlink" title="应用 re-sign.jar"></a>应用 re-sign.jar</h4><h5 id="把-re-sign-jar-放到-android-文件夹下"><a href="#把-re-sign-jar-放到-android-文件夹下" class="headerlink" title="把 re-sign.jar 放到 .android 文件夹下"></a>把 re-sign.jar 放到 .android 文件夹下</h5><a id="more"></a>
@@ -684,7 +684,7 @@
     
     </summary>
     
-      <category term="重签名" scheme="http://shadow000902.space/categories/%E9%87%8D%E7%AD%BE%E5%90%8D/"/>
+      <category term="TOOLS" scheme="http://shadow000902.space/categories/TOOLS/"/>
     
     
       <category term="重签名" scheme="http://shadow000902.space/tags/%E9%87%8D%E7%AD%BE%E5%90%8D/"/>
@@ -698,7 +698,7 @@
     <link href="http://shadow000902.space/2017/02/13/app-inspector%E5%85%83%E7%B4%A0%E5%AE%9A%E4%BD%8D%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8%E4%BB%8B%E7%BB%8D/"/>
     <id>http://shadow000902.space/2017/02/13/app-inspector元素定位工具使用介绍/</id>
     <published>2017-02-12T16:00:45.000Z</published>
-    <updated>2017-06-24T07:41:48.000Z</updated>
+    <updated>2017-11-05T13:36:00.000Z</updated>
     
     <content type="html"><![CDATA[<h5 id="前置安装配置，包括如下："><a href="#前置安装配置，包括如下：" class="headerlink" title="前置安装配置，包括如下："></a>前置安装配置，包括如下：</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">info AppiumDoctor  ✔ The Node.js binary was found at: /usr/<span class="built_in">local</span>/bin/node</div><div class="line">info AppiumDoctor  ✔ Node version is 6.9.0</div><div class="line">info AppiumDoctor  ✔ Xcode is installed at: /Applications/Xcode.app/Contents/Developer</div><div class="line">info AppiumDoctor  ✔ Xcode Command Line Tools are installed.</div><div class="line">info AppiumDoctor  ✔ DevToolsSecurity is enabled.</div><div class="line">info AppiumDoctor  ✔ The Authorization DB is <span class="built_in">set</span> up properly.</div><div class="line">info AppiumDoctor  ✔ Carthage was found at: /usr/<span class="built_in">local</span>/bin/carthage</div><div class="line">info AppiumDoctor  ✔ HOME is <span class="built_in">set</span> to: /Users/taoyi</div><div class="line">info AppiumDoctor  ✔ ANDROID_HOME is <span class="built_in">set</span> to: /opt/android-sdk-macosx</div><div class="line">info AppiumDoctor  ✔ JAVA_HOME is <span class="built_in">set</span> to: /Library/Java/JavaVirtualMachines/jdk1.8.0_91.jdk/Contents/Home</div><div class="line">info AppiumDoctor  ✔ adb exists at: /opt/android-sdk-macosx/platform-tools/adb</div><div class="line">info AppiumDoctor  ✔ android exists at: /opt/android-sdk-macosx/tools/android</div><div class="line">info AppiumDoctor  ✔ emulator exists at: /opt/android-sdk-macosx/tools/emulator</div><div class="line">info AppiumDoctor  ✔ B<span class="keyword">in</span> directory of <span class="variable">$JAVA_HOME</span> is <span class="built_in">set</span></div></pre></td></tr></table></figure>
 <a id="more"></a>
@@ -716,7 +716,7 @@
     
     </summary>
     
-      <category term="App-inspector" scheme="http://shadow000902.space/categories/App-inspector/"/>
+      <category term="TOOLS" scheme="http://shadow000902.space/categories/TOOLS/"/>
     
     
       <category term="app-inspector" scheme="http://shadow000902.space/tags/app-inspector/"/>
@@ -728,7 +728,7 @@
     <link href="http://shadow000902.space/2017/01/18/Extent%E6%B5%8B%E8%AF%95%E6%8A%A5%E5%91%8A%E4%BD%BF%E7%94%A8/"/>
     <id>http://shadow000902.space/2017/01/18/Extent测试报告使用/</id>
     <published>2017-01-17T16:13:28.000Z</published>
-    <updated>2017-06-24T07:41:48.000Z</updated>
+    <updated>2017-11-05T13:40:31.000Z</updated>
     
     <content type="html"><![CDATA[<h4 id="安装MongoDB数据库"><a href="#安装MongoDB数据库" class="headerlink" title="安装MongoDB数据库"></a>安装MongoDB数据库</h4><ol>
 <li>下载<a href="https://fastdl.mongodb.org/osx/mongodb-osx-x86_64-3.4.1.tgz" target="_blank" rel="external">MongoDB</a></li>
@@ -773,7 +773,7 @@
     
     </summary>
     
-      <category term="测试报告" scheme="http://shadow000902.space/categories/%E6%B5%8B%E8%AF%95%E6%8A%A5%E5%91%8A/"/>
+      <category term="TOOLS" scheme="http://shadow000902.space/categories/TOOLS/"/>
     
     
       <category term="测试报告" scheme="http://shadow000902.space/tags/%E6%B5%8B%E8%AF%95%E6%8A%A5%E5%91%8A/"/>
@@ -785,7 +785,7 @@
     <link href="http://shadow000902.space/2017/01/11/web-py%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C%E4%BB%8B%E7%BB%8D/"/>
     <id>http://shadow000902.space/2017/01/11/web-py数据库操作介绍/</id>
     <published>2017-01-11T12:35:36.000Z</published>
-    <updated>2017-06-24T07:41:48.000Z</updated>
+    <updated>2017-11-05T13:52:29.000Z</updated>
     
     <content type="html"><![CDATA[<h4 id="安装MySQL数据库"><a href="#安装MySQL数据库" class="headerlink" title="安装MySQL数据库"></a>安装MySQL数据库</h4><h5 id="本地数据库的安装MySQL"><a href="#本地数据库的安装MySQL" class="headerlink" title="本地数据库的安装MySQL"></a>本地数据库的安装<a href="http://dev.mysql.com/downloads/mysql/" target="_blank" rel="external">MySQL</a></h5><p>安装完后，会给出一个默认密码：</p>
 <a id="more"></a>
@@ -825,9 +825,7 @@
     
     </summary>
     
-      <category term="Web.py" scheme="http://shadow000902.space/categories/Web-py/"/>
-    
-      <category term="数据库" scheme="http://shadow000902.space/categories/Web-py/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+      <category term="PYTHON" scheme="http://shadow000902.space/categories/PYTHON/"/>
     
     
       <category term="web.py" scheme="http://shadow000902.space/tags/web-py/"/>
@@ -841,7 +839,7 @@
     <link href="http://shadow000902.space/2017/01/02/%E5%85%AB%E5%A4%A7%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E7%9A%84Python%E5%AE%9E%E7%8E%B0/"/>
     <id>http://shadow000902.space/2017/01/02/八大排序算法的Python实现/</id>
     <published>2017-01-02T08:00:21.000Z</published>
-    <updated>2017-06-24T07:41:48.000Z</updated>
+    <updated>2017-11-05T13:52:29.000Z</updated>
     
     <content type="html"><![CDATA[<h4 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h4><p>它重复地走访过要排序的数列，一次比较两个元素，如果他们的顺序错误就把他们交换过来。走访数列的工作是重复地进行直到没有再需要交换，也就是说该数列已经排序完成。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">bubble_sort</span><span class="params">(lists)</span>:</span></div><div class="line">    <span class="comment"># 冒泡排序</span></div><div class="line">    count = len(lists)</div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, count):</div><div class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(i + <span class="number">1</span>, count):</div><div class="line">            <span class="keyword">if</span> lists[i] &gt; lists[j]:</div><div class="line">                lists[i], lists[j] = lists[j], lists[i]</div><div class="line">    <span class="keyword">return</span> lists</div></pre></td></tr></table></figure></p>
 <a id="more"></a>
@@ -860,9 +858,7 @@
     
     </summary>
     
-      <category term="Python" scheme="http://shadow000902.space/categories/Python/"/>
-    
-      <category term="排序" scheme="http://shadow000902.space/categories/Python/%E6%8E%92%E5%BA%8F/"/>
+      <category term="PYTHON" scheme="http://shadow000902.space/categories/PYTHON/"/>
     
     
       <category term="python" scheme="http://shadow000902.space/tags/python/"/>
@@ -876,7 +872,7 @@
     <link href="http://shadow000902.space/2017/01/02/%E5%85%AB%E5%A4%A7%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E7%9A%84Java%E5%AE%9E%E7%8E%B0/"/>
     <id>http://shadow000902.space/2017/01/02/八大排序算法的Java实现/</id>
     <published>2017-01-02T06:46:07.000Z</published>
-    <updated>2017-06-24T07:41:48.000Z</updated>
+    <updated>2017-11-05T13:52:29.000Z</updated>
     
     <content type="html"><![CDATA[<h4 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h4><p>　　冒泡排序是一种简单的排序算法。它重复地走访过要排序的数列，一次比较两个元素，如果他们的顺序错误就把他们交换过来。走访数列的工作是重复地进行直到没有再需要交换，也就是说该数列已经排序完成。这个算法的名字由来是因为越小的元素会经由交换慢慢“浮”到数列的顶端。<br>　　冒泡排序的<strong>示例</strong>：<br><img src="http://upload-images.jianshu.io/upload_images/196518-49509183dfb68c64.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 <a id="more"></a>
@@ -921,9 +917,7 @@
     
     </summary>
     
-      <category term="Java" scheme="http://shadow000902.space/categories/Java/"/>
-    
-      <category term="排序" scheme="http://shadow000902.space/categories/Java/%E6%8E%92%E5%BA%8F/"/>
+      <category term="JAVA" scheme="http://shadow000902.space/categories/JAVA/"/>
     
     
       <category term="java" scheme="http://shadow000902.space/tags/java/"/>
