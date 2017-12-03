@@ -136,7 +136,7 @@
 <meta property="og:site_name" content="Shadow'S Site">
 <meta property="og:description" content="安装docker官网下载 Docker for Mac
 无法删除docker镜像时，处理方法有依赖该image的container，先删除container再删除image123docker ps -a | grep &quot;Exited&quot; | awk &apos;&amp;#123;print $1 &amp;#125;&apos;|xargs docker stopdocker ps -a | grep &quot;Exited&quot; | awk">
-<meta property="og:updated_time" content="2017-11-05T13:39:53.000Z">
+<meta property="og:updated_time" content="2017-12-03T15:50:31.167Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="docker学习笔记">
 <meta name="twitter:description" content="安装docker官网下载 Docker for Mac
@@ -521,7 +521,7 @@
         <h5 id="安装docker"><a href="#安装docker" class="headerlink" title="安装docker"></a>安装docker</h5><p>官网下载 Docker for Mac</p>
 <h5 id="无法删除docker镜像时，处理方法"><a href="#无法删除docker镜像时，处理方法" class="headerlink" title="无法删除docker镜像时，处理方法"></a>无法删除docker镜像时，处理方法</h5><p>有依赖该image的container，先删除container再删除image<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">docker ps <span class="_">-a</span> | grep <span class="string">"Exited"</span> | awk <span class="string">'&#123;print $1 &#125;'</span>|xargs docker stop</div><div class="line">docker ps <span class="_">-a</span> | grep <span class="string">"Exited"</span> | awk <span class="string">'&#123;print $1 &#125;'</span>|xargs docker rm</div><div class="line">docker images|grep none|awk <span class="string">'&#123;print $3 &#125;'</span>|xargs docker rmi</div></pre></td></tr></table></figure></p>
 <p>这样清空掉残余的容器后，再删除images就没有异常的提示了。</p>
-<a id="more"></a>
+  <a id="more"></a>
 <h5 id="安装docker-amp-boot2docker"><a href="#安装docker-amp-boot2docker" class="headerlink" title="安装docker&amp;boot2docker"></a>安装<code>docker&amp;boot2docker</code></h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install boot2docker</div></pre></td></tr></table></figure>
 <h5 id="Docker-images存放位置"><a href="#Docker-images存放位置" class="headerlink" title="Docker images存放位置"></a><code>Docker images</code>存放位置</h5><p><code>Docker for Mac</code>版本，所有的docker images 保存在下面这个文件里：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/Users/&#123;YourUserName&#125;/Library/Containers/com.docker.docker/Data/com.docker.driver.amd64-linux/Docker.qcow2</div></pre></td></tr></table></figure></p>
 <p>到目前为止，还是没有办法指定<code>images</code>和<code>Container</code>的保存路径，你只能任由<code>docker</code>吃掉你的主盘。</p>
@@ -724,7 +724,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">71</span>
+                  <span class="site-state-item-count">72</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -735,7 +735,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -848,7 +848,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">62.2k</span>
+    <span title="Site words total count">62.5k</span>
   
 </div>
 

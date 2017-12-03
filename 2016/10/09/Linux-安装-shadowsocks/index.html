@@ -134,7 +134,7 @@
 <meta property="og:url" content="http://shadow000902.space/2016/10/09/Linux-安装-shadowsocks/index.html">
 <meta property="og:site_name" content="Shadow'S Site">
 <meta property="og:description" content="安装shadowsocks命令行程序，配置命令python pip安装shadowsocks12345sudo apt-get updatesudo apt-get install python-pipsudo apt-get install python-setuptools m2cryptopip install shadowsockssudo apt install shadowsocks">
-<meta property="og:updated_time" content="2017-11-05T13:44:46.000Z">
+<meta property="og:updated_time" content="2017-12-03T15:50:31.411Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux 安装 shadowsocks">
 <meta name="twitter:description" content="安装shadowsocks命令行程序，配置命令python pip安装shadowsocks12345sudo apt-get updatesudo apt-get install python-pipsudo apt-get install python-setuptools m2cryptopip install shadowsockssudo apt install shadowsocks">
@@ -516,7 +516,7 @@
 
       
         <h4 id="安装shadowsocks命令行程序，配置命令"><a href="#安装shadowsocks命令行程序，配置命令" class="headerlink" title="安装shadowsocks命令行程序，配置命令"></a>安装shadowsocks命令行程序，配置命令</h4><h5 id="python-pip安装shadowsocks"><a href="#python-pip安装shadowsocks" class="headerlink" title="python pip安装shadowsocks"></a><code>python</code> <code>pip</code>安装<code>shadowsocks</code></h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">sudo apt-get update</div><div class="line">sudo apt-get install python-pip</div><div class="line">sudo apt-get install python-setuptools m2crypto</div><div class="line">pip install shadowsocks</div><div class="line">sudo apt install shadowsocks                                            # ubuntu 16.04的安装方法</div></pre></td></tr></table></figure>
-<a id="more"></a>
+  <a id="more"></a>
 <h5 id="启动shadowsocks"><a href="#启动shadowsocks" class="headerlink" title="启动shadowsocks"></a>启动<code>shadowsocks</code></h5><p>安装好后，在本地需要用到<code>sslocal</code>，<br>使用方法：<code>sslocal -c</code> 后面加上我们的<code>json</code>配置文件，或者像下面这样直接命令参数写上运行.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">sslocal -s 11.22.33.44 -p 50003 -k &quot;123456&quot; -l 1080 -t 600 -m aes-256-cfb</div><div class="line">-s                          # 代表服务IP</div><div class="line">-p                          # 代表服务器的端口</div><div class="line">-k                          # 代表密码，需要加双引号（&quot;&quot;）</div><div class="line">-l                          # 代表本地端口</div><div class="line">-t                          # 代表超时时间，单位毫秒</div><div class="line">-m                          # 代表加密方法，默认为（aes-256-cfb）</div></pre></td></tr></table></figure></p>
 <p>为了方便我推荐直接用 <code>sslcoal -c</code> 配置文件路径 这样的方式，简单好用。<br>在<code>/home/user/</code>下新建一个<code>shadowsocks.json</code>文件。<br>内容如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    &quot;server&quot;:&quot;11.22.33.44&quot;,</div><div class="line">    &quot;server_port&quot;:50003,</div><div class="line">    &quot;local_port&quot;:1080,</div><div class="line">    &quot;password&quot;:&quot;123456&quot;,</div><div class="line">    &quot;timeout&quot;:600,</div><div class="line">    &quot;method&quot;:&quot;aes-256-cfb&quot;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>运行<code>shadowsocks</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sslocal -c /home/user/shadowsocks.json</div></pre></td></tr></table></figure></p>
@@ -673,7 +673,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">71</span>
+                  <span class="site-state-item-count">72</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -684,7 +684,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -797,7 +797,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">62.2k</span>
+    <span title="Site words total count">62.5k</span>
   
 </div>
 

@@ -142,7 +142,7 @@
 
 安装PostgreSQL
 1brew install postgresql -v">
-<meta property="og:updated_time" content="2017-11-05T13:44:46.000Z">
+<meta property="og:updated_time" content="2017-12-03T15:50:31.466Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mac 下Django 环境搭建">
 <meta name="twitter:description" content="安装Homebrew
@@ -533,9 +533,9 @@
 </li>
 <li><p>安装<code>PostgreSQL</code></p>
 <figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install postgresql -v</div></pre></td></tr></table></figure>
+<a id="more"></a>
 </li>
 </ol>
-<a id="more"></a>
 <p>2.1 初始化数据库<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">initdb /usr/local/var/postgres -E utf8</div></pre></td></tr></table></figure></p>
 <p>2.2 设成开机启动<code>PostgreSQL</code><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ln -sfv /usr/<span class="built_in">local</span>/opt/postgresql/*.plist ~/Library/LaunchAgents</div><div class="line">launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist</div></pre></td></tr></table></figure></p>
 <p>2.3 启动<code>PostgreSQL</code><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pg_ctl -D /usr/<span class="built_in">local</span>/var/postgres <span class="_">-l</span> /usr/<span class="built_in">local</span>/var/postgres/server.log start</div></pre></td></tr></table></figure></p>
@@ -711,7 +711,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">71</span>
+                  <span class="site-state-item-count">72</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -722,7 +722,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -819,7 +819,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">62.2k</span>
+    <span title="Site words total count">62.5k</span>
   
 </div>
 

@@ -134,7 +134,7 @@
 <meta property="og:url" content="http://shadow000902.space/2016/05/06/Robot-Framework测试环境搭建/index.html">
 <meta property="og:site_name" content="Shadow'S Site">
 <meta property="og:description" content="安装python环境。由于Robot Framework是基于python2开发的，所以必须选择安装python2版本，不然会造成很多异常，之后需要的一些依赖python2的库也无法安装。这里我选择安装的是Anaconda2，它自身就包含较多的python库，比较好用。">
-<meta property="og:updated_time" content="2017-11-05T13:52:29.000Z">
+<meta property="og:updated_time" content="2017-12-03T15:50:31.213Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Robot-Framework测试环境搭建">
 <meta name="twitter:description" content="安装python环境。由于Robot Framework是基于python2开发的，所以必须选择安装python2版本，不然会造成很多异常，之后需要的一些依赖python2的库也无法安装。这里我选择安装的是Anaconda2，它自身就包含较多的python库，比较好用。">
@@ -478,7 +478,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  829 字
+                  901 字
                 </span>
               
 
@@ -516,7 +516,7 @@
 
       
         <h4 id="安装python环境。"><a href="#安装python环境。" class="headerlink" title="安装python环境。"></a>安装python环境。</h4><p>由于Robot Framework是基于python2开发的，所以必须选择安装python2版本，不然会造成很多异常，之后需要的一些依赖python2的库也无法安装。这里我选择安装的是<a href="https://www.continuum.io/downloads" target="_blank" rel="external">Anaconda2</a>，它自身就包含较多的python库，比较好用。</p>
-<a id="more"></a>
+  <a id="more"></a>
 <h4 id="安装Appium。如果安装过程中遇到问题，还请看Appium安装"><a href="#安装Appium。如果安装过程中遇到问题，还请看Appium安装" class="headerlink" title="安装Appium。如果安装过程中遇到问题，还请看Appium安装"></a>安装Appium。如果安装过程中遇到问题，还请看<a href="http://shadow000902.space/2016/03/31/Appium安装/">Appium安装</a></h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install appium -g</div></pre></td></tr></table></figure>
 <h4 id="安装Robot-Framework"><a href="#安装Robot-Framework" class="headerlink" title="安装Robot Framework"></a>安装Robot Framework</h4><h5 id="源码安装。下载地址"><a href="#源码安装。下载地址" class="headerlink" title="源码安装。下载地址"></a>源码安装。<a href="https://pypi.python.org/pypi/robotframework" target="_blank" rel="external">下载地址</a></h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> .../robotframework/</div><div class="line">python setup.py install</div></pre></td></tr></table></figure>
 <h5 id="通过pip安装"><a href="#通过pip安装" class="headerlink" title="通过pip安装"></a>通过pip安装</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pip install robotframework</div></pre></td></tr></table></figure>
@@ -536,6 +536,7 @@
 <p>是因为wxpython是32位的，而我们安装的是64位的。<br>输入以下命令强制执行32位：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">defaults write com.apple.versioner.python Prefer-32-Bit -bool yes</div></pre></td></tr></table></figure></p>
 <h5 id="ride-一次使用后再次打开崩溃的问题"><a href="#ride-一次使用后再次打开崩溃的问题" class="headerlink" title="ride 一次使用后再次打开崩溃的问题"></a>ride 一次使用后再次打开崩溃的问题</h5><p>因为用<code>pip install robotframework-ride</code>安装的<code>ride</code>是1.5.2.1版本，会出现这个问题，所以安装指定的1.5.2版本<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pip install robotframework-ride==1.5.2</div></pre></td></tr></table></figure></p>
 <h5 id="所有的安装内容"><a href="#所有的安装内容" class="headerlink" title="所有的安装内容"></a>所有的安装内容</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">pip install robotframework</div><div class="line">pip install robotframework-ride</div><div class="line">pip install robotframework-appiumlibrary</div><div class="line">pip install robotframework-selenium2library</div><div class="line">pip install robotframework-databaselibrary</div><div class="line">pip install requests</div><div class="line">pip install PyMySQL</div></pre></td></tr></table></figure>
+<h4 id="命令行执行RF用例"><a href="#命令行执行RF用例" class="headerlink" title="命令行执行RF用例"></a>命令行执行RF用例</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 执行整个项目下的所有用例</span></div><div class="line">pybot /opt/robotframework/</div><div class="line"><span class="comment"># 执行某个suite中的所有用例</span></div><div class="line">pybot /opt/robotframework/rf.robot</div><div class="line"><span class="comment"># 执行具体的某个用例</span></div><div class="line">pybot --test <span class="keyword">case</span>_1 /opt/robotframework/rf.robot</div><div class="line"><span class="comment"># 执行项目中指定标签的用例</span></div><div class="line">pybot --include tagName /opt/robotframework/</div></pre></td></tr></table></figure>
       
     </div>
     
@@ -685,7 +686,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">71</span>
+                  <span class="site-state-item-count">72</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -696,7 +697,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -775,7 +776,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#安装python环境。"><span class="nav-number">1.</span> <span class="nav-text">安装python环境。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装Appium。如果安装过程中遇到问题，还请看Appium安装"><span class="nav-number">2.</span> <span class="nav-text">安装Appium。如果安装过程中遇到问题，还请看Appium安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装Robot-Framework"><span class="nav-number">3.</span> <span class="nav-text">安装Robot Framework</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#源码安装。下载地址"><span class="nav-number">3.1.</span> <span class="nav-text">源码安装。下载地址</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#通过pip安装"><span class="nav-number">3.2.</span> <span class="nav-text">通过pip安装</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装wxPython。下载地址"><span class="nav-number">4.</span> <span class="nav-text">安装wxPython。下载地址</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#windows环境：exe文件，正常安装"><span class="nav-number">4.1.</span> <span class="nav-text">windows环境：exe文件，正常安装</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#mac环境：brew安装，修改源码"><span class="nav-number">4.2.</span> <span class="nav-text">mac环境：brew安装，修改源码</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装ride。"><span class="nav-number">5.</span> <span class="nav-text">安装ride。</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#源码安装。下载地址-1"><span class="nav-number">5.1.</span> <span class="nav-text">源码安装。下载地址</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#通过pip安装-1"><span class="nav-number">5.2.</span> <span class="nav-text">通过pip安装</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#命令行启动ride"><span class="nav-number">6.</span> <span class="nav-text">命令行启动ride</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Windows"><span class="nav-number">6.1.</span> <span class="nav-text">Windows</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#mac"><span class="nav-number">6.2.</span> <span class="nav-text">mac</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装robotframework-appiumlibrary"><span class="nav-number">7.</span> <span class="nav-text">安装robotframework-appiumlibrary</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装robotframework-selenium2library"><span class="nav-number">8.</span> <span class="nav-text">安装robotframework-selenium2library</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#问题解决"><span class="nav-number">9.</span> <span class="nav-text">问题解决</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#遇到ride无法启动的问题【Windows】"><span class="nav-number">9.1.</span> <span class="nav-text">遇到ride无法启动的问题【Windows】</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#mac-强制安装-wxpython2-8-12-1"><span class="nav-number">9.2.</span> <span class="nav-text">mac 强制安装 wxpython2.8.12.1</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#ride-一次使用后再次打开崩溃的问题"><span class="nav-number">9.3.</span> <span class="nav-text">ride 一次使用后再次打开崩溃的问题</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#所有的安装内容"><span class="nav-number">9.4.</span> <span class="nav-text">所有的安装内容</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#安装python环境。"><span class="nav-number">1.</span> <span class="nav-text">安装python环境。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装Appium。如果安装过程中遇到问题，还请看Appium安装"><span class="nav-number">2.</span> <span class="nav-text">安装Appium。如果安装过程中遇到问题，还请看Appium安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装Robot-Framework"><span class="nav-number">3.</span> <span class="nav-text">安装Robot Framework</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#源码安装。下载地址"><span class="nav-number">3.1.</span> <span class="nav-text">源码安装。下载地址</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#通过pip安装"><span class="nav-number">3.2.</span> <span class="nav-text">通过pip安装</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装wxPython。下载地址"><span class="nav-number">4.</span> <span class="nav-text">安装wxPython。下载地址</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#windows环境：exe文件，正常安装"><span class="nav-number">4.1.</span> <span class="nav-text">windows环境：exe文件，正常安装</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#mac环境：brew安装，修改源码"><span class="nav-number">4.2.</span> <span class="nav-text">mac环境：brew安装，修改源码</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装ride。"><span class="nav-number">5.</span> <span class="nav-text">安装ride。</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#源码安装。下载地址-1"><span class="nav-number">5.1.</span> <span class="nav-text">源码安装。下载地址</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#通过pip安装-1"><span class="nav-number">5.2.</span> <span class="nav-text">通过pip安装</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#命令行启动ride"><span class="nav-number">6.</span> <span class="nav-text">命令行启动ride</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Windows"><span class="nav-number">6.1.</span> <span class="nav-text">Windows</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#mac"><span class="nav-number">6.2.</span> <span class="nav-text">mac</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装robotframework-appiumlibrary"><span class="nav-number">7.</span> <span class="nav-text">安装robotframework-appiumlibrary</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装robotframework-selenium2library"><span class="nav-number">8.</span> <span class="nav-text">安装robotframework-selenium2library</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#问题解决"><span class="nav-number">9.</span> <span class="nav-text">问题解决</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#遇到ride无法启动的问题【Windows】"><span class="nav-number">9.1.</span> <span class="nav-text">遇到ride无法启动的问题【Windows】</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#mac-强制安装-wxpython2-8-12-1"><span class="nav-number">9.2.</span> <span class="nav-text">mac 强制安装 wxpython2.8.12.1</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#ride-一次使用后再次打开崩溃的问题"><span class="nav-number">9.3.</span> <span class="nav-text">ride 一次使用后再次打开崩溃的问题</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#所有的安装内容"><span class="nav-number">9.4.</span> <span class="nav-text">所有的安装内容</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#命令行执行RF用例"><span class="nav-number">10.</span> <span class="nav-text">命令行执行RF用例</span></a></li></ol></div>
             
 
           </div>
@@ -809,7 +810,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">62.2k</span>
+    <span title="Site words total count">62.5k</span>
   
 </div>
 

@@ -140,7 +140,7 @@
 
 源码 -&amp;gt; .archive文件 -&amp;gt; .ipa文件
 源码 -&amp;gt; .app文件 -&amp;gt; .ipa文件">
-<meta property="og:updated_time" content="2017-11-05T13:52:29.000Z">
+<meta property="og:updated_time" content="2017-12-03T15:50:31.192Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="IOS打包命令">
 <meta name="twitter:description" content="IOS构建方式对IOS源码的构建方式主要有两种，最后的目标都是生成.ipa文件
@@ -527,9 +527,10 @@
         <h5 id="IOS构建方式"><a href="#IOS构建方式" class="headerlink" title="IOS构建方式"></a>IOS构建方式</h5><p>对IOS源码的构建方式主要有两种，最后的目标都是生成<code>.ipa</code>文件</p>
 <ul>
 <li><code>源码</code> -&gt; <code>.archive文件</code> -&gt; <code>.ipa文件</code></li>
-<li><code>源码</code> -&gt; <code>.app文件</code> -&gt; <code>.ipa文件</code></li>
-</ul>
+<li><p><code>源码</code> -&gt; <code>.app文件</code> -&gt; <code>.ipa文件</code></p>
 <a id="more"></a>
+</li>
+</ul>
 <p>主要差异在于中间产物的不一样</p>
 <pre><code>``源码`` -&gt; ``.archive`` -&gt; ``.ipa``
 </code></pre><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># build archive file from source code</span></div><div class="line">xcodebuild \    <span class="comment"># xctool</span></div><div class="line">  -workspace <span class="variable">$&#123;WORKSPACE_PATH&#125;</span> \</div><div class="line">  -scheme <span class="variable">$&#123;SCHEME&#125;</span> \</div><div class="line">  -configuration <span class="variable">$&#123;CONFIGURATION&#125;</span> \</div><div class="line">  -sdk <span class="variable">$&#123;SDK&#125;</span></div><div class="line">  -archivePath <span class="variable">$&#123;archive_path&#125;</span></div><div class="line">  archive</div></pre></td></tr></table></figure>
@@ -704,7 +705,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">71</span>
+                  <span class="site-state-item-count">72</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -715,7 +716,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -828,7 +829,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">62.2k</span>
+    <span title="Site words total count">62.5k</span>
   
 </div>
 
