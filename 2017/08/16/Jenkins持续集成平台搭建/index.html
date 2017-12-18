@@ -130,20 +130,22 @@
 
 <meta name="description" content="Jenkins 部署
 创建Jenkins运行目录
-123mkdir /opt/Jenkins/Home						# Jenkins主目录mkdir /opt/Jenkins/tmp							# Jenkins缓存位置mkdir /opt/Jenkins/script						# 脚本存放位置">
+123456# Jenkins主目录mkdir /opt/Jenkins/Home# Jenkins缓存位置mkdir /opt/Jenkins/tmp# 脚本存放位置mkdir /opt/Jenkins/script">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Jenkins持续集成平台搭建">
 <meta property="og:url" content="http://shadow000902.space/2017/08/16/Jenkins持续集成平台搭建/index.html">
 <meta property="og:site_name" content="Shadow'S Site">
 <meta property="og:description" content="Jenkins 部署
 创建Jenkins运行目录
-123mkdir /opt/Jenkins/Home						# Jenkins主目录mkdir /opt/Jenkins/tmp							# Jenkins缓存位置mkdir /opt/Jenkins/script						# 脚本存放位置">
-<meta property="og:updated_time" content="2017-12-03T15:50:31.272Z">
+123456# Jenkins主目录mkdir /opt/Jenkins/Home# Jenkins缓存位置mkdir /opt/Jenkins/tmp# 脚本存放位置mkdir /opt/Jenkins/script">
+<meta property="og:image" content="http://shadow000902.space/2017/08/16/Jenkins持续集成平台搭建/构建触发器_身份验证令牌.png">
+<meta property="og:updated_time" content="2017-12-18T12:56:42.073Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Jenkins持续集成平台搭建">
 <meta name="twitter:description" content="Jenkins 部署
 创建Jenkins运行目录
-123mkdir /opt/Jenkins/Home						# Jenkins主目录mkdir /opt/Jenkins/tmp							# Jenkins缓存位置mkdir /opt/Jenkins/script						# 脚本存放位置">
+123456# Jenkins主目录mkdir /opt/Jenkins/Home# Jenkins缓存位置mkdir /opt/Jenkins/tmp# 脚本存放位置mkdir /opt/Jenkins/script">
+<meta name="twitter:image" content="http://shadow000902.space/2017/08/16/Jenkins持续集成平台搭建/构建触发器_身份验证令牌.png">
 
 
 
@@ -430,8 +432,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JENKINS/" itemprop="url" rel="index">
-                    <span itemprop="name">JENKINS</span>
+                  <a href="/categories/Jenkins/" itemprop="url" rel="index">
+                    <span itemprop="name">Jenkins</span>
                   </a>
                 </span>
 
@@ -484,7 +486,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  581 字
+                  34 字
                 </span>
               
 
@@ -500,7 +502,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  3 分钟
+                  1 分钟
                 </span>
               
             </div>
@@ -523,7 +525,7 @@
       
         <h5 id="Jenkins-部署"><a href="#Jenkins-部署" class="headerlink" title="Jenkins 部署"></a>Jenkins 部署</h5><ol>
 <li><p>创建<code>Jenkins</code>运行目录</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">mkdir /opt/Jenkins/Home						<span class="comment"># Jenkins主目录</span></div><div class="line">mkdir /opt/Jenkins/tmp							<span class="comment"># Jenkins缓存位置</span></div><div class="line">mkdir /opt/Jenkins/script						<span class="comment"># 脚本存放位置</span></div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Jenkins主目录</span></div><div class="line">mkdir /opt/Jenkins/Home</div><div class="line"><span class="comment"># Jenkins缓存位置</span></div><div class="line">mkdir /opt/Jenkins/tmp</div><div class="line"><span class="comment"># 脚本存放位置</span></div><div class="line">mkdir /opt/Jenkins/script</div></pre></td></tr></table></figure>
 <a id="more"></a>
 </li>
 <li><p>下载<code>jenkins.war</code><br><a href="https://jenkins.io/download/" target="_blank" rel="external">下载地址</a><br>把下载的<code>war</code>包放入<code>/opt/Jenkins</code>目录下</p>
@@ -532,10 +534,32 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">/usr/bin/java -Dfile.encoding=UTF-8 \</div><div class="line">                    -XX:PermSize=256m -XX:MaxPermSize=512m -Xms256m -Xmx512m \</div><div class="line">                    -Djava.io.tmpdir=/opt/Jenkins/tmp \</div><div class="line">                    -jar /opt/Jenkins/jenkins.war \</div><div class="line">                    --httpPort=8080 \</div><div class="line">                    &gt;&gt; /opt/Jenkins/nohup.out \</div><div class="line">                    2&gt;&amp;1 &amp;</div></pre></td></tr></table></figure>
 </li>
 </ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">-Dfile.encoding=UTF-8																			<span class="comment"># 设置编码格式</span></div><div class="line">-XX:PermSize=256m -XX:MaxPermSize=512m -Xms256m -Xmx512m			<span class="comment"># 设置内存占用</span></div><div class="line">-Djava.io.tmpdir=/opt/Jenkins/tmp														<span class="comment"># 指定Jenkins运行缓存位置</span></div><div class="line">-jar /opt/Jenkins/jenkins.war																<span class="comment"># 指定执行的war包</span></div><div class="line">--httpPort=8080																					<span class="comment"># 指定本地端口</span></div><div class="line">&gt;&gt; /opt/Jenkins/nohup.out																	<span class="comment"># 指定Jenkins运行日志输出位置</span></div><div class="line">2&gt;&amp;1 &amp;																								<span class="comment"># 设置进程在后台运行</span></div></pre></td></tr></table></figure>
-<p>新建脚本文件存放脚本<code>startJenkins.sh</code>，放到<code>script</code>目录下。<br>执行脚本：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">chmod a+x startJenkins.sh																	<span class="comment"># 赋予可执行权限</span></div><div class="line">./startJenkins.sh																				<span class="comment"># 执行脚本，启动Jenkins</span></div></pre></td></tr></table></figure></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 设置编码格式</span></div><div class="line">-Dfile.encoding=UTF-8</div><div class="line"><span class="comment"># 设置内存占用</span></div><div class="line">-XX:PermSize=256m -XX:MaxPermSize=512m -Xms256m -Xmx512m</div><div class="line"><span class="comment"># 指定Jenkins运行缓存位置</span></div><div class="line">-Djava.io.tmpdir=/opt/Jenkins/tmp</div><div class="line"><span class="comment"># 指定执行的war包</span></div><div class="line">-jar /opt/Jenkins/jenkins.war</div><div class="line"><span class="comment"># 指定本地端口</span></div><div class="line">--httpPort=8080</div><div class="line"><span class="comment"># 指定Jenkins运行日志输出位置</span></div><div class="line">&gt;&gt; /opt/Jenkins/nohup.out</div><div class="line"><span class="comment"># 设置进程在后台运行</span></div><div class="line">2&gt;&amp;1 &amp;</div></pre></td></tr></table></figure>
+<p>新建脚本文件存放脚本<code>startJenkins.sh</code>，放到<code>script</code>目录下。<br>执行脚本<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">```bash</div><div class="line"># 赋予可执行权限</div><div class="line">chmod a+x startJenkins.sh</div><div class="line"># 执行脚本，启动Jenkins</div><div class="line">./startJenkins.sh</div></pre></td></tr></table></figure></p>
 <ol>
-<li><code>Jenkins</code>主目录介绍<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">-rw-r--r--   1 taoyi  wheel   1.6K  8 16 01:43 config.xml																<span class="comment"># jenkins主配置文件</span></div><div class="line">-rw-r--r--   1 taoyi  wheel   159B  8 16 01:43 hudson.model.UpdateCenter.xml</div><div class="line">-rw-------   1 taoyi  wheel   1.7K  8 16 01:27 identity.key.enc</div><div class="line">-rw-r--r--   1 taoyi  wheel    94B  8 16 01:27 jenkins.CLI.xml</div><div class="line">-rw-r--r--   1 taoyi  wheel     4B  8 16 01:43 jenkins.install.InstallUtil.lastExecVersion</div><div class="line">-rw-r--r--   1 taoyi  wheel     4B  8 16 01:30 jenkins.install.UpgradeWizard.state</div><div class="line">drwxr-xr-x   4 taoyi  wheel   136B  8 16 09:35 <span class="built_in">jobs</span>																<span class="comment"># 包含所有的项目，包含所有项目对应的配置文件，包括挂到slave中的项目的配置文件</span></div><div class="line">drwxr-xr-x   4 taoyi  wheel   136B  8 16 01:29 logs</div><div class="line">-rw-r--r--   1 taoyi  wheel   907B  8 16 01:43 nodeMonitors.xml</div><div class="line">drwxr-xr-x   2 taoyi  wheel    68B  8 16 01:27 nodes																<span class="comment"># 所有的slave节点配置文件</span></div><div class="line">drwxr-xr-x   2 taoyi  wheel    68B  8 16 01:27 plugins																<span class="comment"># Jenkins插件</span></div><div class="line">-rw-r--r--   1 taoyi  wheel    64B  8 16 01:27 secret.key</div><div class="line">-rw-r--r--   1 taoyi  wheel     0B  8 16 01:27 secret.key.not-so-secret</div><div class="line">drwx------  15 taoyi  wheel   510B  8 16 01:44 secrets</div><div class="line">drwxr-xr-x   5 taoyi  wheel   170B  8 16 01:27 updates</div><div class="line">drwxr-xr-x   3 taoyi  wheel   102B  8 16 01:27 userContent</div><div class="line">drwxr-xr-x   4 taoyi  wheel   136B  8 16 01:40 users																<span class="comment"># 在Jenkins中添加的所有用户都会在这个目录下新建文件夹管理，每个用户都会有一个config.xml配置文件</span></div><div class="line">drwxr-xr-x  25 taoyi  wheel   850B  8 16 01:27 war</div><div class="line">drwxr-xr-x   3 taoyi  wheel   102B  8 16 01:44 workspace															<span class="comment"># 挂在本机下的所有项目的工作空间</span></div></pre></td></tr></table></figure>
+<li><code>Jenkins</code>主目录介绍<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># jenkins主配置文件</span></div><div class="line">-rw-r--r--   1 taoyi  wheel   1.6K  8 16 01:43 config.xml</div><div class="line">-rw-r--r--   1 taoyi  wheel   159B  8 16 01:43 hudson.model.UpdateCenter.xml</div><div class="line">-rw-------   1 taoyi  wheel   1.7K  8 16 01:27 identity.key.enc</div><div class="line">-rw-r--r--   1 taoyi  wheel    94B  8 16 01:27 jenkins.CLI.xml</div><div class="line">-rw-r--r--   1 taoyi  wheel     4B  8 16 01:43 jenkins.install.InstallUtil.lastExecVersion</div><div class="line">-rw-r--r--   1 taoyi  wheel     4B  8 16 01:30 jenkins.install.UpgradeWizard.state</div><div class="line"><span class="comment"># 包含所有的项目，包含所有项目对应的配置文件，包括挂到slave中的项目的配置文件</span></div><div class="line">drwxr-xr-x   4 taoyi  wheel   136B  8 16 09:35 <span class="built_in">jobs</span></div><div class="line">drwxr-xr-x   4 taoyi  wheel   136B  8 16 01:29 logs</div><div class="line">-rw-r--r--   1 taoyi  wheel   907B  8 16 01:43 nodeMonitors.xml</div><div class="line"><span class="comment"># 所有的slave节点配置文件</span></div><div class="line">drwxr-xr-x   2 taoyi  wheel    68B  8 16 01:27 nodes</div><div class="line"><span class="comment"># Jenkins插件</span></div><div class="line">drwxr-xr-x   2 taoyi  wheel    68B  8 16 01:27 plugins</div><div class="line">-rw-r--r--   1 taoyi  wheel    64B  8 16 01:27 secret.key</div><div class="line">-rw-r--r--   1 taoyi  wheel     0B  8 16 01:27 secret.key.not-so-secret</div><div class="line">drwx------  15 taoyi  wheel   510B  8 16 01:44 secrets</div><div class="line">drwxr-xr-x   5 taoyi  wheel   170B  8 16 01:27 updates</div><div class="line">drwxr-xr-x   3 taoyi  wheel   102B  8 16 01:27 userContent</div><div class="line"><span class="comment"># 在Jenkins中添加的所有用户都会在这个目录下新建文件夹管理，每个用户都会有一个config.xml配置文件</span></div><div class="line">drwxr-xr-x   4 taoyi  wheel   136B  8 16 01:40 users</div><div class="line">drwxr-xr-x  25 taoyi  wheel   850B  8 16 01:27 war</div><div class="line"><span class="comment"># 挂在本机下的所有项目的工作空间</span></div><div class="line">drwxr-xr-x   3 taoyi  wheel   102B  8 16 01:44 workspace</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h5 id="问题总结"><a href="#问题总结" class="headerlink" title="问题总结"></a>问题总结</h5><ol>
+<li><code>Jenkins console</code>输出乱码<br>在<code>/etc/profile</code>中添加<code>export JAVA_TOOL_OPTIONS=&quot;-Dfile.encoding=UTF-8&quot;</code><br>在<code>Jenkins</code>系统管理里，添加环境变量<code>Key</code>：<code>LANG</code>，<code>Value</code>：<code>en_US.UTF-8</code>（如果系统默认的已经是en_US.UTF-8，就不用设置了）</li>
+</ol>
+<h5 id="好用的Jenkins插件"><a href="#好用的Jenkins插件" class="headerlink" title="好用的Jenkins插件"></a>好用的Jenkins插件</h5><ol>
+<li><code>Build User Vars Plugin</code>【获取项目构建人】<br>变量值表<html><br><body><br><table border="1"><br><tr><br><code>&lt;th&gt;Variable&lt;/th&gt;</code><th>Description</th><br></tr><br><tr><br><code>&lt;td&gt;BUILD_USER&lt;/td&gt;</code><td>Full name (first name + last name) </td><br></tr><br><tr><br><code>&lt;td&gt;BUILD_USER_EMAIL&lt;/td&gt;</code><td>Email address</td><br></tr><br><tr><br><code>&lt;td&gt;BUILD_USER_FIRST_NAME&lt;/td&gt;</code><td>First name</td><br></tr><br><tr><br><code>&lt;td&gt;BUILD_USER_ID&lt;/td&gt;</code><td>Jenkins user ID</td><br></tr><br><tr><br><code>&lt;td&gt;BUILD_USER_LAST_NAME&lt;/td&gt;</code><td>Last name</td><br></tr><br></table><br></body><br></html>
+
+</li>
+</ol>
+<p>在jenkins任务中使用构建变量：注意需要勾选 “Set jenkins user build variables.”</p>
+<ol>
+<li><p><code>Naginator</code>【任务失败重新构建插件】<br>在<code>构建后操作</code>中选择<code>Retry build after failure</code>。<code>Fixed delay</code>填写每次重试的时间延迟，单位是秒。<code>Maximum number of successive failed builds</code>文本框中填写重试次数。</p>
+</li>
+<li><p><code>Publish Over SSH</code>【通过ssh构建项目】</p>
+</li>
+<li><p><code>触发远程构建（例如，使用脚本）</code></p>
+<img src="/2017/08/16/Jenkins持续集成平台搭建/构建触发器_身份验证令牌.png" alt="构建触发器_身份验证令牌" title="构建触发器_身份验证令牌">
+<p>设置身份验证令牌<code>TOKEN_NAME</code>，可以随意定义。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 默认参数执行远程构建</span></div><div class="line">JENKINS_URL/job/JOB_NAME/build?token=TOKEN_NAME</div><div class="line"><span class="comment"># 参数化形式执行远程构建</span></div><div class="line">JENKINS_URL/job/JOB_NAME/buildWithParameters?token=TOKEN_NAME&amp;params1=params1&amp;...</div></pre></td></tr></table></figure>
+</li>
+<li><p>常用插件汇总<br><code>Build Environment Plugin</code>构建环境插件，可以进行构建环境比较。<br><code>Build Flow Plugin</code>工作流插件，支持DSL脚本定义工作流<br><code>Build Graph View Plugin</code>build Flow插件视图（安装后需要重新才能生效）<br><code>Build Monitor View</code>使用心得：基于该插件可以实现dashboard功能<br><code>Build Pipeline Plugin View</code>Pipeline 管道流图表展示插件<br><code>Build Timestamp Plugin</code>任务log时间戳插件，使得job log的每次输出前面都增加当时的时间<br><code>Build-timeout Plugin</code>job构建超时插件<br><code>BuildResultTrigger Plugin</code>根据其他的job的成功或失败来启动此build。<br><code>Cron Column Plugin</code> 通过定时任务例行的运行一些job<br><code>Files Found Trigger</code>检测指定的目录，如果发现指定模式的文件则启动build。<br><code>HTTP Request Plugin</code>使用心得：在构建前后可以通过该插件以http形式调用各种api接口实现和内部系统的联动<br><code>Job Configuration History Plugin</code>使用心得：使job具备版本管理的能力，diff和rollback功能更是非常赞<br><code>Job Import Plugin</code>使用心得：可以快速导入其他jenkins集群的已有job，需要认证的jenkins系统导入需要提供凭证才可以<br><code>Join Plugin</code>这也是一个触发job的插件，亮点在于它触发job的条件是等待所有当前job的下游的job都完成才会发生。<br><code>Multijob Plugin</code>多任务插件<br><code>Naginator Plugin</code>任务重试插件<br><code>Parameterized Trigger Plugin</code>这是一个扩展型的插件，使各个job连接的时候可以传递一些job相关的信息<br><code>Periodic Backup</code>使用心得：备份是运维一个系统必须要保障的事情，该插件的恢复功能可能不可用，需要手工进行，好处在于可以定时备份<br><code>Publish Over SSH Plugin</code>通过ssh发布文件<br><code>Rebuild Plugin</code>重新执行插件<br><code>Status Monitor Plugin</code>构建状态插件<br><code>ws-cleanup Plugin</code>workspace清理插件</p>
 </li>
 </ol>
       
@@ -687,7 +711,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">75</span>
+                  <span class="site-state-item-count">77</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -698,7 +722,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -709,7 +733,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">55</span>
+                  <span class="site-state-item-count">57</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -777,7 +801,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#Jenkins-部署"><span class="nav-number">1.</span> <span class="nav-text">Jenkins 部署</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#Jenkins-部署"><span class="nav-number">1.</span> <span class="nav-text">Jenkins 部署</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#问题总结"><span class="nav-number">2.</span> <span class="nav-text">问题总结</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#好用的Jenkins插件"><span class="nav-number">3.</span> <span class="nav-text">好用的Jenkins插件</span></a></li></ol></div>
             
 
           </div>
@@ -811,7 +835,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">65.2k</span>
+    <span title="Site words total count">64.8k</span>
   
 </div>
 
