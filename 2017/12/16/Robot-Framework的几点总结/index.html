@@ -136,7 +136,7 @@
 <meta property="og:description" content="命令行执行RF用例12345678# 执行整个项目下的所有用例pybot /opt/robotframework/# 执行某个suite中的所有用例pybot /opt/robotframework/rf.robot# 执行具体的某个用例pybot --test case_1 /opt/robotframework/rf.robot# 执行项目中指定标签的用例pybot --include tag">
 <meta property="og:image" content="http://shadow000902.space/2017/12/16/Robot-Framework的几点总结/SingleTestCase.png">
 <meta property="og:image" content="http://shadow000902.space/2017/12/16/Robot-Framework的几点总结/TestSuite.png">
-<meta property="og:updated_time" content="2017-12-18T12:56:42.077Z">
+<meta property="og:updated_time" content="2017-12-18T13:06:34.409Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Robot-Framework的几点总结">
 <meta name="twitter:description" content="命令行执行RF用例12345678# 执行整个项目下的所有用例pybot /opt/robotframework/# 执行某个suite中的所有用例pybot /opt/robotframework/rf.robot# 执行具体的某个用例pybot --test case_1 /opt/robotframework/rf.robot# 执行项目中指定标签的用例pybot --include tag">
@@ -519,6 +519,7 @@
 
       
         <h5 id="命令行执行RF用例"><a href="#命令行执行RF用例" class="headerlink" title="命令行执行RF用例"></a>命令行执行RF用例</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 执行整个项目下的所有用例</span></div><div class="line">pybot /opt/robotframework/</div><div class="line"><span class="comment"># 执行某个suite中的所有用例</span></div><div class="line">pybot /opt/robotframework/rf.robot</div><div class="line"><span class="comment"># 执行具体的某个用例</span></div><div class="line">pybot --test <span class="keyword">case</span>_1 /opt/robotframework/rf.robot</div><div class="line"><span class="comment"># 执行项目中指定标签的用例</span></div><div class="line">pybot --include tagName /opt/robotframework/</div></pre></td></tr></table></figure>
+  <a id="more"></a>
 <h5 id="IDE设置命令行执行RF用例"><a href="#IDE设置命令行执行RF用例" class="headerlink" title="IDE设置命令行执行RF用例"></a>IDE设置命令行执行RF用例</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 执行单条用例</span></div><div class="line">/usr/<span class="built_in">local</span>/bin/pybot <span class="_">-d</span> results -t testcase001 ./</div></pre></td></tr></table></figure>
 <img src="/2017/12/16/Robot-Framework的几点总结/SingleTestCase.png" alt="SingleTestCase" title="SingleTestCase">
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 执行单个suite</span></div><div class="line">/usr/<span class="built_in">local</span>/bin/pybot <span class="_">-d</span> results testsuite001.robot</div></pre></td></tr></table></figure>

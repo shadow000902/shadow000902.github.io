@@ -517,15 +517,14 @@
 
       
         
-          
-            <h5 id="命令行执行RF用例"><a href="#命令行执行RF用例" class="headerlink" title="命令行执行RF用例"></a>命令行执行RF用例</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 执行整个项目下的所有用例</span></div><div class="line">pybot /opt/robotframework/</div><div class="line"><span class="comment"># 执行某个suite中的所有用例</span></div><div class="line">pybot /opt/robotframework/rf.robot</div><div class="line"><span class="comment"># 执行具体的某个用例</span></div><div class="line">pybot --test <span class="keyword">case</span>_1 /opt/robotframework/rf.robot</div><div class="line"><span class="comment"># 执行项目中指定标签的用例</span></div><div class="line">pybot --include tagName /opt/robotframework/</div></pre></td></tr></table></figure>
-<h5 id="IDE设置命令行执行RF用例"><a href="#IDE设置命令行执行RF用例" class="headerlink" title="IDE设置命令行执行RF用例"></a>IDE设置命令行执行RF用例</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 执行单条用例</span></div><div class="line">/usr/<span class="built_in">local</span>/bin/pybot <span class="_">-d</span> results -t testcase001 ./</div></pre></td></tr></table></figure>
-<img src="/2017/12/16/Robot-Framework的几点总结/SingleTestCase.png" alt="SingleTestCase" title="SingleTestCase">
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 执行单个suite</span></div><div class="line">/usr/<span class="built_in">local</span>/bin/pybot <span class="_">-d</span> results testsuite001.robot</div></pre></td></tr></table></figure>
-<img src="/2017/12/16/Robot-Framework的几点总结/TestSuite.png" alt="TestSuite" title="TestSuite">
-<h5 id="指定RF用例执行后日志的保存位置"><a href="#指定RF用例执行后日志的保存位置" class="headerlink" title="指定RF用例执行后日志的保存位置"></a>指定RF用例执行后日志的保存位置</h5><p>其实上面的<code>-d</code>参数就是用来指定Log的保存位置的，默认<code>-d results</code>指定日志保存在运行命令的目录的<code>results</code>文件夹下。<br>在<code>ride</code>中的<code>run</code>标签下，<code>Arguments</code>中填入<code>-d results</code>也能达到同样的效果。</p>
-<h5 id="重新运行上一轮Fail的Case"><a href="#重新运行上一轮Fail的Case" class="headerlink" title="重新运行上一轮Fail的Case"></a>重新运行上一轮<code>Fail</code>的<code>Case</code></h5><p>使用<code>-R</code>参数，同<code>--rerunfailed output</code>，后面跟前次执行生成的<code>results/output.xml</code>，这样就只会运行上次失败了的Case。</p>
-          
+          <h5 id="命令行执行RF用例"><a href="#命令行执行RF用例" class="headerlink" title="命令行执行RF用例"></a>命令行执行RF用例</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 执行整个项目下的所有用例</span></div><div class="line">pybot /opt/robotframework/</div><div class="line"><span class="comment"># 执行某个suite中的所有用例</span></div><div class="line">pybot /opt/robotframework/rf.robot</div><div class="line"><span class="comment"># 执行具体的某个用例</span></div><div class="line">pybot --test <span class="keyword">case</span>_1 /opt/robotframework/rf.robot</div><div class="line"><span class="comment"># 执行项目中指定标签的用例</span></div><div class="line">pybot --include tagName /opt/robotframework/</div></pre></td></tr></table></figure>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/12/16/Robot-Framework的几点总结/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
