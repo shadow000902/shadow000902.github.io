@@ -142,7 +142,7 @@
 使用正则表达式 搜索或者替换。匹配一些文本（进行一次搜索）。匹配并替换一些文本（进行一次替换）。
 定义：正则表达式是一些用来匹配和处理文本的字符串。
 语法：语法是正则表达式最容易掌握的部分，真正的挑战是学会如何运用那些语法把实际问题分解为一系列正则表达式并最终解决。">
-<meta property="og:updated_time" content="2017-12-25T12:47:57.668Z">
+<meta property="og:updated_time" content="2017-12-28T13:54:30.595Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="正则表达式">
 <meta name="twitter:description" content="正则表达式入门
@@ -490,7 +490,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  2,082 字
+                  2,609 字
                 </span>
               
 
@@ -506,7 +506,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  8 分钟
+                  10 分钟
                 </span>
               
             </div>
@@ -547,10 +547,18 @@
 </ol>
 <h4 id="使用元字符"><a href="#使用元字符" class="headerlink" title="使用元字符"></a>使用元字符</h4><ol>
 <li>对特殊字符进行转义<br> 匹配<code>myArray[0]</code>：<code>myArray\[0\]</code>。<code>\[</code>匹配<code>[</code>，<code>\]</code>匹配<code>]</code><br> 匹配<code>myArray[0]</code>，数字从0到9：<code>myArray\[[0-9]\]</code><br> 匹配<code>\</code>本身：需要对本身转义<code>\\</code><br> 在一个完整的正则表达式里，字符<code>\</code>后面永远跟着另一个字符</li>
-<li>匹配空白字符<br> 元字符大致分为两种：一种是用来匹配文本的（比如<code>.</code>），另一种是正则表达式的语法要求的（比如<code>[</code>和<code>]</code>）。<br> 空白元字符表：<br> | 元字符           | 说明            |<br> | ——          | —            |<br> | <code>[\b]</code>            | 回退（并删除）一个字符（<code>Backspace</code>键） |<br> | <code>\f</code>              | 换页符          |<br> | <code>\n</code>              | 换行符          |<br> | <code>\r</code>              | 回车符          |<br> | <code>\t</code>              | 制表符（<code>Tab</code>键）  |<br> | <code>\v</code>              | 垂直制表符       |<br> <code>\r\n</code>匹配一个“回车+换行”组合<br> <code>\r\n\r\n</code>匹配两个连续的行尾标签，即可匹配两条记录之间的空白行。</li>
-<li>匹配数字（与非数字）<br> 数字元字符：<br> | 元字符           | 说明            |<br> | ——          | —            |<br> | <code>\d</code>              | 任何一个数字字符（等价于<code>[0-9]</code>）          |<br> | <code>\D</code>              | 任何一个非数字字符（等价于<code>[^0-9]</code>）          |</li>
-<li>匹配字母和数字（与非字母和数字）<br> 字母数字元字符：<br> | 元字符           | 说明            |<br> | ——          | —            |<br> | <code>\w</code>              | 任何一个字母数字字符（大小写均可）或下划线字符（等价于<code>[a-zA-Z0-9_]</code>）          |<br> | <code>\W</code>              | 任何一个非字母数字或非下划线字符（等价于<code>[^a-zA-Z0-9_]</code>）          |</li>
-<li>匹配空白字符（与非空白字符）<br> 空白字符元字符：<br> | 元字符           | 说明            |<br> | ——          | —            |<br> | <code>\s</code>              | 任何一个空白字符（等价于<code>[\f\n\r\t\v]</code>）          |<br> | <code>\S</code>              | 任何一个非空白字符（等价于<code>[^\f\n\r\t\v]</code>）          |</li>
+<li><p>匹配空白字符<br> 元字符大致分为两种：一种是用来匹配文本的（比如<code>.</code>），另一种是正则表达式的语法要求的（比如<code>[</code>和<code>]</code>）。<br> 空白元字符表：</p>
+<p> | 元字符           | 说明            |<br> | ——          | —            |<br> | <code>[\b]</code>            | 回退（并删除）一个字符（<code>Backspace</code>键） |<br> | <code>\f</code>              | 换页符          |<br> | <code>\n</code>              | 换行符          |<br> | <code>\r</code>              | 回车符          |<br> | <code>\t</code>              | 制表符（<code>Tab</code>键）  |<br> | <code>\v</code>              | 垂直制表符       |<br> <code>\r\n</code>匹配一个“回车+换行”组合<br> <code>\r\n\r\n</code>匹配两个连续的行尾标签，即可匹配两条记录之间的空白行。</p>
+</li>
+<li><p>匹配数字（与非数字）<br> 数字元字符：</p>
+<p> | 元字符           | 说明            |<br> | ——          | —            |<br> | <code>\d</code>              | 任何一个数字字符（等价于<code>[0-9]</code>）          |<br> | <code>\D</code>              | 任何一个非数字字符（等价于<code>[^0-9]</code>）          |</p>
+</li>
+<li><p>匹配字母和数字（与非字母和数字）<br> 字母数字元字符：</p>
+<p> 元字符     | 说明                                                            |<br> ———-|—————————————————————-|<br> <code>\w</code>    | 任何一个字母数字字符（大小写均可）或下划线字符（等价于<code>[a-zA-Z0-9_]</code>）|<br> <code>\W</code>    | 任何一个非字母数字或非下划线字符（等价于<code>[^a-zA-Z0-9_]</code>）           |</p>
+</li>
+<li><p>匹配空白字符（与非空白字符）<br> 空白字符元字符：</p>
+<p> 元字符           | 说明            |<br> ——          | —            |<br> <code>\s</code>              | 任何一个空白字符（等价于<code>[\f\n\r\t\v]</code>）          |<br> <code>\S</code>              | 任何一个非空白字符（等价于<code>[^\f\n\r\t\v]</code>）          |</p>
+</li>
 <li>匹配十六进制或八进制数值<br> 十六进制（逢16进1）数值要用前缀<code>\x</code>来给出。<br> <code>\x0A</code>对应于ASCII字符10（换行符），其效果等价于<code>\n</code>。<br> 八进制（逢8进1）数值要用前缀<code>\0</code>来给出。<br> <code>\011</code>对应于ASCII字符9（制表符），其效果等价于<code>\t</code>。</li>
 <li>使用<code>POSIX</code>字符类</li>
 </ol>
@@ -559,7 +567,9 @@
 <li>匹配零个或多个字符<br> <code>*</code>的用法和<code>+</code>完全一样，用来匹配连续出现零次或多次的情况<br> 匹配<code>*</code>本身：<code>\*</code></li>
 <li>匹配零个或一个字符<br> <code>?</code>只能匹配<code>?</code>前一个字符（或字符集合）的零次或一次出现</li>
 <li>匹配的重复次数<br> 重复次数（interval）要用<code>{</code>和<code>}</code>字符来给出，把重复次数数值写在它们之间。<br> 为重复次数设定一个精确的值：<code>#[a-fA-F0-9]{6}</code><br> 为重复匹配次数设定一个区间：<code>[\d]{2, 4}</code>，连续出现最少2个最多4个数字<br> 重复次数可以是0：<code>[\d]{0, 3}</code>，表示重复次数可以是0、1、2、3<br> <code>[\d]{3, }</code>：表示必须重复3次或者更多次</li>
-<li>防止过度匹配<br> <code>*</code>和<code>+</code>都是所谓的“贪婪型”元字符<br> 懒惰性元字符：只要给贪婪型元字符加上一个<code>?</code>后缀即可<br> 常用的贪婪型元字符和它们的懒惰性版本：<br> | 贪婪新元字符      | 懒惰性元字符     |<br> | ——          | —            |<br> | <code>*</code>           | <code>*?</code>         |<br> | <code>+</code>           | <code>+?</code>         |<br> | <code>{n, }</code>       | <code>{n, }?</code>     |<br> 懒惰性元字符：就近原则</li>
+<li><p>防止过度匹配<br> <code>*</code>和<code>+</code>都是所谓的“贪婪型”元字符<br> 懒惰性元字符：只要给贪婪型元字符加上一个<code>?</code>后缀即可<br> 常用的贪婪型元字符和它们的懒惰性版本：</p>
+<p> 贪婪新元字符 | 懒惰性元字符 |<br> ———–|————|<br> <code>*</code>      | <code>*?</code>     |<br> <code>+</code>      | <code>+?</code>     |<br> <code>{n, }</code>  | <code>{n, }?</code> |<br> 懒惰性元字符：就近原则</p>
+</li>
 </ol>
 <h4 id="位置匹配"><a href="#位置匹配" class="headerlink" title="位置匹配"></a>位置匹配</h4><ol>
 <li>单词边界<br> <code>\b</code>：单词边界的限定符，用来匹配一个单词的开头或结尾。<br> 位置：一个能够用来构成单词的字符（字母、数字和下划线，也就是与<code>\w</code>相匹配的字符）和一个不能用来构成单词的字符（也就是与<code>\W</code>相匹配的字符）之间。<br> <code>\B</code>：表明不匹配一个单词边界。<br> 匹配前后多余空格的连字符：<code>\B-\B</code>：<code>color - coded</code>其中的<code>-</code></li>
@@ -570,7 +580,17 @@
 <li>子表达式<br> <code>(&amp;nbsp;){2, }</code>：匹配两个以上“不是换行符的空格”。<br> 子表达式必须用<code>(</code>和<code>)</code>括起来。<br> <code>|</code>：或操作<br> <code>19|20</code>：匹配数字序列<code>19</code>或<code>20</code></li>
 <li>子表达式的嵌套<br> 子表达式允许嵌套<br> 有句话需要牢记：<em>把必须匹配的情况考虑周全并写出一个匹配结果符合预期的正则表达式很容易，但把不需要匹配的情况也考虑周全并确保它们被排除在匹配结果以外往往要困难得多。</em><br> 匹配IP：<code>(((\d{1,2})|(1\d{2})|(2[0-4]\d)|(23[0-5]))\.){3}(\d{1,2})|(1\d{2})|(2[0-4]\d)|(23[0-5]))</code></li>
 </ol>
-<h4 id="回溯应用：前后一致匹配"><a href="#回溯应用：前后一致匹配" class="headerlink" title="回溯应用：前后一致匹配"></a>回溯应用：前后一致匹配</h4><p>1. </p>
+<h4 id="回溯引用：前后一致匹配"><a href="#回溯引用：前后一致匹配" class="headerlink" title="回溯引用：前后一致匹配"></a>回溯引用：前后一致匹配</h4><ol>
+<li>回溯引用匹配<br> 模式的后半部分引用在前半部分中定义的子表达式<br> <code>[ ]+(\w+)[ ]+\1</code>：<code>\1</code>代表模式里的第一个子表达式<br> <code>&lt;[Hh]([1-6])&gt;(.*?)&lt;/[Hh]\1&gt;</code>：匹配HTML文件中所有的标题<br> 回溯引用匹配通畅从1开始计数（<code>\1</code>、<code>\2</code>等）。在许多实现里，第0个匹配（<code>\0</code>）可以用来代表整个正则表达式。</li>
+<li><p>回溯引用在替换操作中的应用<br> 替换操作需要用到两个正则表达式：一个用来给出搜索模式，另一个用来给出匹配文本的替换模式。<br> 回溯引用可以跨模式使用，在第一个模式里被匹配的子表达式可以用在第二个模式里。<br> 把一段文本里的电子邮件地址全部转换为可点击：<code>Hello, shadow000902@gmail.com is my email address.</code></p>
+<pre><code><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 匹配出电子邮件地址</span></div><div class="line">(\w+[\w.]*@[\w\.]+\w+)</div><div class="line"><span class="comment"># 替换</span></div><div class="line">&lt;A HREF=<span class="string">"mailto:<span class="variable">$1</span>"</span>&gt;<span class="variable">$1</span>&lt;/A&gt;</div></pre></td></tr></table></figure>
+</code></pre><p> 结果：<code>Hello, &lt;A HREF=&quot;mailto:shadow000902@gmail.com&quot;&gt;shadow000902@gmail.com&lt;/A&gt; is my email address.</code><br> 回溯引用语法在不同的正则表达式实现里有很大差异：JavaScript用户需要用<code>$</code>来替换<code>\</code>；ColdFusion用户在查找和替换操作里都必须使用<code>\</code>。<br> 同一个子表达式可以被多次引用，只要在需要它的地方写出回溯引用就行了。<br> 在对文本进行重新排版的时候，把文本分解成多个子表达式的做法往往非常有用，这可以让我们对文本的排版效果做出更精确的控制。</p>
+</li>
+<li><p>大小写转换<br> 用来进行大小写转换的元字符</p>
+<p> 元字符      | 说明 |<br> ———–|————|<br> <code>\E</code>     | 结束<code>\L</code>或<code>\U</code>转换     |<br> <code>\l</code>     | 把下一个字符转换为小写     |<br> <code>\L</code>     | 把<code>\L</code>和<code>\E</code>之间的字符全部转换为小写 |<br> <code>\u</code>     | 把下一个字符转换为大写 |<br> <code>\U</code>     | 把<code>\U</code>和<code>\E</code>之间的字符全部转换为大写 |<br> 把HTML文件中的一级标题（</p><h1>…）的标题文字转换为大写：</h1><p></p>
+<pre><code><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 匹配出一级标题</span></div><div class="line">(&lt;[Hh]1&gt;)(.*?)(&lt;/[Hh]1&gt;)</div><div class="line"><span class="comment"># 替换</span></div><div class="line"><span class="variable">$1</span>\U<span class="variable">$2</span>\E<span class="variable">$3</span></div></pre></td></tr></table></figure>
+</code></pre></li>
+</ol>
       
     </div>
     
@@ -810,7 +830,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#正则表达式入门"><span class="nav-number">1.</span> <span class="nav-text">正则表达式入门</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#匹配单个字符"><span class="nav-number">2.</span> <span class="nav-text">匹配单个字符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#匹配一组字符"><span class="nav-number">3.</span> <span class="nav-text">匹配一组字符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用元字符"><span class="nav-number">4.</span> <span class="nav-text">使用元字符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#重复匹配"><span class="nav-number">5.</span> <span class="nav-text">重复匹配</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#位置匹配"><span class="nav-number">6.</span> <span class="nav-text">位置匹配</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用子表达式"><span class="nav-number">7.</span> <span class="nav-text">使用子表达式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#回溯应用：前后一致匹配"><span class="nav-number">8.</span> <span class="nav-text">回溯应用：前后一致匹配</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#正则表达式入门"><span class="nav-number">1.</span> <span class="nav-text">正则表达式入门</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#匹配单个字符"><span class="nav-number">2.</span> <span class="nav-text">匹配单个字符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#匹配一组字符"><span class="nav-number">3.</span> <span class="nav-text">匹配一组字符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用元字符"><span class="nav-number">4.</span> <span class="nav-text">使用元字符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#重复匹配"><span class="nav-number">5.</span> <span class="nav-text">重复匹配</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#位置匹配"><span class="nav-number">6.</span> <span class="nav-text">位置匹配</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用子表达式"><span class="nav-number">7.</span> <span class="nav-text">使用子表达式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#回溯引用：前后一致匹配"><span class="nav-number">8.</span> <span class="nav-text">回溯引用：前后一致匹配</span></a></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number"></span> <span class="nav-text">…）的标题文字转换为大写：</span></a></li></div>
             
 
           </div>
@@ -844,7 +864,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">66.9k</span>
+    <span title="Site words total count">67.4k</span>
   
 </div>
 
