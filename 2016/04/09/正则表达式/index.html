@@ -142,7 +142,7 @@
 使用正则表达式 搜索或者替换。匹配一些文本（进行一次搜索）。匹配并替换一些文本（进行一次替换）。
 定义：正则表达式是一些用来匹配和处理文本的字符串。
 语法：语法是正则表达式最容易掌握的部分，真正的挑战是学会如何运用那些语法把实际问题分解为一系列正则表达式并最终解决。">
-<meta property="og:updated_time" content="2017-12-28T13:54:30.595Z">
+<meta property="og:updated_time" content="2017-12-30T03:08:00.678Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="正则表达式">
 <meta name="twitter:description" content="正则表达式入门
@@ -546,7 +546,9 @@
 <li>取非匹配<br> 除了那个字符集里的字符，其他字符都可以匹配。<br> 元字符<code>^</code>表示对一个字符集合进行取非匹配。<br> <code>[^0-9]</code>表示任何一个不是数字的字符。<br> <code>^</code>的效果将作用于给定字符集合里的所有字符或字符区间。</li>
 </ol>
 <h4 id="使用元字符"><a href="#使用元字符" class="headerlink" title="使用元字符"></a>使用元字符</h4><ol>
-<li>对特殊字符进行转义<br> 匹配<code>myArray[0]</code>：<code>myArray\[0\]</code>。<code>\[</code>匹配<code>[</code>，<code>\]</code>匹配<code>]</code><br> 匹配<code>myArray[0]</code>，数字从0到9：<code>myArray\[[0-9]\]</code><br> 匹配<code>\</code>本身：需要对本身转义<code>\\</code><br> 在一个完整的正则表达式里，字符<code>\</code>后面永远跟着另一个字符</li>
+<li><p>对特殊字符进行转义</p>
+<p> 匹配<code>myArray[0]</code>：<code>myArray\[0\]</code>。<code>\[</code>匹配<code>[</code>，<code>\]</code>匹配<code>]</code><br> 匹配<code>myArray[0]</code>，数字从0到9：<code>myArray\[[0-9]\]</code><br> 匹配<code>\</code>本身：需要对本身转义<code>\\</code><br> 在一个完整的正则表达式里，字符<code>\</code>后面永远跟着另一个字符</p>
+</li>
 <li><p>匹配空白字符<br> 元字符大致分为两种：一种是用来匹配文本的（比如<code>.</code>），另一种是正则表达式的语法要求的（比如<code>[</code>和<code>]</code>）。<br> 空白元字符表：</p>
 <p> | 元字符           | 说明            |<br> | ——          | —            |<br> | <code>[\b]</code>            | 回退（并删除）一个字符（<code>Backspace</code>键） |<br> | <code>\f</code>              | 换页符          |<br> | <code>\n</code>              | 换行符          |<br> | <code>\r</code>              | 回车符          |<br> | <code>\t</code>              | 制表符（<code>Tab</code>键）  |<br> | <code>\v</code>              | 垂直制表符       |<br> <code>\r\n</code>匹配一个“回车+换行”组合<br> <code>\r\n\r\n</code>匹配两个连续的行尾标签，即可匹配两条记录之间的空白行。</p>
 </li>
