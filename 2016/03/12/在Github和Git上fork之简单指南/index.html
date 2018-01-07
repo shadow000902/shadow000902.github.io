@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next pisces use-motion" lang="zh-Hans">
+<html class="theme-next gemini use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8">
 <meta name="google-site-verification" content="icHwxZMwWfYpn47DgI1Za6CeqXvoEj-7y1sEoJvdVSo">
@@ -97,19 +97,19 @@
 
 <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css">
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico?v=5.1.4">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico?v=5.1.3">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.4">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.3">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=5.1.4">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=5.1.3">
 
 
-  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
 
 
 
@@ -129,11 +129,13 @@
 
 
 <meta name="description" content="以我的经验来看，刚接触Git和GitHub时，最困扰的一件事情就是尝试解决下面的问题：在Git和GitHub上，我能做什么？Git教程往往不会解决这个问题，因为它集中篇幅来教你Git命令和概念，并且不认为你会使用GitHub。GitHub帮助教程一定程度上弥补了这一缺陷，但是它每篇文章的关注点都较为狭隘，而且没有提供关于”Git vs GitHub”问题的概念性概述。如果你是习惯于先理解概念，再着">
+<meta name="keywords" content="git,github">
 <meta property="og:type" content="article">
 <meta property="og:title" content="在Github和Git上fork之简单指南">
 <meta property="og:url" content="http://shadow000902.space/2016/03/12/在Github和Git上fork之简单指南/index.html">
-<meta property="og:site_name" content="Shadow'S Site">
+<meta property="og:site_name" content="Shadow&#39;S Site">
 <meta property="og:description" content="以我的经验来看，刚接触Git和GitHub时，最困扰的一件事情就是尝试解决下面的问题：在Git和GitHub上，我能做什么？Git教程往往不会解决这个问题，因为它集中篇幅来教你Git命令和概念，并且不认为你会使用GitHub。GitHub帮助教程一定程度上弥补了这一缺陷，但是它每篇文章的关注点都较为狭隘，而且没有提供关于”Git vs GitHub”问题的概念性概述。如果你是习惯于先理解概念，再着">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://shadow000902.space/2016/03/12/在Github和Git上fork之简单指南/github.gif">
 <meta property="og:image" content="http://shadow000902.space/2016/03/12/在Github和Git上fork之简单指南/ForkandUpdate.png">
 <meta property="og:image" content="http://shadow000902.space/2016/03/12/在Github和Git上fork之简单指南/同步一个fork.png">
@@ -149,9 +151,9 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Pisces',
-    version: '5.1.4',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    scheme: 'Gemini',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
     fancybox: true,
     tabs: true,
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
@@ -411,7 +413,19 @@
             
 
             
+              <span class="post-meta-divider">|</span>
+            
 
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2017-12-11T13:27:19+08:00">
+                2017-12-11
+              </time>
             
           </span>
 
@@ -519,7 +533,7 @@
       
 
       
-        <p>以我的经验来看，刚接触Git和GitHub时，最困扰的一件事情就是尝试解决下面的问题：<strong>在Git和GitHub上，我能做什么？</strong><br>Git教程往往不会解决这个问题，因为它集中篇幅来教你Git命令和概念，并且不认为你会使用GitHub。<a href="https://help.github.com/" target="_blank" rel="external">GitHub帮助教程</a>一定程度上弥补了这一缺陷，但是它每篇文章的关注点都较为狭隘，而且没有提供关于”Git vs GitHub”问题的概念性概述。<br><strong>如果你是习惯于先理解概念，再着手代码的学习者</strong>，而且你也是Git和GitHub的初学者，我建议你先理解清楚什么是fork。为什么呢 ？</p>
+        <p>以我的经验来看，刚接触Git和GitHub时，最困扰的一件事情就是尝试解决下面的问题：<strong>在Git和GitHub上，我能做什么？</strong><br>Git教程往往不会解决这个问题，因为它集中篇幅来教你Git命令和概念，并且不认为你会使用GitHub。<a href="https://help.github.com/" target="_blank" rel="noopener">GitHub帮助教程</a>一定程度上弥补了这一缺陷，但是它每篇文章的关注点都较为狭隘，而且没有提供关于”Git vs GitHub”问题的概念性概述。<br><strong>如果你是习惯于先理解概念，再着手代码的学习者</strong>，而且你也是Git和GitHub的初学者，我建议你先理解清楚什么是fork。为什么呢 ？</p>
 <ol>
 <li>Fork是在GitHub起步最普遍的方式。</li>
 <li>Fork只需要很少的Git命令，但是起得作用却非常大。</li>
@@ -527,10 +541,10 @@
 <a id="more"></a>
 </li>
 </ol>
-<img src="/2016/03/12/在Github和Git上fork之简单指南/github.gif" alt="github" title="github">
+<img src="/2016/03/12/在Github和Git上fork之简单指南/github.gif" title="github">
 <p><strong>本篇指南使用两张简单的图表，来教会你fork的两种主要工作流程。</strong> 我并不打算涉及任何代码，但是在结论中，我会把你需要使用的代码的链接给你。</p>
 <h2 id="fork并且更新一个仓库"><a href="#fork并且更新一个仓库" class="headerlink" title="fork并且更新一个仓库"></a>fork并且更新一个仓库</h2><p>现在有这样一种情形：有一个叫做Joe的程序猿写了一个游戏程序，而你可能要去改进它。并且Joe将他的代码放在了GitHub仓库上。下面是你要做的事情：</p>
-<img src="/2016/03/12/在Github和Git上fork之简单指南/ForkandUpdate.png" alt="ForkandUpdate" title="ForkandUpdate">
+<img src="/2016/03/12/在Github和Git上fork之简单指南/ForkandUpdate.png" title="ForkandUpdate">
 <p><strong>fork并且更新GitHub仓库的图表演示</strong></p>
 <ol>
 <li><p><strong>Fork他的仓库</strong>：这是GitHub操作，这个操作会复制Joe的仓库（包括文件，提交历史，issues，和其余一些东西）。复制后的仓库在你自己的GitHub帐号下。目前，你本地计算机对这个仓库没有任何操作。</p>
@@ -548,7 +562,7 @@
 </ol>
 <p>如果Joe接受了你的pull request，他将把那些修改拉到自己的仓库。胜利！</p>
 <h2 id="同步一个fork"><a href="#同步一个fork" class="headerlink" title="同步一个fork"></a>同步一个fork</h2><p>Joe和其余贡献者已经对这个项目做了一些修改，而你将在他们的修改的基础上，还要再做一些修改。在你开始之前，你最好”同步你的fork”，以确保在最新的复制版本里工作。下面是你要做的：</p>
-<img src="/2016/03/12/在Github和Git上fork之简单指南/同步一个fork.png" alt="同步一个fork" title="同步一个fork">
+<img src="/2016/03/12/在Github和Git上fork之简单指南/同步一个fork.png" title="同步一个fork">
 <ol>
 <li><p><strong>从Joe的仓库中取出那些变化的文件</strong>：这是Git操作，使用该命令让你可以从Joe的仓库获取最新的文件。</p>
 </li>
@@ -558,13 +572,13 @@
 </li>
 </ol>
 <p><strong>比较一下fork和同步工作流程的区别</strong>：当你最初fork一个仓库的时候，信息的流向是从Joe的仓库到你的仓库，然后再到你本地计算机。但是最初的过程之后，信息的流向是从Joe的仓库到你的本地计算机，之后再到你的仓库。</p>
-<h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p>我希望这是一篇关于GitHub和Git的<a href="https://help.github.com/articles/fork-a-repo" target="_blank" rel="external">fork</a>有用概述。现在，你已经理解了那些概念，你将会更容易地在实际中执行你的代码。GitHub关于fork和<a href="https://help.github.com/articles/syncing-a-fork" target="_blank" rel="external">同步</a>的文章将会给你大部分你需要的代码。</p>
-<p>如果你是Git的初学者，而且你很喜欢这种学习方式，那么我极力推荐书籍<a href="http://git-scm.com/book" target="_blank" rel="external">Pro Git</a>的前两个章节，网上是可以免费查阅的。</p>
-<p>如果你喜欢视频学习，我创建了一个<a href="http://www.dataschool.io/git-and-github-videos-for-beginners/" target="_blank" rel="external">11部分的视频系列</a>（总共36分钟），来向初学者介绍Git和GitHub。</p>
+<h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p>我希望这是一篇关于GitHub和Git的<a href="https://help.github.com/articles/fork-a-repo" target="_blank" rel="noopener">fork</a>有用概述。现在，你已经理解了那些概念，你将会更容易地在实际中执行你的代码。GitHub关于fork和<a href="https://help.github.com/articles/syncing-a-fork" target="_blank" rel="noopener">同步</a>的文章将会给你大部分你需要的代码。</p>
+<p>如果你是Git的初学者，而且你很喜欢这种学习方式，那么我极力推荐书籍<a href="http://git-scm.com/book" target="_blank" rel="noopener">Pro Git</a>的前两个章节，网上是可以免费查阅的。</p>
+<p>如果你喜欢视频学习，我创建了一个<a href="http://www.dataschool.io/git-and-github-videos-for-beginners/" target="_blank" rel="noopener">11部分的视频系列</a>（总共36分钟），来向初学者介绍Git和GitHub。</p>
 <hr>
-<p>via: <a href="http://www.dataschool.io/simple-guide-to-forks-in-github-and-git/" target="_blank" rel="external">http://www.dataschool.io/simple-guide-to-forks-in-github-and-git/</a></p>
+<p>via: <a href="http://www.dataschool.io/simple-guide-to-forks-in-github-and-git/" target="_blank" rel="noopener">http://www.dataschool.io/simple-guide-to-forks-in-github-and-git/</a></p>
 <p>作者：Kevin Markham 译者：su-kaiyao 校对：wxy</p>
-<p>本文由 <a href="https://github.com/LCTT/TranslateProject" target="_blank" rel="external">LCTT</a> 原创翻译，Linux中国 荣誉推出</p>
+<p>本文由 <a href="https://github.com/LCTT/TranslateProject" target="_blank" rel="noopener">LCTT</a> 原创翻译，Linux中国 荣誉推出</p>
       
     </div>
     
@@ -594,6 +608,24 @@
       </div>
     
 
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    shadow
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://shadow000902.space/2016/03/12/在Github和Git上fork之简单指南/" title="在Github和Git上fork之简单指南">http://shadow000902.space/2016/03/12/在Github和Git上fork之简单指南/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
     
 
     <footer class="post-footer">
@@ -782,24 +814,6 @@
           </div>
 
           
-            
-              
-                
-                    
-                      
-                      
-                    
-                      
-                        
-                      
-                  
-                  
-              
-            
-          
-
-
-          
           
 
           
@@ -829,6 +843,13 @@
       
 
       
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
 
     </div>
   </aside>
@@ -854,7 +875,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">67.7k</span>
+    <span title="Site words total count">74.0k</span>
   
 </div>
 
@@ -887,7 +908,7 @@
 
 
 
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.3</div>
 
 
 
@@ -904,11 +925,6 @@
       </div>
     </footer>
 
-    
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-      </div>
     
 
     
@@ -978,32 +994,32 @@
   
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
 
 
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
 
 
 
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
 
 
 
@@ -1051,6 +1067,8 @@
 
 
 
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
 
 
 
@@ -1069,7 +1087,7 @@
   <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
   
 
-  <script src="/js/src/algolia-search.js?v=5.1.4"></script>
+  <script src="/js/src/algolia-search.js?v=5.1.3"></script>
 
 
 

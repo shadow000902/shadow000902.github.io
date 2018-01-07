@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next pisces use-motion" lang="zh-Hans">
+<html class="theme-next gemini use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8">
 <meta name="google-site-verification" content="icHwxZMwWfYpn47DgI1Za6CeqXvoEj-7y1sEoJvdVSo">
@@ -97,19 +97,19 @@
 
 <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css">
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico?v=5.1.4">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico?v=5.1.3">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.4">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.3">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=5.1.4">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=5.1.3">
 
 
-  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
 
 
 
@@ -129,11 +129,13 @@
 
 
 <meta name="description" content="每次运行测试，app都会重新安装1.1 在case里不要设置app的安装路径，只要设置desired_caps[&amp;#39;appPackage&amp;#39;]（app的包名）和desired_caps[&amp;#39;appActivity&amp;#39;]（启动时的activity）即可1.2 在启动appium的时候，加上--no-reset参数">
+<meta name="keywords" content="appium">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Appium踩过的坑">
 <meta property="og:url" content="http://shadow000902.space/2016/05/31/Appium踩过的坑/index.html">
-<meta property="og:site_name" content="Shadow'S Site">
+<meta property="og:site_name" content="Shadow&#39;S Site">
 <meta property="og:description" content="每次运行测试，app都会重新安装1.1 在case里不要设置app的安装路径，只要设置desired_caps[&amp;#39;appPackage&amp;#39;]（app的包名）和desired_caps[&amp;#39;appActivity&amp;#39;]（启动时的activity）即可1.2 在启动appium的时候，加上--no-reset参数">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2017-12-11T05:21:45.300Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Appium踩过的坑">
@@ -145,9 +147,9 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Pisces',
-    version: '5.1.4',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    scheme: 'Gemini',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
     fancybox: true,
     tabs: true,
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
@@ -407,7 +409,19 @@
             
 
             
+              <span class="post-meta-divider">|</span>
+            
 
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2017-12-11T13:21:45+08:00">
+                2017-12-11
+              </time>
             
           </span>
 
@@ -478,7 +492,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  1,002 字
+                  1,098 字
                 </span>
               
 
@@ -494,7 +508,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  5 分钟
+                  6 分钟
                 </span>
               
             </div>
@@ -517,23 +531,23 @@
       
         <h5 id="每次运行测试，app都会重新安装"><a href="#每次运行测试，app都会重新安装" class="headerlink" title="每次运行测试，app都会重新安装"></a>每次运行测试，app都会重新安装</h5><p>1.1 在case里不要设置app的安装路径，只要设置<code>desired_caps[&#39;appPackage&#39;]</code>（app的包名）和<code>desired_caps[&#39;appActivity&#39;]</code>（启动时的activity）即可<br>1.2 在启动appium的时候，加上<code>--no-reset</code>参数</p>
   <a id="more"></a>
-<h5 id="等待操作"><a href="#等待操作" class="headerlink" title="等待操作"></a>等待操作</h5><p>2.1 尽量不要使用sleep方法<br>2.2 使用<code>implicitly_wait(1000)</code>方法，<strong>隐性等待/如果一个无素没有出现都会默认等待你所设定的时间，直到超时或者元素出现</strong><br>2.3 <code>WebDriverWait()</code>，同样也是 webdirver 提供的方法。<strong>在设置时间内，默认每隔一段时间检测一次当前。页面元素是否存在，如果超过设置时间检测不到则抛出异常。</strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> selenium.webdriver.support.ui <span class="keyword">import</span> WebDriverWait</div><div class="line">element = WebDriverWait(driver, <span class="number">10</span>).until(<span class="keyword">lambda</span> x: x.find_element_by_id(“someId”))</div><div class="line">is_disappeared = WebDriverWait(driver, <span class="number">30</span>, <span class="number">1</span>, (ElementNotVisibleException)).</div><div class="line">until_not(<span class="keyword">lambda</span> x: x.find_element_by_id(“someId”).is_displayed())</div></pre></td></tr></table></figure></p>
-<h5 id="元素无法定位"><a href="#元素无法定位" class="headerlink" title="元素无法定位"></a>元素无法定位</h5><p>3.1 使用元素坐标点定位，有两种点击方法，一种是<code>tap([(100, 20), (100, 60), (100, 100)], 500)</code>，还有一种是使用<code>swipe(630, 320, 630, 320, 500)</code>方法<br>3.2 使用<code>class_name</code>来定位：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">checkboxes = self.driver.find_elements_by_class_name(<span class="string">'android.widget.CheckBox'</span>)     <span class="comment"># 获取页面class_name为android.widget.CheckBox的所有元素，形成一个list</span></div><div class="line">checkboxes[<span class="number">0</span>].click()                                                               <span class="comment"># 指定元素进行操作</span></div><div class="line">checkboxes[<span class="number">1</span>].click()                                                               <span class="comment"># 指定元素进行操作</span></div></pre></td></tr></table></figure></p>
-<h5 id="长按操作"><a href="#长按操作" class="headerlink" title="长按操作"></a>长按操作</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">action1 = TouchAction(self.driver)</div><div class="line">el_3 = self.driver.find_element_by_id(<span class="string">'cn.highing.hichat:id/topic_voice_send'</span>)</div><div class="line">action1.long_press(el_3).wait(<span class="number">10000</span>).perform()</div></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">action2 = TouchAction(self.driver)</div><div class="line">el_3 = self.driver.find_element_by_id(<span class="string">'cn.highing.hichat:id/topic_voice_send'</span>)</div><div class="line">action2.moveTo(el_3).release().perform()</div></pre></td></tr></table></figure>
-<h5 id="异常处理"><a href="#异常处理" class="headerlink" title="异常处理"></a>异常处理</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> self.driver.current_activity == <span class="string">".ui.GuideActivity"</span>:</div><div class="line">    <span class="keyword">try</span>:</div><div class="line">        做x这件事</div><div class="line">    <span class="keyword">except</span>:</div><div class="line">        x失败的话，做这里的事</div></pre></td></tr></table></figure>
-<h5 id="断言"><a href="#断言" class="headerlink" title="断言"></a>断言</h5><h5 id="appium运行结果报告"><a href="#appium运行结果报告" class="headerlink" title="appium运行结果报告"></a>appium运行结果报告</h5><h5 id="appium设置不使用appium只带的输入法"><a href="#appium设置不使用appium只带的输入法" class="headerlink" title="appium设置不使用appium只带的输入法"></a><code>appium</code>设置不使用<code>appium</code>只带的输入法</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">des.setCapability(<span class="string">"unicodeKeyboard"</span>, <span class="string">"True"</span>)</div><div class="line">des.setCapability(<span class="string">"resetKeyboard"</span>, <span class="string">"True"</span>)</div></pre></td></tr></table></figure>
-<h5 id="一定不要搞错启动activity"><a href="#一定不要搞错启动activity" class="headerlink" title="一定不要搞错启动activity"></a>一定不要搞错启动<code>activity</code></h5><p>启动时的<code>activity</code>一般都是叫<code>SplashActivity</code><br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">setUp</span><span class="params">(self)</span>:</span></div><div class="line">    desired_caps = &#123;&#125;</div><div class="line">    desired_caps[<span class="string">'platformName'</span>] = <span class="string">'Android'</span></div><div class="line">    desired_caps[<span class="string">'platformVersion'</span>] = <span class="string">'6.0'</span></div><div class="line">    desired_caps[<span class="string">'deviceName'</span>] = <span class="string">'Nexus 5'</span></div><div class="line">    desired_caps[<span class="string">'appPackage'</span>] = <span class="string">'com.souche.fengche'</span>  <span class="comment"># 被测App的包名</span></div><div class="line">    desired_caps[<span class="string">'appActivity'</span>] = <span class="string">'com.souche.fengche.ui.activity.SplashActivity'</span>  <span class="comment"># 启动时的Activity</span></div><div class="line">    <span class="comment"># desired_caps['app'] = PATH('/Users/taoyi/Downloads/dasouche.apk')</span></div></pre></td></tr></table></figure></p>
-<h5 id="拖动操作解析"><a href="#拖动操作解析" class="headerlink" title="拖动操作解析"></a>拖动操作解析</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">DragAndDrop</span><span class="params">(By dragElement, By dropElement)</span></span></div></pre></td></tr></table></figure>
+<h5 id="等待操作"><a href="#等待操作" class="headerlink" title="等待操作"></a>等待操作</h5><p>2.1 尽量不要使用sleep方法<br>2.2 使用<code>implicitly_wait(1000)</code>方法，<strong>隐性等待/如果一个无素没有出现都会默认等待你所设定的时间，直到超时或者元素出现</strong><br>2.3 <code>WebDriverWait()</code>，同样也是 webdirver 提供的方法。<strong>在设置时间内，默认每隔一段时间检测一次当前。页面元素是否存在，如果超过设置时间检测不到则抛出异常。</strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> selenium.webdriver.support.ui <span class="keyword">import</span> WebDriverWait</span><br><span class="line">element = WebDriverWait(driver, <span class="number">10</span>).until(<span class="keyword">lambda</span> x: x.find_element_by_id(“someId”))</span><br><span class="line">is_disappeared = WebDriverWait(driver, <span class="number">30</span>, <span class="number">1</span>, (ElementNotVisibleException)).</span><br><span class="line">until_not(<span class="keyword">lambda</span> x: x.find_element_by_id(“someId”).is_displayed())</span><br></pre></td></tr></table></figure></p>
+<h5 id="元素无法定位"><a href="#元素无法定位" class="headerlink" title="元素无法定位"></a>元素无法定位</h5><p>3.1 使用元素坐标点定位，有两种点击方法，一种是<code>tap([(100, 20), (100, 60), (100, 100)], 500)</code>，还有一种是使用<code>swipe(630, 320, 630, 320, 500)</code>方法<br>3.2 使用<code>class_name</code>来定位：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">checkboxes = self.driver.find_elements_by_class_name(<span class="string">'android.widget.CheckBox'</span>)     <span class="comment"># 获取页面class_name为android.widget.CheckBox的所有元素，形成一个list</span></span><br><span class="line">checkboxes[<span class="number">0</span>].click()                                                               <span class="comment"># 指定元素进行操作</span></span><br><span class="line">checkboxes[<span class="number">1</span>].click()                                                               <span class="comment"># 指定元素进行操作</span></span><br></pre></td></tr></table></figure></p>
+<h5 id="长按操作"><a href="#长按操作" class="headerlink" title="长按操作"></a>长按操作</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">action1 = TouchAction(self.driver)</span><br><span class="line">el_3 = self.driver.find_element_by_id(<span class="string">'cn.highing.hichat:id/topic_voice_send'</span>)</span><br><span class="line">action1.long_press(el_3).wait(<span class="number">10000</span>).perform()</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">action2 = TouchAction(self.driver)</span><br><span class="line">el_3 = self.driver.find_element_by_id(<span class="string">'cn.highing.hichat:id/topic_voice_send'</span>)</span><br><span class="line">action2.moveTo(el_3).release().perform()</span><br></pre></td></tr></table></figure>
+<h5 id="异常处理"><a href="#异常处理" class="headerlink" title="异常处理"></a>异常处理</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> self.driver.current_activity == <span class="string">".ui.GuideActivity"</span>:</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        做x这件事</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        x失败的话，做这里的事</span><br></pre></td></tr></table></figure>
+<h5 id="断言"><a href="#断言" class="headerlink" title="断言"></a>断言</h5><h5 id="appium运行结果报告"><a href="#appium运行结果报告" class="headerlink" title="appium运行结果报告"></a>appium运行结果报告</h5><h5 id="appium设置不使用appium只带的输入法"><a href="#appium设置不使用appium只带的输入法" class="headerlink" title="appium设置不使用appium只带的输入法"></a><code>appium</code>设置不使用<code>appium</code>只带的输入法</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">des.setCapability(<span class="string">"unicodeKeyboard"</span>, <span class="string">"True"</span>)</span><br><span class="line">des.setCapability(<span class="string">"resetKeyboard"</span>, <span class="string">"True"</span>)</span><br></pre></td></tr></table></figure>
+<h5 id="一定不要搞错启动activity"><a href="#一定不要搞错启动activity" class="headerlink" title="一定不要搞错启动activity"></a>一定不要搞错启动<code>activity</code></h5><p>启动时的<code>activity</code>一般都是叫<code>SplashActivity</code><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">setUp</span><span class="params">(self)</span>:</span></span><br><span class="line">    desired_caps = &#123;&#125;</span><br><span class="line">    desired_caps[<span class="string">'platformName'</span>] = <span class="string">'Android'</span></span><br><span class="line">    desired_caps[<span class="string">'platformVersion'</span>] = <span class="string">'6.0'</span></span><br><span class="line">    desired_caps[<span class="string">'deviceName'</span>] = <span class="string">'Nexus 5'</span></span><br><span class="line">    desired_caps[<span class="string">'appPackage'</span>] = <span class="string">'com.souche.fengche'</span>  <span class="comment"># 被测App的包名</span></span><br><span class="line">    desired_caps[<span class="string">'appActivity'</span>] = <span class="string">'com.souche.fengche.ui.activity.SplashActivity'</span>  <span class="comment"># 启动时的Activity</span></span><br><span class="line">    <span class="comment"># desired_caps['app'] = PATH('/Users/taoyi/Downloads/dasouche.apk')</span></span><br></pre></td></tr></table></figure></p>
+<h5 id="拖动操作解析"><a href="#拖动操作解析" class="headerlink" title="拖动操作解析"></a>拖动操作解析</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">DragAndDrop</span><span class="params">(By dragElement, By dropElement)</span></span></span><br></pre></td></tr></table></figure>
 <p><code>dragElement</code> <em>起点元素，不要用输入框，尽量用不可点击的显示型元素</em><br><code>dropElement</code> <em>终点元素，不要用输入框，尽量用不可点击的显示型元素</em></p>
-<h5 id="滑动操作"><a href="#滑动操作" class="headerlink" title="滑动操作"></a>滑动操作</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">swipe_to_up</span><span class="params">(self)</span>:</span></div><div class="line">    <span class="string">"""</span></div><div class="line">    从下往上滑动</div><div class="line">    :return: None</div><div class="line">    """</div><div class="line">    window_size = self.get_size()</div><div class="line">    width = window_size.get(<span class="string">"width"</span>)</div><div class="line">    height = window_size.get(<span class="string">"height"</span>)</div><div class="line">    self.driver.swipe(width / <span class="number">2</span>, height * <span class="number">3</span> / <span class="number">4</span>, width / <span class="number">2</span>, height / <span class="number">4</span>, <span class="number">500</span>)</div></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">SwipeToUp</span><span class="params">(<span class="keyword">int</span> during)</span> </span>&#123;</div><div class="line">	<span class="keyword">int</span> width = driver.manage().window().getSize().width;</div><div class="line">	<span class="keyword">int</span> height = driver.manage().window().getSize().height;</div><div class="line">	driver.swipe(width / <span class="number">2</span>, height * <span class="number">3</span> / <span class="number">4</span>, width / <span class="number">2</span>, height / <span class="number">4</span>, during);</div><div class="line">	logger.info(<span class="string">"向上滑动屏幕的3/4"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h5 id="Appium（客户端版）解决每次运行Android，都安装Appium-Setting和Unlock的方法"><a href="#Appium（客户端版）解决每次运行Android，都安装Appium-Setting和Unlock的方法" class="headerlink" title="Appium（客户端版）解决每次运行Android，都安装Appium Setting和Unlock的方法"></a><code>Appium</code>（客户端版）解决每次运行<code>Android</code>，都安装<code>Appium Setting</code>和<code>Unlock</code>的方法</h5><p>同 “Appium的几点总结” 的<code>六</code><br><code>Appium Setting</code>安装包路径：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/usr/local/lib/node_modules/appium/node_modules/appium-android-driver/node_modules/io.appium.settings/bin/settings_apk-debug.apk</div></pre></td></tr></table></figure></p>
-<p><code>Unlock</code>安装包路径：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/usr/local/lib/node_modules/appium/node_modules/appium-android-driver/node_modules/appium-unlock/bin/unlock_apk-debug.apk</div></pre></td></tr></table></figure></p>
-<p>解决方法，修改下面两个文件<br>文件1地址：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/usr/<span class="built_in">local</span>/lib/node_modules/appium/node_modules/appium-android-driver/lib/android-helpers.js</div></pre></td></tr></table></figure></p>
-<p>文件位置：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">helpers.initDevice = <span class="keyword">async</span> <span class="function"><span class="keyword">function</span> (<span class="params">adb, opts</span>) </span>&#123;</div><div class="line">  <span class="keyword">await</span> adb.waitForDevice();</div><div class="line"></div><div class="line">  <span class="keyword">await</span> helpers.ensureDeviceLocale(adb, opts.language, opts.locale);</div><div class="line">  <span class="keyword">await</span> adb.startLogcat();</div><div class="line">  <span class="keyword">let</span> defaultIME;</div><div class="line">  <span class="keyword">if</span> (opts.unicodeKeyboard) &#123;</div><div class="line">    defaultIME = <span class="keyword">await</span> helpers.initUnicodeKeyboard(adb);</div><div class="line">  &#125;</div><div class="line"><span class="comment">//  await helpers.pushSettingsApp(adb);                                         # 注释掉</span></div><div class="line"><span class="comment">//  await helpers.pushUnlock(adb);                                              # 注释掉</span></div><div class="line">  <span class="keyword">return</span> defaultIME;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
-<p>文件2地址：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/usr/<span class="built_in">local</span>/lib/node_modules/appium/node_modules/appium-android-driver/build/lib/android-helpers.js</div></pre></td></tr></table></figure></p>
-<p>文件位置：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div></pre></td><td class="code"><pre><div class="line">helpers.initDevice = <span class="function"><span class="keyword">function</span> <span class="title">callee$0$0</span>(<span class="params">adb, opts</span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> defaultIME;</div><div class="line">  <span class="keyword">return</span> _regeneratorRuntime.async(<span class="function"><span class="keyword">function</span> <span class="title">callee$0$0$</span>(<span class="params">context$1$0</span>) </span>&#123;</div><div class="line">    <span class="keyword">while</span> (<span class="number">1</span>) <span class="keyword">switch</span> (context$<span class="number">1</span>$<span class="number">0.</span>prev = context$<span class="number">1</span>$<span class="number">0.</span>next) &#123;</div><div class="line">      <span class="keyword">case</span> <span class="number">0</span>:</div><div class="line">        context$<span class="number">1</span>$<span class="number">0.</span>next = <span class="number">2</span>;</div><div class="line">        <span class="keyword">return</span> _regeneratorRuntime.awrap(adb.waitForDevice());</div><div class="line"></div><div class="line">      <span class="keyword">case</span> <span class="number">2</span>:</div><div class="line">        context$<span class="number">1</span>$<span class="number">0.</span>next = <span class="number">4</span>;</div><div class="line">        <span class="keyword">return</span> _regeneratorRuntime.awrap(helpers.ensureDeviceLocale(adb, opts.language, opts.locale));</div><div class="line"></div><div class="line">      <span class="keyword">case</span> <span class="number">4</span>:</div><div class="line">        context$<span class="number">1</span>$<span class="number">0.</span>next = <span class="number">6</span>;</div><div class="line">        <span class="keyword">return</span> _regeneratorRuntime.awrap(adb.startLogcat());</div><div class="line"></div><div class="line">      <span class="keyword">case</span> <span class="number">6</span>:</div><div class="line">        defaultIME = <span class="literal">undefined</span>;</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (!opts.unicodeKeyboard) &#123;</div><div class="line">          context$<span class="number">1</span>$<span class="number">0.</span>next = <span class="number">11</span>;</div><div class="line">          <span class="keyword">break</span>;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        context$<span class="number">1</span>$<span class="number">0.</span>next = <span class="number">10</span>;</div><div class="line">        <span class="keyword">return</span> _regeneratorRuntime.awrap(helpers.initUnicodeKeyboard(adb));</div><div class="line"></div><div class="line">      <span class="keyword">case</span> <span class="number">10</span>:</div><div class="line">        defaultIME = context$<span class="number">1</span>$<span class="number">0.</span>sent;</div><div class="line"></div><div class="line">      <span class="keyword">case</span> <span class="number">11</span>:</div><div class="line">        context$<span class="number">1</span>$<span class="number">0.</span>next = <span class="number">13</span>;</div><div class="line">        <span class="keyword">return</span> _regeneratorRuntime.awrap(helpers.pushSettingsApp(adb));</div><div class="line">        <span class="comment">// return context$1$0.abrupt('return', defaultIME);                     # 添加新的 return，相当于跳过该步骤</span></div><div class="line"></div><div class="line">      <span class="keyword">case</span> <span class="number">13</span>:</div><div class="line">        context$<span class="number">1</span>$<span class="number">0.</span>next = <span class="number">15</span>;</div><div class="line">        <span class="keyword">return</span> _regeneratorRuntime.awrap(helpers.pushUnlock(adb));</div><div class="line">        <span class="comment">// return context$1$0.abrupt('return', defaultIME);                     # 添加新的 return，相当于跳过该步骤</span></div><div class="line"></div><div class="line">      <span class="keyword">case</span> <span class="number">15</span>:</div><div class="line">        <span class="keyword">return</span> context$<span class="number">1</span>$<span class="number">0.</span>abrupt(<span class="string">'return'</span>, defaultIME);</div><div class="line"></div><div class="line">      <span class="keyword">case</span> <span class="number">16</span>:</div><div class="line">      <span class="keyword">case</span> <span class="string">'end'</span>:</div><div class="line">        <span class="keyword">return</span> context$<span class="number">1</span>$<span class="number">0.</span>stop();</div><div class="line">    &#125;</div><div class="line">  &#125;, <span class="literal">null</span>, <span class="keyword">this</span>);</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<h5 id="滑动操作"><a href="#滑动操作" class="headerlink" title="滑动操作"></a>滑动操作</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">swipe_to_up</span><span class="params">(self)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    从下往上滑动</span></span><br><span class="line"><span class="string">    :return: None</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    window_size = self.get_size()</span><br><span class="line">    width = window_size.get(<span class="string">"width"</span>)</span><br><span class="line">    height = window_size.get(<span class="string">"height"</span>)</span><br><span class="line">    self.driver.swipe(width / <span class="number">2</span>, height * <span class="number">3</span> / <span class="number">4</span>, width / <span class="number">2</span>, height / <span class="number">4</span>, <span class="number">500</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">SwipeToUp</span><span class="params">(<span class="keyword">int</span> during)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> width = driver.manage().window().getSize().width;</span><br><span class="line">	<span class="keyword">int</span> height = driver.manage().window().getSize().height;</span><br><span class="line">	driver.swipe(width / <span class="number">2</span>, height * <span class="number">3</span> / <span class="number">4</span>, width / <span class="number">2</span>, height / <span class="number">4</span>, during);</span><br><span class="line">	logger.info(<span class="string">"向上滑动屏幕的3/4"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="Appium（客户端版）解决每次运行Android，都安装Appium-Setting和Unlock的方法"><a href="#Appium（客户端版）解决每次运行Android，都安装Appium-Setting和Unlock的方法" class="headerlink" title="Appium（客户端版）解决每次运行Android，都安装Appium Setting和Unlock的方法"></a><code>Appium</code>（客户端版）解决每次运行<code>Android</code>，都安装<code>Appium Setting</code>和<code>Unlock</code>的方法</h5><p>同 “Appium的几点总结” 的<code>六</code><br><code>Appium Setting</code>安装包路径：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/local/lib/node_modules/appium/node_modules/appium-android-driver/node_modules/io.appium.settings/bin/settings_apk-debug.apk</span><br></pre></td></tr></table></figure></p>
+<p><code>Unlock</code>安装包路径：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/local/lib/node_modules/appium/node_modules/appium-android-driver/node_modules/appium-unlock/bin/unlock_apk-debug.apk</span><br></pre></td></tr></table></figure></p>
+<p>解决方法，修改下面两个文件<br>文件1地址：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/<span class="built_in">local</span>/lib/node_modules/appium/node_modules/appium-android-driver/lib/android-helpers.js</span><br></pre></td></tr></table></figure></p>
+<p>文件位置：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">helpers.initDevice = <span class="keyword">async</span> <span class="function"><span class="keyword">function</span> (<span class="params">adb, opts</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">await</span> adb.waitForDevice();</span><br><span class="line"></span><br><span class="line">  <span class="keyword">await</span> helpers.ensureDeviceLocale(adb, opts.language, opts.locale);</span><br><span class="line">  <span class="keyword">await</span> adb.startLogcat();</span><br><span class="line">  <span class="keyword">let</span> defaultIME;</span><br><span class="line">  <span class="keyword">if</span> (opts.unicodeKeyboard) &#123;</span><br><span class="line">    defaultIME = <span class="keyword">await</span> helpers.initUnicodeKeyboard(adb);</span><br><span class="line">  &#125;</span><br><span class="line"><span class="comment">//  await helpers.pushSettingsApp(adb);                                         # 注释掉</span></span><br><span class="line"><span class="comment">//  await helpers.pushUnlock(adb);                                              # 注释掉</span></span><br><span class="line">  <span class="keyword">return</span> defaultIME;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>文件2地址：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/<span class="built_in">local</span>/lib/node_modules/appium/node_modules/appium-android-driver/build/lib/android-helpers.js</span><br></pre></td></tr></table></figure></p>
+<p>文件位置：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">helpers.initDevice = <span class="function"><span class="keyword">function</span> <span class="title">callee$0$0</span>(<span class="params">adb, opts</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> defaultIME;</span><br><span class="line">  <span class="keyword">return</span> _regeneratorRuntime.async(<span class="function"><span class="keyword">function</span> <span class="title">callee$0$0$</span>(<span class="params">context$<span class="number">1</span>$<span class="number">0</span></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (<span class="number">1</span>) <span class="keyword">switch</span> (context$<span class="number">1</span>$<span class="number">0.</span>prev = context$<span class="number">1</span>$<span class="number">0.</span>next) &#123;</span><br><span class="line">      <span class="keyword">case</span> <span class="number">0</span>:</span><br><span class="line">        context$<span class="number">1</span>$<span class="number">0.</span>next = <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">return</span> _regeneratorRuntime.awrap(adb.waitForDevice());</span><br><span class="line"></span><br><span class="line">      <span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">        context$<span class="number">1</span>$<span class="number">0.</span>next = <span class="number">4</span>;</span><br><span class="line">        <span class="keyword">return</span> _regeneratorRuntime.awrap(helpers.ensureDeviceLocale(adb, opts.language, opts.locale));</span><br><span class="line"></span><br><span class="line">      <span class="keyword">case</span> <span class="number">4</span>:</span><br><span class="line">        context$<span class="number">1</span>$<span class="number">0.</span>next = <span class="number">6</span>;</span><br><span class="line">        <span class="keyword">return</span> _regeneratorRuntime.awrap(adb.startLogcat());</span><br><span class="line"></span><br><span class="line">      <span class="keyword">case</span> <span class="number">6</span>:</span><br><span class="line">        defaultIME = <span class="literal">undefined</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (!opts.unicodeKeyboard) &#123;</span><br><span class="line">          context$<span class="number">1</span>$<span class="number">0.</span>next = <span class="number">11</span>;</span><br><span class="line">          <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        context$<span class="number">1</span>$<span class="number">0.</span>next = <span class="number">10</span>;</span><br><span class="line">        <span class="keyword">return</span> _regeneratorRuntime.awrap(helpers.initUnicodeKeyboard(adb));</span><br><span class="line"></span><br><span class="line">      <span class="keyword">case</span> <span class="number">10</span>:</span><br><span class="line">        defaultIME = context$<span class="number">1</span>$<span class="number">0.</span>sent;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">case</span> <span class="number">11</span>:</span><br><span class="line">        context$<span class="number">1</span>$<span class="number">0.</span>next = <span class="number">13</span>;</span><br><span class="line">        <span class="keyword">return</span> _regeneratorRuntime.awrap(helpers.pushSettingsApp(adb));</span><br><span class="line">        <span class="comment">// return context$1$0.abrupt('return', defaultIME);                     # 添加新的 return，相当于跳过该步骤</span></span><br><span class="line"></span><br><span class="line">      <span class="keyword">case</span> <span class="number">13</span>:</span><br><span class="line">        context$<span class="number">1</span>$<span class="number">0.</span>next = <span class="number">15</span>;</span><br><span class="line">        <span class="keyword">return</span> _regeneratorRuntime.awrap(helpers.pushUnlock(adb));</span><br><span class="line">        <span class="comment">// return context$1$0.abrupt('return', defaultIME);                     # 添加新的 return，相当于跳过该步骤</span></span><br><span class="line"></span><br><span class="line">      <span class="keyword">case</span> <span class="number">15</span>:</span><br><span class="line">        <span class="keyword">return</span> context$<span class="number">1</span>$<span class="number">0.</span>abrupt(<span class="string">'return'</span>, defaultIME);</span><br><span class="line"></span><br><span class="line">      <span class="keyword">case</span> <span class="number">16</span>:</span><br><span class="line">      <span class="keyword">case</span> <span class="string">'end'</span>:</span><br><span class="line">        <span class="keyword">return</span> context$<span class="number">1</span>$<span class="number">0.</span>stop();</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;, <span class="literal">null</span>, <span class="keyword">this</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
       
     </div>
     
@@ -563,6 +577,24 @@
       </div>
     
 
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    shadow
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://shadow000902.space/2016/05/31/Appium踩过的坑/" title="Appium踩过的坑">http://shadow000902.space/2016/05/31/Appium踩过的坑/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
     
 
     <footer class="post-footer">
@@ -753,24 +785,6 @@
           </div>
 
           
-            
-              
-                
-                    
-                      
-                      
-                    
-                      
-                        
-                      
-                  
-                  
-              
-            
-          
-
-
-          
           
 
           
@@ -800,6 +814,13 @@
       
 
       
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
 
     </div>
   </aside>
@@ -825,7 +846,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">67.7k</span>
+    <span title="Site words total count">74.0k</span>
   
 </div>
 
@@ -858,7 +879,7 @@
 
 
 
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.3</div>
 
 
 
@@ -875,11 +896,6 @@
       </div>
     </footer>
 
-    
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-      </div>
     
 
     
@@ -949,32 +965,32 @@
   
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
 
 
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
 
 
 
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
 
 
 
@@ -1022,6 +1038,8 @@
 
 
 
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
 
 
 
@@ -1040,7 +1058,7 @@
   <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
   
 
-  <script src="/js/src/algolia-search.js?v=5.1.4"></script>
+  <script src="/js/src/algolia-search.js?v=5.1.3"></script>
 
 
 

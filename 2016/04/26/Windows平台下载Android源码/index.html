@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next pisces use-motion" lang="zh-Hans">
+<html class="theme-next gemini use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8">
 <meta name="google-site-verification" content="icHwxZMwWfYpn47DgI1Za6CeqXvoEj-7y1sEoJvdVSo">
@@ -97,19 +97,19 @@
 
 <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css">
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico?v=5.1.4">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico?v=5.1.3">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.4">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.3">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=5.1.4">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=5.1.3">
 
 
-  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
 
 
 
@@ -128,22 +128,18 @@
 
 
 
-<meta name="description" content="准备工作
-需要git软件，自行下载安装
-需要python环境，自行下载安装">
+<meta name="description" content="准备工作 需要git软件，自行下载安装 需要python环境，自行下载安装">
+<meta name="keywords" content="android,源码">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Windows平台下载Android源码">
 <meta property="og:url" content="http://shadow000902.space/2016/04/26/Windows平台下载Android源码/index.html">
-<meta property="og:site_name" content="Shadow'S Site">
-<meta property="og:description" content="准备工作
-需要git软件，自行下载安装
-需要python环境，自行下载安装">
+<meta property="og:site_name" content="Shadow&#39;S Site">
+<meta property="og:description" content="准备工作 需要git软件，自行下载安装 需要python环境，自行下载安装">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2017-12-11T05:18:23.481Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Windows平台下载Android源码">
-<meta name="twitter:description" content="准备工作
-需要git软件，自行下载安装
-需要python环境，自行下载安装">
+<meta name="twitter:description" content="准备工作 需要git软件，自行下载安装 需要python环境，自行下载安装">
 
 
 
@@ -151,9 +147,9 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Pisces',
-    version: '5.1.4',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    scheme: 'Gemini',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
     fancybox: true,
     tabs: true,
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
@@ -413,7 +409,19 @@
             
 
             
+              <span class="post-meta-divider">|</span>
+            
 
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2017-12-11T13:18:23+08:00">
+                2017-12-11
+              </time>
             
           </span>
 
@@ -484,7 +492,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  363 字
+                  404 字
                 </span>
               
 
@@ -522,20 +530,20 @@
 
       
         <h4 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h4><ol>
-<li>需要<a href="https://git-scm.com/download/" target="_blank" rel="external">git</a>软件，自行下载安装</li>
-<li><p>需要<a href="https://www.python.org/" target="_blank" rel="external">python</a>环境，自行下载安装</p>
+<li>需要<a href="https://git-scm.com/download/" target="_blank" rel="noopener">git</a>软件，自行下载安装</li>
+<li><p>需要<a href="https://www.python.org/" target="_blank" rel="noopener">python</a>环境，自行下载安装</p>
 <a id="more"></a>
 </li>
 </ol>
 <h4 id="使用git手动下载android源码"><a href="#使用git手动下载android源码" class="headerlink" title="使用git手动下载android源码"></a>使用git手动下载android源码</h4><ol>
 <li>自行新建用来存放android源码的文件夹，如android-source，即目录D:/android-source</li>
 <li><p>依次执行如下命令：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> D:/android-source</div><div class="line">git <span class="built_in">clone</span> https://android.googlesource.com/platform/manifest.git    <span class="comment"># 遇到443错误码的就是被墙了，自行翻墙解决</span></div><div class="line"><span class="built_in">cd</span> manifest</div><div class="line">git tag                                                             <span class="comment"># 列出android各个分支版本</span></div><div class="line">git checkout android-6.0.1_r1                                       <span class="comment"># 下载需要的android源码</span></div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> D:/android-source</span><br><span class="line">git <span class="built_in">clone</span> https://android.googlesource.com/platform/manifest.git    <span class="comment"># 遇到443错误码的就是被墙了，自行翻墙解决</span></span><br><span class="line"><span class="built_in">cd</span> manifest</span><br><span class="line">git tag                                                             <span class="comment"># 列出android各个分支版本</span></span><br><span class="line">git checkout android-6.0.1_r1                                       <span class="comment"># 下载需要的android源码</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>等待完成就下载完了所有对应版本的android源码，manifest/default.xml文件中记录的就是android6.0.1系统各个模块的路径.</p>
 </li>
 </ol>
-<h4 id="使用python脚本批量下载"><a href="#使用python脚本批量下载" class="headerlink" title="使用python脚本批量下载"></a>使用python脚本批量下载</h4><h5 id="download-src-py脚本"><a href="#download-src-py脚本" class="headerlink" title="download-src.py脚本"></a>download-src.py脚本</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> xml.dom.minidom</div><div class="line"><span class="keyword">import</span> os</div><div class="line"><span class="keyword">from</span> subprocess <span class="keyword">import</span> call</div><div class="line"></div><div class="line"><span class="comment">#downloaded source path</span></div><div class="line">rootdir = <span class="string">"D:/android-source"</span></div><div class="line"></div><div class="line"><span class="comment">#git program path</span></div><div class="line">git = <span class="string">"D:/Program Files/Git/bin/git.exe"</span></div><div class="line"></div><div class="line">dom = xml.dom.minidom.parse(<span class="string">"D:/manifest/default.xml"</span>)</div><div class="line">root = dom.documentElement</div><div class="line"></div><div class="line">prefix = git + <span class="string">" clone https://android.googlesource.com/"</span></div><div class="line">suffix = <span class="string">".git"</span></div><div class="line"></div><div class="line"><span class="keyword">if</span> <span class="keyword">not</span> os.path.exists(rootdir):</div><div class="line">    os.mkdir(rootdir)</div><div class="line"></div><div class="line"><span class="keyword">for</span> node <span class="keyword">in</span> root.getElementsByTagName(<span class="string">"project"</span>):</div><div class="line">    os.chdir(rootdir)</div><div class="line">    d = node.getAttribute(<span class="string">"path"</span>)</div><div class="line">    last = d.rfind(<span class="string">"/"</span>)</div><div class="line">    <span class="keyword">if</span> last != <span class="number">-1</span>:</div><div class="line">        d = rootdir + <span class="string">"/"</span> + d[:last]</div><div class="line">        <span class="keyword">if</span> <span class="keyword">not</span> os.path.exists(d):</div><div class="line">            os.makedirs(d)</div><div class="line">        os.chdir(d)</div><div class="line">    cmd = prefix + node.getAttribute(<span class="string">"name"</span>) + suffix</div><div class="line">    call(cmd)</div></pre></td></tr></table></figure>
+<h4 id="使用python脚本批量下载"><a href="#使用python脚本批量下载" class="headerlink" title="使用python脚本批量下载"></a>使用python脚本批量下载</h4><h5 id="download-src-py脚本"><a href="#download-src-py脚本" class="headerlink" title="download-src.py脚本"></a>download-src.py脚本</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> xml.dom.minidom</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">from</span> subprocess <span class="keyword">import</span> call</span><br><span class="line"></span><br><span class="line"><span class="comment">#downloaded source path</span></span><br><span class="line">rootdir = <span class="string">"D:/android-source"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#git program path</span></span><br><span class="line">git = <span class="string">"D:/Program Files/Git/bin/git.exe"</span></span><br><span class="line"></span><br><span class="line">dom = xml.dom.minidom.parse(<span class="string">"D:/manifest/default.xml"</span>)</span><br><span class="line">root = dom.documentElement</span><br><span class="line"></span><br><span class="line">prefix = git + <span class="string">" clone https://android.googlesource.com/"</span></span><br><span class="line">suffix = <span class="string">".git"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> <span class="keyword">not</span> os.path.exists(rootdir):</span><br><span class="line">    os.mkdir(rootdir)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> node <span class="keyword">in</span> root.getElementsByTagName(<span class="string">"project"</span>):</span><br><span class="line">    os.chdir(rootdir)</span><br><span class="line">    d = node.getAttribute(<span class="string">"path"</span>)</span><br><span class="line">    last = d.rfind(<span class="string">"/"</span>)</span><br><span class="line">    <span class="keyword">if</span> last != <span class="number">-1</span>:</span><br><span class="line">        d = rootdir + <span class="string">"/"</span> + d[:last]</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> os.path.exists(d):</span><br><span class="line">            os.makedirs(d)</span><br><span class="line">        os.chdir(d)</span><br><span class="line">    cmd = prefix + node.getAttribute(<span class="string">"name"</span>) + suffix</span><br><span class="line">    call(cmd)</span><br></pre></td></tr></table></figure>
 <h5 id="执行此脚本的前提"><a href="#执行此脚本的前提" class="headerlink" title="执行此脚本的前提"></a>执行此脚本的前提</h5><p>已经执行了git checkout，选择好了要下载的Android源码版本，如果你的manifest文件不是D:/manifest/default.xml，还要把里面的git.exe的路经修改成你的安装路径，请自行修改脚本，执行这个脚本之后，就开始自动下载了</p>
       
     </div>
@@ -566,6 +574,24 @@
       </div>
     
 
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    shadow
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://shadow000902.space/2016/04/26/Windows平台下载Android源码/" title="Windows平台下载Android源码">http://shadow000902.space/2016/04/26/Windows平台下载Android源码/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
     
 
     <footer class="post-footer">
@@ -758,24 +784,6 @@
           </div>
 
           
-            
-              
-                
-                    
-                      
-                      
-                    
-                      
-                        
-                      
-                  
-                  
-              
-            
-          
-
-
-          
           
 
           
@@ -805,6 +813,13 @@
       
 
       
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
 
     </div>
   </aside>
@@ -830,7 +845,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">67.7k</span>
+    <span title="Site words total count">74.0k</span>
   
 </div>
 
@@ -863,7 +878,7 @@
 
 
 
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.3</div>
 
 
 
@@ -880,11 +895,6 @@
       </div>
     </footer>
 
-    
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-      </div>
     
 
     
@@ -954,32 +964,32 @@
   
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
 
 
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
 
 
 
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
 
 
 
@@ -1027,6 +1037,8 @@
 
 
 
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
 
 
 
@@ -1045,7 +1057,7 @@
   <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
   
 
-  <script src="/js/src/algolia-search.js?v=5.1.4"></script>
+  <script src="/js/src/algolia-search.js?v=5.1.3"></script>
 
 
 

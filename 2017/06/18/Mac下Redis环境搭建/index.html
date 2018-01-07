@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next pisces use-motion" lang="zh-Hans">
+<html class="theme-next gemini use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8">
 <meta name="google-site-verification" content="icHwxZMwWfYpn47DgI1Za6CeqXvoEj-7y1sEoJvdVSo">
@@ -97,19 +97,19 @@
 
 <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css">
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico?v=5.1.4">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico?v=5.1.3">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.4">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.3">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=5.1.4">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=5.1.3">
 
 
-  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
 
 
 
@@ -128,19 +128,18 @@
 
 
 
-<meta name="description" content="下载安装包下载稳定版本的安装包redis-stable
-安装Redis12345tar -xvf redis-stable.tar.gzcp ./redis-stable /opt/cd /opt/redis-stablesudo make testsudo make install">
+<meta name="description" content="下载安装包下载稳定版本的安装包redis-stable 安装Redis12345tar -xvf redis-stable.tar.gzcp ./redis-stable /opt/cd /opt/redis-stablesudo make testsudo make install">
+<meta name="keywords" content="redis">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Mac下Redis环境搭建">
 <meta property="og:url" content="http://shadow000902.space/2017/06/18/Mac下Redis环境搭建/index.html">
-<meta property="og:site_name" content="Shadow'S Site">
-<meta property="og:description" content="下载安装包下载稳定版本的安装包redis-stable
-安装Redis12345tar -xvf redis-stable.tar.gzcp ./redis-stable /opt/cd /opt/redis-stablesudo make testsudo make install">
+<meta property="og:site_name" content="Shadow&#39;S Site">
+<meta property="og:description" content="下载安装包下载稳定版本的安装包redis-stable 安装Redis12345tar -xvf redis-stable.tar.gzcp ./redis-stable /opt/cd /opt/redis-stablesudo make testsudo make install">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2017-12-11T05:27:19.307Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mac下Redis环境搭建">
-<meta name="twitter:description" content="下载安装包下载稳定版本的安装包redis-stable
-安装Redis12345tar -xvf redis-stable.tar.gzcp ./redis-stable /opt/cd /opt/redis-stablesudo make testsudo make install">
+<meta name="twitter:description" content="下载安装包下载稳定版本的安装包redis-stable 安装Redis12345tar -xvf redis-stable.tar.gzcp ./redis-stable /opt/cd /opt/redis-stablesudo make testsudo make install">
 
 
 
@@ -148,9 +147,9 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Pisces',
-    version: '5.1.4',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    scheme: 'Gemini',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
     fancybox: true,
     tabs: true,
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
@@ -410,7 +409,19 @@
             
 
             
+              <span class="post-meta-divider">|</span>
+            
 
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2017-12-11T13:27:19+08:00">
+                2017-12-11
+              </time>
             
           </span>
 
@@ -481,7 +492,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  719 字
+                  777 字
                 </span>
               
 
@@ -497,7 +508,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  3 分钟
+                  4 分钟
                 </span>
               
             </div>
@@ -518,33 +529,33 @@
       
 
       
-        <h5 id="下载安装包"><a href="#下载安装包" class="headerlink" title="下载安装包"></a>下载安装包</h5><p>下载稳定版本的安装包<a href="http://download.redis.io/redis-stable.tar.gz" target="_blank" rel="external">redis-stable</a></p>
-<h5 id="安装Redis"><a href="#安装Redis" class="headerlink" title="安装Redis"></a>安装Redis</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">tar -xvf redis-stable.tar.gz</div><div class="line">cp ./redis-stable /opt/</div><div class="line"><span class="built_in">cd</span> /opt/redis-stable</div><div class="line">sudo make <span class="built_in">test</span></div><div class="line">sudo make install</div></pre></td></tr></table></figure>
+        <h5 id="下载安装包"><a href="#下载安装包" class="headerlink" title="下载安装包"></a>下载安装包</h5><p>下载稳定版本的安装包<a href="http://download.redis.io/redis-stable.tar.gz" target="_blank" rel="noopener">redis-stable</a></p>
+<h5 id="安装Redis"><a href="#安装Redis" class="headerlink" title="安装Redis"></a>安装Redis</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">tar -xvf redis-stable.tar.gz</span><br><span class="line">cp ./redis-stable /opt/</span><br><span class="line"><span class="built_in">cd</span> /opt/redis-stable</span><br><span class="line">sudo make <span class="built_in">test</span></span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure>
   <a id="more"></a>
 <h5 id="配置Redis"><a href="#配置Redis" class="headerlink" title="配置Redis"></a>配置Redis</h5><ol>
 <li><p>创建需要的目录</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">mkdir bin</div><div class="line">mkdir etc</div><div class="line">mkdir db</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir bin</span><br><span class="line">mkdir etc</span><br><span class="line">mkdir db</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>拷贝安装好的<code>redis</code>文件到创建的<code>bin</code>目录下</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cp /usr/bin/redis-* /opt/redis-stable/bin/</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp /usr/bin/redis-* /opt/redis-stable/bin/</span><br></pre></td></tr></table></figure>
 <p> 结果<code>/opt/redis-stable/bin/</code>目录下的内容如下</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">╭─taoyi at TaoYi-Mac <span class="keyword">in</span> /opt/redis-stable/bin using ‹› 17-06-18 - 18:06:48</div><div class="line">╰─○ ll</div><div class="line">total 6648</div><div class="line">-rwxr-xr-x  1 taoyi  staff    98K  6 18 18:06 redis-benchmark</div><div class="line">-rwxr-xr-x  1 taoyi  staff    14K  6 18 18:06 redis-check-aof</div><div class="line">-rwxr-xr-x  1 taoyi  staff   1.0M  6 18 18:06 redis-check-rdb</div><div class="line">-rwxr-xr-x  1 taoyi  staff   159K  6 18 18:06 redis-cli</div><div class="line">-rwxr-xr-x  1 taoyi  staff   1.0M  6 18 18:06 redis-sentinel</div><div class="line">-rwxr-xr-x  1 taoyi  staff   1.0M  6 18 18:06 redis-server</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">╭─taoyi at TaoYi-Mac <span class="keyword">in</span> /opt/redis-stable/bin using ‹› 17-06-18 - 18:06:48</span><br><span class="line">╰─○ ll</span><br><span class="line">total 6648</span><br><span class="line">-rwxr-xr-x  1 taoyi  staff    98K  6 18 18:06 redis-benchmark</span><br><span class="line">-rwxr-xr-x  1 taoyi  staff    14K  6 18 18:06 redis-check-aof</span><br><span class="line">-rwxr-xr-x  1 taoyi  staff   1.0M  6 18 18:06 redis-check-rdb</span><br><span class="line">-rwxr-xr-x  1 taoyi  staff   159K  6 18 18:06 redis-cli</span><br><span class="line">-rwxr-xr-x  1 taoyi  staff   1.0M  6 18 18:06 redis-sentinel</span><br><span class="line">-rwxr-xr-x  1 taoyi  staff   1.0M  6 18 18:06 redis-server</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>拷贝安装目录<code>src</code>目录下的<code>mkreleasehdr.sh</code>到安装目录下</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cp /opt/redis-stable/src/mkreleasehdr.sh /opt/redis-stable/</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp /opt/redis-stable/src/mkreleasehdr.sh /opt/redis-stable/</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>拷贝安装目录下的<code>redis.conf</code>到创建的<code>etc</code>目录下</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cp /opt/redis-stable/redis.conf /opt/redis-stable/etc/</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp /opt/redis-stable/redis.conf /opt/redis-stable/etc/</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>修改<code>redis.conf</code></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#修改为守护模式</span></div><div class="line">daemonize yes</div><div class="line"><span class="comment">#设置进程锁文件</span></div><div class="line">pidfile /opt/redis-stable/redis.pid</div><div class="line"><span class="comment">#端口</span></div><div class="line">port 6379</div><div class="line"><span class="comment">#客户端超时时间</span></div><div class="line">timeout 300</div><div class="line"><span class="comment">#日志级别</span></div><div class="line">loglevel debug</div><div class="line"><span class="comment">#日志文件位置</span></div><div class="line">logfile /opt/redis-stable/<span class="built_in">log</span>-redis.log</div><div class="line"><span class="comment">#设置数据库的数量，默认数据库为0，可以使用SELECT &lt;dbid&gt;命令在连接上指定数据库id</span></div><div class="line">databases 8</div><div class="line"><span class="comment">##指定在多长时间内，有多少次更新操作，就将数据同步到数据文件，可以多个条件配合</span></div><div class="line"><span class="comment">#save &lt;seconds&gt; &lt;changes&gt;</span></div><div class="line"><span class="comment">#Redis默认配置文件中提供了三个条件：</span></div><div class="line">save 900 1</div><div class="line">save 300 10</div><div class="line">save 60 10000</div><div class="line"><span class="comment">#指定存储至本地数据库时是否压缩数据，默认为yes，Redis采用LZF压缩，如果为了节省CPU时间，</span></div><div class="line"><span class="comment">#可以关闭该#选项，但会导致数据库文件变的巨大</span></div><div class="line">rdbcompression yes</div><div class="line"><span class="comment">#指定本地数据库文件名</span></div><div class="line">dbfilename dump.rdb</div><div class="line"><span class="comment">#指定本地数据库路径</span></div><div class="line">dir /opt/redis-stable/db/</div><div class="line"><span class="comment">#指定是否在每次更新操作后进行日志记录，Redis在默认情况下是异步的把数据写入磁盘，如果不开启，可能</span></div><div class="line"><span class="comment">#会在断电时导致一段时间内的数据丢失。因为 redis本身同步数据文件是按上面save条件来同步的，所以有</span></div><div class="line"><span class="comment">#的数据会在一段时间内只存在于内存中</span></div><div class="line">appendonly no</div><div class="line"><span class="comment">#指定更新日志条件，共有3个可选值：</span></div><div class="line"><span class="comment">#no：表示等操作系统进行数据缓存同步到磁盘（快）</span></div><div class="line"><span class="comment">#always：表示每次更新操作后手动调用fsync()将数据写到磁盘（慢，安全）</span></div><div class="line"><span class="comment">#everysec：表示每秒同步一次（折衷，默认值）</span></div><div class="line">appendfsync everysec</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#修改为守护模式</span></span><br><span class="line">daemonize yes</span><br><span class="line"><span class="comment">#设置进程锁文件</span></span><br><span class="line">pidfile /opt/redis-stable/redis.pid</span><br><span class="line"><span class="comment">#端口</span></span><br><span class="line">port 6379</span><br><span class="line"><span class="comment">#客户端超时时间</span></span><br><span class="line">timeout 300</span><br><span class="line"><span class="comment">#日志级别</span></span><br><span class="line">loglevel debug</span><br><span class="line"><span class="comment">#日志文件位置</span></span><br><span class="line">logfile /opt/redis-stable/<span class="built_in">log</span>-redis.log</span><br><span class="line"><span class="comment">#设置数据库的数量，默认数据库为0，可以使用SELECT &lt;dbid&gt;命令在连接上指定数据库id</span></span><br><span class="line">databases 8</span><br><span class="line"><span class="comment">##指定在多长时间内，有多少次更新操作，就将数据同步到数据文件，可以多个条件配合</span></span><br><span class="line"><span class="comment">#save &lt;seconds&gt; &lt;changes&gt;</span></span><br><span class="line"><span class="comment">#Redis默认配置文件中提供了三个条件：</span></span><br><span class="line">save 900 1</span><br><span class="line">save 300 10</span><br><span class="line">save 60 10000</span><br><span class="line"><span class="comment">#指定存储至本地数据库时是否压缩数据，默认为yes，Redis采用LZF压缩，如果为了节省CPU时间，</span></span><br><span class="line"><span class="comment">#可以关闭该#选项，但会导致数据库文件变的巨大</span></span><br><span class="line">rdbcompression yes</span><br><span class="line"><span class="comment">#指定本地数据库文件名</span></span><br><span class="line">dbfilename dump.rdb</span><br><span class="line"><span class="comment">#指定本地数据库路径</span></span><br><span class="line">dir /opt/redis-stable/db/</span><br><span class="line"><span class="comment">#指定是否在每次更新操作后进行日志记录，Redis在默认情况下是异步的把数据写入磁盘，如果不开启，可能</span></span><br><span class="line"><span class="comment">#会在断电时导致一段时间内的数据丢失。因为 redis本身同步数据文件是按上面save条件来同步的，所以有</span></span><br><span class="line"><span class="comment">#的数据会在一段时间内只存在于内存中</span></span><br><span class="line">appendonly no</span><br><span class="line"><span class="comment">#指定更新日志条件，共有3个可选值：</span></span><br><span class="line"><span class="comment">#no：表示等操作系统进行数据缓存同步到磁盘（快）</span></span><br><span class="line"><span class="comment">#always：表示每次更新操作后手动调用fsync()将数据写到磁盘（慢，安全）</span></span><br><span class="line"><span class="comment">#everysec：表示每秒同步一次（折衷，默认值）</span></span><br><span class="line">appendfsync everysec</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>修改<code>redis</code>目录的所有者</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">chown -R taoyi /opt/redis-stable</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chown -R taoyi /opt/redis-stable</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<h5 id="启动Redis服务"><a href="#启动Redis服务" class="headerlink" title="启动Redis服务"></a>启动Redis服务</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./opt/redis-stable/bin/redis-server ./opt/redis-stable/etc/redis.conf</div></pre></td></tr></table></figure>
-<h5 id="访问Redis服务"><a href="#访问Redis服务" class="headerlink" title="访问Redis服务"></a>访问Redis服务</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./opt/redis-stable/bin/redis-cli</div></pre></td></tr></table></figure>
+<h5 id="启动Redis服务"><a href="#启动Redis服务" class="headerlink" title="启动Redis服务"></a>启动Redis服务</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./opt/redis-stable/bin/redis-server ./opt/redis-stable/etc/redis.conf</span><br></pre></td></tr></table></figure>
+<h5 id="访问Redis服务"><a href="#访问Redis服务" class="headerlink" title="访问Redis服务"></a>访问Redis服务</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./opt/redis-stable/bin/redis-cli</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -574,6 +585,24 @@
       </div>
     
 
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    shadow
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://shadow000902.space/2017/06/18/Mac下Redis环境搭建/" title="Mac下Redis环境搭建">http://shadow000902.space/2017/06/18/Mac下Redis环境搭建/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
     
 
     <footer class="post-footer">
@@ -764,24 +793,6 @@
           </div>
 
           
-            
-              
-                
-                    
-                      
-                      
-                    
-                      
-                        
-                      
-                  
-                  
-              
-            
-          
-
-
-          
           
 
           
@@ -811,6 +822,13 @@
       
 
       
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
 
     </div>
   </aside>
@@ -836,7 +854,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">67.7k</span>
+    <span title="Site words total count">74.0k</span>
   
 </div>
 
@@ -869,7 +887,7 @@
 
 
 
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.3</div>
 
 
 
@@ -886,11 +904,6 @@
       </div>
     </footer>
 
-    
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-      </div>
     
 
     
@@ -960,32 +973,32 @@
   
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
 
 
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
 
 
 
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
 
 
 
@@ -1033,6 +1046,8 @@
 
 
 
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
 
 
 
@@ -1051,7 +1066,7 @@
   <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
   
 
-  <script src="/js/src/algolia-search.js?v=5.1.4"></script>
+  <script src="/js/src/algolia-search.js?v=5.1.3"></script>
 
 
 

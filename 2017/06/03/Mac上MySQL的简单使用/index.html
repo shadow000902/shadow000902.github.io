@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next pisces use-motion" lang="zh-Hans">
+<html class="theme-next gemini use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8">
 <meta name="google-site-verification" content="icHwxZMwWfYpn47DgI1Za6CeqXvoEj-7y1sEoJvdVSo">
@@ -97,19 +97,19 @@
 
 <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css">
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico?v=5.1.4">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico?v=5.1.3">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.4">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.3">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=5.1.4">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=5.1.3">
 
 
-  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
 
 
 
@@ -128,19 +128,18 @@
 
 
 
-<meta name="description" content="启动、停止、重启MySQL服务
-123sudo /usr/local/MySQL/support-files/mysql.server startsudo /usr/local/mysql/support-files/mysql.server stopsudo /usr/local/mysql/support-files/mysql.server restart">
+<meta name="description" content="启动、停止、重启MySQL服务 123sudo /usr/local/MySQL/support-files/mysql.server startsudo /usr/local/mysql/support-files/mysql.server stopsudo /usr/local/mysql/support-files/mysql.server restart">
+<meta name="keywords" content="mysql">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Mac上MySQL的简单使用">
 <meta property="og:url" content="http://shadow000902.space/2017/06/03/Mac上MySQL的简单使用/index.html">
-<meta property="og:site_name" content="Shadow'S Site">
-<meta property="og:description" content="启动、停止、重启MySQL服务
-123sudo /usr/local/MySQL/support-files/mysql.server startsudo /usr/local/mysql/support-files/mysql.server stopsudo /usr/local/mysql/support-files/mysql.server restart">
+<meta property="og:site_name" content="Shadow&#39;S Site">
+<meta property="og:description" content="启动、停止、重启MySQL服务 123sudo /usr/local/MySQL/support-files/mysql.server startsudo /usr/local/mysql/support-files/mysql.server stopsudo /usr/local/mysql/support-files/mysql.server restart">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2017-12-11T05:27:19.443Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mac上MySQL的简单使用">
-<meta name="twitter:description" content="启动、停止、重启MySQL服务
-123sudo /usr/local/MySQL/support-files/mysql.server startsudo /usr/local/mysql/support-files/mysql.server stopsudo /usr/local/mysql/support-files/mysql.server restart">
+<meta name="twitter:description" content="启动、停止、重启MySQL服务 123sudo /usr/local/MySQL/support-files/mysql.server startsudo /usr/local/mysql/support-files/mysql.server stopsudo /usr/local/mysql/support-files/mysql.server restart">
 
 
 
@@ -148,9 +147,9 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Pisces',
-    version: '5.1.4',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    scheme: 'Gemini',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
     fancybox: true,
     tabs: true,
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
@@ -410,7 +409,19 @@
             
 
             
+              <span class="post-meta-divider">|</span>
+            
 
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2017-12-11T13:27:19+08:00">
+                2017-12-11
+              </time>
             
           </span>
 
@@ -481,7 +492,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  350 字
+                  360 字
                 </span>
               
 
@@ -520,35 +531,35 @@
       
         <ol>
 <li><p>启动、停止、重启MySQL服务</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo /usr/local/MySQL/support-files/mysql.server start</div><div class="line">sudo /usr/local/mysql/support-files/mysql.server stop</div><div class="line">sudo /usr/local/mysql/support-files/mysql.server restart</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo /usr/local/MySQL/support-files/mysql.server start</span><br><span class="line">sudo /usr/local/mysql/support-files/mysql.server stop</span><br><span class="line">sudo /usr/local/mysql/support-files/mysql.server restart</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
 </li>
 <li><p>登录MySQL数据库</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysql -h 地址 -P 端口 -u 用户名 -p 密码</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -h 地址 -P 端口 -u 用户名 -p 密码</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>查看数据库</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">show databases;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show databases;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>查看当前库的所有表</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">show tables;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show tables;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>字符匹配查询</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">select * from database where Attributes like &quot;%SQL%&quot;;								# 查询 Attributes 中包含 SQL 字符的数据</div><div class="line">select * from database where Attributes like &quot;a%b&quot;;									# 查询 Attributes 中以 a 开头以 b 结尾的字符串数据</div><div class="line">select * from database where Attributes like &quot;m_n&quot;;									# 查询 Attributes 中以 m 开头以 n 结尾的3个字符的数据，中间 _ 只能代表一个字符</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">select * from database where Attributes like &quot;%SQL%&quot;;								# 查询 Attributes 中包含 SQL 字符的数据</span><br><span class="line">select * from database where Attributes like &quot;a%b&quot;;									# 查询 Attributes 中以 a 开头以 b 结尾的字符串数据</span><br><span class="line">select * from database where Attributes like &quot;m_n&quot;;									# 查询 Attributes 中以 m 开头以 n 结尾的3个字符的数据，中间 _ 只能代表一个字符</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>多条件查询</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">select * from database where Attributes1=a and Attributes2 like &quot;My_SQL&quot;;</div><div class="line">select * from database where Attributes1=a or Attributes2 like &quot;My_SQL&quot;;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select * from database where Attributes1=a and Attributes2 like &quot;My_SQL&quot;;</span><br><span class="line">select * from database where Attributes1=a or Attributes2 like &quot;My_SQL&quot;;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>去除结果中的重复行</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">select distinct Attributes from database;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select distinct Attributes from database;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>对查询结果进行排序</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">select * from database orderby id desc;												# 倒叙排列</div><div class="line">select * from database orderby id asc;												# 正序排列</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select * from database orderby id desc;												# 倒叙排列</span><br><span class="line">select * from database orderby id asc;												# 正序排列</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>分组查询</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">select name,id from database GROUP BY id;</div><div class="line">select name,id from database GROUP BY name,id;										# 当id字段的值相等时，再按照name字段分组</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select name,id from database GROUP BY id;</span><br><span class="line">select name,id from database GROUP BY name,id;										# 当id字段的值相等时，再按照name字段分组</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>限制查询结果的数量</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">select * from database orderby id asc limit 2,3;									# 取两条数据，正序，从第三条开始</div><div class="line">select * from database orderby id desc limit 2,3;									# 取两条数据，倒序，从倒数第三条结束，只显示倒数前两条</div></pre></td></tr></table></figure></li>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select * from database orderby id asc limit 2,3;									# 取两条数据，正序，从第三条开始</span><br><span class="line">select * from database orderby id desc limit 2,3;									# 取两条数据，倒序，从倒数第三条结束，只显示倒数前两条</span><br></pre></td></tr></table></figure></li>
 </ol>
       
     </div>
@@ -579,6 +590,24 @@
       </div>
     
 
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    shadow
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://shadow000902.space/2017/06/03/Mac上MySQL的简单使用/" title="Mac上MySQL的简单使用">http://shadow000902.space/2017/06/03/Mac上MySQL的简单使用/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
     
 
     <footer class="post-footer">
@@ -760,24 +789,6 @@
           </div>
 
           
-            
-              
-                
-                    
-                      
-                      
-                    
-                      
-                        
-                      
-                  
-                  
-              
-            
-          
-
-
-          
           
 
           
@@ -790,6 +801,13 @@
 
       
 
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
       
 
     </div>
@@ -816,7 +834,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">67.7k</span>
+    <span title="Site words total count">74.0k</span>
   
 </div>
 
@@ -849,7 +867,7 @@
 
 
 
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.3</div>
 
 
 
@@ -866,11 +884,6 @@
       </div>
     </footer>
 
-    
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-      </div>
     
 
     
@@ -940,32 +953,32 @@
   
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
 
 
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
 
 
 
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
 
 
 
@@ -1013,6 +1026,8 @@
 
 
 
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
 
 
 
@@ -1031,7 +1046,7 @@
   <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
   
 
-  <script src="/js/src/algolia-search.js?v=5.1.4"></script>
+  <script src="/js/src/algolia-search.js?v=5.1.3"></script>
 
 
 
