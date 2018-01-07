@@ -97,19 +97,19 @@
 
 <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css">
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico?v=5.1.3">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico?v=5.1.4">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.3">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.4">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=5.1.3">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=5.1.4">
 
 
-  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
 
 
 
@@ -142,7 +142,7 @@
 使用正则表达式 搜索或者替换。匹配一些文本（进行一次搜索）。匹配并替换一些文本（进行一次替换）。
 定义：正则表达式是一些用来匹配和处理文本的字符串。
 语法：语法是正则表达式最容易掌握的部分，真正的挑战是学会如何运用那些语法把实际问题分解为一系列正则表达式并最终解决。">
-<meta property="og:updated_time" content="2017-12-30T03:10:37.382Z">
+<meta property="og:updated_time" content="2018-01-07T06:20:33.083Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="正则表达式">
 <meta name="twitter:description" content="正则表达式入门
@@ -158,7 +158,7 @@
   var CONFIG = {
     root: '/',
     scheme: 'Pisces',
-    version: '5.1.3',
+    version: '5.1.4',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
     tabs: true,
@@ -490,7 +490,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  2,609 字
+                  2,611 字
                 </span>
               
 
@@ -589,7 +589,8 @@
 </code></pre><p> 结果：<code>Hello, &lt;A HREF=&quot;mailto:shadow000902@gmail.com&quot;&gt;shadow000902@gmail.com&lt;/A&gt; is my email address.</code><br> 回溯引用语法在不同的正则表达式实现里有很大差异：JavaScript用户需要用<code>$</code>来替换<code>\</code>；ColdFusion用户在查找和替换操作里都必须使用<code>\</code>。<br> 同一个子表达式可以被多次引用，只要在需要它的地方写出回溯引用就行了。<br> 在对文本进行重新排版的时候，把文本分解成多个子表达式的做法往往非常有用，这可以让我们对文本的排版效果做出更精确的控制。</p>
 </li>
 <li><p>大小写转换<br> 用来进行大小写转换的元字符</p>
-<p> 元字符      | 说明 |<br> ———–|————|<br> <code>\E</code>     | 结束<code>\L</code>或<code>\U</code>转换     |<br> <code>\l</code>     | 把下一个字符转换为小写     |<br> <code>\L</code>     | 把<code>\L</code>和<code>\E</code>之间的字符全部转换为小写 |<br> <code>\u</code>     | 把下一个字符转换为大写 |<br> <code>\U</code>     | 把<code>\U</code>和<code>\E</code>之间的字符全部转换为大写 |<br> 把HTML文件中的一级标题（</p><h1>…）的标题文字转换为大写：</h1><p></p>
+<p> 元字符      | 说明 |<br> ———–|————|<br> <code>\E</code>     | 结束<code>\L</code>或<code>\U</code>转换     |<br> <code>\l</code>     | 把下一个字符转换为小写     |<br> <code>\L</code>     | 把<code>\L</code>和<code>\E</code>之间的字符全部转换为小写 |<br> <code>\u</code>     | 把下一个字符转换为大写 |<br> <code>\U</code>     | 把<code>\U</code>和<code>\E</code>之间的字符全部转换为大写 |</p>
+<p> 把HTML文件中的一级标题（<code>&lt;H1&gt;...&lt;/H&gt;</code>）的标题文字转换为大写：</p>
 <pre><code><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 匹配出一级标题</span></div><div class="line">(&lt;[Hh]1&gt;)(.*?)(&lt;/[Hh]1&gt;)</div><div class="line"><span class="comment"># 替换</span></div><div class="line"><span class="variable">$1</span>\U<span class="variable">$2</span>\E<span class="variable">$3</span></div></pre></td></tr></table></figure>
 </code></pre></li>
 </ol>
@@ -812,6 +813,24 @@
           </div>
 
           
+            
+              
+                
+                    
+                      
+                      
+                    
+                      
+                        
+                      
+                  
+                  
+              
+            
+          
+
+
+          
           
 
           
@@ -832,7 +851,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#正则表达式入门"><span class="nav-number">1.</span> <span class="nav-text">正则表达式入门</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#匹配单个字符"><span class="nav-number">2.</span> <span class="nav-text">匹配单个字符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#匹配一组字符"><span class="nav-number">3.</span> <span class="nav-text">匹配一组字符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用元字符"><span class="nav-number">4.</span> <span class="nav-text">使用元字符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#重复匹配"><span class="nav-number">5.</span> <span class="nav-text">重复匹配</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#位置匹配"><span class="nav-number">6.</span> <span class="nav-text">位置匹配</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用子表达式"><span class="nav-number">7.</span> <span class="nav-text">使用子表达式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#回溯引用：前后一致匹配"><span class="nav-number">8.</span> <span class="nav-text">回溯引用：前后一致匹配</span></a></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number"></span> <span class="nav-text">…）的标题文字转换为大写：</span></a></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#正则表达式入门"><span class="nav-number">1.</span> <span class="nav-text">正则表达式入门</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#匹配单个字符"><span class="nav-number">2.</span> <span class="nav-text">匹配单个字符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#匹配一组字符"><span class="nav-number">3.</span> <span class="nav-text">匹配一组字符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用元字符"><span class="nav-number">4.</span> <span class="nav-text">使用元字符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#重复匹配"><span class="nav-number">5.</span> <span class="nav-text">重复匹配</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#位置匹配"><span class="nav-number">6.</span> <span class="nav-text">位置匹配</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用子表达式"><span class="nav-number">7.</span> <span class="nav-text">使用子表达式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#回溯引用：前后一致匹配"><span class="nav-number">8.</span> <span class="nav-text">回溯引用：前后一致匹配</span></a></li></ol></div>
             
 
           </div>
@@ -852,7 +871,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2015 &mdash; <span itemprop="copyrightYear">2017</span>
+        <div class="copyright">&copy; 2015 &mdash; <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-heartbeat"></i>
   </span>
@@ -866,7 +885,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">67.4k</span>
+    <span title="Site words total count">67.7k</span>
   
 </div>
 
@@ -899,7 +918,7 @@
 
 
 
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.3</div>
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
 
 
 
@@ -990,32 +1009,32 @@
   
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
 
 
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
 
 
 
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
 
 
 
@@ -1063,8 +1082,6 @@
 
 
 
-<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
 
 
 
@@ -1083,7 +1100,7 @@
   <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
   
 
-  <script src="/js/src/algolia-search.js?v=5.1.3"></script>
+  <script src="/js/src/algolia-search.js?v=5.1.4"></script>
 
 
 

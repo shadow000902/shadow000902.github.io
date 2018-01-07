@@ -97,19 +97,19 @@
 
 <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css">
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico?v=5.1.3">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico?v=5.1.4">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.3">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.4">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=5.1.3">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=5.1.4">
 
 
-  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
 
 
 
@@ -138,7 +138,7 @@
 <meta property="og:description" content="删除目录下的除今天外的所有文件夹
 目录下的文件夹规律【年月日时分秒】
 12345678910# taoyi @ TaoYi-Mac in ~/Desktop/test0001 [15:54:29] $ lltotal 0drwxr-xr-x  2 taoyi  staff    68B 11  3 18:29 20171027121219drwxr-xr-x  3 taoyi  staff   1">
-<meta property="og:updated_time" content="2017-12-11T05:27:19.311Z">
+<meta property="og:updated_time" content="2018-01-06T16:37:28.972Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Shell小脚本">
 <meta name="twitter:description" content="删除目录下的除今天外的所有文件夹
@@ -152,7 +152,7 @@
   var CONFIG = {
     root: '/',
     scheme: 'Pisces',
-    version: '5.1.3',
+    version: '5.1.4',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
     tabs: true,
@@ -484,7 +484,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  789 字
+                  861 字
                 </span>
               
 
@@ -540,7 +540,8 @@
 <p><code>set Build Name</code>中加入构建人<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$&#123;PROPFILE,file="userId.txt",property="userId"&#125;</span></div></pre></td></tr></table></figure></p>
 <h5 id="Jenkins获取安卓APP版本号并赋值给变量并使用"><a href="#Jenkins获取安卓APP版本号并赋值给变量并使用" class="headerlink" title="Jenkins获取安卓APP版本号并赋值给变量并使用"></a>Jenkins获取安卓APP版本号并赋值给变量并使用</h5><p>取值<code>shell</code><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">versionName=`cat app/gradle.properties | grep <span class="string">'VERSION_NAME'</span> | cut <span class="_">-d</span> <span class="string">'='</span> <span class="_">-f</span> 2 `</div><div class="line"><span class="built_in">echo</span> <span class="string">"versionName=<span class="variable">$&#123;versionName&#125;</span>"</span> &gt; versionName.txt</div></pre></td></tr></table></figure></p>
 <p><code>set Build Name</code>中加入安卓APP版本号<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$&#123;PROPFILE,file="versionName.txt",property="versionName"&#125;</span></div></pre></td></tr></table></figure></p>
-<h5 id="获取目录的所以csv文件并合并为一个csv文件"><a href="#获取目录的所以csv文件并合并为一个csv文件" class="headerlink" title="获取目录的所以csv文件并合并为一个csv文件"></a>获取目录的所以csv文件并合并为一个csv文件</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> /Users/taoyi/git_projects/Gitlab/RF_InterfaceTest</div><div class="line"><span class="comment"># 获取./Library/output/api-docs/souche/*/*.csv文件并移动到./Library目录下</span></div><div class="line">mv <span class="_">-f</span> ./Library/*/*/*/*/*.csv ./Library </div><div class="line"><span class="comment"># 把所有的csv文件合并为一个together.csv文件</span></div><div class="line">cat ./Library/*.csv &gt; together.csv</div><div class="line"></div><div class="line">rm -rf ./Library/output</div><div class="line">rm -rf ./Library/*.csv</div><div class="line"></div><div class="line">mv <span class="_">-f</span> together.csv ./Library</div></pre></td></tr></table></figure>
+<h5 id="获取目录的所有csv文件并合并为一个csv文件"><a href="#获取目录的所有csv文件并合并为一个csv文件" class="headerlink" title="获取目录的所有csv文件并合并为一个csv文件"></a>获取目录的所有csv文件并合并为一个csv文件</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> /Users/taoyi/git_projects/Gitlab/RF_InterfaceTest</div><div class="line"><span class="comment"># 获取./Library/output/api-docs/souche/*/*.csv文件并移动到./Library目录下</span></div><div class="line">mv <span class="_">-f</span> ./Library/*/*/*/*/*.csv ./Library </div><div class="line"><span class="comment"># 把所有的csv文件合并为一个together.csv文件</span></div><div class="line">cat ./Library/*.csv &gt; together.csv</div><div class="line"></div><div class="line">rm -rf ./Library/output</div><div class="line">rm -rf ./Library/*.csv</div><div class="line"></div><div class="line">mv <span class="_">-f</span> together.csv ./Library</div></pre></td></tr></table></figure>
+<h5 id="Json中的字典转化成Robot-Framework的参数格式"><a href="#Json中的字典转化成Robot-Framework的参数格式" class="headerlink" title="Json中的字典转化成Robot-Framework的参数格式"></a><code>Json</code>中的字典转化成<code>Robot-Framework</code>的参数格式</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># ``Json``中的字典转化成``Robot-Framework``的参数格式</span></div><div class="line"><span class="comment"># 先把需要修改的json文本写入文件，再对该文件进行操作</span></div><div class="line"><span class="comment"># 示例："./change_Dict.sh pice"</span></div><div class="line"></div><div class="line">file_name=<span class="variable">$1</span></div><div class="line">sed -ig <span class="string">'s/":/=/g'</span> <span class="variable">$file_name</span></div><div class="line">sed -ig <span class="string">'s/"//g'</span> <span class="variable">$file_name</span></div><div class="line">sed -ig <span class="string">'s/,/    /g'</span> <span class="variable">$file_name</span></div></pre></td></tr></table></figure>
       
     </div>
     
@@ -760,6 +761,24 @@
           </div>
 
           
+            
+              
+                
+                    
+                      
+                      
+                    
+                      
+                        
+                      
+                  
+                  
+              
+            
+          
+
+
+          
           
 
           
@@ -780,7 +799,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#删除目录下的除今天外的所有文件夹"><span class="nav-number">1.</span> <span class="nav-text">删除目录下的除今天外的所有文件夹</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#kill指定name的pid"><span class="nav-number">2.</span> <span class="nav-text">kill指定name的pid</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#adb截图导出并展示"><span class="nav-number">3.</span> <span class="nav-text">adb截图导出并展示</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#android打包并安装"><span class="nav-number">4.</span> <span class="nav-text">android打包并安装</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Shell脚本解析xml文件字段"><span class="nav-number">5.</span> <span class="nav-text">Shell脚本解析xml文件字段</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Shell脚本获取文本特定字段"><span class="nav-number">6.</span> <span class="nav-text">Shell脚本获取文本特定字段</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Jenkins获取构建人，并赋值到变量并使用"><span class="nav-number">7.</span> <span class="nav-text">Jenkins获取构建人，并赋值到变量并使用</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Jenkins获取安卓APP版本号并赋值给变量并使用"><span class="nav-number">8.</span> <span class="nav-text">Jenkins获取安卓APP版本号并赋值给变量并使用</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#获取目录的所以csv文件并合并为一个csv文件"><span class="nav-number">9.</span> <span class="nav-text">获取目录的所以csv文件并合并为一个csv文件</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#删除目录下的除今天外的所有文件夹"><span class="nav-number">1.</span> <span class="nav-text">删除目录下的除今天外的所有文件夹</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#kill指定name的pid"><span class="nav-number">2.</span> <span class="nav-text">kill指定name的pid</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#adb截图导出并展示"><span class="nav-number">3.</span> <span class="nav-text">adb截图导出并展示</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#android打包并安装"><span class="nav-number">4.</span> <span class="nav-text">android打包并安装</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Shell脚本解析xml文件字段"><span class="nav-number">5.</span> <span class="nav-text">Shell脚本解析xml文件字段</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Shell脚本获取文本特定字段"><span class="nav-number">6.</span> <span class="nav-text">Shell脚本获取文本特定字段</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Jenkins获取构建人，并赋值到变量并使用"><span class="nav-number">7.</span> <span class="nav-text">Jenkins获取构建人，并赋值到变量并使用</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Jenkins获取安卓APP版本号并赋值给变量并使用"><span class="nav-number">8.</span> <span class="nav-text">Jenkins获取安卓APP版本号并赋值给变量并使用</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#获取目录的所有csv文件并合并为一个csv文件"><span class="nav-number">9.</span> <span class="nav-text">获取目录的所有csv文件并合并为一个csv文件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Json中的字典转化成Robot-Framework的参数格式"><span class="nav-number">10.</span> <span class="nav-text">Json中的字典转化成Robot-Framework的参数格式</span></a></li></ol></div>
             
 
           </div>
@@ -800,7 +819,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2015 &mdash; <span itemprop="copyrightYear">2017</span>
+        <div class="copyright">&copy; 2015 &mdash; <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-heartbeat"></i>
   </span>
@@ -814,7 +833,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">67.4k</span>
+    <span title="Site words total count">67.7k</span>
   
 </div>
 
@@ -847,7 +866,7 @@
 
 
 
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.3</div>
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
 
 
 
@@ -938,32 +957,32 @@
   
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
 
 
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
 
 
 
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
 
 
 
@@ -1011,8 +1030,6 @@
 
 
 
-<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
 
 
 
@@ -1031,7 +1048,7 @@
   <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
   
 
-  <script src="/js/src/algolia-search.js?v=5.1.3"></script>
+  <script src="/js/src/algolia-search.js?v=5.1.4"></script>
 
 
 

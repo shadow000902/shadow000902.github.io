@@ -97,19 +97,19 @@
 
 <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css">
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico?v=5.1.3">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico?v=5.1.4">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.3">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.4">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=5.1.3">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=5.1.4">
 
 
-  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
 
 
 
@@ -142,7 +142,7 @@
 
 1.2 Moving multiple files12mv test0001.txt test0002.txt /opt/mv *.txt /opt/
 1.3 Moving directory1mv /tmp/test0001 /opt/">
-<meta property="og:updated_time" content="2017-12-11T05:27:19.277Z">
+<meta property="og:updated_time" content="2018-01-06T14:35:57.335Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux常用命令">
 <meta name="twitter:description" content="mv1.1 Moving files1mv test0001.txt /opt/
@@ -158,7 +158,7 @@
   var CONFIG = {
     root: '/',
     scheme: 'Pisces',
-    version: '5.1.3',
+    version: '5.1.4',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
     tabs: true,
@@ -490,7 +490,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  3,355 字
+                  3,441 字
                 </span>
               
 
@@ -614,8 +614,8 @@
 <li><p>tail</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tail <span class="_">-f</span> catalina.out | grep request      <span class="comment"># 查看Linux服务器实时日志，catalina.out为服务器实时记录日志的文件</span></div></pre></td></tr></table></figure>
 </li>
-<li><p>scp     # 本地文件传输到服务器</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">scp -P 22 /opt/appium1.5.3.zip username@IP:/opt/</div></pre></td></tr></table></figure>
+<li><p>scp     # 本地文件与服务器文件交互</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 从服务器下载文件</span></div><div class="line">scp username@servername:/remote_path/filename ~/<span class="built_in">local</span>_destination</div><div class="line"><span class="comment"># 上传本地文件到服务器</span></div><div class="line">scp ~/<span class="built_in">local</span>_path/<span class="built_in">local</span>_filename username@servername:/remote_path</div><div class="line"><span class="comment"># 从服务器下载整个目录</span></div><div class="line">scp -r username@servername:/remote_path/remote_dir/ ~/<span class="built_in">local</span>_destination</div><div class="line"><span class="comment"># 上传目录到服务器</span></div><div class="line">scp  -r ~/<span class="built_in">local</span>_dir username@servername:/remote_path/remote_dir</div></pre></td></tr></table></figure>
 </li>
 <li><p>sed     #</p>
 <figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">[root@www ~]# sed [-nefr] [动作]</div><div class="line">选项与参数：</div><div class="line">-n ：使用安静(silent)模式。在一般 sed 的用法中，所有来自 STDIN 的数据一般都会被列出到终端上。但如果加上 -n 参数后，则只有经过sed 特殊处理的那一行(或者动作)才会被列出来。</div><div class="line">-e ：直接在命令列模式上进行 sed 的动作编辑；</div><div class="line">-f ：直接将 sed 的动作写在一个文件内， -f filename 则可以运行 filename 内的 sed 动作；</div><div class="line">-r ：sed 的动作支持的是延伸型正规表示法的语法。(默认是基础正规表示法语法)</div><div class="line">-i ：直接修改读取的文件内容，而不是输出到终端。</div><div class="line"></div><div class="line">动作说明： [n1[,n2]]function</div><div class="line">n1, n2 ：不见得会存在，一般代表『选择进行动作的行数』，举例来说，如果我的动作是需要在 10 到 20 行之间进行的，则『 10,20[动作行为] 』</div><div class="line"></div><div class="line">function：</div><div class="line">a ：新增， a 的后面可以接字串，而这些字串会在新的一行出现(目前的下一行)～</div><div class="line">c ：取代， c 的后面可以接字串，这些字串可以取代 n1,n2 之间的行！</div><div class="line">d ：删除，因为是删除啊，所以 d 后面通常不接任何咚咚；</div><div class="line">i ：插入， i 的后面可以接字串，而这些字串会在新的一行出现(目前的上一行)；</div><div class="line">p ：列印，亦即将某个选择的数据印出。通常 p 会与参数 sed -n 一起运行～</div><div class="line">s ：取代，可以直接进行取代的工作哩！通常这个 s 的动作可以搭配正规表示法！例如 1,20s/old/new/g 就是啦！</div></pre></td></tr></table></figure>
@@ -629,7 +629,7 @@
 <p>28.6 数据的搜索并执行命令<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">nl ~/test.txt | sed -n <span class="string">'/root/&#123;s/bash/blueshell/;p&#125;'</span>       <span class="comment"># 找到root对应的行，执行后面花括号中的一组命令，每个命令之间用分号分隔，这里把bash替换为blueshell，再输出这行</span></div><div class="line">nl ~/test.txt | sed -n <span class="string">'/root/&#123;s/bash/blueshell/;p;q&#125;'</span>     <span class="comment"># 最后的q是退出</span></div></pre></td></tr></table></figure></p>
 <p>28.7 <strong>数据的搜索并替换</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sed <span class="string">'s/要被取代的字串/新的字串/g'</span></div></pre></td></tr></table></figure></p>
 <p>28.8 多点编辑<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nl ~/test.txt | sed <span class="_">-e</span> <span class="string">'3,$d'</span> <span class="_">-e</span> <span class="string">'s/bash/blueshell/'</span>       <span class="comment"># -e表示多点编辑，一条sed命令，删除/etc/passwd第三行到末尾的数据，并把bash替换为blueshell</span></div></pre></td></tr></table></figure></p>
-<p>28.9 <strong>直接修改文件内容</strong><br><code>sed</code>可以直接修改文件的内容，不必使用管道命令或数据流重导向<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sed -i <span class="string">'s/\.$/\!/g'</span> test.txt                               <span class="comment"># 将 test.txt 内每一行结尾若为 . 则换成 ! sed 的『 -i 』选项可以直接修改文件内容</span></div><div class="line">sed -i <span class="string">'$a # This is a test'</span> test.txt                      <span class="comment"># 在 test.txt 最后一行加入『# This is a test』 $代表的是最后一行，而a的动作是新增</span></div></pre></td></tr></table></figure></p>
+<p>28.9 <strong>直接修改文件内容</strong><br><code>sed</code>可以直接修改文件的内容，不必使用管道命令或数据流重导向<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">sed -i <span class="string">'s/\.$/\!/g'</span> test.txt                               <span class="comment"># 将 test.txt 内每一行结尾若为 . 则换成 ! sed 的『 -i 』选项可以直接修改文件内容</span></div><div class="line"><span class="comment"># 如果 -i 参数不生效的话，需要使用 -ig 参数</span></div><div class="line">sed -ig<span class="string">'s/要被取代的字串/新的字串/g'</span> test.txt</div><div class="line">sed -i <span class="string">'$a # This is a test'</span> test.txt                      <span class="comment"># 在 test.txt 最后一行加入『# This is a test』 $代表的是最后一行，而a的动作是新增</span></div></pre></td></tr></table></figure></p>
 <ol>
 <li>touch           # 创建文件（夹）命令</li>
 </ol>
@@ -893,6 +893,24 @@
           </div>
 
           
+            
+              
+                
+                    
+                      
+                      
+                    
+                      
+                        
+                      
+                  
+                  
+              
+            
+          
+
+
+          
           
 
           
@@ -917,7 +935,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2015 &mdash; <span itemprop="copyrightYear">2017</span>
+        <div class="copyright">&copy; 2015 &mdash; <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-heartbeat"></i>
   </span>
@@ -931,7 +949,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">67.4k</span>
+    <span title="Site words total count">67.7k</span>
   
 </div>
 
@@ -964,7 +982,7 @@
 
 
 
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.3</div>
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
 
 
 
@@ -1055,32 +1073,32 @@
   
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
 
 
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
 
 
 
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
 
 
 
@@ -1128,8 +1146,6 @@
 
 
 
-<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
 
 
 
@@ -1148,7 +1164,7 @@
   <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
   
 
-  <script src="/js/src/algolia-search.js?v=5.1.3"></script>
+  <script src="/js/src/algolia-search.js?v=5.1.4"></script>
 
 
 
