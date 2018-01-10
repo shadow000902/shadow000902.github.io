@@ -137,7 +137,7 @@
 <meta property="og:description" content="Jenkins 部署 创建Jenkins运行目录 123456# Jenkins主目录mkdir /opt/Jenkins/Home# Jenkins缓存位置mkdir /opt/Jenkins/tmp# 脚本存放位置mkdir /opt/Jenkins/script">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://shadow000902.space/2017/08/16/Jenkins持续集成平台搭建/构建触发器_身份验证令牌.png">
-<meta property="og:updated_time" content="2018-01-07T09:02:43.366Z">
+<meta property="og:updated_time" content="2018-01-07T13:15:20.785Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Jenkins持续集成平台搭建">
 <meta name="twitter:description" content="Jenkins 部署 创建Jenkins运行目录 123456# Jenkins主目录mkdir /opt/Jenkins/Home# Jenkins缓存位置mkdir /opt/Jenkins/tmp# 脚本存放位置mkdir /opt/Jenkins/script">
@@ -421,7 +421,7 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-01-07T17:02:43+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2018-01-07T21:15:20+08:00">
                 2018-01-07
               </time>
             
@@ -494,7 +494,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  22 字
+                  12 字
                 </span>
               
 
@@ -556,13 +556,43 @@
 <li><code>Build User Vars Plugin</code>【获取项目构建人】</li>
 </ol>
 <p>插件名称：<code>user build vars plugin</code></p>
-<p>变量值表</p>
-<html><br>    <body><br>        <table border="1"><br>            <tr><br>                <th>Variable</th><br>                <th>Description</th><br>            </tr><br>            <tr><br>                <td>BUILD_USER</td><br>                <td>Full name (first name + last name) </td><br>            </tr><br>            <tr><br>                <td>BUILD_USER_EMAIL</td><br>                <td>Email address</td><br>            </tr><br>            <tr><br>                <td>BUILD_USER_FIRST_NAME</td><br>                <td>First name</td><br>            </tr><br>            <tr><br>                <td>BUILD_USER_ID</td><br>                <td>Jenkins user ID</td><br>            </tr><br>            <tr><br>                <td>BUILD_USER_LAST_NAME</td><br>                <td>Last name</td><br>            </tr><br>        </table><br>    </body><br></html>
-
+<p>变量值表<br>
+<html>
+	<body>
+		<table border="1">
+			<tr>
+				<th>Variable</th>
+				<th>Description</th>
+			</tr>
+			<tr>
+				<td>BUILD_USER</td>
+				<td>Full name (first name + last name) </td>
+			</tr>
+			<tr>
+				<td>BUILD_USER_EMAIL</td>
+				<td>Email address</td>
+			</tr>
+			<tr>
+				<td>BUILD_USER_FIRST_NAME</td>
+				<td>First name</td>
+			</tr>
+			<tr>
+				<td>BUILD_USER_ID</td>
+				<td>Jenkins user ID</td>
+			</tr>
+			<tr>
+				<td>BUILD_USER_LAST_NAME</td>
+				<td>Last name</td>
+			</tr>
+		</table>
+	</body>
+</html>
+</p>
 <p>在jenkins任务中使用构建变量：注意需要勾选 “Set jenkins user build variables.”</p>
 <ol>
-<li><p><code>Naginator</code>【任务失败重新构建插件】<br>在<code>构建后操作</code>中选择<code>Retry build after failure</code>。<code>Fixed delay</code>填写每次重试的时间延迟，单位是秒。<code>Maximum number of successive failed builds</code>文本框中填写重试次数。</p>
-</li>
+<li><code>Naginator</code>【任务失败重新构建插件】<br>在<code>构建后操作</code>中选择<code>Retry build after failure</code>。<code>Fixed delay</code>填写每次重试的时间延迟，单位是秒。<code>Maximum number of successive failed builds</code>文本框中填写重试次数。</li>
+</ol>
+<ol>
 <li><p><code>Publish Over SSH</code>【通过ssh构建项目】</p>
 </li>
 <li><p><code>触发远程构建（例如，使用脚本）</code></p>
@@ -740,7 +770,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">77</span>
+                  <span class="site-state-item-count">79</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -751,7 +781,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -762,7 +792,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">57</span>
+                  <span class="site-state-item-count">58</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -871,7 +901,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">74.0k</span>
+    <span title="Site words total count">74.6k</span>
   
 </div>
 

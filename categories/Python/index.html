@@ -131,7 +131,7 @@
 <meta name="description" content="谁当声震人间，必长久深自缄默。谁当划破闪电，必长久如云漂泊。">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Shadow&#39;S Site">
-<meta property="og:url" content="http://shadow000902.space/categories/Python/index.html">
+<meta property="og:url" content="http://shadow000902.space/categories/python/index.html">
 <meta property="og:site_name" content="Shadow&#39;S Site">
 <meta property="og:description" content="谁当声震人间，必长久深自缄默。谁当划破闪电，必长久如云漂泊。">
 <meta property="og:locale" content="zh-Hans">
@@ -167,13 +167,13 @@
 
 
 
-  <link rel="canonical" href="http://shadow000902.space/categories/Python/">
+  <link rel="canonical" href="http://shadow000902.space/categories/python/">
 
 
 
 
 
-  <title>分类: Python | Shadow'S Site</title>
+  <title>分类: python | Shadow'S Site</title>
   
 
 
@@ -365,7 +365,7 @@
 
     <div id="posts" class="posts-collapse">
       <div class="collection-title">
-        <h1>Python<small>分类</small>
+        <h1>python<small>分类</small>
         </h1>
       </div>
 
@@ -377,69 +377,17 @@
 
       <h2 class="post-title">
         
-            <a class="post-title-link" href="/2017/01/11/web-py数据库操作介绍/" itemprop="url">
+            <a class="post-title-link" href="/2018/01/10/Python通过SSH隧道连接MySQL数据库/" itemprop="url">
               
-                <span itemprop="name">web.py数据库操作介绍</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2017-01-11T20:35:36+08:00" content="2017-01-11">
-          01-11
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/01/02/八大排序算法的Python实现/" itemprop="url">
-              
-                <span itemprop="name">八大排序算法的Python实现</span>
+                <span itemprop="name">Python通过SSH隧道连接MySQL数据库</span>
               
             </a>
         
       </h2>
 
       <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2017-01-02T16:00:21+08:00" content="2017-01-02">
-          01-02
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2016/11/03/Mac-下Django-环境搭建/" itemprop="url">
-              
-                <span itemprop="name">Mac 下Django 环境搭建</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2016-11-03T17:02:10+08:00" content="2016-11-03">
-          11-03
+        <time class="post-time" itemprop="dateCreated" datetime="2018-01-10T09:56:03+08:00" content="2018-01-10">
+          01-10
         </time>
       </div>
 
@@ -501,7 +449,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">77</span>
+                  <span class="site-state-item-count">79</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -512,7 +460,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -523,7 +471,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">57</span>
+                  <span class="site-state-item-count">58</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -616,7 +564,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">74.0k</span>
+    <span title="Site words total count">74.6k</span>
   
 </div>
 
@@ -906,6 +854,65 @@
             newcounter.set("title", title);
             newcounter.set("url", url);
             newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>1);
             newcounter.save(null, {
               success: function(newcounter) {
                 var $element = $(document.getElementById(url));
