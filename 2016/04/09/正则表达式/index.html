@@ -136,7 +136,7 @@
 <meta property="og:site_name" content="Shadow&#39;S Site">
 <meta property="og:description" content="正则表达式入门 名称：正则表达式[regular expression，简称RegEx] 使用正则表达式 搜索或者替换。匹配一些文本（进行一次搜索）。匹配并替换一些文本（进行一次替换）。 定义：正则表达式是一些用来匹配和处理文本的字符串。 语法：语法是正则表达式最容易掌握的部分，真正的挑战是学会如何运用那些语法把实际问题分解为一系列正则表达式并最终解决。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-10T17:01:31.625Z">
+<meta property="og:updated_time" content="2018-01-16T12:46:24.626Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="正则表达式">
 <meta name="twitter:description" content="正则表达式入门 名称：正则表达式[regular expression，简称RegEx] 使用正则表达式 搜索或者替换。匹配一些文本（进行一次搜索）。匹配并替换一些文本（进行一次替换）。 定义：正则表达式是一些用来匹配和处理文本的字符串。 语法：语法是正则表达式最容易掌握的部分，真正的挑战是学会如何运用那些语法把实际问题分解为一系列正则表达式并最终解决。">
@@ -419,8 +419,8 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-01-11T01:01:31+08:00">
-                2018-01-11
+              <time title="更新于" itemprop="dateModified" datetime="2018-01-16T20:46:24+08:00">
+                2018-01-16
               </time>
             
           </span>
@@ -492,7 +492,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  2,627 字
+                  2,953 字
                 </span>
               
 
@@ -508,7 +508,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  10 分钟
+                  11 分钟
                 </span>
               
             </div>
@@ -596,13 +596,13 @@
 <thead>
 <tr>
 <th>元字符</th>
-<th>说明                 </th>
+<th>说明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><code>\d</code></td>
-<td>任何一个数字字符（等价于<code>[0-9]</code>）   </td>
+<td>任何一个数字字符（等价于<code>[0-9]</code>）</td>
 </tr>
 <tr>
 <td><code>\D</code></td>
@@ -735,7 +735,38 @@
 </table>
 <p>把HTML文件中的一级标题（<code>&lt;H1&gt;...&lt;/H&gt;</code>）的标题文字转换为大写：</p>
 <pre><code><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 匹配出一级标题</span></span><br><span class="line">(&lt;[Hh]1&gt;)(.*?)(&lt;/[Hh]1&gt;)</span><br><span class="line"><span class="comment"># 替换</span></span><br><span class="line"><span class="variable">$1</span>\U<span class="variable">$2</span>\E<span class="variable">$3</span></span><br></pre></td></tr></table></figure>
-</code></pre>
+</code></pre><h4 id="前后查找"><a href="#前后查找" class="headerlink" title="前后查找"></a>前后查找</h4><ol>
+<li>向前查找<br> 向前查找指定了一个必须匹配但不在结果中返回的模式<br> 一个向前查找模式：其实就是一个以<code>?=</code>开头的子表达式，需要匹配的文本跟在<code>=</code>之后。<br> <code>.+(?=:)</code>：匹配出<code>http://www.baidu.com</code>中的<code>http</code>，匹配出了<code>:</code>，但是并没有展示出来<br> 向前查找（和向后查找）匹配本身其实是有返回结果的，只是这个结果的字节长度永远是<code>0</code>而已。因此，前后查找操作有时也被称为零宽度（<code>zero-width</code>）匹配操作。<br> 在同一个搜索模式里，可以使用多个向前查找表达式。</li>
+<li>向后查找<br> <code>?&lt;=</code>：向后查找操作符。查找出现在被匹配文本之前的字符（但不消费它）。<br> <code>(?&lt;=\$)[0-9.]+</code>：匹配出<code>ABC01: $23.45</code>中的<code>23.45</code>，但不匹配出<code>01</code>。<code>(?&lt;=\$)</code>只匹配出来<code>$</code>，但不消费它。</li>
+<li>把向前查找和向后查找结合起来<br> <code>(?&lt;=\&lt;[Tt][Ii][Tt][Ll][Ee]&gt;).*(?&lt;=&lt;/[Tt][Ii][Tt][Ll][Ee]&gt;)</code>：匹配出<code>&lt;TITLE&gt;I AM TAOYI.&lt;/TITLE&gt;</code>中的<code>I AM TAOYI.</code></li>
+<li>对前后查找取非<br> 前后查找必须用<code>!</code>来取非（它将替换掉<code>=</code>）<br> 各种前后查找操作符</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>操作符</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>(?=)</code></td>
+<td>正向前查找</td>
+</tr>
+<tr>
+<td><code>(?!)</code></td>
+<td>反向前查找</td>
+</tr>
+<tr>
+<td><code>(?&lt;=)</code></td>
+<td>正向后查找</td>
+</tr>
+<tr>
+<td><code>(?&lt;!)</code></td>
+<td>反向后查找</td>
+</tr>
+</tbody>
+</table>
       
     </div>
     
@@ -903,7 +934,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">80</span>
+                  <span class="site-state-item-count">81</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -993,7 +1024,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#正则表达式入门"><span class="nav-number">1.</span> <span class="nav-text">正则表达式入门</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#匹配单个字符"><span class="nav-number">2.</span> <span class="nav-text">匹配单个字符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#匹配一组字符"><span class="nav-number">3.</span> <span class="nav-text">匹配一组字符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用元字符"><span class="nav-number">4.</span> <span class="nav-text">使用元字符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#重复匹配"><span class="nav-number">5.</span> <span class="nav-text">重复匹配</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#位置匹配"><span class="nav-number">6.</span> <span class="nav-text">位置匹配</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用子表达式"><span class="nav-number">7.</span> <span class="nav-text">使用子表达式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#回溯引用：前后一致匹配"><span class="nav-number">8.</span> <span class="nav-text">回溯引用：前后一致匹配</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#正则表达式入门"><span class="nav-number">1.</span> <span class="nav-text">正则表达式入门</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#匹配单个字符"><span class="nav-number">2.</span> <span class="nav-text">匹配单个字符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#匹配一组字符"><span class="nav-number">3.</span> <span class="nav-text">匹配一组字符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用元字符"><span class="nav-number">4.</span> <span class="nav-text">使用元字符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#重复匹配"><span class="nav-number">5.</span> <span class="nav-text">重复匹配</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#位置匹配"><span class="nav-number">6.</span> <span class="nav-text">位置匹配</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用子表达式"><span class="nav-number">7.</span> <span class="nav-text">使用子表达式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#回溯引用：前后一致匹配"><span class="nav-number">8.</span> <span class="nav-text">回溯引用：前后一致匹配</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#前后查找"><span class="nav-number">9.</span> <span class="nav-text">前后查找</span></a></li></ol></div>
             
 
           </div>
@@ -1034,7 +1065,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">75.6k</span>
+    <span title="Site words total count">76.1k</span>
   
 </div>
 
