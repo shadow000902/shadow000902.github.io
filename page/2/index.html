@@ -635,8 +635,8 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-01-07T00:37:28+08:00">
-                2018-01-07
+              <time title="更新于" itemprop="dateModified" datetime="2018-02-12T15:22:27+08:00">
+                2018-02-12
               </time>
             
           </span>
@@ -708,7 +708,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  989 字
+                  1,456 字
                 </span>
               
 
@@ -724,7 +724,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  5 分钟
+                  8 分钟
                 </span>
               
             </div>
@@ -1061,8 +1061,8 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-01-07T21:15:20+08:00">
-                2018-01-07
+              <time title="更新于" itemprop="dateModified" datetime="2018-02-09T16:01:36+08:00">
+                2018-02-09
               </time>
             
           </span>
@@ -1175,6 +1175,12 @@
           <h5 id="Jenkins-部署"><a href="#Jenkins-部署" class="headerlink" title="Jenkins 部署"></a>Jenkins 部署</h5><ol>
 <li><p>创建<code>Jenkins</code>运行目录</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Jenkins主目录</span></span><br><span class="line">mkdir /opt/Jenkins/Home</span><br><span class="line"><span class="comment"># Jenkins缓存位置</span></span><br><span class="line">mkdir /opt/Jenkins/tmp</span><br><span class="line"><span class="comment"># 脚本存放位置</span></span><br><span class="line">mkdir /opt/Jenkins/script</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>设置<code>jenkins</code>主目录<br>第一种方法是使用WEB容器工具设置<code>JENKINS_HOME</code>环境参数。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">打开tomcat的bin目录，编辑catalina.sh文件。</span><br><span class="line">在<span class="comment"># OS specific support.  $var _must_ be set to either true or false.上面添加：export JENKINS_HOME=""</span></span><br><span class="line">在引号中填入你的路径。</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>第二种是在环境变量中设置<code>JENKINS_HOME</code>。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 编辑对应用户的终端的环境变量设置文件</span></span><br><span class="line">编辑profile文件：vim ~/.bashrc</span><br><span class="line">在最后加入：<span class="built_in">export</span> JENKINS_HOME=<span class="string">"/home/souche/jenkins/Home"</span></span><br></pre></td></tr></table></figure></p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/08/16/Jenkins持续集成平台搭建/#more" rel="contents">
@@ -1184,7 +1190,7 @@
           <!--/noindex-->
         
       
-    </li></ol></div>
+    </div>
     
     
     
@@ -2344,8 +2350,8 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2017-12-11T13:27:19+08:00">
-                2017-12-11
+              <time title="更新于" itemprop="dateModified" datetime="2018-02-12T15:25:38+08:00">
+                2018-02-12
               </time>
             
           </span>
@@ -2417,7 +2423,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  307 字
+                  369 字
                 </span>
               
 
@@ -2433,7 +2439,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  1 分钟
+                  2 分钟
                 </span>
               
             </div>
@@ -2662,7 +2668,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">76.1k</span>
+    <span title="Site words total count">76.8k</span>
   
 </div>
 

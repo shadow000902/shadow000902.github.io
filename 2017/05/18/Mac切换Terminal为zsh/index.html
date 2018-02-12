@@ -138,7 +138,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://shadow000902.space/2017/05/18/Mac切换Terminal为zsh/终端样式修改.png">
 <meta property="og:image" content="http://shadow000902.space/2017/05/18/Mac切换Terminal为zsh/Terminal效果图.png">
-<meta property="og:updated_time" content="2017-12-11T05:27:19.358Z">
+<meta property="og:updated_time" content="2018-02-12T07:25:38.500Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mac切换Terminal为zsh">
 <meta name="twitter:description" content="下载一个 .oh-my-zsh 配置1git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh">
@@ -422,8 +422,8 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2017-12-11T13:27:19+08:00">
-                2017-12-11
+              <time title="更新于" itemprop="dateModified" datetime="2018-02-12T15:25:38+08:00">
+                2018-02-12
               </time>
             
           </span>
@@ -495,7 +495,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  307 字
+                  369 字
                 </span>
               
 
@@ -511,7 +511,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  1 分钟
+                  2 分钟
                 </span>
               
             </div>
@@ -535,7 +535,8 @@
         <h5 id="下载一个-oh-my-zsh-配置"><a href="#下载一个-oh-my-zsh-配置" class="headerlink" title="下载一个 .oh-my-zsh 配置"></a>下载一个 .oh-my-zsh 配置</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh</span><br></pre></td></tr></table></figure>
   <a id="more"></a>
 <h5 id="创建新的配置"><a href="#创建新的配置" class="headerlink" title="创建新的配置"></a>创建新的配置</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cp ~/.zshrc ~/.zshrc.orig                                   <span class="comment"># 如果已经有一个 .zshrc 文件，备份一下</span></span><br><span class="line">cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc</span><br></pre></td></tr></table></figure>
-<h5 id="更新新的配置文件"><a href="#更新新的配置文件" class="headerlink" title="更新新的配置文件"></a>更新新的配置文件</h5><p>如果有些环境变量配置在<code>~/.bash_profile</code>的话，需要在新的配置里进行刷新<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="built_in">export</span> ZSH=~/.oh-my-zsh/</span><br><span class="line">...</span><br><span class="line">ZSH_THEME=<span class="string">"fino-time"</span>                   <span class="comment"># 设置选择的主题。默认是robbyrussell</span></span><br><span class="line">...</span><br><span class="line">...</span><br><span class="line"><span class="built_in">source</span> <span class="variable">$ZSH</span>/oh-my-zsh.sh</span><br><span class="line"><span class="built_in">source</span> ~/.bash_profile</span><br><span class="line">...</span><br></pre></td></tr></table></figure></p>
+<h5 id="更新新的配置文件"><a href="#更新新的配置文件" class="headerlink" title="更新新的配置文件"></a>更新新的配置文件</h5><p>如果有些环境变量配置在<code>~/.bash_profile</code>的话，需要在新的配置里进行刷新<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim ~/.zshrc</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="built_in">export</span> ZSH=~/.oh-my-zsh/</span><br><span class="line">...</span><br><span class="line">ZSH_THEME=<span class="string">"ys"</span>                   <span class="comment"># 设置选择的主题。默认是robbyrussell</span></span><br><span class="line">...</span><br><span class="line">...</span><br><span class="line"><span class="built_in">source</span> <span class="variable">$ZSH</span>/oh-my-zsh.sh</span><br><span class="line"><span class="built_in">source</span> ~/.bash_profile</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
 <h5 id="优化-terminal-样式"><a href="#优化-terminal-样式" class="headerlink" title="优化 terminal 样式"></a>优化 terminal 样式</h5><img src="/2017/05/18/Mac切换Terminal为zsh/终端样式修改.png" title="终端样式修改">
 <h5 id="切换-Terminal-到-zsh"><a href="#切换-Terminal-到-zsh" class="headerlink" title="切换 Terminal 到 zsh"></a>切换 Terminal 到 zsh</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chsh -s /bin/zsh</span><br></pre></td></tr></table></figure>
 <p>重启一下 Terminal 之后，就生效了。</p>
@@ -545,6 +546,11 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3</span><br><span class="line">\curl -sSL https://get.rvm.io | bash -s stable</span><br></pre></td></tr></table></figure>
 <p>在<code>~/.zshrc</code>文件中加入支持：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">alias</span> rvm-prompt=<span class="variable">$HOME</span>/.rvm/bin/rvm-prompt</span><br></pre></td></tr></table></figure></p>
 <p>这样后，就完美了，不会再有这个报错了。</p>
+<h5 id="安装第三方插件"><a href="#安装第三方插件" class="headerlink" title="安装第三方插件"></a>安装第三方插件</h5><ol>
+<li>安装<code>zsh-syntax-highlighting</code>插件<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/.oh-my-zsh/</span><br><span class="line">git <span class="built_in">clone</span> git://github.com/zsh-users/zsh-syntax-highlighting.git</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>然后编辑环境变量文件<code>~/.zshrc</code>，在其中加入插件名称<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># plugins=(git)</span></span><br><span class="line">plugin=(git zsh-syntax-highlighting)</span><br></pre></td></tr></table></figure></p>
       
     </div>
     
@@ -802,7 +808,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#下载一个-oh-my-zsh-配置"><span class="nav-number">1.</span> <span class="nav-text">下载一个 .oh-my-zsh 配置</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#创建新的配置"><span class="nav-number">2.</span> <span class="nav-text">创建新的配置</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#更新新的配置文件"><span class="nav-number">3.</span> <span class="nav-text">更新新的配置文件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#优化-terminal-样式"><span class="nav-number">4.</span> <span class="nav-text">优化 terminal 样式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#切换-Terminal-到-zsh"><span class="nav-number">5.</span> <span class="nav-text">切换 Terminal 到 zsh</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#效果如图"><span class="nav-number">6.</span> <span class="nav-text">效果如图</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#如果使用-fino-time-主题"><span class="nav-number">7.</span> <span class="nav-text">如果使用 fino-time 主题</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#下载一个-oh-my-zsh-配置"><span class="nav-number">1.</span> <span class="nav-text">下载一个 .oh-my-zsh 配置</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#创建新的配置"><span class="nav-number">2.</span> <span class="nav-text">创建新的配置</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#更新新的配置文件"><span class="nav-number">3.</span> <span class="nav-text">更新新的配置文件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#优化-terminal-样式"><span class="nav-number">4.</span> <span class="nav-text">优化 terminal 样式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#切换-Terminal-到-zsh"><span class="nav-number">5.</span> <span class="nav-text">切换 Terminal 到 zsh</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#效果如图"><span class="nav-number">6.</span> <span class="nav-text">效果如图</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#如果使用-fino-time-主题"><span class="nav-number">7.</span> <span class="nav-text">如果使用 fino-time 主题</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#安装第三方插件"><span class="nav-number">8.</span> <span class="nav-text">安装第三方插件</span></a></li></ol></div>
             
 
           </div>
@@ -843,7 +849,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">76.1k</span>
+    <span title="Site words total count">76.8k</span>
   
 </div>
 

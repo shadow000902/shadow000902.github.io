@@ -128,18 +128,18 @@
 
 
 
-<meta name="description" content="其实不能说是免密码登录，你在第一次登录进账户的时候还是需要密码的。但是再用该受信任用户身份访问其他节点的时候可以让你不用输入密码。也就是一次验证，处处通行。真正的术语叫做公钥登录。  所谓”公钥登录”，原理很简单，就是用户将自己的公钥储存在远程主机上。登录的时候，远程主机会向用户发送一段随机字符串，用户用自己的私钥加密后，再发回来。远程主机用事先储存的公钥进行解密，如果成功，就证明用户是可信的，直">
+<meta name="description" content="免密介绍其实不能说是免密码登录，你在第一次登录进账户的时候还是需要密码的。但是再用该受信任用户身份访问其他节点的时候可以让你不用输入密码。也就是一次验证，处处通行。真正的术语叫做公钥登录。  所谓”公钥登录”，原理很简单，就是用户将自己的公钥储存在远程主机上。登录的时候，远程主机会向用户发送一段随机字符串，用户用自己的私钥加密后，再发回来。远程主机用事先储存的公钥进行解密，如果成功，就证明用户是可">
 <meta name="keywords" content="ssh">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ssh免密码登录">
 <meta property="og:url" content="http://shadow000902.space/2016/05/26/ssh免密码登录/index.html">
 <meta property="og:site_name" content="Shadow&#39;S Site">
-<meta property="og:description" content="其实不能说是免密码登录，你在第一次登录进账户的时候还是需要密码的。但是再用该受信任用户身份访问其他节点的时候可以让你不用输入密码。也就是一次验证，处处通行。真正的术语叫做公钥登录。  所谓”公钥登录”，原理很简单，就是用户将自己的公钥储存在远程主机上。登录的时候，远程主机会向用户发送一段随机字符串，用户用自己的私钥加密后，再发回来。远程主机用事先储存的公钥进行解密，如果成功，就证明用户是可信的，直">
+<meta property="og:description" content="免密介绍其实不能说是免密码登录，你在第一次登录进账户的时候还是需要密码的。但是再用该受信任用户身份访问其他节点的时候可以让你不用输入密码。也就是一次验证，处处通行。真正的术语叫做公钥登录。  所谓”公钥登录”，原理很简单，就是用户将自己的公钥储存在远程主机上。登录的时候，远程主机会向用户发送一段随机字符串，用户用自己的私钥加密后，再发回来。远程主机用事先储存的公钥进行解密，如果成功，就证明用户是可">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-11T05:27:19.265Z">
+<meta property="og:updated_time" content="2018-02-12T08:17:10.067Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ssh免密码登录">
-<meta name="twitter:description" content="其实不能说是免密码登录，你在第一次登录进账户的时候还是需要密码的。但是再用该受信任用户身份访问其他节点的时候可以让你不用输入密码。也就是一次验证，处处通行。真正的术语叫做公钥登录。  所谓”公钥登录”，原理很简单，就是用户将自己的公钥储存在远程主机上。登录的时候，远程主机会向用户发送一段随机字符串，用户用自己的私钥加密后，再发回来。远程主机用事先储存的公钥进行解密，如果成功，就证明用户是可信的，直">
+<meta name="twitter:description" content="免密介绍其实不能说是免密码登录，你在第一次登录进账户的时候还是需要密码的。但是再用该受信任用户身份访问其他节点的时候可以让你不用输入密码。也就是一次验证，处处通行。真正的术语叫做公钥登录。  所谓”公钥登录”，原理很简单，就是用户将自己的公钥储存在远程主机上。登录的时候，远程主机会向用户发送一段随机字符串，用户用自己的私钥加密后，再发回来。远程主机用事先储存的公钥进行解密，如果成功，就证明用户是可">
 
 
 
@@ -419,8 +419,8 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2017-12-11T13:27:19+08:00">
-                2017-12-11
+              <time title="更新于" itemprop="dateModified" datetime="2018-02-12T16:17:10+08:00">
+                2018-02-12
               </time>
             
           </span>
@@ -492,7 +492,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  415 字
+                  600 字
                 </span>
               
 
@@ -529,20 +529,21 @@
       
 
       
-        <p>其实不能说是免密码登录，你在第一次登录进账户的时候还是需要密码的。但是再用该受信任用户身份访问其他节点的时候可以让你不用输入密码。也就是一次验证，处处通行。真正的术语叫做公钥登录。</p>
+        <h4 id="免密介绍"><a href="#免密介绍" class="headerlink" title="免密介绍"></a>免密介绍</h4><p>其实不能说是免密码登录，你在第一次登录进账户的时候还是需要密码的。但是再用该受信任用户身份访问其他节点的时候可以让你不用输入密码。也就是一次验证，处处通行。真正的术语叫做公钥登录。</p>
 <blockquote>
 <p>所谓”公钥登录”，原理很简单，就是用户将自己的公钥储存在远程主机上。登录的时候，远程主机会向用户发送一段随机字符串，用户用自己的私钥加密后，再发回来。远程主机用事先储存的公钥进行解密，如果成功，就证明用户是可信的，直接允许登录shell，不再要求密码。这种方法要求用户必须提供自己的公钥。如果没有现成的，可以直接用ssh-keygen生成一个。</p>
 </blockquote>
   <a id="more"></a>
 <p>具体的原理相对来说就比较复杂了。参见阮一峰的这篇博客<a href="http://www.ruanyifeng.com/blog/2011/12/ssh_remote_login.html" target="_blank" rel="noopener">SSH原理与运用(一):远程登录</a>。</p>
-<p>免密码登录：<br>生成本用户的密钥，再把公钥存成authorized_key文件。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh user@host <span class="string">'mkdir -p .ssh &amp;&amp; cat &gt;&gt; .ssh/authorized_keys'</span> &lt; ~/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure></p>
+<h4 id="设置免密"><a href="#设置免密" class="headerlink" title="设置免密"></a>设置免密</h4><p>免密码登录：<br>生成本用户的密钥，再把公钥存成authorized_key文件。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh user@host <span class="string">'mkdir -p .ssh &amp;&amp; cat &gt;&gt; .ssh/authorized_keys'</span> &lt; ~/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure></p>
 <p>过程是：</p>
 <ol>
 <li><code>ssh user@host</code>，表示登录远程主机,当然远程用户名和本地一致的时候可以省略，直接使用<code>ssh host</code>。</li>
 <li><code>mkdir -p .ssh</code>，如果用户主目录中的.ssh目录不存在，就创建一个。</li>
 <li><code>&#39;cat &gt;&gt; .ssh/authorized_keys&#39; &lt; ~/.ssh/id_rsa.pub</code>的作用，是将本地的公钥文件<code>~/.ssh/id_rsa.pub</code>，重定向追加到远程文件authorized_key的末尾。</li>
 </ol>
-<p>写入authorized_keys文件后，公钥登录的设置就完成了。</p>
+<p>写入authorized_keys文件后，公钥登录的设置就完成了。<br>最后还要对<code>.ssh</code>目录和<code>.ssh/authorized_keys</code>文件的权限做确认，<code>.ssh</code>目录的权限必须是<code>700</code>，<code>.ssh/authorized_keys</code>文件权限必须是<code>600</code>。</p>
+<h4 id="设置快捷登录"><a href="#设置快捷登录" class="headerlink" title="设置快捷登录"></a>设置快捷登录</h4><p>我们可以利用<code>ssh</code>的用户配置文件<code>config</code>管理 多个免密码<code>ssh</code>会话。<code>ssh</code>的用户配置文件是放在当前用户根目录下的<code>.ssh</code>文件夹里（<strong><code>~/.ssh/config</code></strong>，不存在则新创建一个），其配置写法如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 别名：比如 jhost</span></span><br><span class="line">Host 别名</span><br><span class="line">    <span class="comment"># 用户名：比如 taoyi</span></span><br><span class="line">    User 用户名</span><br><span class="line">    <span class="comment"># 主机名：比如 192.168.1.1，主机名也可以是域名</span></span><br><span class="line">    HostName 主机名</span><br><span class="line">    <span class="comment"># 密钥文件的路径：比如 ~/.ssh/id_rsa</span></span><br><span class="line">    IdentityFile 密钥文件的路径</span><br></pre></td></tr></table></figure></p>
       
     </div>
     
@@ -684,8 +685,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -782,6 +792,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#免密介绍"><span class="nav-number">1.</span> <span class="nav-text">免密介绍</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#设置免密"><span class="nav-number">2.</span> <span class="nav-text">设置免密</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#设置快捷登录"><span class="nav-number">3.</span> <span class="nav-text">设置快捷登录</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
         <div class="back-to-top">
@@ -816,7 +842,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">76.1k</span>
+    <span title="Site words total count">76.8k</span>
   
 </div>
 
