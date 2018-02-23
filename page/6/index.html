@@ -370,6 +370,517 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://shadow000902.space/2016/07/01/Appium的几点总结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="shadow">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Shadow'S Site">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2016/07/01/Appium的几点总结/" itemprop="url">Appium的几点总结</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-07-01T00:28:20+08:00">
+                2016-07-01
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2017-12-11T13:21:45+08:00">
+                2017-12-11
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Appium/" itemprop="url" rel="index">
+                    <span itemprop="name">Appium</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            <!--noindex-->
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/07/01/Appium的几点总结/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count hc-comment-count" data-xid="2016/07/01/Appium的几点总结/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+              <!--/noindex-->
+            
+          
+
+          
+          
+             <span id="/2016/07/01/Appium的几点总结/" class="leancloud_visitors" data-flag-title="Appium的几点总结">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数</span>
+               
+                 <span class="leancloud-visitors-count"> 次</span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数=</span>
+                
+                <span title="字数=">
+                  2,116 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">时长≈</span>
+                
+                <span title="时长≈">
+                  9 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h4 id="建立session时常用命令"><a href="#建立session时常用命令" class="headerlink" title="建立session时常用命令"></a>建立session时常用命令</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">DesiredCapabilities cap = new DesiredCapabilities();</span><br><span class="line">cap.SetCapability(<span class="string">"browserName"</span>, <span class="string">""</span>);                                                           // web 浏览器名称（<span class="string">'Safari'</span> ,<span class="string">'Chrome'</span>等）。如果对应用进行自动化测试，这个关键字的值应为空。</span><br><span class="line">cap.SetCapability(<span class="string">"platformName"</span>, <span class="string">"Android"</span>);                                                   //你要测试的手机操作系统</span><br><span class="line">cap.SetCapability(<span class="string">"platformVersion"</span>, <span class="string">"4.4"</span>);                                                    //手机操作系统版本</span><br><span class="line">cap.SetCapability(<span class="string">"automationName"</span>, <span class="string">"selendroid"</span>);                                              //你想使用的自动化测试引擎：Appium (默认) 或 Selendroid</span><br><span class="line">cap.SetCapability(<span class="string">"deviceName"</span>, <span class="string">" Android Emulator"</span>);                                           //使用的手机类型或模拟器类型，真机时输入Android Emulator或者手机型号</span><br><span class="line">cap.SetCapability(<span class="string">"udid"</span>, udid);                                                                //连接的物理设备的唯一设备标识,Android可以不设置</span><br><span class="line"></span><br><span class="line">cap.SetCapability(<span class="string">"newCommandTimeout"</span>, <span class="string">"300"</span>);                                                  //设置收到下一条命令的超时时间,超时appium会自动关闭session ,默认<span class="number">60</span>秒</span><br><span class="line">cap.SetCapability(<span class="string">"unicodeKeyboard"</span>, <span class="string">"True"</span>);                                                   //支持中文输入，会自动安装Unicode 输入法。默认值为 false</span><br><span class="line">cap.SetCapability(<span class="string">"resetKeyboard"</span>, <span class="string">"True"</span>);                                                     //在设定了 unicodeKeyboard 关键字的 Unicode 测试结束后，重置输入法到原有状态</span><br><span class="line"></span><br><span class="line">cap.SetCapability(<span class="string">"'app'"</span>, <span class="string">"D:\\AndroidAutomation\\AndroidAutoTest\\app\\zhongchou.apk"</span>);       //未安装应用时，设置app的路径</span><br><span class="line"></span><br><span class="line">//手机已安装app，直接从手机启动app，上面路径不设置</span><br><span class="line">cap.SetCapability(<span class="string">"appPackage"</span>, <span class="string">"com.nbbank"</span>);                                                  //你要启动的Android 应用对应的Activity名称|比如`MainActivity`, `.Settings`|</span><br><span class="line">cap.SetCapability(<span class="string">"appActivity"</span>, <span class="string">"com.nbbank.ui.ActivityShow"</span>);                                 //你想运行的Android应用的包名</span><br><span class="line">cap.SetCapability(<span class="string">"appWaitActivity"</span>, <span class="string">"com.nbbank.ui.ActivityLogo"</span>);                             //你想要等待启动的Android Activity名称|比如`SplashActivity`|</span><br><span class="line"></span><br><span class="line">Uri serverUri = new Uri(<span class="string">"http://127.0.0.1:4723/wd/hub"</span>);</span><br><span class="line">driver = new AndroidDriver&lt;IWebElement&gt;(serverUri, cap, TimeSpan.FromSeconds(<span class="number">180</span>));</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/07/01/Appium的几点总结/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://shadow000902.space/2016/07/01/Appium服务关键字/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="shadow">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Shadow'S Site">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2016/07/01/Appium服务关键字/" itemprop="url">Appium服务关键字</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-07-01T00:08:14+08:00">
+                2016-07-01
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2017-12-11T13:21:45+08:00">
+                2017-12-11
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Appium/" itemprop="url" rel="index">
+                    <span itemprop="name">Appium</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            <!--noindex-->
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/07/01/Appium服务关键字/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count hc-comment-count" data-xid="2016/07/01/Appium服务关键字/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+              <!--/noindex-->
+            
+          
+
+          
+          
+             <span id="/2016/07/01/Appium服务关键字/" class="leancloud_visitors" data-flag-title="Appium服务关键字">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数</span>
+               
+                 <span class="leancloud-visitors-count"> 次</span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数=</span>
+                
+                <span title="字数=">
+                  2,065 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">时长≈</span>
+                
+                <span title="时长≈">
+                  8 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h4 id="Appium-服务关键字"><a href="#Appium-服务关键字" class="headerlink" title="Appium 服务关键字"></a>Appium 服务关键字</h4><expand_table>
+
+<table>
+<thead>
+<tr>
+<th>关键字</th>
+<th>描述</th>
+<th>实例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>automationName</code></td>
+<td>你想使用的自动化测试引擎</td>
+<td><code>Appium</code> (默认) 或 <code>Selendroid</code></td>
+</tr>
+<tr>
+<td><code>platformName</code></td>
+<td>你要测试的手机操作系统</td>
+<td><code>iOS</code>, <code>Android</code>, 或 <code>FirefoxOS</code></td>
+</tr>
+<tr>
+<td><code>platformVersion</code></td>
+<td>手机操作系统版本</td>
+<td>例如： <code>7.1</code>, <code>4.4</code></td>
+</tr>
+<tr>
+<td><code>deviceName</code></td>
+<td>使用的手机类型或模拟器类型</td>
+<td><code>iPhone Simulator</code>, <code>iPad Simulator</code>, <code>iPhone Retina 4-inch</code>, <code>Android Emulator</code>, <code>Galaxy S4</code>, 等。在 iOS 上，这个关键字的值必须是使用 <code>instruments -s devices</code> 得到的可使用的设备名称之一。在 Android 上，这个关键字目前不起作用。</td>
+</tr>
+<tr>
+<td><code>app</code></td>
+<td><code>.ipa</code> or <code>.apk</code>文件所在的本地绝对路径或者远程路径,也可以是一个包括两者之一的<code>.zip</code>。 Appium会先尝试安装路径对应的应用在适当的真机或模拟器上。针对Android系统，如果你指定<code>app-package</code>和<code>app-activity</code>(具体见下面)的话，那么就可以不指定<code>app</code>。 <strong>会与 <code>browserName</code> 冲突</strong></td>
+<td>比如<code>/abs/path/to/my.apk</code>或<code>http://myapp.com/app.ipa</code></td>
+</tr>
+<tr>
+<td><code>browserName</code></td>
+<td>需要进行自动化测试的手机 web 浏览器名称。如果是对应用进行自动化测试，这个关键字的值应为空。</td>
+<td>iOS 系统上可以用 ‘Safari’ ，Android 系统上可以用 ‘Chrome’, ‘Chromium’, 或 ‘Browser’。</td>
+</tr>
+<tr>
+<td><code>newCommandTimeout</code></td>
+<td>设置命令超时时间，单位：秒。达到超时时间仍未接收到新的命令时 Appium 会假设客户端退出然后自动结束会话。</td>
+<td>比如 <code>60</code></td>
+</tr>
+<tr>
+<td><code>autoLaunch</code></td>
+<td>Appium是否需要自动安装和启动应用。默认值<code>true</code></td>
+<td><code>true</code>, <code>false</code></td>
+</tr>
+<tr>
+<td><code>language</code></td>
+<td>(Sim/Emu-only) 设定模拟器 ( simulator / emulator ) 的语言。</td>
+<td>如： <code>fr</code></td>
+</tr>
+<tr>
+<td><code>locale</code></td>
+<td>(Sim/Emu-only) 设定模拟器 ( simulator / emulator ) 的区域设置。</td>
+<td>如： <code>fr_CA</code></td>
+</tr>
+<tr>
+<td><code>udid</code></td>
+<td>连接的物理设备的唯一设备标识</td>
+<td>如： <code>1ae203187fc012g</code></td>
+</tr>
+<tr>
+<td><code>orientation</code></td>
+<td>(Sim/Emu-only) 在一个设定的方向模式中开始测试</td>
+<td><code>LANDSCAPE</code> (横向)  或 <code>PORTRAIT</code> (纵向)</td>
+</tr>
+<tr>
+<td><code>autoWebview</code></td>
+<td>直接转换到 WebView 上下文。 默认值 <code>false</code>、</td>
+<td><code>true</code>, <code>false</code></td>
+</tr>
+<tr>
+<td><code>noReset</code></td>
+<td>不要在会话前重置应用状态。默认值<code>false</code>。</td>
+<td><code>true</code>, <code>false</code></td>
+</tr>
+<tr>
+<td><code>fullReset</code></td>
+<td>(iOS) 删除整个模拟器目录。(Android) 通过卸载——而不是清空数据——来重置应用状态。在 Android 上，这也会在会话结束后自动清除被测应用。默认值 <code>false</code></td>
+<td><code>true</code>, <code>false</code></td>
+</tr>
+</tbody>
+</table>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/07/01/Appium服务关键字/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </expand_table></div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://shadow000902.space/2016/06/19/MAC系统导入HTMLTestRunner/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2068,432 +2579,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://shadow000902.space/2016/05/06/Robot-Framework测试环境搭建/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="shadow">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Shadow'S Site">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2016/05/06/Robot-Framework测试环境搭建/" itemprop="url">Robot-Framework测试环境搭建</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-05-06T14:16:53+08:00">
-                2016-05-06
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2018-01-12T09:53:38+08:00">
-                2018-01-12
-              </time>
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/RobotFramework/" itemprop="url" rel="index">
-                    <span itemprop="name">RobotFramework</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            <!--noindex-->
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2016/05/06/Robot-Framework测试环境搭建/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count hc-comment-count" data-xid="2016/05/06/Robot-Framework测试环境搭建/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-              <!--/noindex-->
-            
-          
-
-          
-          
-             <span id="/2016/05/06/Robot-Framework测试环境搭建/" class="leancloud_visitors" data-flag-title="Robot-Framework测试环境搭建">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数</span>
-               
-                 <span class="leancloud-visitors-count"> 次</span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数=</span>
-                
-                <span title="字数=">
-                  933 字
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">时长≈</span>
-                
-                <span title="时长≈">
-                  5 分钟
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h4 id="安装python环境。"><a href="#安装python环境。" class="headerlink" title="安装python环境。"></a>安装python环境。</h4><p>由于Robot Framework是基于python2开发的，所以必须选择安装python2版本，不然会造成很多异常，之后需要的一些依赖python2的库也无法安装。这里我选择安装的是<a href="https://www.continuum.io/downloads" target="_blank" rel="noopener">Anaconda2</a>，它自身就包含较多的python库，比较好用。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2016/05/06/Robot-Framework测试环境搭建/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://shadow000902.space/2016/04/26/Windows平台下载Android源码/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="shadow">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Shadow'S Site">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2016/04/26/Windows平台下载Android源码/" itemprop="url">Windows平台下载Android源码</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-04-26T23:22:58+08:00">
-                2016-04-26
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2017-12-11T13:18:23+08:00">
-                2017-12-11
-              </time>
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android/" itemprop="url" rel="index">
-                    <span itemprop="name">Android</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            <!--noindex-->
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2016/04/26/Windows平台下载Android源码/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count hc-comment-count" data-xid="2016/04/26/Windows平台下载Android源码/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-              <!--/noindex-->
-            
-          
-
-          
-          
-             <span id="/2016/04/26/Windows平台下载Android源码/" class="leancloud_visitors" data-flag-title="Windows平台下载Android源码">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数</span>
-               
-                 <span class="leancloud-visitors-count"> 次</span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数=</span>
-                
-                <span title="字数=">
-                  404 字
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">时长≈</span>
-                
-                <span title="时长≈">
-                  2 分钟
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h4 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h4><ol>
-<li>需要<a href="https://git-scm.com/download/" target="_blank" rel="noopener">git</a>软件，自行下载安装</li>
-<li><p>需要<a href="https://www.python.org/" target="_blank" rel="noopener">python</a>环境，自行下载安装</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2016/04/26/Windows平台下载Android源码/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </li></ol></div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2546,7 +2631,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">81</span>
+                  <span class="site-state-item-count">83</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2568,7 +2653,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">58</span>
+                  <span class="site-state-item-count">59</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -2661,7 +2746,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">76.8k</span>
+    <span title="Site words total count">77.5k</span>
   
 </div>
 
