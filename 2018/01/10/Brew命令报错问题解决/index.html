@@ -136,7 +136,7 @@
 <meta property="og:site_name" content="Shadow&#39;S Site">
 <meta property="og:description" content="运行任何brew命令，都提示错误1git: error: unable to find utility &quot;git&quot;, not a developer tool or in PATH 1clang: error: unable to find utility &quot;clang&quot;, not a developer tool or in PATH">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-10T16:38:22.107Z">
+<meta property="og:updated_time" content="2018-02-26T10:45:30.822Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Brew命令报错问题解决">
 <meta name="twitter:description" content="运行任何brew命令，都提示错误1git: error: unable to find utility &quot;git&quot;, not a developer tool or in PATH 1clang: error: unable to find utility &quot;clang&quot;, not a developer tool or in PATH">
@@ -417,8 +417,8 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-01-11T00:38:22+08:00">
-                2018-01-11
+              <time title="更新于" itemprop="dateModified" datetime="2018-02-26T18:45:30+08:00">
+                2018-02-26
               </time>
             
           </span>
@@ -529,7 +529,7 @@
       
         <h5 id="运行任何brew命令，都提示错误"><a href="#运行任何brew命令，都提示错误" class="headerlink" title="运行任何brew命令，都提示错误"></a>运行任何<code>brew</code>命令，都提示错误</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git: error: unable to find utility <span class="string">"git"</span>, not a developer tool or <span class="keyword">in</span> PATH</span><br></pre></td></tr></table></figure>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">clang: error: unable to find utility <span class="string">"clang"</span>, not a developer tool or <span class="keyword">in</span> PATH</span><br></pre></td></tr></table></figure>
-<a id="more"></a>
+  <a id="more"></a>
 <p>原因主要是因为<code>xcode-select</code>的位置错误，需要修改指向的位置：<br>原来的位置：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># taoyi @ TaoYi-Mac in ~/Desktop/MySQL-python-1.2.5 [13:27:05] C:72</span></span><br><span class="line">$ xcode-select --<span class="built_in">print</span>-path</span><br><span class="line">/Applications/Xcode.app/Contents/Developer</span><br></pre></td></tr></table></figure></p>
 <p>修改到另一个位置：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># taoyi @ TaoYi-Mac in /Applications/Xcode.app/Contents/Developer [13:33:33] C:1</span></span><br><span class="line">$ sudo xcode-select --switch /Library/Developer/CommandLineTools</span><br><span class="line">Password:</span><br><span class="line"></span><br><span class="line"><span class="comment"># taoyi @ TaoYi-Mac in /Applications/Xcode.app/Contents/Developer [13:33:52] </span></span><br><span class="line">$ xcode-select --<span class="built_in">print</span>-path                                     </span><br><span class="line">/Library/Developer/CommandLineTools</span><br></pre></td></tr></table></figure></p>
 <p>如此操作之后，再执行brew命令，就不会再报上面的错了</p>
@@ -701,7 +701,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">83</span>
+                  <span class="site-state-item-count">85</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -712,7 +712,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -832,7 +832,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">77.5k</span>
+    <span title="Site words total count">77.9k</span>
   
 </div>
 
