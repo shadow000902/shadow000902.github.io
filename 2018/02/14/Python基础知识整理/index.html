@@ -136,7 +136,7 @@
 <meta property="og:site_name" content="Shadow&#39;S Site">
 <meta property="og:description" content="基础方法 字符串大小写转换 123456# 首字母转大写text.title()# 字符串转大写text.upper()# 字符串转小写text.lower()">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-02-26T10:45:30.816Z">
+<meta property="og:updated_time" content="2018-03-21T12:42:41.898Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python基础知识整理">
 <meta name="twitter:description" content="基础方法 字符串大小写转换 123456# 首字母转大写text.title()# 字符串转大写text.upper()# 字符串转小写text.lower()">
@@ -417,8 +417,8 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-02-26T18:45:30+08:00">
-                2018-02-26
+              <time title="更新于" itemprop="dateModified" datetime="2018-03-21T20:42:41+08:00">
+                2018-03-21
               </time>
             
           </span>
@@ -490,7 +490,7 @@
                   <span class="post-meta-item-text">字数=</span>
                 
                 <span title="字数=">
-                  511 字
+                  648 字
                 </span>
               
 
@@ -506,7 +506,7 @@
                   <span class="post-meta-item-text">时长≈</span>
                 
                 <span title="时长≈">
-                  2 分钟
+                  3 分钟
                 </span>
               
             </div>
@@ -556,7 +556,33 @@
 </ol>
 <p>这里实际执行的就是<code>else</code>中的语句，因为<code>requested_toppings</code>是空的，返回的<code>false</code>。</p>
 <ol>
-<li>多个<code>list</code>判断<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">available_toppings = [<span class="string">'mushrooms'</span>, <span class="string">'olives'</span>, <span class="string">'green peppers'</span>, <span class="string">'pepperoni'</span>, <span class="string">'pineapple'</span>, <span class="string">'extra cheese'</span>]</span><br><span class="line">requested_toppings = [<span class="string">'mushrooms'</span>, <span class="string">'french fries'</span>, <span class="string">'extra cheese'</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> requested_topping <span class="keyword">in</span> requested_toppings:</span><br><span class="line">    <span class="keyword">if</span> requested_topping <span class="keyword">in</span> available_toppings:</span><br><span class="line">        print(<span class="string">"Adding "</span> + requested_topping + <span class="string">"."</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        print(<span class="string">"Sorry, we don't have "</span> + requested_topping + <span class="string">"."</span>)</span><br><span class="line">    print(<span class="string">"\nFinished making your pizza!"</span>)</span><br></pre></td></tr></table></figure></li>
+<li><p>多个<code>list</code>判断</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">available_toppings = [<span class="string">'mushrooms'</span>, <span class="string">'olives'</span>, <span class="string">'green peppers'</span>, <span class="string">'pepperoni'</span>, <span class="string">'pineapple'</span>, <span class="string">'extra cheese'</span>]</span><br><span class="line">requested_toppings = [<span class="string">'mushrooms'</span>, <span class="string">'french fries'</span>, <span class="string">'extra cheese'</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> requested_topping <span class="keyword">in</span> requested_toppings:</span><br><span class="line">    <span class="keyword">if</span> requested_topping <span class="keyword">in</span> available_toppings:</span><br><span class="line">        print(<span class="string">"Adding "</span> + requested_topping + <span class="string">"."</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        print(<span class="string">"Sorry, we don't have "</span> + requested_topping + <span class="string">"."</span>)</span><br><span class="line">    print(<span class="string">"\nFinished making your pizza!"</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>tuple</code></p>
+</li>
+<li><p><code>dict</code></p>
+</li>
+<li><p>grades[‘’]</p>
+</li>
+<li><p>是否可迭代<code>Iterable</code></p>
+</li>
+<li><p>类似一个概念，实例才是可被CPU操作的，真实存在的东西。</p>
+</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">People</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">have_some_food</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">'Delicious!'</span>)</span><br><span class="line">        </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">hava_a_drink</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">'Thanks!'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    me = People()</span><br><span class="line">    you = People()</span><br><span class="line">    me.have_some_food()</span><br><span class="line">    me.hava_a_drink()</span><br></pre></td></tr></table></figure>
+<ol>
+<li>封装  访问限制</li>
+</ol>
+<p>强制<strong>init</strong>(self, name, come_from)的属性不能被修改：<br>    <strong>name
+    </strong>come_from</p>
+<ol>
+<li><p>封装 将类的属性私有化</p>
+</li>
+<li><p>继承 </p>
+</li>
+<li><p>多态 多种状态，接口多种不同实现方式即为多态</p>
+</li>
 </ol>
       
     </div>
@@ -726,7 +752,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">85</span>
+                  <span class="site-state-item-count">88</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -748,7 +774,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">59</span>
+                  <span class="site-state-item-count">61</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -857,7 +883,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">77.9k</span>
+    <span title="Site words total count">80.9k</span>
   
 </div>
 

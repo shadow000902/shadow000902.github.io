@@ -136,7 +136,7 @@
 <meta property="og:site_name" content="Shadow&#39;S Site">
 <meta property="og:description" content="安装python环境。由于Robot Framework是基于python2开发的，所以必须选择安装python2版本，不然会造成很多异常，之后需要的一些依赖python2的库也无法安装。这里我选择安装的是Anaconda2，它自身就包含较多的python库，比较好用。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-12T01:53:38.541Z">
+<meta property="og:updated_time" content="2018-03-14T12:40:25.286Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Robot-Framework测试环境搭建">
 <meta name="twitter:description" content="安装python环境。由于Robot Framework是基于python2开发的，所以必须选择安装python2版本，不然会造成很多异常，之后需要的一些依赖python2的库也无法安装。这里我选择安装的是Anaconda2，它自身就包含较多的python库，比较好用。">
@@ -417,8 +417,8 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-01-12T09:53:38+08:00">
-                2018-01-12
+              <time title="更新于" itemprop="dateModified" datetime="2018-03-14T20:40:25+08:00">
+                2018-03-14
               </time>
             
           </span>
@@ -490,7 +490,7 @@
                   <span class="post-meta-item-text">字数=</span>
                 
                 <span title="字数=">
-                  933 字
+                  938 字
                 </span>
               
 
@@ -548,7 +548,7 @@
 <h5 id="mac-强制安装-wxpython2-8-12-1"><a href="#mac-强制安装-wxpython2-8-12-1" class="headerlink" title="mac 强制安装 wxpython2.8.12.1"></a>mac 强制安装 wxpython2.8.12.1</h5><p>下载<a href="https://sourceforge.net/projects/wxpython/files/wxPython/2.8.12.1/wxPython2.8-osx-unicode-2.8.12.1-universal-py2.7.dmg/download" target="_blank" rel="noopener">wxPython2.8-osx-unicode-2.8.12.1-universal-py2.7.dmg</a>；打开得到<code>wxPython2.8-osx-unicode-universal-py2.7.pkg</code>；右键显示包内容，再得到<code>wxPython2.8-osx-unicode-universal-py2.7.pax.gz</code>和<code>postflight</code>；解压<code>wxPython2.8-osx-unicode-universal-py2.7.pax.gz</code>，再得到<code>/usr/local/lib/wxPython-unicode-2.8.12.1</code>，把该文件夹放入系统的<code>/usr/local/lib/</code>中，切换到<code>postflight</code>目录，运行命令<code>sudo ./postflight</code>，安装好wxpython2.8.12.1。<br>执行<code>ride.py</code>提示：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python should be executed <span class="keyword">in</span> 32-bit mode with wxPython on OSX.</span><br></pre></td></tr></table></figure></p>
 <p>是因为wxpython是32位的，而我们安装的是64位的。<br>输入以下命令强制执行32位：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.versioner.python Prefer-32-Bit -bool yes</span><br></pre></td></tr></table></figure></p>
 <h5 id="ride-一次使用后再次打开崩溃的问题"><a href="#ride-一次使用后再次打开崩溃的问题" class="headerlink" title="ride 一次使用后再次打开崩溃的问题"></a>ride 一次使用后再次打开崩溃的问题</h5><p>因为用<code>pip install robotframework-ride</code>安装的<code>ride</code>是1.5.2.1版本，会出现这个问题，所以安装指定的1.5.2版本<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install robotframework-ride==1.5.2</span><br></pre></td></tr></table></figure></p>
-<h5 id="所有的安装内容"><a href="#所有的安装内容" class="headerlink" title="所有的安装内容"></a>所有的安装内容</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">pip install robotframework</span><br><span class="line">pip install robotframework-ride</span><br><span class="line">pip install robotframework-appiumlibrary</span><br><span class="line">pip install robotframework-selenium2library</span><br><span class="line">pip install robotframework-databaselibrary</span><br><span class="line">pip install robotframework-sshlibrary</span><br><span class="line">pip install robotframework-HttpLibrary</span><br><span class="line">pip install robotframework-difflibrary</span><br><span class="line">pip install requests</span><br><span class="line">pip install PyMySQL</span><br><span class="line">pip install MySQL-python</span><br></pre></td></tr></table></figure>
+<h5 id="所有的安装内容"><a href="#所有的安装内容" class="headerlink" title="所有的安装内容"></a>所有的安装内容</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">pip install robotframework</span><br><span class="line">pip install robotframework-ride</span><br><span class="line">pip install robotframework-appiumlibrary</span><br><span class="line">pip install robotframework-selenium2library</span><br><span class="line">pip install robotframework-databaselibrary</span><br><span class="line">pip install robotframework-sshlibrary</span><br><span class="line">pip install robotframework-requests</span><br><span class="line">pip install robotframework-HttpLibrary</span><br><span class="line">pip install robotframework-difflibrary</span><br><span class="line">pip install requests</span><br><span class="line">pip install PyMySQL</span><br><span class="line">pip install MySQL-python</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -717,7 +717,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">85</span>
+                  <span class="site-state-item-count">88</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -739,7 +739,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">59</span>
+                  <span class="site-state-item-count">61</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -848,7 +848,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">77.9k</span>
+    <span title="Site words total count">80.9k</span>
   
 </div>
 
