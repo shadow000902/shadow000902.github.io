@@ -136,7 +136,7 @@
 <meta property="og:site_name" content="Shadow&#39;S Site">
 <meta property="og:description" content="接口测试定义接口测试主要验证点 针对输入，可按照参数类型进行设计； 针对接口处理，可按照逻辑进行设计； 针对输出，可根据结果进行分析设计。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-03T10:04:37.161Z">
+<meta property="og:updated_time" content="2018-05-03T10:08:15.317Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="接口测试用例设计总结">
 <meta name="twitter:description" content="接口测试定义接口测试主要验证点 针对输入，可按照参数类型进行设计； 针对接口处理，可按照逻辑进行设计； 针对输出，可根据结果进行分析设计。">
@@ -417,7 +417,7 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-05-03T18:04:37+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2018-05-03T18:08:15+08:00">
                 2018-05-03
               </time>
             
@@ -658,8 +658,9 @@
 <li>接口定义是否可满足所有调用需求；</li>
 <li>接口定义调用是否方便。</li>
 </ul>
-<h4 id="接口用例设计精简和优化"><a href="#接口用例设计精简和优化" class="headerlink" title="接口用例设计精简和优化"></a>接口用例设计精简和优化</h4><p>  在接口参数较多的情况下，如果每个参数都进行完整校验，将会是非常大的工作量，所以需要对接口用例进行精简和优化：<br>    ① 根据接口的使用对象(外部，系统内部)，有选择的去、留部分用例</p>
-<pre><code>  - 如果开发于系统内部调用的，开发过程中，开发者肯定需要调用这些接口，如果类型错了，他们也就获取不到预期的数据，这些错误，他们肯定可以发现，所以，他们传递的参数值一般能保证类型正确。
+<h4 id="接口用例设计精简和优化"><a href="#接口用例设计精简和优化" class="headerlink" title="接口用例设计精简和优化"></a>接口用例设计精简和优化</h4><p>  在接口参数较多的情况下，如果每个参数都进行完整校验，将会是非常大的工作量，所以需要对接口用例进行精简和优化：</p>
+<pre><code>① 根据接口的使用对象(外部，系统内部)，有选择的去、留部分用例
+  - 如果开发于系统内部调用的，开发过程中，开发者肯定需要调用这些接口，如果类型错了，他们也就获取不到预期的数据，这些错误，他们肯定可以发现，所以，他们传递的参数值一般能保证类型正确。
   - 内部调用，参数值不是外部手动输入的，输入数据长度、值大小可控，当然如果数据一直增长，那再大的类型可能都无法保证不超出，比如自动增长的商铺id
 ② 根据接口的是否核心接口，有选择的去、留部分用例
   - 核心接口，每个字段都需要验证
