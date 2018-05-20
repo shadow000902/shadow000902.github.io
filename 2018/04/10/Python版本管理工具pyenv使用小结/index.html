@@ -128,18 +128,18 @@
 
 
 
-<meta name="description" content="安装brew1/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot; 安装pyenv1brew install pyenv 把pyenv加入环境变量如果使用的终端是bash，则编辑~/.bashrc，如果使用的终端是zsh，则编辑~/.zshrc，在该文件的">
+<meta name="description" content="安装brew1/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;">
 <meta name="keywords" content="pyenv">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python版本管理工具pyenv使用小结">
 <meta property="og:url" content="http://shadow000902.space/2018/04/10/Python版本管理工具pyenv使用小结/index.html">
 <meta property="og:site_name" content="Shadow&#39;S Site">
-<meta property="og:description" content="安装brew1/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot; 安装pyenv1brew install pyenv 把pyenv加入环境变量如果使用的终端是bash，则编辑~/.bashrc，如果使用的终端是zsh，则编辑~/.zshrc，在该文件的">
+<meta property="og:description" content="安装brew1/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-16T11:35:14.587Z">
+<meta property="og:updated_time" content="2018-05-05T07:33:07.335Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python版本管理工具pyenv使用小结">
-<meta name="twitter:description" content="安装brew1/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot; 安装pyenv1brew install pyenv 把pyenv加入环境变量如果使用的终端是bash，则编辑~/.bashrc，如果使用的终端是zsh，则编辑~/.zshrc，在该文件的">
+<meta name="twitter:description" content="安装brew1/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;">
 
 
 
@@ -417,8 +417,8 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-04-16T19:35:14+08:00">
-                2018-04-16
+              <time title="更新于" itemprop="dateModified" datetime="2018-05-05T15:33:07+08:00">
+                2018-05-05
               </time>
             
           </span>
@@ -528,6 +528,7 @@
 
       
         <h5 id="安装brew"><a href="#安装brew" class="headerlink" title="安装brew"></a>安装<code>brew</code></h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/bin/ruby -e <span class="string">"<span class="variable">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</span>"</span></span><br></pre></td></tr></table></figure>
+  <a id="more"></a>
 <h5 id="安装pyenv"><a href="#安装pyenv" class="headerlink" title="安装pyenv"></a>安装<code>pyenv</code></h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install pyenv</span><br></pre></td></tr></table></figure>
 <h5 id="把pyenv加入环境变量"><a href="#把pyenv加入环境变量" class="headerlink" title="把pyenv加入环境变量"></a>把<code>pyenv</code>加入环境变量</h5><p>如果使用的终端是<code>bash</code>，则编辑<code>~/.bashrc</code>，如果使用的终端是<code>zsh</code>，则编辑<code>~/.zshrc</code>，在该文件的最开头加入语句：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">eval</span> <span class="string">"<span class="variable">$(pyenv init -)</span>"</span></span><br></pre></td></tr></table></figure></p>
 <h5 id="pyenv常用基本命令"><a href="#pyenv常用基本命令" class="headerlink" title="pyenv常用基本命令"></a><code>pyenv</code>常用基本命令</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">pyenv install --list                            <span class="comment"># List all available versions</span></span><br><span class="line">pyenv install &lt;version&gt;                         <span class="comment"># install python</span></span><br><span class="line">pyenv global &lt;version&gt;                          <span class="comment"># 全局设置python版本为指定版本</span></span><br><span class="line">pyenv global 2.7.14 3.6.4                       <span class="comment"># 指定多个python版本为全局版本，有顺序</span></span><br><span class="line">pyenv <span class="built_in">local</span> &lt;version&gt;                           <span class="comment"># 设置当前路径下python版本为指定版本</span></span><br><span class="line">pyenv shell &lt;version&gt;                           <span class="comment"># 设置当前shell窗口使用的python版本为指定版本</span></span><br><span class="line">pyenv versions                                  <span class="comment"># 列举所有版本的python，打``*``的为当前指定的全局版本</span></span><br><span class="line">pyenv version                                   <span class="comment"># 列举已经安装的版本</span></span><br></pre></td></tr></table></figure>
@@ -699,7 +700,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">88</span>
+                  <span class="site-state-item-count">89</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -721,7 +722,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">61</span>
+                  <span class="site-state-item-count">62</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -830,7 +831,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">80.9k</span>
+    <span title="Site words total count">100.6k</span>
   
 </div>
 
