@@ -545,7 +545,7 @@
 </li>
 </ol>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> PATH=/opt/mongodb-3.4.1/bin:<span class="variable">$PATH</span></span><br></pre></td></tr></table></figure>
-<ol>
+<ol start="4">
 <li><p>创建<code>MongoDB</code>数据库存放数据的目录</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir /data/mongodb</span><br></pre></td></tr></table></figure>
 </li>
@@ -554,7 +554,7 @@
 </li>
 </ol>
 <p>默认方式启动<code>MongoDB</code>的话，目录会默认指向<code>/data/db/</code>目录<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mongod          <span class="comment"># 默认方式启动</span></span><br></pre></td></tr></table></figure></p>
-<ol>
+<ol start="6">
 <li>启动成功的日志<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ mongod --dbpath /data/mongodb/</span><br><span class="line">2017-01-22T00:25:23.191+0800 I CONTROL  [initandlisten] MongoDB starting : pid=2411 port=27017 dbpath=/data/mongodb/ 64-bit host=TaoYi-Mac.local</span><br><span class="line">2017-01-22T00:25:23.192+0800 I CONTROL  [initandlisten] db version v3.4.1</span><br><span class="line">2017-01-22T00:25:23.192+0800 I CONTROL  [initandlisten] git version: 5e103c4f5583e2566a45d740225dc250baacfbd7</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
 </li>
 </ol>

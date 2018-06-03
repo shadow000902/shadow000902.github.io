@@ -555,7 +555,7 @@
 </ol>
 <p>6.1 内存PSS抓取命令<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb -s <span class="comment">#udid# shell dumpsys meminfo|awk '/process:/,/adjustment:/&#123;if(i&gt;1)print x;x=$0;i++&#125;'|grep #filter#|grep #pid#|awk '&#123;print '$(date +%Y%m%d%H%M%S)',$1,$3&#125;'</span></span><br></pre></td></tr></table></figure></p>
 <p>6.2 查看USS和PSS<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell procrank | grep packagename</span><br></pre></td></tr></table></figure></p>
-<ol>
+<ol start="7">
 <li>通过adb获取流量<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">adb shell cat /proc/<span class="string">"+Pid+"</span>/net/dev</span><br><span class="line">adb shell cat /proc/5432/net/dev</span><br><span class="line">adb shell cat /proc/net/xt qtaguid/stats | grep uid <span class="comment"># 取单个uid的流量情况</span></span><br><span class="line">adb -s 8XV5T15A20009865 shell cat /proc/net/xt qtaguid/stats | grep 12345</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
