@@ -3,6 +3,7 @@ node_js: stable
 
 # S: Build Lifecycle
 install:
+  - npm config delete prefix
   - npm install
   - npm audit fix
 
