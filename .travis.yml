@@ -1,9 +1,8 @@
 language: node_js
-node_js: stable
+node_js: LTS
 
 # S: Build Lifecycle
 install:
-  - npm config delete prefix
   - npm install
   - npm audit fix
 
