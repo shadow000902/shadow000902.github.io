@@ -1,1 +1,6 @@
+.deploy_git/
+.idea/
+.vscode/
+node_modules/
+public/
 debug.log
