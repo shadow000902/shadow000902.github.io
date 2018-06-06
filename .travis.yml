@@ -11,6 +11,12 @@ install:
  # - npm install -g gulp
 
 script:
+  - git config user.name "shadow000902"
+  - git config user.email "shadow000902@gmail.com"
+  - mkdir themes
+  - cd themes
+  - git clone https://github.com/shadow000902/next-6.git
+  - cd ..
   - hexo g
 
 after_script:
