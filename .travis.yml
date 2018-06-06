@@ -3,7 +3,9 @@ node_js: stable
 
 # S: Build Lifecycle
 install:
+  # 更新所有在package.json中设置的第三方库
   - npm install
+  # 修复更新的错误
   - npm audit fix
 
 
@@ -11,14 +13,27 @@ install:
  # - npm install -g gulp
 
 script:
+  # 设置git用户名
   - git config user.name "shadow000902"
+  # 设置git邮箱
   - git config user.email "shadow000902@gmail.com"
+  # 创建主题文件夹
   - mkdir -p themes
   - cd themes
+
+  # 因为主题是属于另一个git项目，无法发布到博客源码所在的项目，所以需要重新从git拉取
+  # 下载自己的主题``next-6``
   - git clone https://github.com/shadow000902/next-6.git
+
+  # 因为第三方插件都是一个独立的git项目，无法发布到另一个git项目中，所以需要在主题拉取后，再独立的拉取代码到对应的主题插件目录下
+  # 在主题中加载第三方插件``algolia``
   - git clone https://github.com/theme-next/theme-next-algolia-instant-search next-6/source/lib/algolia-instant-search
+  # 在主题中加载第三方插件``fancybox``
   - git clone https://github.com/theme-next/theme-next-fancybox3 next-6/source/lib/fancybox
+  # 在主题中加载第三方插件``pace``
   - git clone https://github.com/theme-next/theme-next-pace next-6/source/lib/pace
+  # 以上的两个操作没有的话，博客部署后，就处于无主题的状态，是无法访问的
+
   - cd ..
   - hexo g
 
