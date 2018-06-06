@@ -1,5 +1,5 @@
 language: node_js
-node_js: LTS
+node_js: stable
 
 # S: Build Lifecycle
 install:
