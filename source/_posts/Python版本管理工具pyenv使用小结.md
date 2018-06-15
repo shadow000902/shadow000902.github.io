@@ -34,3 +34,23 @@ pyenv shell <version>                           # 设置当前shell窗口使用�
 pyenv versions                                  # 列举所有版本的python，打``*``的为当前指定的全局版本
 pyenv version                                   # 列举已经安装的版本
 ```
+
+##### 使用``virtualenv``创建``Python``虚拟环境
+这个命令只需要一个参数，即虚拟环境的名字。创建完虚拟环境后，当前文件夹会出现一个子文件夹，名字就是上述命令中指定的参数，与虚拟环境相关的文件都保存在这个子文件夹中。按照惯例，一般虚拟环境会被命名为``venv``：
+```bash
+$ virtualenv venv
+New python executable in /Users/taoyi/git_projects/Python_Training/flasky/venv/bin/python2.7
+Also creating executable in /Users/taoyi/git_projects/Python_Training/flasky/venv/bin/python
+Installing setuptools, pip, wheel...done.
+```
+（Linux或Mac OS X用户）激活当前虚拟环境：
+```bash
+source venv/bin/activate
+```
+虚拟环境被激活后，其中``Python``解释器的路径就被添加进``PATH``中，但这种改变不是永久性的，它只会影响当前的命令行会话。为了提醒你已经激活了虚拟环境，激活虚拟环境的命令会修改命令行提示符，加入环境名：
+```bash
+$ python -V
+Python 2.7.14
+(venv)
+```
+如果想回到全局``Python``解析器中，可以再命令行提示符下输入``deactivate``。
