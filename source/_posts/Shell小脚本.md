@@ -260,3 +260,20 @@ sed -ig "s/topgear-web/${git_repo}-web/g" ./${server_tomcat}/deploy.sh
 sed -ig 's/mvn config:load/# mvn config:load/g' ./${server_tomcat}/deploy.sh
 ```
 Sed后面的表达式一般用单引号引起来``'``，当需要使用**变量**时就换用双引号``"``。
+
+##### 指定次数执行``pybot``脚本
+```bash
+# 执行示例：./repeat_test.sh testCases
+
+tcName=$1
+directPath=$2
+total=$3
+
+count=1
+while [ "$count" -le "$total" ]; do
+    echo "$count"
+    pybot -d results --test "$tcName" "$directPath"
+    count=$((count + 1))
+done
+echo "Finished."
+```
