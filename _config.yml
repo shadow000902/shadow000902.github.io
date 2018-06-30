@@ -66,6 +66,13 @@ leancloud_visitors:
   app_id: #<app_id>
   app_key: #<app_key>
 
+leancloud_counter_security:
+  enable_sync: true
+  app_id: <<your app id>>
+  app_key: <<your app key>>
+  username: <<your username>> # Will be asked while deploying if is left blank
+  password: <<your password>> # Recommmended to be left blank. Will be asked while deploying if is left blank
+
 # Tencent analytics ID
 # tencent_analytics:
 
