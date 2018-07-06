@@ -1,6 +1,9 @@
-# -*- coding: utf-8 -*-
-
-# 三种方法判断IP地址是否合法
+# -*- coding: utf-8 -*- 
+"""
+    @Date: 2018-07-02 01:07:55
+    @Author: shadow
+    @Theme: 三种方法判断IP地址是否合法
+"""
 
 # 方法一：正则表达式判定法
 import re

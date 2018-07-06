@@ -1,6 +1,9 @@
-# -*- coding: utf-8 -*-
-
-# 小写金额转换为大写
+# -*- coding: utf-8 -*- 
+"""
+    @Date: 2018-07-02 01:07:20
+    @Author: shadow
+    @Theme: 小写金额转换为大写
+"""
 
 import math
 
