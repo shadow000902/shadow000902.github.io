@@ -5,10 +5,12 @@ import socket
 import fcntl
 import struct
 
+
 # 获取mac地址
 def get_mac_address():
     mac = uuid.UUID(int=uuid.getnode()).hex[-12:]
     return ":".join([mac[e:e + 2] for e in range(0, 11, 2)])
+
 
 # 获取本机名称
 myName = socket.getfqdn(socket.gethostname())
@@ -26,6 +28,7 @@ def get_ip_address(ifname):
     return socket.inet_ntoa(
         fcntl.ioctl(s.fileno(), 0x8915, struct.pack('256s',
                                                     ifname[:15]))[20:24])
+
 
 # 获取内网IP
 print get_ip_address('lo')
