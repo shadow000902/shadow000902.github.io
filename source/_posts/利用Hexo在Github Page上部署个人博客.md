@@ -516,3 +516,28 @@ Run ncu with -u to upgrade package.json
 ```bash
 ncu -a
 ```
+
+#### ``next``主题使用``gitment``评论
+安装``gitment``模块：
+```bash
+npm install --save gitment
+```
+去``Github``的``New OAuth Appication``为博客评论申请一个密钥：
+{% asset_img Register a new OAuth application.png Register a new OAuth application %}
+得到``Client ID``和``Client Secret``。
+在主题的``_config.xml``中配置``gitment``：
+```yml
+gitment:
+  enable: true
+  mint: true # RECOMMEND, A mint on Gitment, to support count, language and proxy_gateway
+  count: true # Show comments count in post meta area
+  lazy: false # Comments lazy loading with a button
+  cleanly: false # Hide 'Powered by ...' on footer, and more
+  language: # Force language, or auto switch by theme
+  github_user: shadow000902 # 必填，填入你GitHub的用户名
+  github_repo: shadow000902.github.io # 必填，填入你的任意一个GitHub仓库的仓库名，用于存放评论
+  client_id: {刚才申请的ClientID} # MUST HAVE, Github client id for the Gitment
+  client_secret: {刚才申请的Client Secret} # EITHER this or proxy_gateway, Github access secret token for the Gitment
+  proxy_gateway: # Address of api proxy, See: https://github.com/aimingoo/intersect
+  redirect_protocol: # Protocol of redirect_uri with force_redirect_protocol when mint enabled
+```
