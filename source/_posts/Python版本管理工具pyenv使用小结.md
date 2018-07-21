@@ -54,3 +54,10 @@ Python 2.7.14
 (venv)
 ```
 如果想回到全局``Python``解析器中，可以再命令行提示符下输入``deactivate``。
+
+##### 使用``virtualenv``创建指定版本的``Python``的虚拟环境
+```python
+virtualenv -p /Users/taoyi/.pyenv/versions/3.6.5/bin/python  py3env
+```
+ - ``-p``：指定指定版本的``python``的绝对路径
+ - ``py3env``：创建的虚拟环境的名称
