@@ -6,7 +6,7 @@ install:
   # 更新所有在package.json中设置的第三方库
   - npm install
   # 修复更新的错误
-  - npm audit fix
+  # - npm audit fix
 
 
 #before_script:
