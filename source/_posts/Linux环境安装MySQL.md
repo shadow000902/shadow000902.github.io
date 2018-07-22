@@ -94,6 +94,13 @@ chkconfig --add mysql
 chkconfig --list mysql
 # mysql          	0:关闭	1:关闭	2:启用	3:启用	4:启用	5:启用	6:关闭
 ```
+``Ubuntu``下，已经没有了``chkconfig``，替换之后的是``sysv-rc-conf``
+
+##### 启动``mysql``服务
+
+
+
+
 
 ##### 设置远程登录权限
 ```bash
