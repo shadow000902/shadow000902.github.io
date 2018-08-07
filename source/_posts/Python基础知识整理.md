@@ -286,7 +286,6 @@ True
 'TB'
 ```
 
-
   grades['']
 
 1.  是否可迭代``Iterable``
@@ -310,16 +309,131 @@ if __name__ == '__main__':
     me.hava_a_drink()
 ```
 
-15. 封装  访问限制
+  封装  访问限制
 
 强制__init__(self, name, come_from)的属性不能被修改：
     __name
     __come_from
     
-16. 封装 将类的属性私有化
+1.  封装 将类的属性私有化
 
-17. 继承 
+2.  继承 
 
-18. 多态 多种状态，接口多种不同实现方式即为多态
+3.  多态 多种状态，接口多种不同实现方式即为多态
 
 
+#### 解析
+##### 处理文件和目录
+``Python3``带有一个模块叫做``os``，代表``操作系统(operating system)``。``os``模块 包含非常多的函数用于获取(和修改)本地目录、文件进程、环境变量等的信息。
+```python
+import os
+import glob
+import humansize
+
+pathname = '/Users/pilgrim/diveintopython3/examples/humansize.py'
+### 当前工作目录
+# 获取当前工作目录
+print(os.getcwd())
+
+# 改变当前工作目录
+os.chdir('/Users/pilgrim/diveintopython3/examples')
+
+### 处理文件名和目录名
+# os.path.join() 函数从一个或多个路径片段中构造一个路径名
+print(os.path.join('/Users/pilgrim/diveintopython3/examples/', 'humansize.py'))
+
+# 在和文件名拼接前，join函数给路径名添加一个额外的斜杠；无论你使用哪种形式的斜杠，Python 都可以访问到文件。
+print(os.path.join('/Users/pilgrim/diveintopython3/examples', 'humansize.py'))
+
+# 获取当前用户的Home目录
+print(os.path.expanduser('~'))
+
+# 分割完整路径名，目录名和文件名
+os.path.split(pathname)
+# 输出：('/Users/pilgrim/diveintopython3/examples', 'humansize.py')
+
+(dirname, filename) = os.path.split(pathname)
+# 将split函数的返回值赋值给一个二元组。每个变量获得了返回元组中的对应元素的值
+
+(shortname, extension) = os.path.splitext(filename)
+# 输出：('humansize', '.py')
+# os.path.splitext() 函数，它分割一个文件名并返回短文件名和扩展名
+
+### 罗列目录内容
+# glob 模块是Python标准库中的另一个工具，它可以通过编程的方法获得一个目录的内容，并且它使用熟悉的命令行下的通配符。
+glob.glob('examples/*.xml')
+# 通配符是一个目录名加上 “*.xml”， 它匹配examples子目录下的所有.xml 文件
+
+glob.glob('*test*.py')
+# 在当前工作目录中找出所有扩展名为.py并且在文件名中包含单词test 的文件
+
+metadata = os.stat('feed.xml')
+# os.stat() 函数返回一个包含多种文件元信息的对象
+metadata.st_mtime
+# 返回最后修改时间，时间戳
+metadata.st_size
+# 返回文件的字节大小
+
+humansize.approximate_size(metadata.st_size)
+# 将st_size 属性作为参数传给approximate_size() 函数。
+
+### 构建绝对路径
+print(os.path.realpath('feed.xml'))
+# 输出：/Users/pilgrim/diveintopython3/examples/feed.xml
+# os.path.realpath()函数，返回当前文件或者目录的绝对路径
+```
+
+##### 列表解析
+列表解析提供了一种紧凑的方式，实现了通过对列表中每一个元素应用一个函数的方法来将一个列表映射到另一个列表。
+```python
+import os, glob
+import humansize
+
+a_list = [1, 9, 8, 4]
+a_list = [elem * 2 for elem in a_list]
+# Python会在内存中构造新的列表，在列表解析完成后将结果赋值给原来的变量
+
+glob.glob('*.xml')
+# 输出：['feed-broken.xml', 'feed-ns0.xml', 'feed.xml']
+[os.path.realpath(f) for f in glob.glob('*.xml')]
+# 输出：['c:\\Users\\pilgrim\\diveintopython3\\examples\\feed-broken.xml','c:\\Users\\pilgrim\\diveintopython3\\examples\\feed-ns0.xml','c:\\Users\\pilgrim\\diveintopython3\\examples\\feed.xml']
+[f for f in glob.glob('*.py') if os.stat(f).st_size > 6000]
+
+# 列表解析并不限制表达式的复杂程度
+[(os.stat(f).st_size, os.path.realpath(f)) for f in glob.glob('*.xml')]
+# 这个列表解析找到当前工作目录下的所有.xml文件， 对于每一个文件构造一个包含文件大小(通过调用os.stat()获得)和绝对路径(通过调用os.path.realpath())的元组。
+
+[(humansize.approximate_size(os.stat(f).st_size), f) for f in glob.glob('*.xml')]
+# 这个列表解析在前一个的基础上对每一个.xml文件的大小应用approximate_size()函数。
+```
+
+##### 字典解析
+```python
+# 列表解析
+metadata = [(f, os.stat(f)) for f in glob.glob('*test*.py')]
+# 字典解析
+metadata_dict = {f:os.stat(f) for f in glob.glob('*test*.py')}
+# 首先，它被花括号而不是方括号包围; 第二，对于每一个元素它包含由冒号分隔的两个表达式，而不是列表解析的一个。冒号前的表达式(在这个例子中是f)是字典的键;冒号后面的表达式(在这个例子中是os.stat(f))是值。
+
+type(metadata_dict)
+# 输出：<class 'dict'>
+
+humansize_dict = {os.path.splitext(f)[0]:humansize.approximate_size(meta.st_size) for f, meta in metadata_dict.items() if meta.st_size > 6000}
+
+list(humansize_dict.keys())
+# 获取key值，并生成list
+
+# 交换字典的键和值
+a_dict = {'a': 1, 'b': 2, 'c': 3}
+{value:key for key, value in a_dict.items()}
+# 输出：{1: 'a', 2: 'b', 3: 'c'}
+```
+
+##### 集合解析
+集合也有自己的集合解析的语法。它和字典解析的非常相似，唯一的不同是集合只有值而没有键:值对。
+```python
+a_set = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}
+{x for x in a_set if x % 2 == 0}
+# 输出：{0, 8, 2, 4, 6}
+# 同列表解析和字典解析一样， 集合解析也可以包含if 字句来在将元素放入结果集合前进行过滤。
+```
