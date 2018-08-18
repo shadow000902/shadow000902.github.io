@@ -13,8 +13,9 @@ pybot /opt/robotframework/
 pybot /opt/robotframework/rf.robot
 # 执行具体的某个用例
 pybot --test case_1 /opt/robotframework/rf.robot
-# 执行项目中指定标签的用例
+# 执行项目中指定标签的用例，最后的参数用于指定包含tagName的用例所在的目录或者指定到suite
 pybot --include tagName /opt/robotframework/
+pybot --include=tagName /opt/robotframework/
 ```
 
   <!--more-->
@@ -153,3 +154,30 @@ pip install requests
 pip install PyMySQL
 pip install MySQL-python
 ```
+
+##### ``RobotFramework``自带变量
+
+| Variable               | Explanation                                                                                                                                  | Available             |
+| ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- |
+| ${TEST NAME}           | The name of the current test case.                                                                                                           | Test case             |
+| @{TEST TAGS}           | Contains the tags of the current test case in alphabetical order. Can be modified dynamically using Set Tags and Remove Tags keywords.       | Test case             |
+| ${TEST DOCUMENTATION}  | The documentation of the current test case. Can be set dynamically using using Set Test Documentation keyword. New in Robot Framework 2.7.   | Test case             |
+| ${TEST STATUS}         | The status of the current test case, either PASS or FAIL.                                                                                    | Test teardown         |
+| ${TEST MESSAGE}        | The message of the current test case.                                                                                                        | Test teardown         |
+| ${PREV TEST NAME}      | The name of the previous test case, or an empty string if no tests have been executed yet.                                                   | Everywhere            |
+| ${PREV TEST STATUS}    | The status of the previous test case: either PASS, FAIL, or an empty string when no tests have been executed.                                | Everywhere            |
+| ${PREV TEST MESSAGE}   | The possible error message of the previous test case.                                                                                        | Everywhere            |
+| ${SUITE NAME}          | The full name of the current test suite.                                                                                                     | Everywhere            |
+| ${SUITE SOURCE}        | An absolute path to the suite file or directory.                                                                                             | Everywhere            |
+| ${SUITE DOCUMENTATION} | The documentation of the current test suite. Can be set dynamically using using Set Suite Documentation keyword. New in Robot Framework 2.7. | Everywhere            |
+| &{SUITE METADATA}      | The free metadata of the current test suite. Can be set using Set Suite Metadata keyword. New in Robot Framework 2.7.4.                      | Everywhere            |
+| ${SUITE STATUS}        | The status of the current test suite, either PASS or FAIL.                                                                                   | Suite teardown        |
+| ${SUITE MESSAGE}       | The full message of the current test suite, including statistics.                                                                            | Suite teardown        |
+| ${KEYWORD STATUS}      | The status of the current keyword, either PASS or FAIL. New in Robot Framework 2.7                                                           | User keyword teardown |
+| ${KEYWORD MESSAGE}     | The possible error message of the current keyword. New in Robot Framework 2.7.                                                               | User keyword teardown |
+| ${LOG LEVEL}           | Current log level. New in Robot Framework 2.8.                                                                                               | Everywhere            |
+| ${OUTPUT FILE}         | An absolute path to the output file.                                                                                                         | Everywhere            |
+| ${LOG FILE}            | An absolute path to the log file or string NONE when no log file is created.                                                                 | Everywhere            |
+| ${REPORT FILE}         | An absolute path to the report file or string NONE when no report is created.                                                                | Everywhere            |
+| ${DEBUG FILE}          | An absolute path to the debug file or string NONE when no debug file is created.                                                             | Everywhere            |
+| ${OUTPUT DIR}          | An absolute path to the output directory.                                                                                                    | Everywhere            |
