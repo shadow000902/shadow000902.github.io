@@ -233,6 +233,37 @@ cd ${dir_tomcat_home}/logs
 tail -f catalina.out
 ```
 
+##### Jenkins上部署Tomcat的通用脚本
+```bash
+#!/bin/bash
+set -o errexit
+set -o xtrace
+
+export BUILD_ID=pleaseDontKillMe
+export JAVA_HOME=/opt/souche/java
+
+dir_tomcat_home="/home/souche/tomcats/12001_topgear-test"
+file_war="*.war"
+file_catalina_out=${dir_tomcat_home}"/logs/catalina.out"
+
+echo "----build project begin"
+mvn config:load -Denv=DEV-STABLE -Dtoken=O6eq7WSKlC
+mvn clean install  -DskipTests=true
+echo "----build project end"
+
+echo "----shutdown tomcat"
+ps auxwww | grep java | grep ${dir_tomcat_home} | awk '{print $2}' | xargs kill -9 2>/dev/null;
+sleep 1s
+
+echo "----reset war file"
+rm -rf ${dir_tomcat_home}/webapps/ROOT;
+rm -rf ${dir_tomcat_home}/webapps/ROOT.war;
+cp -r ${WORKSPACE}/topgear-web/target/$file_war ${dir_tomcat_home}/webapps/ROOT.war
+
+echo "----start tomcat"
+sh ${dir_tomcat_home}/bin/startup.sh;
+```
+
 ##### **自动部署服务器应用**
 ```bash
 # 执行脚本：
@@ -263,10 +294,13 @@ Sed后面的表达式一般用单引号引起来``'``，当需要使用**变量*
 
 ##### 指定次数执行``pybot``脚本
 ```bash
-# 执行示例：./repeat_test.sh testCases
+# 执行示例：./repeat_test.sh testCases testSuite num
 
+# 测试用例名称
 tcName=$1
+# 测试套件绝对路径
 directPath=$2
+# 测试用例执行次数
 total=$3
 
 count=1

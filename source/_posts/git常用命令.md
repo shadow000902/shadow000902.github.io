@@ -9,8 +9,8 @@ tags: [git]
 
 ``` bash
 mkdir d:\git_test
-git config -global user.name "Your name"
-git config -global user.email "you@example.com"
+git config --global user.name "Your name"
+git config --global user.email "you@example.com"
 ```
 
   <!--more-->

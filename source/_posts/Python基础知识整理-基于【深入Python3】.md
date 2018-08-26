@@ -1,5 +1,5 @@
 ---
-title: Python基础知识整理
+title: Python基础知识整理-基于【深入Python3】
 date: 2018-02-14 18:40:37
 categories: [Python]
 tags: [python]
@@ -523,3 +523,9 @@ x{n,m}    # 匹配n到m个x，至少n个，不能超过m个。
 re.sub('([^aeiou])y$', r'\1ies', 'vacancy')
 # 该分组用于保存字母 y 之前的字符。然后在替换字符串中，用到了新的语法： \1，它表示“嘿，记住的第一个分组呢？把它放到这里。”在此例中， 记住了 y 之前的 c ，在进行替换时，将用 c 替代 c，用 ies 替代 y 。（如果有超过一个的记忆分组，可以使用 \2 和 \3 等等。）
 ```
+
+
+
+
+
+[深入python3](https://woodpecker.org.cn/diveintopython3/index.html)

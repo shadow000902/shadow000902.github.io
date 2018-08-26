@@ -152,12 +152,15 @@ cat file1.csv file2.csv file3.csv ... file[n].csv > all-in-one.csv				# 合并�
 
 18. dirs
 
-19. du(disk usage)
+19. awk
 ```bash
-du -d 1 -h          # 命令查看当前目录下所有文件夹的大小 -d 指深度，后面加一个数值
+ll | awk '{print $9}'                 # 输出ll命令拿到的信息，并只打印出第九列
+ll | awk '{$1=$2=""; print $0}'       # 排除多列，并打印出后面的所有列，“0”表示所有
+ll | awk '{print $1, $2}'             # 输出ll命令拿到的信息，并只打印出第一、第二列
+awk '{print $1 $2}' filename          # 打印完文件的第一行，再打印文件的第二行
+awk 'END{print NR}' filename          # 打印文本文件的总行数
+awk 'NR==1{print}' filename           # 打印文本第一行
 ```
-
-
 
 20. ls(list)
 
@@ -357,7 +360,7 @@ drwx------ (700) - 只有属主可在目录中读、写。
 drwxr-xr-x (755) - 所有用户可读该目录，但只有属主才能改变目录中的内容。
 ```
 
-32. 查看目录剩余空间大小
+32. 查看目录剩余空间大小，*du(disk usage)*
 32.1 df -hl             # 查看磁盘剩余空间
 ```bash
 文件系统       容量    已用   可用                      已用%          挂载点
@@ -383,6 +386,7 @@ wc [-lmw]               # -l: 多少行；-m: 多少字符；-w: 多少字
 32.4 查看当前目录下各文件夹的大小
 ```bash
 du -h --max-depth=1
+du -d 1 -h              # 命令查看当前目录下所有文件夹的大小 -d 指深度，后面加一个数值
 ```
 ``--max-depth=n``表示深入到第``n``层目录，此处设置为``1``，即表示深入``1``层，即查看当前目录下各个文件夹的大小；如果设置为``0``，表示不深入到子目录，那得出的就是当前目录的总大小。
 
@@ -414,7 +418,33 @@ du [-abcDhHklmsSx] [-L <符号连接>][-X <文件>][--block-size][--exclude=<目
 ```bash
 [root@shadow000902 /]# passwd								# 修改密码命令
 Changing password for user root.
-New password: 												# 输入新的密码
-Retype new password: 										# 确认新的密码
+New password: 												      # 输入新的密码
+Retype new password: 										    # 确认新的密码
 passwd: all authentication tokens updated successfully.		# 成功修改密码提示
+```
+
+34. 创建用户及用户组，并修改密码切换用户
+```bash
+# root @ shadow in ~ [10:30:20] C:1
+$ adduser shadow                            # 创建用户
+# root @ shadow in ~ [10:34:45]
+$ groupadd shadow                           # 创建用户组
+groupadd：“shadow”组已存在                    # 在创建用户的时候，已经同时创建了同名的用户组
+# root @ shadow in ~ [10:36:52]
+$ passwd shadow                             # 修改用户密码
+更改用户 shadow 的密码 。
+新的 密码：
+重新输入新的 密码：
+passwd：所有的身份验证令牌已经成功更新。
+# root @ shadow in ~ [10:38:41]
+$ su - shadow                               # 切换用户
+[shadow@shadow ~]$                          # 切换用户成功
+```
+
+35. 删除用户及用户文件夹
+```bash
+# 查看所有用户
+cat /etc/passwd|grep -v nologin|grep -v halt|grep -v shutdown|awk -F":" '{ print $1"|"$3"|"$4 }'|more
+su - root                                   # 首先需要切换到root用户
+userdel -r shadow                           # 删除shadow用户及用户文件夹
 ```

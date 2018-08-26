@@ -12,7 +12,7 @@ pip install robotframework==2.8.7
 ```
 要用``pip``安装指定版本的``Python``包，只需通过``==``操作符指定即可。
 
-  <!--more-->
+    <!--more-->
 
 ##### 在指定位置安装第三方
 ```bash
@@ -44,11 +44,11 @@ pip install -r requirement.txt
 ```zsh
 # taoyi @ TaoYi-Mac in ~ [16:27:56]
 $ pip list --outdate --trusted-host pypi.douban.com
-Package                   Version Latest  Type
+Package                                     Version Latest    Type
 ------------------------- ------- ------- -----
-robotframework-ride       1.5.2   1.5.2.1 sdist
-robotframework-sshlibrary 2.1.3   3.0.0   sdist
-setuptools                28.8.0  39.1.0  wheel
+robotframework-ride             1.5.2     1.5.2.1 sdist
+robotframework-sshlibrary 2.1.3     3.0.0     sdist
+setuptools                                28.8.0    39.1.0    wheel
 ```
 
 ##### 更新指定的第三方库
@@ -67,12 +67,42 @@ pip show robotframework-sshlibrary
 [global]
 index-url = http://mirrors.aliyun.com/pypi/simple/
 
-[global]                                              # 设置pip的全局的源
+[global]                                                                                            # 设置pip的全局的源
 index-url = http://pypi.douban.com/simple
 
-[install]                                             # pip install指定的安装源
+[install]                                                                                         # pip install指定的安装源
 trusted-host=pypi.douban.com
 
-[list]                                                # pip list命令接口的展示方式设置
+[list]                                                                                                # pip list命令接口的展示方式设置
 format=columns
+```
+
+##### ``print('*',end='')``中``end``问题
+end是print（）函数的一个参数。end 是输出语句结束以后附加的字符串，它的默认值是换行（’\n’）。
+```python
+print('')#end值为默认值（换行\n）
+print('*',end = ' ')                # end值为空格
+print('*',end = '')                 # 默认为末尾换行/n，end=''末尾为空所以不换行
+print('*',end = '1')                # end值为字符串‘1’
+print('*',end = '12')             # end值为字符串‘12’
+```
+
+##### 打印中的赋值语句
+```python
+print ('%d * %d = %d' %(i, j, i * j), end='\t')
+# 三个%d分别从后面跟着的3个参数取对应的值
+```
+
+##### VSCode的代码段设置
+```json
+{
+    "MarkDown insert Pyhton": {
+        "prefix": "MDP",
+        "body": [
+            "```python\n\n\n```",
+            "$2"
+        ],
+        "description": "MarkDown insert Pyhton"
+    }
+}
 ```

@@ -44,17 +44,17 @@ pybot --include=tagName /opt/robotframework/
 ```robotframework
 *** Test Cases ***
 takeValueFromCircle
-	# 从返回结果中提取出List
-	@{items}=    set variable    ${json["data"]["items"]}
-	# 循环List中的item
-	: FOR    ${params}    IN    @{items}
-	# 把item中的一个参数（每个参数都是一个字典）转化为Str格式，顺便去除 "u" 标识
-	\    ${params}    Dumps    ${params}
-	# 把字典转化为json
-	\    ${params}    to json    ${params}
-	#\    Log    ${params["carId"]}
-	# 对每个item取出来的字典中的某个字段进行判断，如果是需要的值，就把另一个需要的值取出来，并打印出来
-	\    RUN KEYWORD IF    "${params["carInfo"]["status"]}"=="评估中"    Log    ${params["carId"]}
+    # 从返回结果中提取出List
+    @{items}=    set variable    ${json["data"]["items"]}
+    # 循环List中的item
+    : FOR    ${params}    IN    @{items}
+    # 把item中的一个参数（每个参数都是一个字典）转化为Str格式，顺便去除 "u" 标识
+    \    ${params}    Dumps    ${params}
+    # 把字典转化为json
+    \    ${params}    to json    ${params}
+    #\    Log    ${params["carId"]}
+    # 对每个item取出来的字典中的某个字段进行判断，如果是需要的值，就把另一个需要的值取出来，并打印出来
+    \    RUN KEYWORD IF    "${params["carInfo"]["status"]}"=="评估中"    Log    ${params["carId"]}
 ```
 
 ##### wait until keyword succeeds关键字使用
@@ -93,8 +93,8 @@ Keyword With AttributeError
     ${params}=    Create Dictionary    jobId=${jobId}
     &{json}=    Rest.Post    /pc/export/taizhangaction/progress.json    ${params}    form    ${hosts["erp-online"]}
     Should Be True    ${json["success"]}
-	should be equal as strings    ${json["data"]["progress"]}    100
-	${URL}=    set variable    ${json["data"]["url"]}
+    should be equal as strings    ${json["data"]["progress"]}    100
+    ${URL}=    set variable    ${json["data"]["url"]}
 ```
 5秒执行一次关键字，如果``${json["data"]["progress"]}!=100``，执行一次关键字，直到相等时，执行一次关键字中的最后一行代码。
 
