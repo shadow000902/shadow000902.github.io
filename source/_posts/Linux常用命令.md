@@ -448,3 +448,18 @@ cat /etc/passwd|grep -v nologin|grep -v halt|grep -v shutdown|awk -F":" '{ print
 su - root                                   # 首先需要切换到root用户
 userdel -r shadow                           # 删除shadow用户及用户文件夹
 ```
+
+36. CentOS卸载软件
+```bash
+yum remove tomcat
+```
+
+37. “shadow is not in the sudoers file.  This incident will be reported.”解决方法
+在``root``用户下，执行``visudo``
+```bash
+  91 ## Allow root to run any commands anywhere
+  92 root    ALL=(ALL)       ALL
+  93 shadow  ALL=(ALL)       ALL        # 添加这段内容，第一个单词是，需要可以使用sudo权限的用户名
+  94
+  95 ## Allows members of the 'sys' group to run networking, software,
+```

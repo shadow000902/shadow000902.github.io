@@ -65,5 +65,3 @@ tags: [python]
     f3(**param)
     f3(name='骆昊', age=38, tel='13866778899')
     ```
-
-    
