@@ -162,7 +162,11 @@ awk 'END{print NR}' filename          # 打印文本文件的总行数
 awk 'NR==1{print}' filename           # 打印文本第一行
 ```
 
-20. ls(list)
+20. 列举当前目录文件``ls``、``ll``(list)
+```bash
+ll -t                     # 当前目录文件按倒叙排列，最新的排最前面
+ll -t | tac               # 当前目录文件按顺序排列，最早的排最前面
+```
 
 21. mkdir(make directories)
 
@@ -196,6 +200,9 @@ scp  -r ~/local_dir username@servername:/remote_path/remote_dir
 ```
 
 28. sed     #
+
+[sed命令用法](https://www.cnblogs.com/maxincai/p/5146338.html)
+
 ```markdown
 [root@www ~]# sed [-nefr] [动作]
 选项与参数：

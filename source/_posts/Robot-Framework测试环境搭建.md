@@ -52,6 +52,26 @@ try:
     wxversion.select(supported_versions)
     import wx
 ```
+
+#### 查看 wxpython 是否在环境变量中
+```bash
+brew info wxpython
+```
+这说明正常
+```bash
+# taoyi @ TYMAC in ~ [1:57:29] C:1
+$ brew info wxpython
+wxpython: stable 3.0.2.0 (bottled)
+Python bindings for wxWidgets
+https://www.wxwidgets.org/
+/usr/local/Cellar/wxpython/3.0.2.0_1 (1,108 files, 37.9MB) *
+  Poured from bottle on 2018-09-05 at 01:53:47
+From: https://github.com/Homebrew/homebrew-core/blob/master/Formula/wxpython.rb
+==> Dependencies
+Required: python@2 ✔, wxmac ✔
+```
+
+
 #### 安装ride。
 RIDE 是``Robot Framework``测试数据的编辑器。它使测试用例的创建、运行、测试项目的组织可以在图形界面下完成。
 ##### 源码安装。[下载地址](https://pypi.python.org/pypi/robotframework-ride)
