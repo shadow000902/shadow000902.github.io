@@ -13,6 +13,8 @@ tags: [mysql]
 Enter password:******
 ```
 
+<!--more-->
+
 创建数据库
 ```sql
 create W3CSCHOOL;
