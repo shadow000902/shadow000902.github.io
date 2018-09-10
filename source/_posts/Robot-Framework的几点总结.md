@@ -20,6 +20,49 @@ pybot --include=tagName /opt/robotframework/
 
   <!--more-->
 
+##### 设置环境变量，根据环境执行测试
+变量脚本``envVars.py``
+```python
+def get_variables(env = 'test'):
+    if env=='preview':
+        #preview environment
+        variables = {
+            # 登录服务：大风车|广汇
+            "sso" : "http://sso.prepub.souche.com",
+            "ghsso" : "http://hmc-sso.prepub.cgacar.com",
+        }
+    elif env=='online':
+    	#online environment
+        variables = {
+            # 登录服务：大风车|广汇
+            "sso" : "http://sso.souche.com",
+            "ghsso" : "http://hmc-sso.cgacar.com",
+        }
+    else:
+    	#text environment
+        variables = {
+            # 登录服务：大风车|广汇
+            "sso" : "http://dfc.dasouche.net",
+            "ghsso" : "http://sso.gh.dasouche.net",
+        }
+
+    globalvars = {
+        'productid':'3456',
+        'userid':'test12'
+        }   #共用变量
+    # variables['globalvars'] = globalvars
+
+    return variables
+```
+执行脚本的命令
+```bash
+# -d results                指定日志文件目录
+# -V ./envVars.py:online    V 要大写，变量文件路径:环境参数，可以不填参数，则是默认环境
+# --include=test_ty .       在当前目录下及子目录下，筛选[tag]为 test_ty 的所有 TC 并执行
+pybot -d results -V ./envVars.py:online --include=test_ty .
+```
+
+
 ##### IDE设置命令行执行RF用例
 ```bash
 # 执行单条用例
@@ -41,7 +84,7 @@ pybot --include=tagName /opt/robotframework/
 使用``-R``参数，同``--rerunfailed output``，后面跟前次执行生成的``results/output.xml``，这样就只会运行上次失败了的Case。
 
 ##### List中的字典循环
-```robotframework
+```python
 *** Test Cases ***
 takeValueFromCircle
     # 从返回结果中提取出List
@@ -58,7 +101,7 @@ takeValueFromCircle
 ```
 
 ##### wait until keyword succeeds关键字使用
-```robotframework
+```python
 *** Test Cases ***
 "Wait until ..." with normal error
     # Keyword is run multiple times, until timeout. Each run gives an exception
@@ -83,7 +126,7 @@ Keyword With AttributeError
     Should Be Equal As Strings    ${obj.bad_attr}    "foo"
 ```
 
-```robotframework
+```python
 *** Test Cases ***
 003.导出进度-/pc/export/taizhangaction/progress.json
     wait until keyword succeeds    3 min    5 sec    导出进度-/pc/export/taizhangaction/progress.json
@@ -99,7 +142,7 @@ Keyword With AttributeError
 5秒执行一次关键字，如果``${json["data"]["progress"]}!=100``，执行一次关键字，直到相等时，执行一次关键字中的最后一行代码。
 
 ##### 一个完整的独立case
-```robotframework
+```python
 *** Test Cases ***
 登录
     ${dict}=    Create Dictionary    Content-Type=application/x-www-form-urlencoded
@@ -113,7 +156,7 @@ Keyword With AttributeError
 ```
 
 ##### 对请求proxy、tag、headers、session、response的整体封装
-```robotframework
+```python
 *** Keywords ***
 Rest.Post
     [Arguments]    ${uri}    ${params}    ${type}=form    ${cur_host}=${EMPTY}
