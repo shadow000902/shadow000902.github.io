@@ -58,8 +58,11 @@ def get_variables(env = 'test'):
 ```bash
 # -d results                指定日志文件目录
 # -V ./envVars.py:online    V 要大写，变量文件路径:环境参数，可以不填参数，则是默认环境
+
+# 如果有多个变量文件，可以使用多个“-V 文件路径:环境参数”
+
 # --include=test_ty .       在当前目录下及子目录下，筛选[tag]为 test_ty 的所有 TC 并执行
-pybot -d results -V ./envVars.py:online --include=test_ty .
+pybot -d results -V ./envVars.py:online -V ./orderVars.py:preview --include=test_ty .
 ```
 
 
