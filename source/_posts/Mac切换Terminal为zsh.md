@@ -40,10 +40,19 @@ source ~/.bash_profile
 {% asset_img 终端样式修改.png 终端样式修改 %}
 
 ##### 切换 Terminal 到 zsh
+###### 方法一
 ```bash
 chsh -s /bin/zsh
 ```
 重启一下 Terminal 之后，就生效了。
+
+###### 方法二
+编辑``/etc/passwd``文件，修改如下字段
+```bash
+...
+taoyi:x:500:500::/home/taoyi:/bin/zsh       # 把原来的 /bin/bash 改成新的 /bin/zsh
+...
+```
 
 ##### 效果如图
 {% asset_img Terminal效果图.png Terminal效果图 %}

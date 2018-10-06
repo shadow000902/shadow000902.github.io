@@ -127,17 +127,20 @@ http://sourceforge.net/projects/wxpython/files/wxPython/2.8.12.1/
 rm -rf ~/.robotframework/
 ```
 
-##### mac 强制安装 wxpython2.8.12.1
-下载[wxPython2.8-osx-unicode-2.8.12.1-universal-py2.7.dmg](https://sourceforge.net/projects/wxpython/files/wxPython/2.8.12.1/wxPython2.8-osx-unicode-2.8.12.1-universal-py2.7.dmg/download)；打开得到``wxPython2.8-osx-unicode-universal-py2.7.pkg``；右键显示包内容，再得到``wxPython2.8-osx-unicode-universal-py2.7.pax.gz``和``postflight``；解压``wxPython2.8-osx-unicode-universal-py2.7.pax.gz``，再得到``/usr/local/lib/wxPython-unicode-2.8.12.1``，把该文件夹放入系统的``/usr/local/lib/``中，切换到``postflight``目录，运行命令``sudo ./postflight``，安装好wxpython2.8.12.1。
-执行``ride.py``提示：
-```bash
-python should be executed in 32-bit mode with wxPython on OSX.
-```
-是因为wxpython是32位的，而我们安装的是64位的。
-输入以下命令强制执行32位：
-```bash
-defaults write com.apple.versioner.python Prefer-32-Bit -bool yes
-```
+##### mac 强制安装 wxpython2.8.12.1 或 wxpython3.0.2.0
+1. 下载[wxPython2.8-osx-unicode-2.8.12.1-universal-py2.7.dmg](https://sourceforge.net/projects/wxpython/files/wxPython/2.8.12.1/wxPython2.8-osx-unicode-2.8.12.1-universal-py2.7.dmg/download)
+2. 下载[wxPython3.0-osx-3.0.2.0-cocoa-py2.7.dmg (36.0 MB)
+](https://nchc.dl.sourceforge.net/project/wxpython/wxPython/3.0.2.0/wxPython3.0-osx-3.0.2.0-cocoa-py2.7.dmg)
+3. 打开得到``wxPython2.8-osx-unicode-universal-py2.7.pkg``；右键显示包内容，再得到``wxPython2.8-osx-unicode-universal-py2.7.pax.gz``和``postflight``；解压``wxPython2.8-osx-unicode-universal-py2.7.pax.gz``，再得到``/usr/local/lib/wxPython-unicode-2.8.12.1``，把该文件夹放入系统的``/usr/local/lib/``中，切换到``postflight``目录，运行命令``sudo ./postflight``，安装好wxpython2.8.12.1。
+4. 执行``ride.py``提示：
+    ```bash
+    python should be executed in 32-bit mode with wxPython on OSX.
+    ```
+    是因为wxpython是32位的，而我们安装的是64位的。
+    输入以下命令强制执行32位：
+    ```bash
+    defaults write com.apple.versioner.python Prefer-32-Bit -bool yes
+    ```
 
 ##### ride 一次使用后再次打开崩溃的问题
 因为用``pip install robotframework-ride``安装的``ride``是1.5.2.1版本，会出现这个问题，所以安装指定的1.5.2版本
@@ -150,3 +153,15 @@ pip install robotframework-ride==1.5.2
 这样就需要使用系统的``pip``，也就是``/usr/local/bin/``目录下的``pip``来安装``ride.py``。
 然后通过``/usr/local/bin/ride.py``来启动``ride.py``。
 
+##### wxpython 缺失问题解决
+```bash
+# taoyi @ TYMAC in ~/Desktop [21:22:36]
+$ /usr/local/bin/ride.py
+Wrong wxPython version.
+You need to install wxPython 2.8.12.1 with unicode support to run RIDE.
+wxPython 2.8.12.1 can be downloaded from http://sourceforge.net/projects/wxpython/files/wxPython/2.8.12.1/
+```
+
+因为brew默认启用的地址为：/Users/taoyi/Library/Python/2.7/lib/python/site-packages/
+后面的文件夹路径若没有则需要新建：mkdir -p /Users/taoyi/Library/Python/2.7/lib/python/site-packages
+再执行：echo 'import site; site.addsitedir("/usr/local/lib/python2.7/site-packages")' >> /Users/taoyi/Library/Python/2.7/lib/python/site-packages/homebrew.pth

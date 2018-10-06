@@ -1,4 +1,5 @@
 {
     "python.pythonPath": "/Users/taoyi/.pyenv/versions/2.7.14/bin/python",
-    "python.formatting.provider": "yapf"
+    "python.formatting.provider": "yapf",
+    "editor.tabSize": 4
 }

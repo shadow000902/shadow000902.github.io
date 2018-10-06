@@ -13,7 +13,7 @@ tags: [mysql]
 Enter password:******
 ```
 
-<!--more-->
+  <!--more-->
 
 创建数据库
 ```sql

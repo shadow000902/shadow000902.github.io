@@ -13,7 +13,7 @@ tags: [python]
     range(100, 1, -2)           # 产生一个100到2的偶数序列，其中-2是步长，最后一个序列值是2
     ```
 
-<!--more-->
+  <!--more-->
 
 2. ``input``
     ```python
@@ -77,18 +77,18 @@ tags: [python]
         for eachArgNum in range(len(arg3)):
             print('the %d in arg 3 :%s ' % (eachArgNum,arg3[eachArgNum]))
     if __name__ == '__main__':
-        tupleArgs('A')      
-        #   arg 1:A 
-        #   arg 2:B 
+        tupleArgs('A')
+        #   arg 1:A
+        #   arg 2:B
         tupleArgs('23','C')
-        #   arg 1:23 
+        #   arg 1:23
         #   arg 2:C
         tupleArgs('12','A','GF','L')
-        #   arg 1:12 
-        #   arg 2:A 
-        #   the 0 in arg 3 :GF 
-        #   the 1 in arg 3 :L 
-        
+        #   arg 1:12
+        #   arg 2:A
+        #   the 0 in arg 3 :GF
+        #   the 1 in arg 3 :L
+
     # **kw 是关键字参数，用于字典
         def dictArgs(kw1, kw2= 'B', **kw3):
         print('kw 1:%s ' % kw1)
@@ -100,10 +100,10 @@ tags: [python]
         #   kw 1:A 
         #   kw 2:B 
         dictArgs('23','C')
-        #   kw 1:23 
+        #   kw 1:23
         #   kw 2:C 
         dictArgs('12','A', c = 'C',d = '12121212')
-        #   kw 1:12 
+        #   kw 1:12  
         #   kw 2:A 
         #   the d ---->:12121212 
         #   the c ---->:C 
@@ -114,7 +114,6 @@ tags: [python]
         #   the d ---->:12121212 
         #   the c ---->:C
     ```
-
 
 6. 集合的常用操作
     - 交集
@@ -219,5 +218,10 @@ tags: [python]
         main()
     ```
     Python中属性和方法访问权限的问题，虽然我们不建议将属性设置为私有的，但是如果直接将属性暴露给外界也是有问题的，比如我们没有办法检查赋给属性的值是否有效。我们之前的建议是将属性命名以单下划线开头，通过这种方式来暗示属性是受保护的，不建议外界直接访问，那么如果想访问属性可以通过属性的`getter`（访问器）和`setter`（修改器）方法进行对应的操作。如果要做到这点，就可以考虑使用@property包装器来包装getter和setter方法，使得对属性的访问既安全又方便。
-    
-12. 
+
+12. 文件读写
+    json模块主要有四个比较重要的函数，分别是：
+        dump - 将Python对象按照JSON格式序列化到文件中
+        dumps - 将Python对象处理成JSON格式的字符串
+        load - 将文件中的JSON数据反序列化成对象
+        loads - 将字符串的内容反序列化成Python对象
