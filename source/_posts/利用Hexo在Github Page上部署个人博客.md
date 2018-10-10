@@ -541,3 +541,44 @@ gitment:
   proxy_gateway: # Address of api proxy, See: https://github.com/aimingoo/intersect
   redirect_protocol: # Protocol of redirect_uri with force_redirect_protocol when mint enabled
 ```
+
+#### 修改``NexT``的``Picses``主题中空白过多的布局
+修改主题中的``source/css/_schemes/Picses/_layout.styl``文件，添加如下脚本内容
+
+```style
+// 以下为新增代码！！
+header{ width: 90% !important; }
+header.post-header {
+  width: auto !important;
+}
+.container .main-inner { width: 90%; }
+.content-wrap { width: calc(100% - 260px); }
+
+.header {
+  +tablet() {
+    width: auto !important;
+  }
+  +mobile() {
+    width: auto !important;
+  }
+}
+
+.container .main-inner {
+  +tablet() {
+    width: auto !important;
+  }
+  +mobile() {
+    width: auto !important;
+  }
+}
+
+.content-wrap {
+  +tablet() {
+    width: 100% !important;
+  }
+  +mobile() {
+    width: 100% !important;
+  }
+}
+```
+其中的``width``还可以根据自己的喜好再做调整。
