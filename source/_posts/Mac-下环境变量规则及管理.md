@@ -26,7 +26,7 @@ vim ~/.bash_profile
 ```
 添加环境变量
 ```bash
-export M2_HOME=/opt/apache-jmeter-5.0/
+export M2_HOME=/opt/apache-jmeter-5.0
 export PATH=$PATH:$M2_HOME/bin
 ```
 生效环境变量

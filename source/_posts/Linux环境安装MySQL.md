@@ -52,6 +52,13 @@ chgrp -R mysql mysql/
 2018-07-21T06:59:32.526606Z 0 [Warning] Gtid table is not ready to be used. Table 'mysql.gtid_executed' cannot be opened.
 2018-07-21T06:59:32.529148Z 1 [Note] A temporary password is generated for root@localhost: ,:eh<pj(p2NZ
 ```
+```bash
+2018-10-20T18:10:58.363348Z 0 [System] [MY-013169] [Server] /opt/mysql-8.0.12-linux-glibc2.12-x86_64/bin/mysqld (mysqld 8.0.12) initializing of server in progress as process 12636
+2018-10-20T18:10:58.366576Z 0 [Warning] [MY-010122] [Server] One can only use the --user switch if running as root
+2018-10-20T18:11:01.748127Z 5 [Note] [MY-010454] [Server] A temporary password is generated for root@localhost: &h3Th88Lwx5f
+2018-10-20T18:11:03.525973Z 0 [System] [MY-013170] [Server] /opt/mysql-8.0.12-linux-glibc2.12-x86_64/bin/mysqld (mysqld 8.0.12) initializing of server has completed
+```
+
 最后的``,:eh<pj(p2NZ``为mysql初始化默认密码。
 
 ##### 配置``/etc/my.cnf``

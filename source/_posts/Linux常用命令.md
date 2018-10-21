@@ -486,3 +486,8 @@ yum remove tomcat
     sudo apt install $(check-language-support)
     ```
     会更新最新的语言支持包。
+
+39. 查找文件夹
+    ```bash
+    find / -name mysql
+    ```
