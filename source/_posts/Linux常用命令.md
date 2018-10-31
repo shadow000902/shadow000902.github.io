@@ -7,49 +7,49 @@ tags: [linux]
 
 1. mv
     1.1 Moving files
-        ```bash
-        mv test0001.txt /opt/
-        ```
+    ```bash
+    mv test0001.txt /opt/
+    ```
     1.2 Moving multiple files
-        ```bash
-        mv test0001.txt test0002.txt /opt/
-        mv *.txt /opt/
-        ```
+    ```bash
+    mv test0001.txt test0002.txt /opt/
+    mv *.txt /opt/
+    ```
     1.3 Moving directory
-        ```bash
-        mv /tmp/test0001 /opt/
-        ```
+    ```bash
+    mv /tmp/test0001 /opt/
+    ```
 
   <!--more-->
 
     1.4 Renaming files or directory
-        ```bash
-        mv test0001.txt test0002.txt
-        ```
+    ```bash
+    mv test0001.txt test0002.txt
+    ```
     1.5 Renaming directory
-        ```bash
-        mv test0001 test0002
-        ```
+    ```bash
+    mv test0001 test0002
+    ```
     1.6 Print what happen
-        ```bash
-        mv -v *.txt /opt/
-        ```
+    ```bash
+    mv -v *.txt /opt/
+    ```
     1.7 Using interactive mode
-        ```bash
-        mv -i *.txt /opt/
-        ```
+    ```bash
+    mv -i *.txt /opt/
+    ```
     1.8 Using update option
-        ```bash
-        mv -uv *.txt /opt/
-        ```
+    ```bash
+    mv -uv *.txt /opt/
+    ```
     1.9 Do not overwrite any existing file
-        ```bash
-        mv -vn *.txt /opt/
-        ```
+    ```bash
+    mv -vn *.txt /opt/
+    ```
     1.10 Create backup when copying
-        ```bash
-        mv -bv *.txt /opt/
-        ```
+    ```bash
+    mv -bv *.txt /opt/
+    ```
     [10 Practical mv Command Examples](https://linoxide.com/linux-command/mv-command-linux/)
 
 
@@ -73,53 +73,53 @@ tags: [linux]
 
 8. grep
     8.1 在文件中查找单词
-        ```bash
-        grep shadow /etc/hosts
-        ```
+    ```bash
+    grep shadow /etc/hosts
+    ```
     8.2 在多个文件中查找单词
-        ```bash
-        grep shadow /etc/hosts /etc/hosts1
-        ```
+    ```bash
+    grep shadow /etc/hosts /etc/hosts1
+    ```
     8.3 列出包含指定单词的文件的文件名
-        ```bash
-        grep -l shadow /etc/hosts /etc/hosts1 /etc/hosts2 /etc/hosts3
-        ```
+    ```bash
+    grep -l shadow /etc/hosts /etc/hosts1 /etc/hosts2 /etc/hosts3
+    ```
     8.4 在文件中查找指定单词并显示匹配行的行号
-        ```bash
-        grep -n shadow /etc/hosts /etc/hosts1
-        ```
+    ```bash
+    grep -n shadow /etc/hosts /etc/hosts1
+    ```
     8.5 输出不包含指定单词的行
-        ```bash
-        grep -v shadow /etc/hosts
-        ```
+    ```bash
+    grep -v shadow /etc/hosts
+    ```
     8.6 输出所有以指定单词开头的行
-        ```bash
-        grep ^ shadow /etc/hosts
-        ```
+    ```bash
+    grep ^ shadow /etc/hosts
+    ```
     8.7 输出所有以指定单词结尾的行
-        ```bash
-        grep shadow$ /etc/hosts
-        ```
+    ```bash
+    grep shadow$ /etc/hosts
+    ```
     8.8 参数递归地查找指定单词
-        ```bash
-        grep -r shadow /etc/hosts
-        ```
+    ```bash
+    grep -r shadow /etc/hosts
+    ```
     8.9 查找文件中所有的空行
-        ```bash
-        grep ^$ /etc/hosts
-        ```
+    ```bash
+    grep ^$ /etc/hosts
+    ```
     8.10 同时查找多个单词
-        ```bash
-        grep -e shadow -e shadows /etc/hosts
-        ```
+    ```bash
+    grep -e shadow -e shadows /etc/hosts
+    ```
     8.11 计算匹配到的单词的数量
-        ```bash
-        grep -c -f shadow /etc/hosts
-        ```
+    ```bash
+    grep -c -f shadow /etc/hosts
+    ```
     8.12
-        ```bash
-        grep -irn "SyncWriteStream" ./node_modules/hexo-deployer-git/
-        ```
+    ```bash
+    grep -irn "SyncWriteStream" ./node_modules/hexo-deployer-git/
+    ```
 
 9. unzip
 
