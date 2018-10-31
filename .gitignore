@@ -1,7 +1,6 @@
 .deploy_git/
 .idea/
 .vscode/
-node_modules/
 public/
 themes/
 debug.log

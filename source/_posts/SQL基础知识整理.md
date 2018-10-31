@@ -1,7 +1,7 @@
 ---
 title: SQL基础知识整理
 date: 2018-08-12 00:58:52
-categories: [MYSQL]
+categories: [MySQL]
 tags: [mysql]
 ---
 

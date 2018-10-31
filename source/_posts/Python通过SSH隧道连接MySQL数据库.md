@@ -1,7 +1,7 @@
 ---
 title: Python通过SSH隧道连接MySQL数据库
 date: 2018-01-10 09:56:03
-categories: [python]
+categories: [Python]
 tags: [ssh]
 ---
 

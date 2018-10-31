@@ -105,6 +105,10 @@ pip install robotframework-appiumlibrary
 pip install robotframework-selenium2library
 ```
 
+#### Mac 下 pkg 安装 Python2.7，启动 ride.py
+Mac 下 pkg 安装 Python2.7 的情况下，pip 快捷目录为`/usr/local/bin/pip`，也就是`/Library/Frameworks/Python.framework/Versions/2.7/bin/pip`对应的软连接的位置的文件，对应的第三方库安装位置为`/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/`。
+然后通过`/usr/local/bin/pip install robotframework-ride==1.5.2`来安装`ride.py`，再通过`brew`来安装`wxpython`，最后就能通过`/Library/Frameworks/Python.framework/Versions/2.7/bin/ride.py`来启动`ride.py`，如果`/usr/local/bin/ride.py`没有生成的话。
+
 #### 问题解决
 
 ##### 遇到ride无法启动的问题【Windows】
