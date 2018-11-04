@@ -1,12 +1,12 @@
 ---
-title: Python基础知识整理-基于【深入Python3】
+title: Python基础知识整理
 date: 2018-02-14 18:40:37
 categories: [Python]
 tags: [python]
 ---
 
 #### 基础方法
-  字符串大小写转换
+##### 字符串大小写转换
 ```python
 text.title()                # 首字母转大写
 text.upper()                # 字符串转大写
@@ -15,7 +15,7 @@ text.lower()                # 字符串转小写
 
   <!--more-->
 
-  对list进行排序
+##### 对list进行排序
 ```python
 cars = ['bmw', 'audi', 'toyota', 'subaru']
 print(sorted(cars))                             # 临时性字母正序排列
@@ -25,7 +25,7 @@ cars.sort(reverse=True)                         # 永久性字母倒叙排列
 print(cars)                                     # 默认排序
 ```
 
-  访问list元素
+##### 访问list元素
 ```python
 cars = ['bmw', 'audi', 'toyota', 'subaru']
 print(cars[0])                                  # 访问第一个元素
@@ -33,7 +33,7 @@ print(cars[0])                                  # 访问第一个元素
 print(cars[-1])                                 # 访问倒数第一个元素，即list最后一个元素
 ```
 
-  list中增删元素
+##### list中增删元素
 ```python
 motorcycles = ['honda', 'yamaha', 'suzuki', 'ducati']
 too_expensive = 'ducati'
@@ -45,18 +45,18 @@ motorcycles.pop()                               # 取出list中的最后一个�
 print(motorcycles)
 ```
 
-  获取list长度
+##### 获取list长度
 ```python
 len(cars)
 ```
 
-  复制list
+##### 复制list
 ```python
 my_foods = ['pizza', 'falafel', 'carrot cake'] 
 friend_foods = my_foods[:]                      # 复制整个列表以 [:] 来表示
 ```
 
-  检查特定值是否在list中
+##### 检查特定值是否在list中
 ```python
 banned_users = ['andrew', 'carolina', 'david']
 user1 = 'andrew'
@@ -67,7 +67,7 @@ print(user1 not in banned_users)                # 返回false
 print(user2 in banned_users)                    # 返回false
 ```
 
-  在list中检索值
+##### 在list中检索值
 ```bash
 >>> a_list = ['a', 'b', 'new', 'mpilgrim', 'new']
 >>> a_list.count('new')       ①
@@ -78,7 +78,7 @@ True
 3
 ```
 
-  ``if``判断条件为``list``注意点
+##### ``if``判断条件为``list``注意点
 在判断条件为``list``时，如果``list``为空，即记过为``false``，只有在``list``有一个元素时，才为``true``。
 ```python
 requested_toppings = []
@@ -90,7 +90,7 @@ else:
 ```
 这里实际执行的就是``else``中的语句，因为``requested_toppings``是空的，返回的``false``。
 
-  多个``list``判断
+##### 多个``list``判断
 ```python
 available_toppings = ['mushrooms', 'olives', 'green peppers', 'pepperoni', 'pineapple', 'extra cheese']
 requested_toppings = ['mushrooms', 'french fries', 'extra cheese']
@@ -103,7 +103,7 @@ for requested_topping in requested_toppings:
     print("\nFinished making your pizza!")
 ```
 
-  使用函数``range()``
+##### 使用函数``range()``
 ```python
 for value in range(1, 5):                       # 生成有序数值
     print(value)                                # 它只会打印4个数值，最后一个数值不会打印
@@ -114,7 +114,7 @@ even_num = list(range(2, 11, 2))                # 使用range()还可以指定�
 print(even_num)                                 # 结果：[2, 4, 6, 8, 10]
 ```
 
-  对数值列表执行简单的统计计算
+##### 对数值列表执行简单的统计计算
 ```python
 digits = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
 min(digits)                                     # 取最小值
@@ -122,8 +122,8 @@ max(digits)                                     # 取最大值
 sum(digits)                                     # 求总和
 ```
 
-  **列表解析**
- - 复杂模式1
+##### **列表解析**
+1. 复杂模式1
 ```python
 squares = []
 for value in range(1, 11):
@@ -131,21 +131,21 @@ for value in range(1, 11):
     squares.append(square)
 print(squares)
 ```
- - 较复杂模式2
+2. 较复杂模式2
 ```python
 squares = []
 for value in range(1, 11):
     squares.append(value**2)
 print(squares)
 ```
- - 列表解析
+3. 列表解析
 ```python
 squares = [value**2 for value in range(1,11)]
 print(squares)
 ```
 要使用这种语法，首先指定一个描述性的列表名，如``squares``；然后，指定一个左方括号，并定义一个表达式，用于生成你要存储到列表中的值。在这个示例中，表达式为``value**2``，它计算平方值。接下来，编写一个``for``循环，用于给表达式提供值，再加上右方括号。在这个示例中，``for``循环为``for value in range(1,11)``，它将值1~10提供给表达式``value**2``。请注意，这里的``for``语句末尾没有冒号。
 
-  使用列表的一部分
+##### 使用列表的一部分
 定义列表后，可从其中获取任何部分作为新列表。该技术称为对列表进行``切片``。
 ```bash
 >>> a_list = ['a', 'b', 'mpilgrim', 'z', 'example']
@@ -169,7 +169,7 @@ print(squares)
 ['a', 'b', 'mpilgrim', 'z', 'example']
 ```
 
-  元组``tuple``
+##### 元组``tuple``
 元组：是不可变的列表。一旦创建之后，用任何方法都不可以修改元素。
 ```bash
 >>> a_tuple = ("a", "b", "mpilgrim", "z", "example")
@@ -189,9 +189,9 @@ print(squares)
 
 元组可转换成列表，反之亦然。内建的``tuple()``函数接受一个列表参数，并返回一个包含同样元素的元组，而``list()``函数接受一个元组参数并返回一个列表。从效果上看，``tuple()``冻结列表，而``list()``融化元组。
 
-  集合``{ }``
+##### 集合``{ }``
 一个简单的集合可以包含任何数据类型的值。如果有两个集合，则可以执行像联合、交集以及集合求差等标准集合运算。
- - 从list创建集合
+1. 从list创建集合
 ```bash
 >>> a_list = ['a', 'b', 'mpilgrim', True, False, 42]
 >>> a_set = set(a_list)                           ①
@@ -199,7 +199,7 @@ print(squares)
 # 集合是 无序的。该集合并不记得用于创建它的列表中元素的最初顺序。
 {'a', False, 'b', True, 'mpilgrim', 42}
 ```
- - 创建空集合
+2. 创建空集合
 ```bash
 # 要创建空集合，可不带参数调用 set() 。
 >>> a_set = set()    ①
@@ -209,15 +209,15 @@ set()
 >>> type(a_set)      ③
 <class 'set'>
 ```
- - 修改集合
+3. 修改集合
 有两种方法可向现有集合中添加值： add() 方法和 update() 方法。
 集合是装 唯一值 的袋子。如果试图添加一个集合中已有的值，将不会发生任何事情。将不会引发一个错误；只是一条空操作。
 
- - 从集合中删除元素
+4. 从集合中删除元素
 有三种方法可以用来从集合中删除某个值。前两种，discard() 和 remove() 有细微的差异。集合也有个 pop() 方法。
 ``pop()``方法从集合中删除某个值，并返回该值。然而，由于集合是无序的，并没有“最后一个”值的概念，因此无法控制删除的是哪一个值。它基本上是随机的。
 
- - 常见集合操作
+5. 常见集合操作
 ```bash
 >>> a_set = {2, 4, 5, 9, 12, 21, 30, 51, 76, 127, 195}
 # ① 要检测某值是否是集合的成员，可使用 in 运算符。其工作原理和列表的一样。
@@ -240,9 +240,9 @@ False
 {1, 3, 4, 6, 8, 76, 15, 17, 18, 195, 127, 30, 51}
 ```
 
-  字典``dict``
+##### 字典``dict``
 字典 是键值对的无序集合。向字典添加一个键的同时，必须为该键增添一个值。（之后可随时修改该值。） Python 的字典为通过键获取值进行了优化，而不是反过来。
- - 修改字典
+1. 修改字典
 ```bash
 >>> a_dict = {'server': 'db.diveintopython3.org', 'database': 'mysql'}
 >>> a_dict['database'] = 'blog'  ①
@@ -264,7 +264,7 @@ False
 {'User': 'mark', 'server': 'db.diveintopython3.org', 'user': 'dora', 'database': 'blog'}
 ```
 
- - 混合值字典，value不为单个值
+2. 混合值字典，value不为单个值
 字典并非只能用于字符串。字典的值可以是任何数据类型，包括整数、布尔值、任何对象，甚至是其它的字典。而且就算在同一字典中，所有的值也无须是同一类型，您可根据需要混合匹配。字典的键要严格得多，可以是字符串、整数和其它一些类型。在同一字典中也可混合、匹配使用不同数据类型的键。
 ```bash
 >>> SUFFIXES = {1000: ['KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'],
@@ -286,11 +286,10 @@ True
 'TB'
 ```
 
-  grades['']
+3. grades['']
 
-1.  是否可迭代``Iterable``
-
-2.  类似一个概念，实例才是可被CPU操作的，真实存在的东西。
+  - 是否可迭代``Iterable``
+  - 类似一个概念，实例才是可被CPU操作的，真实存在的东西。
 
 ```python
 class People():
@@ -457,6 +456,8 @@ re.sub('ROAD$', 'RD.', s)
 
 电话号码解析实例
 ```python
+import re
+
 # 电话号码样式：
     # 800-555-1212
     # 800 555 1212
@@ -520,6 +521,7 @@ x{n,m}    # 匹配n到m个x，至少n个，不能超过m个。
 ##### 正则表达式使用
 
 ```python
+import re
 re.sub('([^aeiou])y$', r'\1ies', 'vacancy')
 # 该分组用于保存字母 y 之前的字符。然后在替换字符串中，用到了新的语法： \1，它表示“嘿，记住的第一个分组呢？把它放到这里。”在此例中， 记住了 y 之前的 c ，在进行替换时，将用 c 替代 c，用 ies 替代 y 。（如果有超过一个的记忆分组，可以使用 \2 和 \3 等等。）
 ```

@@ -87,7 +87,7 @@ pybot -d results -V ./envVars.py:online -V ./orderVars.py:preview --include=test
 使用``-R``参数，同``--rerunfailed output``，后面跟前次执行生成的``results/output.xml``，这样就只会运行上次失败了的Case。
 
 ##### List中的字典循环
-```python
+```robot
 *** Test Cases ***
 takeValueFromCircle
     # 从返回结果中提取出List
@@ -104,7 +104,7 @@ takeValueFromCircle
 ```
 
 ##### wait until keyword succeeds关键字使用
-```python
+```robot
 *** Test Cases ***
 "Wait until ..." with normal error
     # Keyword is run multiple times, until timeout. Each run gives an exception
@@ -129,7 +129,7 @@ Keyword With AttributeError
     Should Be Equal As Strings    ${obj.bad_attr}    "foo"
 ```
 
-```python
+```robot
 *** Test Cases ***
 003.导出进度-/pc/export/taizhangaction/progress.json
     wait until keyword succeeds    3 min    5 sec    导出进度-/pc/export/taizhangaction/progress.json
@@ -145,11 +145,11 @@ Keyword With AttributeError
 5秒执行一次关键字，如果``${json["data"]["progress"]}!=100``，执行一次关键字，直到相等时，执行一次关键字中的最后一行代码。
 
 ##### 一个完整的独立case
-```python
+```robot
 *** Test Cases ***
 登录
     ${dict}=    Create Dictionary    Content-Type=application/x-www-form-urlencoded
-    Create Session    _session    http://dfc.souche.com    ${dict}
+    ${host}=    Create Session    _session    http://dfc.souche.com    ${dict}
     ${params}=    Create Dictionary    loginName=15558135526    password=souche2015    jPushId=jpushid001
     ${response}=    Post Request    _session    /rest/account/login    params=${params}    headers=${dict}
     Should Be Equal As Strings    ${response.status_code}    200
@@ -159,7 +159,7 @@ Keyword With AttributeError
 ```
 
 ##### 对请求proxy、tag、headers、session、response的整体封装
-```python
+```robot
 *** Keywords ***
 Rest.Post
     [Arguments]    ${uri}    ${params}    ${type}=form    ${cur_host}=${EMPTY}
