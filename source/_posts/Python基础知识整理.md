@@ -291,34 +291,51 @@ True
   - 是否可迭代``Iterable``
   - 类似一个概念，实例才是可被CPU操作的，真实存在的东西。
 
-```python
-class People():
-    def __init__(self):
-        pass
-    def have_some_food(self):
-        print('Delicious!')
-        
-    def hava_a_drink(self):
-        print('Thanks!')
-
-if __name__ == '__main__':
-    me = People()
-    you = People()
-    me.have_some_food()
-    me.hava_a_drink()
-```
-
-  封装  访问限制
-
-强制__init__(self, name, come_from)的属性不能被修改：
-    __name
-    __come_from
+    ```python
+    class People():
+        def __init__(self):
+            pass
+        def have_some_food(self):
+            print('Delicious!')
+            
+        def hava_a_drink(self):
+            print('Thanks!')
     
-1.  封装 将类的属性私有化
+    if __name__ == '__main__':
+        me = People()
+        you = People()
+        me.have_some_food()
+        me.hava_a_drink()
+    ```
 
-2.  继承 
+#### 面向对象
+##### 封装
+1. `封装`是面向对象编程的一大特点
+2. 面向对象编程的`第一步`——将`属性`和`方法``封装`到一个抽象的`类`中
+3. `外界`使用`类`创建`对象`，然后`让对象调用方法`
+4. `对象方法的细节`都被`封装`在`类的内部`
+5. `同一个类`创建的`多个对象`之间，`属性`互不干扰。
+6. 一个对象的`属性`，可以是`另一个类创建的对象`
 
-3.  多态 多种状态，接口多种不同实现方式即为多态
+定义没有初始值的属性,如果不知道设置什么初始值，可以设置为`None`
+ - `None`关键字，表示什么都没有
+ - 表示一个`空对象`，没有方法和属性，是一个特殊的常量
+ - 可以将`None`赋值给任何一个变量
+
+在`封装的`方法内部，还可以让`自己的``使用其他类创建的对象的属性`调用已经`封装好的方法`
+
+##### 身份运算符
+身份运算符，用于比较两个对象的`内存地址`是否一致--`是否是对同一个对象的引用`
+在 Python 中针对`None`比较时，建议使用`is`判断
+
+运算符|描述|实例
+---|---|---
+is|is 是判断两个标识符是不是引用同一个对象|x is y，类似 id(x) == id(y)
+is not|is not 是判断两个标识符是不是引用不同对象|x is not y，类似 id(a) != id(b)
+
+`is`与`==`的区别：
+`is`用于判断`两个变量``引用对象是否为同一个`
+`==`用于判断`引用变量的值`是否相等
 
 
 #### 解析
@@ -440,7 +457,7 @@ a_set = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}
 
 #### 正则表达式
 
-替换操作
+##### 替换操作
 ```python
 import re
 
@@ -454,7 +471,7 @@ re.sub('ROAD$', 'RD.', s)
 # 输出：'100 NORTH BROAD RD.'
 ```
 
-电话号码解析实例
+##### 电话号码解析实例
 ```python
 import re
 
