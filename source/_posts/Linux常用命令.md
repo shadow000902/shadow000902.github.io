@@ -269,6 +269,16 @@ scp  -r ~/local_dir username@servername:/remote_path/remote_dir
     sed -ig's/要被取代的字串/新的字串/g' test.txt
     sed -i '$a # This is a test' test.txt                      # 在 test.txt 最后一行加入『# This is a test』 $代表的是最后一行，而a的动作是新增
     ```
+    28.10 **直接修改文件内容进阶**
+    对同一个文件中的多个字段同时做修改，并对原文件做备份。
+    原文本与替换文本之间用3个`@`分隔成两段
+    如果替换后的值，需要参数化取值，则只需要把`'`换成`"`即可。
+    ```bash
+    sed -i.backup -E \
+      -e "s@maCode = \".*\"@maCode = \"${maCode}\"@" \
+      -e "s@orderCode = \".*\"@orderCode = \"${orderCode}\"@" \
+      ${WORKSPACE}/mainStream/topgear/customMS001/customMS001_${ENV}.py
+    ```
 
 29. touch           # 创建文件（夹）命令
 
