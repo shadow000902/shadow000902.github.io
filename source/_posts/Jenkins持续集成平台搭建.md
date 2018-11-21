@@ -5,8 +5,8 @@ categories: [Jenkins]
 tags: [jenkins]
 ---
 
-##### Jenkins 部署
-1. 创建``Jenkins``运行目录
+#### Jenkins 部署
+##### 创建``Jenkins``运行目录
 ```bash
 # Jenkins主目录
 mkdir /opt/Jenkins/Home
@@ -16,7 +16,9 @@ mkdir /opt/Jenkins/tmp
 mkdir /opt/Jenkins/script
 ```
 
-2. 设置``jenkins``主目录
+  <!--more-->
+
+##### 设置``jenkins``主目录
 第一种方法是使用WEB容器工具设置``JENKINS_HOME``环境参数。
 ```bash
 打开tomcat的bin目录，编辑catalina.sh文件。
@@ -30,13 +32,11 @@ mkdir /opt/Jenkins/script
 在最后加入：export JENKINS_HOME="/home/souche/jenkins/Home"
 ```
 
-  <!--more-->
-
-3. 下载``jenkins.war``
+##### 下载``jenkins.war``
 [下载地址](https://jenkins.io/download/)
 把下载的``war``包放入``/opt/Jenkins``目录下
 
-4. 编写启动脚本
+##### 编写启动脚本
 ```bash
 /usr/bin/java -Dfile.encoding=UTF-8 \
                     -XX:PermSize=256m -XX:MaxPermSize=512m -Xms256m -Xmx512m \
@@ -77,7 +77,7 @@ chmod a+x startJenkins.sh
 ./startJenkins.sh
 ```
 
-5. ``Jenkins``主目录介绍
+##### ``Jenkins``主目录介绍
 ```bash
 # jenkins主配置文件
 -rw-r--r--   1 taoyi  wheel   1.6K  8 16 01:43 config.xml
@@ -106,15 +106,26 @@ drwxr-xr-x  25 taoyi  wheel   850B  8 16 01:27 war
 drwxr-xr-x   3 taoyi  wheel   102B  8 16 01:44 workspace
 ```
 
-##### 问题总结
-1. ``Jenkins console``输出乱码
+#### 问题总结
+##### ``Jenkins console``输出乱码
 在``/etc/profile``中添加``export JAVA_TOOL_OPTIONS="-Dfile.encoding=UTF-8"``
 在``Jenkins``系统管理里，添加环境变量``Key``：``LANG``，``Value``：``en_US.UTF-8``（如果系统默认的已经是en_US.UTF-8，就不用设置了）
 
+##### ``jenkins``中的``WORKSPACE``中的``HTML``文件无法打开
+    ```html
+    Verify that you have?JavaScript enabled?in your browser.
+    Make sure you are using a?modern enough browser. Firefox 3.5, IE 8, or equivalent is required, newer browsers are recommended.
+    Check are there messages in your browser‘s?JavaScript error log. Please report the problem if you suspect you have encountered a bug.
+    ```
+解决方法：在``系统管理-脚本命令行``中执行如下脚本
+```groovy
+System.setProperty("hudson.model.DirectoryBrowserSupport.CSP","sandbox allow-scripts; default-src 'none'; img-src 'self' data: ; style-src 'self' 'unsafe-inline' data: ; script-src 'self' 'unsafe-inline' 'unsafe-eval' ;")
+```
+或者在 Jenkins 中新建一个项目，添加一个``Execute system Groovy script``，其中添加以上脚本，然后构建该项目。
 
-##### 好用的Jenkins插件
+#### 好用的Jenkins插件
 
-1. ``Build User Vars Plugin``【获取项目构建人】
+##### ``Build User Vars Plugin``【获取项目构建人】
 
 插件名称：``user build vars plugin``
 
@@ -155,13 +166,13 @@ drwxr-xr-x   3 taoyi  wheel   102B  8 16 01:44 workspace
 在jenkins任务中使用构建变量：注意需要勾选 "Set jenkins user build variables."
 
 
-2. ``Naginator``【任务失败重新构建插件】
+##### ``Naginator``【任务失败重新构建插件】
 在``构建后操作``中选择``Retry build after failure``。``Fixed delay``填写每次重试的时间延迟，单位是秒。``Maximum number of successive failed builds``文本框中填写重试次数。
 
 
-3. ``Publish Over SSH``【通过ssh构建项目】
+##### ``Publish Over SSH``【通过ssh构建项目】
 
-4. ``触发远程构建（例如，使用脚本）``
+##### ``触发远程构建（例如，使用脚本）``
 {% asset_img 构建触发器_身份验证令牌.png 构建触发器_身份验证令牌 %}
 设置身份验证令牌``TOKEN_NAME``，可以随意定义。
 ```bash
@@ -171,7 +182,18 @@ JENKINS_URL/job/JOB_NAME/build?token=TOKEN_NAME
 JENKINS_URL/job/JOB_NAME/buildWithParameters?token=TOKEN_NAME&params1=params1&...
 ```
 
-5. 常用插件汇总
+##### ``Job Configuration History Plugin``【记录项目的修改记录】
+在项目中，点击左侧栏中的``Job Config History``，可以查看该项目的更改历史
+在``Jenkins``主目录下，点击左侧栏中的``Job Config History``，可以查看整个系统的所有修改历史
+    ```bash
+    Show system configs only
+    Show job configs only
+    Show created jobs only
+    Show deleted jobs only
+    Show all configs
+    ```
+
+##### 常用插件汇总
 ``Build Environment Plugin``构建环境插件，可以进行构建环境比较。
 ``Build Flow Plugin``工作流插件，支持DSL脚本定义工作流
 ``Build Graph View Plugin``build Flow插件视图（安装后需要重新才能生效）

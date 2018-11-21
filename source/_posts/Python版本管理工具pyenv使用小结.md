@@ -78,5 +78,10 @@ export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
 ##### Linux环境下，pyenv安装python失败，解决方法
 问题基本就是出现在缺少一些基础库上，解决方法也就是尽量的把一些基础库都安装上
 ```bash
+# 在ubuntu软件源里zlib和zlib-devel叫做zlib1g zlib1g.dev
+sudo apt-get install zlib1g zlib1g.dev
+```
+
+```bash
 yum install readline readline-devel readline-static openssl openssl-devel openssl-static sqlite-devel bzip2-devel bzip2-libs build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm
 ```
