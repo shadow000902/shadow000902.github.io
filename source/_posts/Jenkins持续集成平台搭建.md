@@ -113,9 +113,9 @@ drwxr-xr-x   3 taoyi  wheel   102B  8 16 01:44 workspace
 
 ##### ``jenkins``中的``WORKSPACE``中的``HTML``文件无法打开
     ```html
-    Verify that you have?JavaScript enabled?in your browser.
-    Make sure you are using a?modern enough browser. Firefox 3.5, IE 8, or equivalent is required, newer browsers are recommended.
-    Check are there messages in your browser‘s?JavaScript error log. Please report the problem if you suspect you have encountered a bug.
+    Verify that you have JavaScript enabled in your browser.
+    Make sure you are using a modern enough browser. Firefox 3.5, IE 8, or equivalent is required, newer browsers are recommended.
+    Check are there messages in your browser's JavaScript error log. Please report the problem if you suspect you have encountered a bug.
     ```
 解决方法：在``系统管理-脚本命令行``中执行如下脚本
 ```groovy
