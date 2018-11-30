@@ -545,4 +545,7 @@ yum remove tomcat
     tree -N
     ```
     - -N  Print non-printable characters as is instead of as escaped octal numbers.
-    
+
+41. ls -R
+    列出当前目录下所有目录及文件的相对路径
+    {% asset_img 当前目录下的所有文件及文件夹.png 当前目录下的所有文件及文件夹 %}
