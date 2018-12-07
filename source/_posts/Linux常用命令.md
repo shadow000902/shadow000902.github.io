@@ -153,12 +153,12 @@ tags: [linux]
 
 19. awk
 ```bash
-ll | awk '{print $9}'                 # 输出ll命令拿到的信息，并只打印出第九列
-ll | awk '{$1=$2=""; print $0}'       # 排除多列，并打印出后面的所有列，“0”表示所有
-ll | awk '{print $1, $2}'             # 输出ll命令拿到的信息，并只打印出第一、第二列
-awk '{print $1 $2}' filename          # 打印完文件的第一行，再打印文件的第二行
-awk 'END{print NR}' filename          # 打印文本文件的总行数
-awk 'NR==1{print}' filename           # 打印文本第一行
+ll | awk '{print $9}'                                   # 输出ll命令拿到的信息，并只打印出第九列
+ll | awk '{$1=$2=$3=$4=$5=$6=$7=$8=""; print $0}'       # 排除多列，并打印出后面的所有列，“0”表示所有
+ll | awk '{print $1, $2}'                               # 输出ll命令拿到的信息，并只打印出第一、第二列
+awk '{print $1 $2}' filename                            # 打印完文件的第一行，再打印文件的第二行
+awk 'END{print NR}' filename                            # 打印文本文件的总行数
+awk 'NR==1{print}' filename                             # 打印文本第一行
 ```
 
 20. 列举当前目录文件``ls``、``ll``(list)
