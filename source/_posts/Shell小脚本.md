@@ -311,3 +311,9 @@ while [ "$count" -le "$total" ]; do
 done
 echo "Finished."
 ```
+
+##### 顺序列出当前服务器上运营的 tomcat 应用
+```bash
+# ps 获取的结果，用"/"分隔，取第十段，并用数字正序排列
+ps -ef | grep tomcat | awk -F "/" '{print $10 | sort -n}'
+```

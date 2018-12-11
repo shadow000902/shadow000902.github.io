@@ -39,7 +39,12 @@ drwxrwxr-x 14 test test   4096 Jun 24 12:43 workspace/								# Jenkins项目的
 将提示中的启动``Jenkins``的脚本写入文件``start_jenkins.sh``中
 ```shell
 java -jar slave.jar -jnlpUrl http://jenkins.shadow.com/computer/test-devtesting-00001/slave-agent.jnlp 2>&1 &
+# 或
+java -Dfile.encoding=UTF-8 -jar agent.jar -jnlpUrl http://jenkins-14.dasouche-inc.net:17080/computer/slave_51/slave-agent.jnlp -secret 815485b5788e77960f86a6e02d55c9fa104c0e754c1efb046e8a50b44c31cec4 2>&1 &
 ```
+- 如果在 slave 上执行脚本出现乱码问题，可以通过加该参数`-Dfile.encoding=UTF-8`解决
+- 如果服务器存在密码，用于免密链接需要加该参数`-secret 815485b5788e77960f86a6e02d55c9fa104c0e754c1efb046e8a50`，该参数一般在 jenkins 的 slave 设置页会显示出来。
+
 赋予``start_jenkins.sh``执行权限
 ```bash
 chmod a+x start_jenkins.sh
