@@ -166,7 +166,6 @@ tags: [linux]
     ```bash
     souche   14034     1  0 Dec07 ?        00:26:10 /opt/souche/java/bin/java -Djava.util.logging.config.file=/home/souche/tomcats/12005_ironman-test/conf/logging.properties -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager -Djdk.tls.ephemeralDHKeySize=2048 -Djava.protocol.handler.pkgs=org.apache.catalina.webresources -Dignore.endorsed.dirs= -classpath /home/souche/tomcats/12005_ironman-test/bin/bootstrap.jar:/home/souche/tomcats/12005_ironman-test/bin/tomcat-juli.jar -Dcatalina.base=/home/souche/tomcats/12005_ironman-test -Dcatalina.home=/home/souche/tomcats/12005_ironman-test -Djava.io.tmpdir=/home/souche/tomcats/12005_ironman-test/temp org.apache.catalina.startup.Bootstrap start
     ```
-    
     ```bash
     ps -ef | grep tomcat | awk 'END{print "The end!"}BEGIN{FS="/"}{print $10}'
     # 同
@@ -178,7 +177,6 @@ tags: [linux]
     The end!
     ```
     其中`END{print "The end!"}`这一段非必要
-    
     19.2 awk 命令的参数
     ```bash
     ARGC               命令行参数个数
