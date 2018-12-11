@@ -168,13 +168,17 @@ souche   14034     1  0 Dec07 ?        00:26:10 /opt/souche/java/bin/java -Djava
 ```
 
 ```bash
-ps -ef | grep tomcat | awk 'END{print "The end!"}BEGIN{FS="/^tomcats/"}{print $10}'
+ps -ef | grep tomcat | awk 'END{print "The end!"}BEGIN{FS="/"}{print $10}'
+# 同
+ps -ef | grep tomcat | awk -F "/" '{print $10}'
 ```
 获取结果：
 ```bash
 12005_ironman-test
 The end!
 ```
+其中`END{print "The end!"}`这一段非必要
+
 19.2 awk 命令的参数
 ```bash
 ARGC               命令行参数个数
@@ -194,7 +198,21 @@ RS                 控制记录分隔符
 awk '条件1 {动作1} 条件2｛动作2｝…' 文件名                  # 命令方式一
 commend | awk '条件1 {动作1} 条件2｛动作2｝…'              # 命令方式二
 ```
-
+19.4 awk 结果排序
+```bash
+# souche @ kickseed in ~/tomcats [12:48:05] C:2
+$ ps -ef | grep tomcat | awk 'END{print "The end!"}BEGIN{FS="/"}{print $10 | "sort -r -n"}'
+The end!
+12021_venom-test
+12020_asgard-test
+12019_redline-test
+12018_whiteDragonHorse-test
+12017_topgear-flow-test
+12014_topgear-test3
+12012_audit-test
+12005_ironman-test
+```
+其中`-r`表示从大到小，不加该参数表示从小到大，`-n`表示按照数字排序
 
 20. 列举当前目录文件``ls``、``ll``(list)
 ```bash
