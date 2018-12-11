@@ -130,11 +130,11 @@ tags: [linux]
 12. git
 
 13. cat
-```bash
-一次显示整个文件:cat filename
-从键盘创建一个文件:cat > filename 只能创建新文件,不能编辑已有文件.
-将几个文件合并为一个文件:cat file1 file2 > file
-```
+    ```bash
+    一次显示整个文件:cat filename
+    从键盘创建一个文件:cat > filename 只能创建新文件,不能编辑已有文件.
+    将几个文件合并为一个文件:cat file1 file2 > file
+    ```
     13.1 *合并文件*
     ```bash
     cat *.csv > all-in-one.csv														# 合并多个CSV文件，不考虑顺序
@@ -152,82 +152,82 @@ tags: [linux]
 18. dirs
 
 19. awk
-```bash
-ll | awk '{print $9}'                                   # 输出ll命令拿到的信息，并只打印出第九列
-ll | awk '{$1=$2=$3=$4=$5=$6=$7=$8=""; print $0}'       # 排除多列，并打印出后面的所有列，“0”表示所有
-ll | awk '{print $1, $2}'                               # 输出ll命令拿到的信息，并只打印出第一、第二列
-awk '{print $1 $2}' filename                            # 打印完文件的第一行，再打印文件的第二行
-awk 'END{print NR}' filename                            # 打印文本文件的总行数
-awk 'NR==1{print}' filename                             # 打印文本第一行
-ps -ef | grep tomcat | awk '{printf $2 "\t" }'          # 获取 ps 出来的结果的第二列；printf 打印结果时，取消换行符；"\t"把结果之间用空格分隔
-```
-19.1 获取 Linux 服务器下所有的 tomcat
-原始数据：
-```bash
-souche   14034     1  0 Dec07 ?        00:26:10 /opt/souche/java/bin/java -Djava.util.logging.config.file=/home/souche/tomcats/12005_ironman-test/conf/logging.properties -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager -Djdk.tls.ephemeralDHKeySize=2048 -Djava.protocol.handler.pkgs=org.apache.catalina.webresources -Dignore.endorsed.dirs= -classpath /home/souche/tomcats/12005_ironman-test/bin/bootstrap.jar:/home/souche/tomcats/12005_ironman-test/bin/tomcat-juli.jar -Dcatalina.base=/home/souche/tomcats/12005_ironman-test -Dcatalina.home=/home/souche/tomcats/12005_ironman-test -Djava.io.tmpdir=/home/souche/tomcats/12005_ironman-test/temp org.apache.catalina.startup.Bootstrap start
-```
-
-```bash
-ps -ef | grep tomcat | awk 'END{print "The end!"}BEGIN{FS="/"}{print $10}'
-# 同
-ps -ef | grep tomcat | awk -F "/" '{print $10}'
-```
-获取结果：
-```bash
-12005_ironman-test
-The end!
-```
-其中`END{print "The end!"}`这一段非必要
-
-19.2 awk 命令的参数
-```bash
-ARGC               命令行参数个数
-ARGV               命令行参数排列
-ENVIRON            支持队列中系统环境变量的使用
-FILENAME           awk浏览的文件名
-FNR                浏览文件的记录数
-FS                 设置输入域分隔符，等价于命令行 -F选项
-NF                 浏览记录的域的个数
-NR                 已读的记录数
-OFS                输出域分隔符
-ORS                输出记录分隔符
-RS                 控制记录分隔符
-```
-19.3 awk 命令格式
-```bash
-awk '条件1 {动作1} 条件2｛动作2｝…' 文件名                  # 命令方式一
-commend | awk '条件1 {动作1} 条件2｛动作2｝…'              # 命令方式二
-```
-19.4 awk 结果排序
-```bash
-# souche @ kickseed in ~/tomcats [12:48:05] C:2
-$ ps -ef | grep tomcat | awk 'END{print "The end!"}BEGIN{FS="/"}{print $10 | "sort -r -n"}'
-The end!
-12021_venom-test
-12020_asgard-test
-12019_redline-test
-12018_whiteDragonHorse-test
-12017_topgear-flow-test
-12014_topgear-test3
-12012_audit-test
-12005_ironman-test
-```
-其中`-r`表示从大到小，不加该参数表示从小到大，`-n`表示按照数字排序
+    ```bash
+    ll | awk '{print $9}'                                   # 输出ll命令拿到的信息，并只打印出第九列
+    ll | awk '{$1=$2=$3=$4=$5=$6=$7=$8=""; print $0}'       # 排除多列，并打印出后面的所有列，“0”表示所有
+    ll | awk '{print $1, $2}'                               # 输出ll命令拿到的信息，并只打印出第一、第二列
+    awk '{print $1 $2}' filename                            # 打印完文件的第一行，再打印文件的第二行
+    awk 'END{print NR}' filename                            # 打印文本文件的总行数
+    awk 'NR==1{print}' filename                             # 打印文本第一行
+    ps -ef | grep tomcat | awk '{printf $2 "\t" }'          # 获取 ps 出来的结果的第二列；printf 打印结果时，取消换行符；"\t"把结果之间用空格分隔
+    ```
+    19.1 获取 Linux 服务器下所有的 tomcat
+    原始数据：
+    ```bash
+    souche   14034     1  0 Dec07 ?        00:26:10 /opt/souche/java/bin/java -Djava.util.logging.config.file=/home/souche/tomcats/12005_ironman-test/conf/logging.properties -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager -Djdk.tls.ephemeralDHKeySize=2048 -Djava.protocol.handler.pkgs=org.apache.catalina.webresources -Dignore.endorsed.dirs= -classpath /home/souche/tomcats/12005_ironman-test/bin/bootstrap.jar:/home/souche/tomcats/12005_ironman-test/bin/tomcat-juli.jar -Dcatalina.base=/home/souche/tomcats/12005_ironman-test -Dcatalina.home=/home/souche/tomcats/12005_ironman-test -Djava.io.tmpdir=/home/souche/tomcats/12005_ironman-test/temp org.apache.catalina.startup.Bootstrap start
+    ```
+    
+    ```bash
+    ps -ef | grep tomcat | awk 'END{print "The end!"}BEGIN{FS="/"}{print $10}'
+    # 同
+    ps -ef | grep tomcat | awk -F "/" '{print $10}'
+    ```
+    获取结果：
+    ```bash
+    12005_ironman-test
+    The end!
+    ```
+    其中`END{print "The end!"}`这一段非必要
+    
+    19.2 awk 命令的参数
+    ```bash
+    ARGC               命令行参数个数
+    ARGV               命令行参数排列
+    ENVIRON            支持队列中系统环境变量的使用
+    FILENAME           awk浏览的文件名
+    FNR                浏览文件的记录数
+    FS                 设置输入域分隔符，等价于命令行 -F选项
+    NF                 浏览记录的域的个数
+    NR                 已读的记录数
+    OFS                输出域分隔符
+    ORS                输出记录分隔符
+    RS                 控制记录分隔符
+    ```
+    19.3 awk 命令格式
+    ```bash
+    awk '条件1 {动作1} 条件2｛动作2｝…' 文件名                  # 命令方式一
+    commend | awk '条件1 {动作1} 条件2｛动作2｝…'              # 命令方式二
+    ```
+    19.4 awk 结果排序
+    ```bash
+    # souche @ kickseed in ~/tomcats [12:48:05] C:2
+    $ ps -ef | grep tomcat | awk 'END{print "The end!"}BEGIN{FS="/"}{print $10 | "sort -r -n"}'
+    The end!
+    12021_venom-test
+    12020_asgard-test
+    12019_redline-test
+    12018_whiteDragonHorse-test
+    12017_topgear-flow-test
+    12014_topgear-test3
+    12012_audit-test
+    12005_ironman-test
+    ```
+    其中`-r`表示从大到小，不加该参数表示从小到大，`-n`表示按照数字排序
 
 20. 列举当前目录文件``ls``、``ll``(list)
-```bash
-ll -t                     # 当前目录文件按倒叙排列，最新的排最前面
-ll -t | tac               # 当前目录文件按顺序排列，最早的排最前面
-```
+    ```bash
+    ll -t                     # 当前目录文件按倒叙排列，最新的排最前面
+    ll -t | tac               # 当前目录文件按顺序排列，最早的排最前面
+    ```
 
 21. mkdir(make directories)
 
 22. rm
-```bash
-rm -f 					# 直接删除文件，无需确认
-rm -r 					# 删除文件夹，需要确认
-rm -rf 					# 直接删除目录及其中的全部文件，无需确认
-```
+    ```bash
+    rm -f 					# 直接删除文件，无需确认
+    rm -r 					# 删除文件夹，需要确认
+    rm -rf 					# 直接删除目录及其中的全部文件，无需确认
+    ```
 
 23. fdisk
 
@@ -236,23 +236,22 @@ rm -rf 					# 直接删除目录及其中的全部文件，无需确认
 25. ifconfig
 
 26. tail
-```bash
-tail -f catalina.out | grep request      # 查看Linux服务器实时日志，catalina.out为服务器实时记录日志的文件
-```
+    ```bash
+    tail -f catalina.out | grep request      # 查看Linux服务器实时日志，catalina.out为服务器实时记录日志的文件
+    ```
 27. scp     # 本地文件与服务器文件交互
-```bash
-# 从服务器下载文件
-scp username@servername:/remote_path/filename ~/local_destination
-# 上传本地文件到服务器
-scp ~/local_path/local_filename username@servername:/remote_path
-# 从服务器下载整个目录
-scp -r username@servername:/remote_path/remote_dir/ ~/local_destination
-# 上传目录到服务器
-scp  -r ~/local_dir username@servername:/remote_path/remote_dir
-```
+    ```bash
+    # 从服务器下载文件
+    scp username@servername:/remote_path/filename ~/local_destination
+    # 上传本地文件到服务器
+    scp ~/local_path/local_filename username@servername:/remote_path
+    # 从服务器下载整个目录
+    scp -r username@servername:/remote_path/remote_dir/ ~/local_destination
+    # 上传目录到服务器
+    scp  -r ~/local_dir username@servername:/remote_path/remote_dir
+    ```
 
 28. sed     #
-
     [sed命令用法](https://www.cnblogs.com/maxincai/p/5146338.html)
     
     ```markdown
@@ -360,18 +359,18 @@ scp  -r ~/local_dir username@servername:/remote_path/remote_dir
     ```
 
 30. rmdir            # 删除文件（夹）命令
-```bash
-[root@localhost home]# mkdir -p {dir1,dir2/dir3}            # -p 当子目录被删除后也成为空目录的话，则顺便一并删除
-[root@localhost home]# ls
-dir1 dir2 justin lost+found t
-[root@localhost home]# rmdir dir1
-[root@localhost home]# rmdir dir2
-rmdir: 删除 "dir2"失败: 目录非空
-[root@localhost home]# rmdir -p dir2/dir3/
-[root@localhost home]# ls
-justin lost+found t
-[root@localhost home]#
-```
+    ```bash
+    [root@localhost home]# mkdir -p {dir1,dir2/dir3}            # -p 当子目录被删除后也成为空目录的话，则顺便一并删除
+    [root@localhost home]# ls
+    dir1 dir2 justin lost+found t
+    [root@localhost home]# rmdir dir1
+    [root@localhost home]# rmdir dir2
+    rmdir: 删除 "dir2"失败: 目录非空
+    [root@localhost home]# rmdir -p dir2/dir3/
+    [root@localhost home]# ls
+    justin lost+found t
+    [root@localhost home]#
+    ```
 
 31. 更改文件（夹）权限
     31.1 更改所有者权限
@@ -485,54 +484,54 @@ justin lost+found t
     - ``-0``：（杠零）表示每列出一个目录的信息，不换行，而是直接输出下一个目录的信息。
 
 33. 修改root密码
-```bash
-[root@shadow000902 /]# passwd								# 修改密码命令
-Changing password for user root.
-New password: 												      # 输入新的密码
-Retype new password: 										    # 确认新的密码
-passwd: all authentication tokens updated successfully.		# 成功修改密码提示
-```
+    ```bash
+    [root@shadow000902 /]# passwd								# 修改密码命令
+    Changing password for user root.
+    New password: 												      # 输入新的密码
+    Retype new password: 										    # 确认新的密码
+    passwd: all authentication tokens updated successfully.		# 成功修改密码提示
+    ```
 
 34. 创建用户及用户组，并修改密码切换用户
-```bash
-# root @ shadow in ~ [10:30:20] C:1
-$ adduser shadow                            # 创建用户
-# root @ shadow in ~ [10:34:45]
-$ groupadd shadow                           # 创建用户组
-groupadd：“shadow”组已存在                    # 在创建用户的时候，已经同时创建了同名的用户组
-# root @ shadow in ~ [10:36:52]
-$ passwd shadow                             # 修改用户密码
-更改用户 shadow 的密码 。
-新的 密码：
-重新输入新的 密码：
-passwd：所有的身份验证令牌已经成功更新。
-# root @ shadow in ~ [10:38:41]
-$ su - shadow                               # 切换用户
-[shadow@shadow ~]$                          # 切换用户成功
-```
+    ```bash
+    # root @ shadow in ~ [10:30:20] C:1
+    $ adduser shadow                            # 创建用户
+    # root @ shadow in ~ [10:34:45]
+    $ groupadd shadow                           # 创建用户组
+    groupadd：“shadow”组已存在                    # 在创建用户的时候，已经同时创建了同名的用户组
+    # root @ shadow in ~ [10:36:52]
+    $ passwd shadow                             # 修改用户密码
+    更改用户 shadow 的密码 。
+    新的 密码：
+    重新输入新的 密码：
+    passwd：所有的身份验证令牌已经成功更新。
+    # root @ shadow in ~ [10:38:41]
+    $ su - shadow                               # 切换用户
+    [shadow@shadow ~]$                          # 切换用户成功
+    ```
 
 35. 删除用户及用户文件夹
-```bash
-# 查看所有用户
-cat /etc/passwd|grep -v nologin|grep -v halt|grep -v shutdown|awk -F":" '{ print $1"|"$3"|"$4 }'|more
-su - root                                   # 首先需要切换到root用户
-userdel -r shadow                           # 删除shadow用户及用户文件夹
-```
+    ```bash
+    # 查看所有用户
+    cat /etc/passwd|grep -v nologin|grep -v halt|grep -v shutdown|awk -F":" '{ print $1"|"$3"|"$4 }'|more
+    su - root                                   # 首先需要切换到root用户
+    userdel -r shadow                           # 删除shadow用户及用户文件夹
+    ```
 
 36. CentOS卸载软件
-```bash
-yum remove tomcat
-```
+    ```bash
+    yum remove tomcat
+    ```
 
 37. “shadow is not in the sudoers file.  This incident will be reported.”解决方法
-在``root``用户下，执行``visudo``
-```bash
-  91 ## Allow root to run any commands anywhere
-  92 root    ALL=(ALL)       ALL
-  93 shadow  ALL=(ALL)       ALL        # 添加这段内容，第一个单词是，需要可以使用sudo权限的用户名
-  94
-  95 ## Allows members of the 'sys' group to run networking, software,
-```
+    在``root``用户下，执行``visudo``
+    ```bash
+      91 ## Allow root to run any commands anywhere
+      92 root    ALL=(ALL)       ALL
+      93 shadow  ALL=(ALL)       ALL        # 添加这段内容，第一个单词是，需要可以使用sudo权限的用户名
+      94
+      95 ## Allows members of the 'sys' group to run networking, software,
+    ```
 
 38. Ubuntu 命令行安装语言包
     中文语言包:
@@ -604,15 +603,15 @@ yum remove tomcat
     {% asset_img 当前目录下的所有文件及文件夹.png 当前目录下的所有文件及文件夹 %}
 
 42. `last`显示最近的登录用户信息
-```bash
-# souche @ kickseed in ~ [11:34:38]
-$ last -n 5
-souche   pts/1        172.17.53.161    Tue Dec 11 11:34   still logged in
-souche   pts/1        172.17.49.117    Tue Dec 11 11:16 - 11:17  (00:00)
-souche   pts/1        172.17.53.161    Tue Dec 11 10:47 - 10:48  (00:00)
-souche   pts/1        172.17.52.197    Mon Dec 10 18:57 - 18:58  (00:01)
-souche   pts/4        172.17.53.34     Mon Dec 10 17:05 - 17:34  (00:28)
-
-wtmp begins Mon Dec  3 10:06:15 2018
-
-```
+    ```bash
+    # souche @ kickseed in ~ [11:34:38]
+    $ last -n 5
+    souche   pts/1        172.17.53.161    Tue Dec 11 11:34   still logged in
+    souche   pts/1        172.17.49.117    Tue Dec 11 11:16 - 11:17  (00:00)
+    souche   pts/1        172.17.53.161    Tue Dec 11 10:47 - 10:48  (00:00)
+    souche   pts/1        172.17.52.197    Mon Dec 10 18:57 - 18:58  (00:01)
+    souche   pts/4        172.17.53.34     Mon Dec 10 17:05 - 17:34  (00:28)
+    
+    wtmp begins Mon Dec  3 10:06:15 2018
+    
+    ```
