@@ -23,3 +23,30 @@ result = re.sub('{.*?}', pageParam, urlp)
 print(result)  
 ```
 
+#### # 修改字典 value 值
+```python
+import re
+
+def updateDictValue(fileName, key, value):
+ fileLineContent = []
+
+ with open(fileName, 'r') as f:
+     line = f.readline()
+     while line:
+         # 找到 line 中的 "souche2015" 值
+         regex = key + '\s*=\s*"(.*)"'
+         pattern = re.compile(regex)
+         m = pattern.search(line)
+         if m:
+             print(m.group(1))
+             # 将 "souche2015" 替换为对应的 value
+             fileLineContent.append(line.replace(m.group(1), value))
+         else:
+             fileLineContent.append(line)
+         # continue
+         line = f.readline()
+
+ # 重新写入新内容
+ with open(fileName, 'w') as f:
+     f.writelines(fileLineContent)
+```
