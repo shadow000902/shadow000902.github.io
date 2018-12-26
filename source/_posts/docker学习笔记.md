@@ -338,3 +338,29 @@ Username: shadow000902
 Password: 
 Login Succeeded
 ```
+
+9. 容器从拉取到启动到删除过程
+```bash
+# 宿主机
+docker pull tomcat
+# 宿主机
+docker images
+# 宿主机
+docker run -it --name tomcat -p 8080:8080 tomcat /bin/bash
+# 宿主机
+docker ps
+# 容器内 root@63beef310cae:/usr/local/tomcat#
+./bin/catalina.sh run
+# 宿主机 退出后，重新进入容器
+docker attach tomcat
+# 容器内，退出容器
+exit
+# 宿主机 停止容器
+docker stop tomcat
+# 宿主机 删除容器
+docker rm tomcat
+# 宿主机 docker 进程已经删除
+docker ps
+# 宿主机 docker 镜像依旧存在
+docker images
+```
