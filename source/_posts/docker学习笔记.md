@@ -4,33 +4,33 @@ date: 2016-12-08 10:16:51
 categories: [Tools]
 tags: [docker]
 ---
-##### 安装docker
-    官网下载 Docker for Mac
+#### 安装docker
+官网下载 Docker for Mac
 
-##### 无法删除docker镜像时，处理方法
-    有依赖该image的container，先删除container再删除image
-    ```bash
+#### 无法删除docker镜像时，处理方法
+有依赖该image的container，先删除container再删除image
+```bash
     docker ps -a | grep "Exited" | awk '{print $1 }'|xargs docker stop
     docker ps -a | grep "Exited" | awk '{print $1 }'|xargs docker rm
     docker images|grep none|awk '{print $3 }'|xargs docker rmi
-    ```
-    这样清空掉残余的容器后，再删除images就没有异常的提示了。
+```
+这样清空掉残余的容器后，再删除images就没有异常的提示了。
 
   <!--more-->
 
-##### 安装``docker&boot2docker``
-    ```
+#### 安装``docker&boot2docker``
+```bash
     brew install boot2docker
-    ```
+```
 
-##### ``Docker images``存放位置
-    ``Docker for Mac``版本，所有的docker images 保存在下面这个文件里：
-    ```bash
+#### ``Docker images``存放位置
+``Docker for Mac``版本，所有的docker images 保存在下面这个文件里：
+```bash
     /Users/{YourUserName}/Library/Containers/com.docker.docker/Data/com.docker.driver.amd64-linux/Docker.qcow2
-    ```
-    到目前为止，还是没有办法指定``images``和``Container``的保存路径，你只能任由``docker``吃掉你的主盘。
+```
+到目前为止，还是没有办法指定``images``和``Container``的保存路径，你只能任由``docker``吃掉你的主盘。
 
-##### docker镜像的常用操作
+#### docker镜像的常用操作
 1. 获取镜像
     ```bash
     docker pull <域名>/<namespace>/<repo>:<tag>
