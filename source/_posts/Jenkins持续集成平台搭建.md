@@ -125,6 +125,9 @@ System.setProperty("hudson.model.DirectoryBrowserSupport.CSP","sandbox allow-scr
 
 #### 好用的Jenkins插件
 
+##### ``Git Parameter``【构建分支&Tags参数化】
+{% asset_img Git_Parameter.png Git_Parameter %}
+
 ##### ``Build User Vars Plugin``【获取项目构建人】
 
 插件名称：``user build vars plugin``
