@@ -28,8 +28,10 @@ mkdir /opt/Jenkins/script
 第二种是在环境变量中设置``JENKINS_HOME``。
 ```bash
 # 编辑对应用户的终端的环境变量设置文件
-编辑profile文件：vim ~/.bashrc
-在最后加入：export JENKINS_HOME="/home/souche/jenkins/Home"
+# 编辑profile文件：
+vim ~/.bashrc
+# 在最后加入：
+export JENKINS_HOME="/home/souche/jenkins/Home"
 ```
 
 ##### 下载``jenkins.war``
