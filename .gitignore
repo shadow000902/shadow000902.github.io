@@ -1,4 +1,5 @@
 .idea/
+.deploy_git
 public/
 debug.log
 node_modules
