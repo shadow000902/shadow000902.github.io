@@ -2,7 +2,7 @@
 title: 如何做好一个执行者
 date: 2017-12-04 00:28:42
 categories: [TestTheory]
-tags:
+tags: [测试基础知识]
 ---
 
 ##### 如何做好基础的执行者

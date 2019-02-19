@@ -2,7 +2,7 @@
 title: Appium-Maven-Jenkins自动化测试框架
 date: 2016-09-19 14:07:38
 categories: [Appium]
-tags: [Appium, Maven, Jenkins]
+tags: [appium, maven, jenkins]
 ---
 
 #### 前置条件

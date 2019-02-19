@@ -2,7 +2,7 @@
 title: 测试人员需要的数据库知识
 date: 2017-12-03 22:28:34
 categories: [TestTheory]
-tags: 
+tags: [测试基础知识]
 ---
 
 ##### 第一阶段、基础需求

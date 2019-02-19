@@ -2,7 +2,7 @@
 title: TESTER的核心价值
 date: 2017-12-08 20:04:50
 categories: [TestTheory]
-tags:
+tags: [测试基础知识]
 ---
 
 我认为当前测试人员的核心价值是加速整个项目的反馈以及对产品的快速验证。

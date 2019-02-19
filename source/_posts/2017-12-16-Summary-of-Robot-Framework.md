@@ -2,7 +2,7 @@
 title: Robot-Framework的几点总结
 date: 2017-12-16 21:59:38
 categories: [RobotFramework]
-tags: [robotframework]
+tags: [robot-framework]
 ---
 
 ##### 命令行执行RF用例

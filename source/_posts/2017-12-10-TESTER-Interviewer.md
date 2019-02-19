@@ -2,7 +2,7 @@
 title: TESTER面试官
 date: 2017-12-10 00:42:50
 categories: [TestTheory]
-tags:
+tags: [测试基础知识]
 ---
 
 ##### 筛选简历

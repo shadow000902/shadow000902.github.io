@@ -2,7 +2,7 @@
 title: MAC系统空间清理
 date: 2016-11-29 18:03:51
 categories: [Tips]
-tags: [mac, ]
+tags: [mac]
 ---
 
 1. 删除Emacs——可以节省出60MB+的硬盘空间
