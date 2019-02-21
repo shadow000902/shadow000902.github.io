@@ -23,6 +23,8 @@ result = re.sub('{.*?}', pageParam, urlp)
 print(result)  
 ```
 
+  <!--more-->
+
 #### # 修改字典 value 值
 ```python
 import re
