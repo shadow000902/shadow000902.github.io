@@ -12,7 +12,7 @@ pip install robotframework==2.8.7
 ```
 要用``pip``安装指定版本的``Python``包，只需通过``==``操作符指定即可。
 
-    <!--more-->
+  <!--more-->
 
 ##### 在指定位置安装第三方
 ```bash
