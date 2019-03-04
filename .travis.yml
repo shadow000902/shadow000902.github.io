@@ -35,7 +35,8 @@ script:
   # 以上的两个操作没有的话，博客部署后，就处于无主题的状态，是无法访问的
 
   - cd ..
-  - hexo g
+  - hexo clean --debug
+  - hexo generate --debug
 
 after_script:
   - cd ./public
