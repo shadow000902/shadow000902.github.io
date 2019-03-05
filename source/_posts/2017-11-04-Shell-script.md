@@ -317,3 +317,13 @@ echo "Finished."
 # ps 获取的结果，用"/"分隔，取第十段，并用数字正序排列
 ps -ef | grep tomcat | awk -F "/" '{print $10 | sort -n}'
 ```
+
+##### 指定文件中的换行符替换为空格
+1. 使用正则
+```bash
+cat listTomcat | sed ':label;N;s/\n/ /;b label'
+```
+2. 使用 shell
+```bash
+cat listTomcat | tr "\n" " "
+```
