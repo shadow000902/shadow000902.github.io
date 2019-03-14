@@ -131,3 +131,8 @@ git reset commit-id2				# 只是撤销提交，修改的内容不变
 git reset --hard commit-id2			# 撤销提交，并撤销修改的内容
 git push origin HARD --force		# 撤销后，强制提交并push到远程分支
 ```
+
+#### 修改最新一次已提交但未 push 的 message
+```bash
+git commit --amend -m "your new message"
+```
