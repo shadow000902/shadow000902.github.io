@@ -45,6 +45,35 @@ tags: [mysql]
     DROP TABLE table_name ;
     ```
 
+7. 用户管理
+    7.1 新建用户
+    ```sql
+    CREATE USER 'username'@'host' IDENTIFIED BY 'password';
+    ```
+    7.2 授权
+    ```sql
+    GRANT privileges ON databasename.tablename TO 'username'@'host'
+    ```
+    - privileges：用户的操作权限，如SELECT，INSERT，UPDATE等，如果要授予所的权限则使用ALL
+    - databasename：数据库名
+    - tablename：表名，如果要授予该用户对所有数据库和表的相应操作权限则可用`*`表示，如`*.*`
+    7.3 设置与更改用户密码
+    ```sql
+    SET PASSWORD FOR 'username'@'host' = PASSWORD('newpassword');
+    ```
+    如果是当前用户：
+    ```sql
+    SET PASSWORD = PASSWORD("newpassword");
+    ```
+    7.4 撤销用户权限
+    ```sql
+    REVOKE privilege ON databasename.tablename FROM 'username'@'host';
+    ```
+    7.5 删除用户
+    ```sql
+    DROP USER 'username'@'host';
+    ```
+
 #### 增删改
 1. 插入数据
     ```sql
@@ -129,11 +158,11 @@ tags: [mysql]
     ```
     
 #### 使用函数处理数据
-函数的类型：
-    - 用于处理文本字符串
-    - 用于在数值数据上进行算术操作
-    - 用于处理日期和时间值并从这些值中提取特定成分
-    - 返回 DBMS 正使用的特殊信息
+    函数的类型：
+        - 用于处理文本字符串
+        - 用于在数值数据上进行算术操作
+        - 用于处理日期和时间值并从这些值中提取特定成分
+        - 返回 DBMS 正使用的特殊信息
 1. 文本处理函数
 
     |函数|说明|
