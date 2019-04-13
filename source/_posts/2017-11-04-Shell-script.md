@@ -327,3 +327,20 @@ cat listTomcat | sed ':label;N;s/\n/ /;b label'
 ```bash
 cat listTomcat | tr "\n" " "
 ```
+
+##### 根据 tag 和 env 执行用例
+```bash
+#!/usr/bin/env bash
+
+# 选择环境
+env=$1
+# 选择需要执行的 tag
+tag=$2
+
+~/.pyenv/shims/pybot \
+    -d results \
+    -V ./envVars.py:$env \
+    --listener ./RobotListener.py \
+    --include=$tag \
+    .
+```

@@ -11,7 +11,9 @@ tags: [tomcat]
     # 添加配置参数
     JAVA_OPTS='-Xms256m -Xmx400m'
     ```
-    
+
+  <!--more-->
+
 2. 脚本新建新的 tomcat 目录
 ```bash
 # 执行脚本：

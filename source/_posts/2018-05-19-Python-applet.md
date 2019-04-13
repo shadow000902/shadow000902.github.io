@@ -5,17 +5,17 @@ categories: [Python]
 tags: [python]
 ---
 
-1. 修改文件内容，并存入原文件
+##### 修改文件内容，并存入原文件
 ```python
 import fileinput
 for line in fileinput.input("test0", inplace=1):
     line = line.replace("..", "C:")
-    print line
+    print (line)
 ```
 
   <!--more-->
 
-2. 比较两个文件的差异，并输出HTML对比结果
+##### 比较两个文件的差异，并输出HTML对比结果
 ```python
 # -*- coding: utf-8 -*-
 """
@@ -66,7 +66,7 @@ if __name__ == '__main__':
     diff_file(filename1, filename2)
 ```
 
-3. 金额数值转大写
+##### 金额数值转大写
 ```python
 # -*- coding: utf-8 -*-
 
@@ -130,5 +130,41 @@ def convertNumToChinese(totalPrice):
     return S
 
 
-print convertNumToChinese(23001231.041)
+print (convertNumToChinese(23001231.041))
 ```
+
+##### RobotFramework 监听器
+```python
+# -*- coding: utf-8 -*-
+
+import urllib3
+
+class RobotListener(object):
+    urllib3.disable_warnings()
+    ROBOT_LISTENER_API_VERSION = 2
+
+    def start_suite(self, name, args):
+        print ("\033[1;34mStarting Suite:\033[0m \033[1;32m%s\033[0m" % args['source'])
+
+    def start_test(self, name, args):
+        print ('\n')
+        print ("\033[1;34mStarting  test:\033[0m \033[1;32m%s\033[0m" % name)
+        if args['template']:
+            print ('\033[1;34mTemplate    is:\033[0m \033[1;32m%s\033[0m' % args['template'])
+
+    def end_test(self, name, args):
+        print ("\033[1;34mEnding    test:\033[0m \033[1;32m%s\033[0m" % name)
+        print ('\n')
+        print ("\033[1;34mTest Result is:\033[0m \033[1;32m%s\033[0m" % args['status'])
+        print ("\033[1;34mTest   Time is:\033[0m \033[1;32m%s\033[0m" % str(args['elapsedtime']))
+        print (' ')
+
+    def end_suite(self, name, args):
+        print ("\033[1;34mEnding   Suite:\033[0m \033[1;32m%s\033[0m" % args['source'])
+        print ("\033[1;34mSuiteResult is:\033[0m \033[1;32m%s\033[0m" % args['status'])
+        print ("\033[1;34mSuite  Time is:\033[0m \033[1;32m%s\033[0m" % str(args['elapsedtime']))
+
+    def log_message(self, message):
+        print (message['timestamp'] + " : " + message['level'] + " : " + message['message'])
+```
+
