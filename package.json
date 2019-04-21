@@ -32,7 +32,7 @@
     "hexo-server": "^0.2.2",
     "hexo-symbols-count-time": "^0.4.4",
     "hexo-wordcount": "^3.0.2",
-    "highlight.js": "^9.14.2",
+    "highlight.js": "^9.15.6",
     "minimatch": "^3.0.4"
   }
 }
