@@ -84,7 +84,7 @@ alias rvm-prompt=$HOME/.rvm/bin/rvm-prompt
 ##### 安装第三方插件
 1. 安装``zsh-syntax-highlighting``插件
 ```bash
-cd ~/.oh-my-zsh/
+cd ~/.oh-my-zsh/plugins/
 git clone git://github.com/zsh-users/zsh-syntax-highlighting.git
 ```
 然后编辑环境变量文件``~/.zshrc``，在其中加入插件名称
