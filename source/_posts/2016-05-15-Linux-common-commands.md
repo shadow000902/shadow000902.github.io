@@ -5,351 +5,185 @@ categories: [Linux]
 tags: [linux]
 ---
 
-1. mv
-    1.1 Moving files
+#### 基础命令
+##### mv
+1. Moving files
     ```bash
     mv test0001.txt /opt/
     ```
-    1.2 Moving multiple files
+2. Moving multiple files
     ```bash
     mv test0001.txt test0002.txt /opt/
     mv *.txt /opt/
     ```
-    1.3 Moving directory
+3. Moving directory
     ```bash
     mv /tmp/test0001 /opt/
     ```
 
   <!--more-->
 
-    1.4 Renaming files or directory
+4. Renaming files or directory
     ```bash
     mv test0001.txt test0002.txt
     ```
-    1.5 Renaming directory
+5. Renaming directory
     ```bash
     mv test0001 test0002
     ```
-    1.6 Print what happen
+6. Print what happen
     ```bash
     mv -v *.txt /opt/
     ```
-    1.7 Using interactive mode
+7. Using interactive mode
     ```bash
     mv -i *.txt /opt/
     ```
-    1.8 Using update option
+8. Using update option
     ```bash
     mv -uv *.txt /opt/
     ```
-    1.9 Do not overwrite any existing file
+9. Do not overwrite any existing file
     ```bash
     mv -vn *.txt /opt/
     ```
-    1.10 Create backup when copying
+10. Create backup when copying
     ```bash
     mv -bv *.txt /opt/
     ```
     [10 Practical mv Command Examples](https://linoxide.com/linux-command/mv-command-linux/)
 
+##### cp(copy)
+```bash
+cp -r /opt/android/tools /opt/      # -r 复制文件夹
+```
 
-2. cp(copy)
-    ```bash
-    cp -r /opt/android/tools /opt/      # -r 复制文件夹
-    ```
-
-3. ps(process status)
-    ```bash
-    ps -ef | grep tomcat
-    ```
-
-4. kill
-
-5. shutdown
-
-6. swatch(simple watcher)
-
-7. top
+##### ps(process status)
+参数说明：
+```
+ps 的参数非常多, 在此仅列出几个常用的参数并大略介绍含义
+-A 列出所有的行程
+-w 显示加宽可以显示较多的资讯
+-au 显示较详细的资讯
+-aux 显示所有包含其他使用者的行程
+au(x) 输出格式 :
+USER PID %CPU %MEM VSZ RSS TTY STAT START TIME COMMAND
+USER: 行程拥有者
+PID: pid
+%CPU: 占用的 CPU 使用率
+%MEM: 占用的记忆体使用率
+VSZ: 占用的虚拟记忆体大小
+RSS: 占用的记忆体大小
+TTY: 终端的次要装置号码 (minor device number of tty)
+STAT: 该行程的状态:
+D: 无法中断的休眠状态 (通常 IO 的进程)
+R: 正在执行中
+S: 静止状态
+T: 暂停执行
+Z: 不存在但暂时无法消除
+W: 没有足够的记忆体分页可分配
+<: 高优先序的行程
+N: 低优先序的行程
+L: 有记忆体分页分配并锁在记忆体内 (实时系统或捱A I/O)
+START: 行程开始时间
+TIME: 执行的时间
+COMMAND:所执行的指令
+```
+1. 简单应用
 	```bash
-	top -d 1 -n 20 -p 3951 | grep 3951
+	ps -ef | grep tomcat
 	```
-    -b：以批处理模式操作；
-    -c：显示完整的治命令；
-    -d：屏幕刷新间隔时间；
-    -I：忽略失效过程；
-    -s：保密模式；
-    -S：累积模式；
-    -i<时间>：设置间隔时间；
-    -u<用户名>：指定用户名；
-    -p<进程号>：指定进程；
-    -n<次数>：循环显示的次数。 
+2. 复杂查询展示
+	```bash
+	:<<BLOCK
+	循环20次
+	-o 参数用来格式化输出``指定字段``，字段头为%mem, 只展示指定进程的该字段
+	tail -1 取每次循环结果的最后一行，且间隔1秒
+	awk用于处理结果展示，展示第一列值和每次的平均值
+	BLOCK
+	for i in $(seq 20); \
+	do ps -o %mem -p 20752 \
+	| tail -1;sleep 1;done \
+	| awk '{t+=$1;print $1,t/NR}'
+	```
+3. ``-o``参数使用
+	```bash
+	# shadow @ shadow in ~ [9:14:44] C:130
+    $ ps -o pid,ppid,pgrp,session,tpgid,comm 
+      PID  PPID  PGRP  SESS TPGID COMMAND
+     4415  4414  4415  4223  4618 zsh
+     4618  4415  4618  4223  4618 ps
+	```
 
-8. grep
-    8.1 在文件中查找单词
-    ```bash
-    grep shadow /etc/hosts
-    ```
-    8.2 在多个文件中查找单词
-    ```bash
-    grep shadow /etc/hosts /etc/hosts1
-    ```
-    8.3 列出包含指定单词的文件的文件名
-    ```bash
-    grep -l shadow /etc/hosts /etc/hosts1 /etc/hosts2 /etc/hosts3
-    ```
-    8.4 在文件中查找指定单词并显示匹配行的行号
-    ```bash
-    grep -n shadow /etc/hosts /etc/hosts1
-    ```
-    8.5 输出不包含指定单词的行
-    ```bash
-    grep -v shadow /etc/hosts
-    ```
-    8.6 输出所有以指定单词开头的行
-    ```bash
-    grep ^ shadow /etc/hosts
-    ```
-    8.7 输出所有以指定单词结尾的行
-    ```bash
-    grep shadow$ /etc/hosts
-    ```
-    8.8 参数递归地查找指定单词
-    ```bash
-    grep -r shadow /etc/hosts
-    ```
-    8.9 查找文件中所有的空行
-    ```bash
-    grep ^$ /etc/hosts
-    ```
-    8.10 同时查找多个单词
-    ```bash
-    grep -e shadow -e shadows /etc/hosts
-    ```
-    8.11 计算匹配到的单词的数量
-    ```bash
-    grep -c -f shadow /etc/hosts
-    ```
-    8.12
-    ```bash
-    grep -irn "SyncWriteStream" ./node_modules/hexo-deployer-git/
-    ```
+##### kill
 
-9. unzip
+##### shutdown
 
-10. tar(tape archive)
+##### swatch(simple watcher)
 
-11. diff
+##### unzip
 
-12. git
+##### tar(tape archive)
 
-13. cat
-    ```bash
-    一次显示整个文件:cat filename
-    从键盘创建一个文件:cat > filename 只能创建新文件,不能编辑已有文件.
-    将几个文件合并为一个文件:cat file1 file2 > file
-    ```
-    13.1 *合并文件*
+##### diff
+
+##### git
+
+##### cat
+```bash
+一次显示整个文件:cat filename
+从键盘创建一个文件:cat > filename 只能创建新文件,不能编辑已有文件.
+将几个文件合并为一个文件:cat file1 file2 > file
+```
+1. *合并文件*
     ```bash
     cat *.csv > all-in-one.csv														# 合并多个CSV文件，不考虑顺序
     cat file1.csv file2.csv file3.csv ... file[n].csv > all-in-one.csv				# 合并多个CSV文件，考虑顺序
     ```
 
-14. chmod(change mode)    # 更改文件／文件夹权限
+##### chmod(change mode)    # 更改文件／文件夹权限
 
-15. chown(change owner)   # 更改文件／文件夹所有者
+##### chown(change owner)   # 更改文件／文件夹所有者
 
-16. cd(change directory)  # 进入某目录
+##### cd(change directory)  # 进入某目录
 
-17. df(disk free)
+##### df(disk free)
 
-18. dirs
+##### dirs
 
-19. awk
-    ```bash
-    ll | awk '{print $9}'                                   # 输出ll命令拿到的信息，并只打印出第九列
-    ll | awk '{$1=$2=$3=$4=$5=$6=$7=$8=""; print $0}'       # 排除多列，并打印出后面的所有列，“0”表示所有
-    ll | awk '{print $1, $2}'                               # 输出ll命令拿到的信息，并只打印出第一、第二列
-    awk '{print $1 $2}' filename                            # 打印完文件的第一行，再打印文件的第二行
-    awk 'END{print NR}' filename                            # 打印文本文件的总行数
-    awk 'NR==1{print}' filename                             # 打印文本第一行
-    ps -ef | grep tomcat | awk '{printf $2 "\t" }'          # 获取 ps 出来的结果的第二列；printf 打印结果时，取消换行符；"\t"把结果之间用空格分隔
-    ```
-    19.1 获取 Linux 服务器下所有的 tomcat
-    原始数据：
-    ```bash
-    souche   14034     1  0 Dec07 ?        00:26:10 /opt/souche/java/bin/java -Djava.util.logging.config.file=/home/souche/tomcats/12005_ironman-test/conf/logging.properties -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager -Djdk.tls.ephemeralDHKeySize=2048 -Djava.protocol.handler.pkgs=org.apache.catalina.webresources -Dignore.endorsed.dirs= -classpath /home/souche/tomcats/12005_ironman-test/bin/bootstrap.jar:/home/souche/tomcats/12005_ironman-test/bin/tomcat-juli.jar -Dcatalina.base=/home/souche/tomcats/12005_ironman-test -Dcatalina.home=/home/souche/tomcats/12005_ironman-test -Djava.io.tmpdir=/home/souche/tomcats/12005_ironman-test/temp org.apache.catalina.startup.Bootstrap start
-    ```
-    ```bash
-    ps -ef | grep tomcat | awk 'END{print "The end!"}BEGIN{FS="/"}{print $10}'
-    # 同
-    ps -ef | grep tomcat | awk -F "/" '{print $10}'
-    ```
-    获取结果：
-    ```bash
-    12005_ironman-test
-    The end!
-    ```
-    其中`END{print "The end!"}`这一段非必要
-    19.2 awk 命令的参数
-    ```bash
-    ARGC               命令行参数个数
-    ARGV               命令行参数排列
-    ENVIRON            支持队列中系统环境变量的使用
-    FILENAME           awk浏览的文件名
-    FNR                浏览文件的记录数
-    FS                 设置输入域分隔符，等价于命令行 -F选项
-    NF                 浏览记录的域的个数
-    NR                 已读的记录数
-    OFS                输出域分隔符
-    ORS                输出记录分隔符
-    RS                 控制记录分隔符
-    ```
-    19.3 awk 命令格式
-    ```bash
-    awk '条件1 {动作1} 条件2｛动作2｝…' 文件名                  # 命令方式一
-    commend | awk '条件1 {动作1} 条件2｛动作2｝…'              # 命令方式二
-    ```
-    19.4 awk 结果排序
-    ```bash
-    # souche @ kickseed in ~/tomcats [12:48:05] C:2
-    $ ps -ef | grep tomcat | awk 'END{print "The end!"}BEGIN{FS="/"}{print $10 | "sort -r -n"}'
-    The end!
-    12021_venom-test
-    12020_asgard-test
-    12019_redline-test
-    12018_whiteDragonHorse-test
-    12017_topgear-flow-test
-    12014_topgear-test3
-    12012_audit-test
-    12005_ironman-test
-    ```
-    其中`-r`表示从大到小，不加该参数表示从小到大，`-n`表示按照数字排序
+##### 列举当前目录文件``ls``、``ll``(list)
+```bash
+ll -t                     # 当前目录文件按倒叙排列，最新的排最前面
+ll -t | tac               # 当前目录文件按顺序排列，最早的排最前面
+```
 
-20. 列举当前目录文件``ls``、``ll``(list)
-    ```bash
-    ll -t                     # 当前目录文件按倒叙排列，最新的排最前面
-    ll -t | tac               # 当前目录文件按顺序排列，最早的排最前面
-    ```
+##### mkdir(make directories)
 
-21. mkdir(make directories)
+##### rm
+```bash
+rm -f 					# 直接删除文件，无需确认
+rm -r 					# 删除文件夹，需要确认
+rm -rf 					# 直接删除目录及其中的全部文件，无需确认
+```
 
-22. rm
-    ```bash
-    rm -f 					# 直接删除文件，无需确认
-    rm -r 					# 删除文件夹，需要确认
-    rm -rf 					# 直接删除目录及其中的全部文件，无需确认
-    ```
+##### fdisk
 
-23. fdisk
+##### telnet
 
-24. telnet
+##### ifconfig
 
-25. ifconfig
+##### tail
+```bash
+tail -f catalina.out | grep request      # 查看Linux服务器实时日志，catalina.out为服务器实时记录日志的文件
+```
 
-26. tail
-    ```bash
-    tail -f catalina.out | grep request      # 查看Linux服务器实时日志，catalina.out为服务器实时记录日志的文件
-    ```
-27. scp     # 本地文件与服务器文件交互
-    ```bash
-    # 从服务器下载文件
-    scp username@servername:/remote_path/filename ~/local_destination
-    # 上传本地文件到服务器
-    scp ~/local_path/local_filename username@servername:/remote_path
-    # 从服务器下载整个目录
-    scp -r username@servername:/remote_path/remote_dir/ ~/local_destination
-    # 上传目录到服务器
-    scp  -r ~/local_dir username@servername:/remote_path/remote_dir
-    ```
+##### touch           # 创建文件（夹）命令
 
-28. sed     #
-    [sed命令用法](https://www.cnblogs.com/maxincai/p/5146338.html)
-    
-    ```markdown
-    [root@www ~]# sed [-nefr] [动作]
-    选项与参数：
-    -n ：使用安静(silent)模式。在一般 sed 的用法中，所有来自 STDIN 的数据一般都会被列出到终端上。但如果加上 -n 参数后，则只有经过sed 特殊处理的那一行(或者动作)才会被列出来。
-    -e ：直接在命令列模式上进行 sed 的动作编辑；
-    -f ：直接将 sed 的动作写在一个文件内， -f filename 则可以运行 filename 内的 sed 动作；
-    -r ：sed 的动作支持的是延伸型正规表示法的语法。(默认是基础正规表示法语法)
-    -i ：直接修改读取的文件内容，而不是输出到终端。
-    
-    动作说明： [n1[,n2]]function
-    n1, n2 ：不见得会存在，一般代表『选择进行动作的行数』，举例来说，如果我的动作是需要在 10 到 20 行之间进行的，则『 10,20[动作行为] 』
-    
-    function：
-    a ：新增， a 的后面可以接字串，而这些字串会在新的一行出现(目前的下一行)～
-    c ：取代， c 的后面可以接字串，这些字串可以取代 n1,n2 之间的行！
-    d ：删除，因为是删除啊，所以 d 后面通常不接任何咚咚；
-    i ：插入， i 的后面可以接字串，而这些字串会在新的一行出现(目前的上一行)；
-    p ：列印，亦即将某个选择的数据印出。通常 p 会与参数 sed -n 一起运行～
-    s ：取代，可以直接进行取代的工作哩！通常这个 s 的动作可以搭配正规表示法！例如 1,20s/old/new/g 就是啦！
-    ```
-    28.1 以行为单位删除
-    ```bash
-    nl ~/test.txt | sed '2,5d'                         # 删除2～5行
-    nl ~/test.txt | sed '2d'                           # 删除第2行
-    nl ~/test.txt | sed '3,$d'                         # 删除3到最后一行
-    ```
-    28.2 以行为单位新增
-    ```bash
-    nl ~/test.txt | sed '2a drink tea'                 # 在第二行后即第三行加上“drink tea”
-    nl ~/test.txt | sed '2i drink tea'                 # 在第二行前即第二行加上“drink tea”
-    nl ~/test.txt | sed '2a drink tea or ......\'      # 在第二行后加上两行，每一行之间都必须要以反斜杠『 \ 』来进行新行的添加
-    ```
-    28.3 以行为单位替换
-    ```bash
-    nl ~/test.txt | sed '2,5c No 2-5 number'           # 将第2-5行的内容取代成为『No 2-5 number
-    nl ~/test.txt | sed -n '5,7p'                      # 列出 ~/test.txt 文件内的第 5-7 行
-    ```
-    28.4 数据的搜索并显示
-    ```bash
-    nl ~/test.txt | sed '/root/p'                      # 如果root找到，除了输出所有行，还会输出匹配行
-    nl ~/test.txt | sed -n '/root/p'                   # 只打印包含root的行
-    ```
-    28.5 数据的搜索并删除
-    ```bash
-    nl ~/test.txt | sed '/root/d'                      # 删除包含root的行，其他行输出
-    ```
-    28.6 数据的搜索并执行命令
-    ```bash
-    nl ~/test.txt | sed -n '/root/{s/bash/blueshell/;p}'       # 找到root对应的行，执行后面花括号中的一组命令，每个命令之间用分号分隔，这里把bash替换为blueshell，再输出这行
-    nl ~/test.txt | sed -n '/root/{s/bash/blueshell/;p;q}'     # 最后的q是退出
-    ```
-    28.7 **数据的搜索并替换**
-    ```bash
-    sed 's/要被取代的字串/新的字串/g'
-    ```
-    28.8 多点编辑
-    ```bash
-    nl ~/test.txt | sed -e '3,$d' -e 's/bash/blueshell/'       # -e表示多点编辑，一条sed命令，删除/etc/passwd第三行到末尾的数据，并把bash替换为blueshell
-    ```
-    28.9 **直接修改文件内容**
-    ``sed``可以直接修改文件的内容，不必使用管道命令或数据流重导向
-    ```bash
-    sed -i 's/\.$/\!/g' test.txt                               # 将 test.txt 内每一行结尾若为 . 则换成 ! sed 的『 -i 』选项可以直接修改文件内容
-    # 如果 -i 参数不生效的话，需要使用 -ig 参数
-    sed -ig's/要被取代的字串/新的字串/g' test.txt
-    sed -i '$a # This is a test' test.txt                      # 在 test.txt 最后一行加入『# This is a test』 $代表的是最后一行，而a的动作是新增
-    ```
-    28.10 **直接修改文件内容进阶**
-    对同一个文件中的多个字段同时做修改，并对原文件做备份。
-    原文本与替换文本之间用3个`@`分隔成两段
-    如果替换后的值，需要参数化取值，则只需要把`'`换成`"`即可。
-    ```bash
-    sed -i.backup -E \
-      -e "s@maCode = \".*\"@maCode = \"${maCode}\"@" \
-      -e "s@orderCode = \".*\"@orderCode = \"${orderCode}\"@" \
-      ${WORKSPACE}/mainStream/topgear/customMS001/customMS001_${ENV}.py
-    ```
-
-29. touch           # 创建文件（夹）命令
-
-    29.1 使用文件名作为参数，可以同时创建多个文件。当目标文件已经存在时，将更新该文件的时间标记，否则将创建指定名称的空文件。
+1. 使用文件名作为参数，可以同时创建多个文件。当目标文件已经存在时，将更新该文件的时间标记，否则将创建指定名称的空文件。
     ```bash
     touch file1 file2
     ```
-    29.2 创建新的目录
+2. 创建新的目录
     ```bash
     [root@localhost home]# mkdir dir1
     [root@localhost home]# mkdir dir2/dir
@@ -357,7 +191,7 @@ tags: [linux]
     [root@localhost home]# mkdir -p dir2/dir                    # -p 确保目录名称存在，不存在的就建一个
     [root@localhost home]#
     ```
-    29.3 同时创建多级目录
+3. 同时创建多级目录
     ```bash
     [root@localhost home]# ls
     justin lost+found t
@@ -369,22 +203,22 @@ tags: [linux]
     [root@localhost home]#
     ```
 
-30. rmdir            # 删除文件（夹）命令
-    ```bash
-    [root@localhost home]# mkdir -p {dir1,dir2/dir3}            # -p 当子目录被删除后也成为空目录的话，则顺便一并删除
-    [root@localhost home]# ls
-    dir1 dir2 justin lost+found t
-    [root@localhost home]# rmdir dir1
-    [root@localhost home]# rmdir dir2
-    rmdir: 删除 "dir2"失败: 目录非空
-    [root@localhost home]# rmdir -p dir2/dir3/
-    [root@localhost home]# ls
-    justin lost+found t
-    [root@localhost home]#
-    ```
+##### rmdir            # 删除文件（夹）命令
+```bash
+[root@localhost home]# mkdir -p {dir1,dir2/dir3}            # -p 当子目录被删除后也成为空目录的话，则顺便一并删除
+[root@localhost home]# ls
+dir1 dir2 justin lost+found t
+[root@localhost home]# rmdir dir1
+[root@localhost home]# rmdir dir2
+rmdir: 删除 "dir2"失败: 目录非空
+[root@localhost home]# rmdir -p dir2/dir3/
+[root@localhost home]# ls
+justin lost+found t
+[root@localhost home]#
+```
 
-31. 更改文件（夹）权限
-    31.1 更改所有者权限
+##### 更改文件（夹）权限
+1. 更改所有者权限
     ```bash
     sudo chmod 600 ××× #（只有所有者有读和写的权限）
     sudo chmod 644 ××× #（所有者有读和写的权限，组用户只有读的权限）
@@ -405,7 +239,7 @@ tags: [linux]
     6 [110] 读写权限
     7 [111] 读写执行权限
     ```
-    31.2 更改文件（夹）权限
+2. 更改文件（夹）权限
     ```bash
     chmod [-cfvR] [--help] [--version] mode file...
     mode : 权限设定字串, 格式如下 : [ugoa...][[+-=][rwxX]...][,...]
@@ -424,7 +258,7 @@ tags: [linux]
     --help : 显示辅助说明 
     --version : 显示版本 
     ```
-    31.3 文件（夹）的权限
+3. 文件（夹）的权限
     ```markdown
     -rw------- (600) -- 只有属主有读写权限。 
     -rw-r--r-- (644) -- 只有属主有读写权限；而属组用户和其他用户只有读权限。 
@@ -440,14 +274,14 @@ tags: [linux]
     drwxr-xr-x (755) - 所有用户可读该目录，但只有属主才能改变目录中的内容。
     ```
 
-32. 查看目录剩余空间大小，*du(disk usage)*
-    32.1 df -hl             # 查看磁盘剩余空间
+##### 查看目录剩余空间大小，*du(disk usage)*
+1. df -hl             # 查看磁盘剩余空间
     ```bash
     文件系统       容量    已用   可用                      已用%          挂载点
     Filesystem   Size   Used  Avail Capacity iused      ifree %iused  Mounted on
     /dev/disk1  112Gi   91Gi   21Gi    82% 1900939 4293066340    0%   /
     ```
-    32.2 
+2. 
     ```bash
     df -h              # 命令查看整个硬盘的大小 ，-h表示人可读的
     du -sh [目录名]     # 返回该目录的大小
@@ -463,14 +297,14 @@ tags: [linux]
     du -m | cut "/" -f 2    # 查看第二个/字符前的文字
     wc [-lmw]               # -l: 多少行；-m: 多少字符；-w: 多少字
     ```
-    32.4 查看当前目录下各文件夹的大小
+4. 查看当前目录下各文件夹的大小
     ```bash
     du -h --max-depth=1
     du -d 1 -h              # 命令查看当前目录下所有文件夹的大小 -d 指深度，后面加一个数值
     ```
     ``--max-depth=n``表示深入到第``n``层目录，此处设置为``1``，即表示深入``1``层，即查看当前目录下各个文件夹的大小；如果设置为``0``，表示不深入到子目录，那得出的就是当前目录的总大小。
     
-    32.5 du命令参数
+5. du命令参数
     ```bash
     du [-abcDhHklmsSx] [-L <符号连接>][-X <文件>][--block-size][--exclude=<目录或文件>] [--max-depth=<目录层数>][--help][--version][目录或文件]
     ```
@@ -494,80 +328,80 @@ tags: [linux]
     - ``–version``：显示版本信息。
     - ``-0``：（杠零）表示每列出一个目录的信息，不换行，而是直接输出下一个目录的信息。
 
-33. 修改root密码
-    ```bash
-    [root@shadow000902 /]# passwd								# 修改密码命令
-    Changing password for user root.
-    New password: 												      # 输入新的密码
-    Retype new password: 										    # 确认新的密码
-    passwd: all authentication tokens updated successfully.		# 成功修改密码提示
-    ```
+##### 修改root密码
+```bash
+[root@shadow000902 /]# passwd								# 修改密码命令
+Changing password for user root.
+New password: 												# 输入新的密码
+Retype new password: 										# 确认新的密码
+passwd: all authentication tokens updated successfully.		# 成功修改密码提示
+```
 
-34. 创建用户及用户组，并修改密码切换用户
-    ```bash
-    # root @ shadow in ~ [10:30:20] C:1
-    $ adduser shadow                            # 创建用户
-    # root @ shadow in ~ [10:34:45]
-    $ groupadd shadow                           # 创建用户组
-    groupadd：“shadow”组已存在                    # 在创建用户的时候，已经同时创建了同名的用户组
-    # root @ shadow in ~ [10:36:52]
-    $ passwd shadow                             # 修改用户密码
-    更改用户 shadow 的密码 。
-    新的 密码：
-    重新输入新的 密码：
-    passwd：所有的身份验证令牌已经成功更新。
-    # root @ shadow in ~ [10:38:41]
-    $ su - shadow                               # 切换用户
-    [shadow@shadow ~]$                          # 切换用户成功
-    ```
+##### 创建用户及用户组，并修改密码切换用户
+```bash
+# root @ shadow in ~ [10:30:20] C:1
+$ adduser shadow                            # 创建用户
+# root @ shadow in ~ [10:34:45]
+$ groupadd shadow                           # 创建用户组
+groupadd：“shadow”组已存在                    # 在创建用户的时候，已经同时创建了同名的用户组
+# root @ shadow in ~ [10:36:52]
+$ passwd shadow                             # 修改用户密码
+更改用户 shadow 的密码 。
+新的 密码：
+重新输入新的 密码：
+passwd：所有的身份验证令牌已经成功更新。
+# root @ shadow in ~ [10:38:41]
+$ su - shadow                               # 切换用户
+[shadow@shadow ~]$                          # 切换用户成功
+```
 
-35. 删除用户及用户文件夹
-    ```bash
-    # 查看所有用户
-    cat /etc/passwd|grep -v nologin|grep -v halt|grep -v shutdown|awk -F":" '{ print $1"|"$3"|"$4 }'|more
-    su - root                                   # 首先需要切换到root用户
-    userdel -r shadow                           # 删除shadow用户及用户文件夹
-    ```
+##### 删除用户及用户文件夹
+```bash
+# 查看所有用户
+cat /etc/passwd|grep -v nologin|grep -v halt|grep -v shutdown|awk -F":" '{ print $1"|"$3"|"$4 }'|more
+su - root                                   # 首先需要切换到root用户
+userdel -r shadow                           # 删除shadow用户及用户文件夹
+```
 
-36. CentOS卸载软件
-    ```bash
-    yum remove tomcat
-    ```
+##### CentOS卸载软件
+```bash
+yum remove tomcat
+```
 
-37. “shadow is not in the sudoers file.  This incident will be reported.”解决方法
-    在``root``用户下，执行``visudo``
-    ```bash
-      91 ## Allow root to run any commands anywhere
-      92 root    ALL=(ALL)       ALL
-      93 shadow  ALL=(ALL)       ALL        # 添加这段内容，第一个单词是，需要可以使用sudo权限的用户名
-      94
-      95 ## Allows members of the 'sys' group to run networking, software,
-    ```
+##### “shadow is not in the sudoers file.  This incident will be reported.”解决方法
+在``root``用户下，执行``visudo``
+```bash
+  91 ## Allow root to run any commands anywhere
+  92 root    ALL=(ALL)       ALL
+  93 shadow  ALL=(ALL)       ALL        # 添加这段内容，第一个单词是，需要可以使用sudo权限的用户名
+  94
+  95 ## Allows members of the 'sys' group to run networking, software,
+```
 
-38. Ubuntu 命令行安装语言包
-    中文语言包:
-    - language-pack-zh-hans 简体中文
-    - language-pack-zh-hans-base
-    - language-pack-zh-hant 繁体中文
-    - language-pack-zh-hant-base
-    安装命令：
+##### Ubuntu 命令行安装语言包
+中文语言包:
+- language-pack-zh-hans 简体中文
+- language-pack-zh-hans-base
+- language-pack-zh-hant 繁体中文
+- language-pack-zh-hant-base
+安装命令：
 
-    ```bash
-    sudo apt-get install  language-pack-zh-han*
-    ```
-    最后运行语言支持检查
-    ```bash
-    sudo apt install $(check-language-support)
-    ```
-    会更新最新的语言支持包。
+```bash
+sudo apt-get install  language-pack-zh-han*
+```
+最后运行语言支持检查
+```bash
+sudo apt install $(check-language-support)
+```
+会更新最新的语言支持包。
 
-39. 查找文件夹
-    ```bash
-    find / -name mysql
-    ```
+##### 查找文件夹
+```bash
+find / -name mysql
+```
 
-40. tree Mac下树形查看当前目录文件
-    40.1 使用`find`命令模拟出`tree`命令的效果
+##### tree Mac下树形查看当前目录文件
+1. 使用`find`命令模拟出`tree`命令的效果
     ```bash
     find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'
     ```
@@ -575,13 +409,13 @@ tags: [linux]
     ```bash
     alias tree="find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
     ```
-    40.2 使用 `homebrew` 安装 `tree` 命令行
+2. 使用 `homebrew` 安装 `tree` 命令行
     ```bash
     brew install tree
     ```
     这样就在你的`mac`上安装了 `tree` 命令行了。
-    40.3 `tree`命令行参数（只实用与安装了`tree`命令行工具）
-    ```bash
+3. `tree`命令行参数（只实用与安装了`tree`命令行工具）
+    ```
     -a 显示所有文件和目录。
     -A 使用ASNI绘图字符显示树状图而非以ASCII字符组合。
     -C 在文件和目录清单加上色彩，便于区分各种类型。
@@ -603,26 +437,322 @@ tags: [linux]
     -u 列出文件或目录的拥有者名称，没有对应的名称时，则显示用户识别码。
     -x 将范围局限在现行的文件系统中，若指定目录下的某些子目录，其存放于另一个文件系统上，则将该子目录予以排除在寻找范围外。
     ```
-    40.4 `tree`结果乱码解决
+4. `tree`结果乱码解决
     ```bash
     tree -N
     ```
     - -N  Print non-printable characters as is instead of as escaped octal numbers.
 
-41. ls -R
-    列出当前目录下所有目录及文件的相对路径
-    {% asset_img 当前目录下的所有文件及文件夹.png 当前目录下的所有文件及文件夹 %}
+##### ls -R
+列出当前目录下所有目录及文件的相对路径
+{% asset_img 当前目录下的所有文件及文件夹.png 当前目录下的所有文件及文件夹 %}
 
-42. `last`显示最近的登录用户信息
+##### `last`显示最近的登录用户信息
+```bash
+# souche @ kickseed in ~ [11:34:38]
+$ last -n 5
+souche   pts/1        172.17.53.161    Tue Dec 11 11:34   still logged in
+souche   pts/1        172.17.49.117    Tue Dec 11 11:16 - 11:17  (00:00)
+souche   pts/1        172.17.53.161    Tue Dec 11 10:47 - 10:48  (00:00)
+souche   pts/1        172.17.52.197    Mon Dec 10 18:57 - 18:58  (00:01)
+souche   pts/4        172.17.53.34     Mon Dec 10 17:05 - 17:34  (00:28)
+
+wtmp begins Mon Dec  3 10:06:15 2018
+
+```
+
+#### 进阶命令
+##### top
+参数：
+```
+-b：以批处理模式操作,搭配`n`参数一起使用，可以用来将`top`的结果输出到档案内
+-c：切换显示模式，共有两种模式，一是只显示执行档的名称，另一种是显示完整的路径与名称S : 累积模式，会将己完成或消失的子行程 ( dead child process ) 的 CPU time 累积起来
+-d：屏幕刷新间隔时间；
+-I：忽略失效过程；
+-s：保密模式；
+-S：累积模式；
+-i：不显示任何闲置 (idle) 或无用 (zombie) 的行程；
+-u<用户名>：指定用户名；
+-p<进程号>：指定进程；
+-n<次数>：循环显示的次数，完成后将会退出 top
+```
+1. 监控每个进程的情况
+```bash
+top -b -d 1 -n 20 -p 3951 | grep --line-buffered ^3951 | awk '{cpu+=$9;mem+=$10}{print $9,$10,cpu/NR,mem/NR}'
+```
+
+##### 文本去重
+```bash
+# !/bin/sh
+file='test.txt'
+sort -n $file | uniq
+sort -n $file | awk '{if($0!=line)print; line=$0}'
+sort -n $file | sed '$!N; /^\(.*\)\n\1$/!P; D'
+```
+
+##### scp     # 本地文件与服务器文件交互
+```bash
+# 从服务器下载文件
+scp username@servername:/remote_path/filename ~/local_destination
+# 上传本地文件到服务器
+scp ~/local_path/local_filename username@servername:/remote_path
+# 从服务器下载整个目录
+scp -r username@servername:/remote_path/remote_dir/ ~/local_destination
+# 上传目录到服务器
+scp  -r ~/local_dir username@servername:/remote_path/remote_dir
+```
+
+##### netstat
+参数：
+    -a或--all: 显示所有连线中的Socket。
+    -A<网络类型>或--<网络类型>: 列出该网络类型连线中的相关地址。
+    -c或--continuous: 持续列出网络状态。
+    -C或--cache: 显示路由器配置的快取信息。
+    -e或--extend: 显示网络其他相关信息。
+    -F或--fib: 显示FIB。
+    -g或--groups: 显示多重广播功能群组组员名单。
+    -h或--help: 在线帮助。
+    -i或--interfaces: 显示网络界面信息表单。
+    -l或--listening: 显示监控中的服务器的Socket。
+    -M或--masquerade: 显示伪装的网络连线。
+    -n或--numeric: 直接使用IP地址，而不通过域名服务器。
+    -N或--netlink或--symbolic: 显示网络硬件外围设备的符号连接名称。
+    -o或--timers: 显示计时器。
+    -p或--programs: 显示正在使用Socket的程序识别码和程序名称。
+    -r或--route 显示Routing: Table。
+    -s或--statistice: 显示网络工作信息统计表。
+    -t或--tcp: 显示TCP传输协议的连线状况。
+    -u或--udp: 显示UDP传输协议的连线状况。
+    -v或--verbose: 显示指令执行过程。
+    -V或--version: 显示版本信息。
+    -w或--raw: 显示RAW传输协议的连线状况。
+    -x或--unix 此参数的效果和指定"-A: unix"参数相同。
+    --ip或--inet 此参数的效果和指定"-A: inet"参数相同。
+
+1. 获取端口占用情况
+	```bash
+	# shadow @ shadow in ~ [0:33:06] 
+	$ netstat -anp|grep 80
+	(No info could be read for "-p": geteuid()=1000 but you should be root.)
+	tcp        0      0 172.16.194.20:41622     100.100.45.73:80        TIME_WAIT   -                   
+	tcp        0      0 172.16.194.20:39718     100.100.30.25:80        ESTABLISHED -                   
+	tcp6       0      0 :::8080                 :::*                    LISTEN      -                   
+	unix  2      [ ACC ]     STREAM     LISTENING     2056613  -                    @/containerd-shim/moby/ebda2e07d80217a8cd7876f119624690f5cf6fda30a1f2a6d53607b63502680e/shim.sock
+	unix  3      [ ]         STREAM     CONNECTED     2057472  -                    @/containerd-shim/moby/ebda2e07d80217a8cd7876f119624690f5cf6fda30a1f2a6d53607b63502680e/shim.sock
+	unix  3      [ ]         STREAM     CONNECTED     11580    -                    /run/systemd/journal/stdout
+	unix  3      [ ]         STREAM     CONNECTED     11801    -                    
+	```
+2. 获取不重复的网络连接数量
+	```bash
+	:<<BLOCK
+	获取所有的网络连接
+	取第五列
+	对第五列数据用``:``分隔，并取第一列
+	数据升序排列
+	对重复数据进行去重，``-c``统计出现次数
+	识别每行开头的数字，对结果降序排列
+	计算一共有多少个不重复的数据
+	BLOCK
+	netstat -tnp \
+	| awk '{print $5}' \
+	| awk -F: '{print $1}' \
+	| sort \
+	| uniq -c \
+	| sort -nr \
+	|wc -l
+	```
+
+
+#### Linux 三剑客
+##### grep
+1. 在文件中查找单词
     ```bash
-    # souche @ kickseed in ~ [11:34:38]
-    $ last -n 5
-    souche   pts/1        172.17.53.161    Tue Dec 11 11:34   still logged in
-    souche   pts/1        172.17.49.117    Tue Dec 11 11:16 - 11:17  (00:00)
-    souche   pts/1        172.17.53.161    Tue Dec 11 10:47 - 10:48  (00:00)
-    souche   pts/1        172.17.52.197    Mon Dec 10 18:57 - 18:58  (00:01)
-    souche   pts/4        172.17.53.34     Mon Dec 10 17:05 - 17:34  (00:28)
-    
-    wtmp begins Mon Dec  3 10:06:15 2018
-    
+    grep shadow /etc/hosts
+    ```
+2. 在多个文件中查找单词
+    ```bash
+    grep shadow /etc/hosts /etc/hosts1
+    ```
+3. 列出包含指定单词的文件的文件名
+    ```bash
+    grep -l shadow /etc/hosts /etc/hosts1 /etc/hosts2 /etc/hosts3
+    ```
+4. 在文件中查找指定单词并显示匹配行的行号
+    ```bash
+    grep -n shadow /etc/hosts /etc/hosts1
+    ```
+5. 输出不包含指定单词的行
+    ```bash
+    grep -v shadow /etc/hosts
+    ```
+6. 输出所有以指定单词开头的行
+    ```bash
+    grep ^ shadow /etc/hosts
+    ```
+7. 输出所有以指定单词结尾的行
+    ```bash
+    grep shadow$ /etc/hosts
+    ```
+8. 参数递归地查找指定单词
+    ```bash
+    grep -r shadow /etc/hosts
+    ```
+9. 查找文件中所有的空行
+    ```bash
+    grep ^$ /etc/hosts
+    ```
+10. 同时查找多个单词
+    ```bash
+    grep -e shadow -e shadows /etc/hosts
+    ```
+11. 计算匹配到的单词的数量
+    ```bash
+    grep -c -f shadow /etc/hosts
+    ```
+    8.12
+    ```bash
+    grep -irn "SyncWriteStream" ./node_modules/hexo-deployer-git/
+    ```
+
+##### awk
+```bash
+ll | awk '{print $9}'                                   # 输出ll命令拿到的信息，并只打印出第九列
+ll | awk '{$1=$2=$3=$4=$5=$6=$7=$8=""; print $0}'       # 排除多列，并打印出后面的所有列，“0”表示所有
+ll | awk '{print $1, $2}'                               # 输出ll命令拿到的信息，并只打印出第一、第二列
+awk '{print $1 $2}' filename                            # 打印完文件的第一行，再打印文件的第二行
+awk 'END{print NR}' filename                            # 打印文本文件的总行数
+awk 'NR==1{print}' filename                             # 打印文本第一行
+ps -ef | grep tomcat | awk '{printf $2 "\t" }'          # 获取 ps 出来的结果的第二列；printf 打印结果时，取消换行符；"\t"把结果之间用空格分隔
+```
+1. 获取 Linux 服务器下所有的 tomcat
+    原始数据：
+    ```bash
+    souche   14034     1  0 Dec07 ?        00:26:10 /opt/souche/java/bin/java -Djava.util.logging.config.file=/home/souche/tomcats/12005_ironman-test/conf/logging.properties -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager -Djdk.tls.ephemeralDHKeySize=2048 -Djava.protocol.handler.pkgs=org.apache.catalina.webresources -Dignore.endorsed.dirs= -classpath /home/souche/tomcats/12005_ironman-test/bin/bootstrap.jar:/home/souche/tomcats/12005_ironman-test/bin/tomcat-juli.jar -Dcatalina.base=/home/souche/tomcats/12005_ironman-test -Dcatalina.home=/home/souche/tomcats/12005_ironman-test -Djava.io.tmpdir=/home/souche/tomcats/12005_ironman-test/temp org.apache.catalina.startup.Bootstrap start
+    ```
+    ```bash
+    ps -ef | grep tomcat | awk 'END{print "The end!"}BEGIN{FS="/"}{print $10}'
+    # 同
+    ps -ef | grep tomcat | awk -F "/" '{print $10}'
+    ```
+    获取结果：
+    ```bash
+    12005_ironman-test
+    The end!
+    ```
+    其中`END{print "The end!"}`这一段非必要
+2. awk 命令的参数
+    ```bash
+    ARGC               命令行参数个数
+    ARGV               命令行参数排列
+    ENVIRON            支持队列中系统环境变量的使用
+    FILENAME           awk浏览的文件名
+    FNR                浏览文件的记录数
+    FS                 设置输入域分隔符，等价于命令行 -F选项
+    NF                 浏览记录的域的个数
+    NR                 已读的记录数
+    OFS                输出域分隔符
+    ORS                输出记录分隔符
+    RS                 控制记录分隔符
+    ```
+3. awk 命令格式
+    ```bash
+    awk '条件1 {动作1} 条件2｛动作2｝…' 文件名                  # 命令方式一
+    commend | awk '条件1 {动作1} 条件2｛动作2｝…'              # 命令方式二
+    ```
+4. awk 结果排序
+    ```bash
+    # souche @ kickseed in ~/tomcats [12:48:05] C:2
+    $ ps -ef | grep tomcat | awk 'END{print "The end!"}BEGIN{FS="/"}{print $10 | "sort -r -n"}'
+    The end!
+    12021_venom-test
+    12020_asgard-test
+    12019_redline-test
+    12018_whiteDragonHorse-test
+    12017_topgear-flow-test
+    12014_topgear-test3
+    12012_audit-test
+    12005_ironman-test
+    ```
+    其中`-r`表示从大到小，不加该参数表示从小到大，`-n`表示按照数字排序
+
+
+##### sed     #
+[sed命令用法](https://www.cnblogs.com/maxincai/p/5146338.html)
+
+```markdown
+[root@www ~]# sed [-nefr] [动作]
+选项与参数：
+-n ：使用安静(silent)模式。在一般 sed 的用法中，所有来自 STDIN 的数据一般都会被列出到终端上。但如果加上 -n 参数后，则只有经过sed 特殊处理的那一行(或者动作)才会被列出来。
+-e ：直接在命令列模式上进行 sed 的动作编辑；
+-f ：直接将 sed 的动作写在一个文件内， -f filename 则可以运行 filename 内的 sed 动作；
+-r ：sed 的动作支持的是延伸型正规表示法的语法。(默认是基础正规表示法语法)
+-i ：直接修改读取的文件内容，而不是输出到终端。
+
+动作说明： [n1[,n2]]function
+n1, n2 ：不见得会存在，一般代表『选择进行动作的行数』，举例来说，如果我的动作是需要在 10 到 20 行之间进行的，则『 10,20[动作行为] 』
+
+function：
+a ：新增， a 的后面可以接字串，而这些字串会在新的一行出现(目前的下一行)～
+c ：取代， c 的后面可以接字串，这些字串可以取代 n1,n2 之间的行！
+d ：删除，因为是删除啊，所以 d 后面通常不接任何咚咚；
+i ：插入， i 的后面可以接字串，而这些字串会在新的一行出现(目前的上一行)；
+p ：列印，亦即将某个选择的数据印出。通常 p 会与参数 sed -n 一起运行～
+s ：取代，可以直接进行取代的工作哩！通常这个 s 的动作可以搭配正规表示法！例如 1,20s/old/new/g 就是啦！
+```
+1. 以行为单位删除
+    ```bash
+    nl ~/test.txt | sed '2,5d'                         # 删除2～5行
+    nl ~/test.txt | sed '2d'                           # 删除第2行
+    nl ~/test.txt | sed '3,$d'                         # 删除3到最后一行
+    ```
+2. 以行为单位新增
+    ```bash
+    nl ~/test.txt | sed '2a drink tea'                 # 在第二行后即第三行加上“drink tea”
+    nl ~/test.txt | sed '2i drink tea'                 # 在第二行前即第二行加上“drink tea”
+    nl ~/test.txt | sed '2a drink tea or ......\'      # 在第二行后加上两行，每一行之间都必须要以反斜杠『 \ 』来进行新行的添加
+    ```
+3. 以行为单位替换
+    ```bash
+    nl ~/test.txt | sed '2,5c No 2-5 number'           # 将第2-5行的内容取代成为『No 2-5 number
+    nl ~/test.txt | sed -n '5,7p'                      # 列出 ~/test.txt 文件内的第 5-7 行
+    ```
+4. 数据的搜索并显示
+    ```bash
+    nl ~/test.txt | sed '/root/p'                      # 如果root找到，除了输出所有行，还会输出匹配行
+    nl ~/test.txt | sed -n '/root/p'                   # 只打印包含root的行
+    ```
+5. 数据的搜索并删除
+    ```bash
+    nl ~/test.txt | sed '/root/d'                      # 删除包含root的行，其他行输出
+    ```
+6. 数据的搜索并执行命令
+    ```bash
+    nl ~/test.txt | sed -n '/root/{s/bash/blueshell/;p}'       # 找到root对应的行，执行后面花括号中的一组命令，每个命令之间用分号分隔，这里把bash替换为blueshell，再输出这行
+    nl ~/test.txt | sed -n '/root/{s/bash/blueshell/;p;q}'     # 最后的q是退出
+    ```
+7. **数据的搜索并替换**
+    ```bash
+    sed 's/要被取代的字串/新的字串/g'
+    ```
+8. 多点编辑
+    ```bash
+    nl ~/test.txt | sed -e '3,$d' -e 's/bash/blueshell/'       # -e表示多点编辑，一条sed命令，删除/etc/passwd第三行到末尾的数据，并把bash替换为blueshell
+    ```
+9. **直接修改文件内容**
+    ``sed``可以直接修改文件的内容，不必使用管道命令或数据流重导向
+    ```bash
+    sed -i 's/\.$/\!/g' test.txt                               # 将 test.txt 内每一行结尾若为 . 则换成 ! sed 的『 -i 』选项可以直接修改文件内容
+    # 如果 -i 参数不生效的话，需要使用 -ig 参数
+    sed -ig's/要被取代的字串/新的字串/g' test.txt
+    sed -i '$a # This is a test' test.txt                      # 在 test.txt 最后一行加入『# This is a test』 $代表的是最后一行，而a的动作是新增
+    ```
+10. **直接修改文件内容进阶**
+    对同一个文件中的多个字段同时做修改，并对原文件做备份。
+    原文本与替换文本之间用3个`@`分隔成两段
+    如果替换后的值，需要参数化取值，则只需要把`'`换成`"`即可。
+    ```bash
+    sed -i.backup -E \
+      -e "s@maCode = \".*\"@maCode = \"${maCode}\"@" \
+      -e "s@orderCode = \".*\"@orderCode = \"${orderCode}\"@" \
+      ${WORKSPACE}/mainStream/topgear/customMS001/customMS001_${ENV}.py
     ```
