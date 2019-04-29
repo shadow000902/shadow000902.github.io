@@ -198,6 +198,9 @@ JENKINS_URL/job/JOB_NAME/buildWithParameters?token=TOKEN_NAME&params1=params1&..
     Show all configs
     ```
 
+##### ``Localization: Chinese (Simplified)``切换jenkins显示语言为中文
+只要安装重启后，jenkins的显示语言就会自动展示为中文
+
 ##### 常用插件汇总
 ``Build Environment Plugin``构建环境插件，可以进行构建环境比较。
 ``Build Flow Plugin``工作流插件，支持DSL脚本定义工作流
