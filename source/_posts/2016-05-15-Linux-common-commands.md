@@ -615,6 +615,12 @@ scp  -r ~/local_dir username@servername:/remote_path/remote_dir
     ```
 
 ##### awk
+参数：
+	NR：表示从awk开始执行后，按照记录分隔符读取的数据次数，默认的记录分隔符为换行符，因此默认的就是读取的数据行数，NR可以理解为Number of Record的缩写。
+	NF：表示目前的记录被分割的字段的数目，NF可以理解为Number of Field。
+	BEGIN：模式指定的操作在读取任何输入之前执行，且只执行一次。
+	END：模式指定的操作在读取所有的输入后执行。
+
 ```bash
 ll | awk '{print $9}'                                   # 输出ll命令拿到的信息，并只打印出第九列
 ll | awk '{$1=$2=$3=$4=$5=$6=$7=$8=""; print $0}'       # 排除多列，并打印出后面的所有列，“0”表示所有
