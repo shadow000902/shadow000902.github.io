@@ -201,6 +201,9 @@ JENKINS_URL/job/JOB_NAME/buildWithParameters?token=TOKEN_NAME&params1=params1&..
 ##### ``Localization: Chinese (Simplified)``切换jenkins显示语言为中文
 只要安装重启后，jenkins的显示语言就会自动展示为中文
 
+##### ``Startup Trigger``jenkins每次重启或者启动后自动执行任务
+在`jenkins`项目的配置中，`构建触发器`中，`Build when job nodes start`配置项中，设置`Quiet period`字段为默认值`0`，表示重启后，没有任何延迟，直接启动。
+
 ##### 常用插件汇总
 ``Build Environment Plugin``构建环境插件，可以进行构建环境比较。
 ``Build Flow Plugin``工作流插件，支持DSL脚本定义工作流
