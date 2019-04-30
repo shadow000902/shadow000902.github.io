@@ -56,13 +56,13 @@ Python 2.7.14
 如果想回到全局``Python``解析器中，可以再命令行提示符下输入``deactivate``。
 
 ##### 使用``virtualenv``创建指定版本的``Python``的虚拟环境
-```python
+```bash
 virtualenv -p /Users/taoyi/.pyenv/versions/3.6.5/bin/python  py3env
 ```
  - ``-p``：指定指定版本的``python``的绝对路径
  - ``py3env``：创建的虚拟环境的名称
 
-##### Linux环境下，安装``brew``
+##### Linux环境下，安装``brew``【需要切换git源码地址中的`Linuxbrew`为`Homebrew`，后续，`Linuxbrew`不在更新】
 ```bash
 # clone源码到用户目录下
 git clone https://github.com/Linuxbrew/brew.git ~/.linuxbrew
@@ -75,7 +75,7 @@ export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
 export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
 ```
 
-##### Linux环境下，pyenv安装python失败，解决方法
+##### Ubuntu环境下，pyenv安装python失败，解决方法
 问题基本就是出现在缺少一些基础库上，解决方法也就是尽量的把一些基础库都安装上
 ```bash
 # 在ubuntu软件源里zlib和zlib-devel叫做zlib1g zlib1g.dev
@@ -84,4 +84,13 @@ sudo apt-get install zlib1g zlib1g.dev
 
 ```bash
 yum install readline readline-devel readline-static openssl openssl-devel openssl-static sqlite-devel bzip2-devel bzip2-libs build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm
+```
+
+##### Linux环境下，pyenv安装python3，``ModuleNotFoundError: No module named '_ctypes'``报错解决
+python`3.7`版本需要一个新的包`libffi`
+```bash
+# Ubuntu 下处理
+sudo apt-get install libffi-dev
+# Centos 下处理
+yum install -y libffi-devel
 ```
