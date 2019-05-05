@@ -44,7 +44,7 @@ drwxr-xr-x 2 root root  4096 Mar 14 18:05 testcase              # 测试用例�
 ```
 
 ##### 主流程脚本 MainThreadScript.sh
-```sh
+```bash
 #/bin/bash
 
 source /etc/profile
@@ -101,7 +101,7 @@ nmon -f -t -s5 -c60 -F /data/test.nmon
 
 ##### 服务器监控脚本 monitor.sh
 
-```sh
+```bash
 #!/bin/bash
 #读取监控服务器列表
 SERVERLIST=`cat serverlist`
@@ -129,7 +129,7 @@ done
 将用例执行结果和监控结果都汇总到summary.txt里，方面后续生成html格式的报告
 
 ##### 生成html报告 genHTML.sh
-```sh
+```bash
 #!/bin/sh
 >index.html
 echo "<html><head><META http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\"/><title>用户端自动化性能测试报告</title>">>index.html

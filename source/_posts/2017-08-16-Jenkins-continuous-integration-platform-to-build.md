@@ -228,3 +228,30 @@ JENKINS_URL/job/JOB_NAME/buildWithParameters?token=TOKEN_NAME&params1=params1&..
 ``Status Monitor Plugin``构建状态插件
 ``ws-cleanup Plugin ``workspace清理插件
 
+#### `Jenkins`脚本
+##### 批量修改脚本的`丢弃旧的构建`设置项设置
+```groovy
+import jenkins.model.Jenkins
+import hudson.model.Job
+import jenkins.model.BuildDiscarderProperty
+import hudson.tasks.LogRotator
+// 遍历所有的任务
+Jenkins.instance.allItems(Job).each { job ->
+ 
+if ( job.isBuildable() && job.supportsLogRotator() && job.getProperty(BuildDiscarderProperty) == null) {
+    println " \"${job.fullDisplayName}\" 处理中"
+ 
+    job.addProperty(new BuildDiscarderProperty(new LogRotator (3, 10, 3, 10)))
+    println "$job.name 已更新"
+}
+}
+return;
+
+/**
+LogRotator 构造参数分别为：
+daysToKeep:  If not -1, history is only kept up to this days.
+numToKeep: If not -1, only this number of build logs are kept.
+artifactDaysToKeep: If not -1 nor null, artifacts are only kept up to this days.
+artifactNumToKeep: If not -1 nor null, only this number of builds have their artifacts kept.
+**/
+```
