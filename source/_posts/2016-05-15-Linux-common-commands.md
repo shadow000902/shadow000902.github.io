@@ -762,3 +762,12 @@ s ：取代，可以直接进行取代的工作哩！通常这个 s 的动作可
       -e "s@orderCode = \".*\"@orderCode = \"${orderCode}\"@" \
       ${WORKSPACE}/mainStream/topgear/customMS001/customMS001_${ENV}.py
     ```
+11. **删除和插入文件的倒数指定行**
+	删除文件的倒数第二行
+	```bash
+	sed -i.backup $(($(cat ${dest_file} | wc -l)))'d' ${dest_file}
+	```
+	在倒数第二行开始插入字符「即倒数第一行和第二行之间插入需要插入的字符」
+	```bash
+	sed -i $(($(cat ${dest_file} | wc -l)+1))"i\\$line" $dest_file
+	```

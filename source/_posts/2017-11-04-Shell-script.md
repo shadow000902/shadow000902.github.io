@@ -350,46 +350,59 @@ tag=$2
 #!/usr/bin/env bash
 #for test add content from src_file to dest_file at specified place.
 
+# fileName: addLines.sh
+# 执行方式：./addLines.sh tomcatDir
+
+tomcatDir=$1
+
 echo "hello, begin..."
 echo ""
 
-src_file=${PWD}"/src_file"
-dest_file=${PWD}"/dest_file"
+src_file="/home/souche/scripts/resource"
+dest_file="/home/souche/jenkins/Home/jobs/"${tomcatDir}"/config.xml"
 
-# 定义函数 for_test
-function for_test ()
-{
-	test=`sed -i '2i\insert this line' $dest_file`
-	echo $test
-	echo "****************"
-	cat $dest_file
-}
 
-# 定义函数 add_content_src_to_dest_file
 function add_content_src_to_dest_file ()
 {
-	delimit_line="==========================================="
+    # delimit_line="==========================================="
 
-	# sed -i "2i\\insert line" file 该sed命令使用的是-i参数指定i\选项，在第2行后插入内容
-	# 2i\\ 拆解3部分：2为行号，i\为sed行下追加命令，\为转义字符(必须转义读取变量)
-	# "" 双引号，保持引号内的字面值，可读\$转义后的变量内容，单引号不行。
-	echo $delimit_line | sed -i "2i\\$delimit_line" $dest_file
+    # sed -i "2i\\insert line" file 该sed命令使用的是-i参数指定i\选项，在第2行后插入内容
+    # 2i\\ 拆解3部分：2为行号，i\为sed行下追加命令，\为转义字符(必须转义读取变量)
+    # "" 双引号，保持引号内的字面值，可读\$转义后的变量内容，单引号不行。
+    # echo $delimit_line | sed -i "2i\\$delimit_line" $dest_file
+    
+    # 删除倒数第二行
+    sed -i.backup $(($(cat ${dest_file} | wc -l)))'d' ${dest_file}
+    
+    # 读取源文件
+    cat $src_file | while read line
+    # 使用循环，在倒数第二行开始，插入源文件的所有内容
+    do
+        echo $line | sed -i $(($(cat ${dest_file} | wc -l)+1))"i\\$line" $dest_file
+        echo $line
+    done
 
-	# 以下为核心代码
-	cat $src_file | while read line
-	do
-		echo $line | sed -i "3i\\$line" $dest_file
-		echo $line
-	done
-
-	#cat $dest_file
+    #cat $dest_file
 }
 
-# 调用函数
+
 #for_test
 add_content_src_to_dest_file
 
 echo ""
 echo "hey, end..."
 exit 0
+```
+_shell脚本中调用shell脚本_
+```bash
+# 获取所有的jenkins项目名称，并写入文件jobsList中
+ll ~/jenkins/Home/jobs/ | awk '{print $9}' > jobsList
+# 由于写入的文件中的第一行为空行，需要删除
+sed -i '1d' jobsList
+# 读取jobsList中的每行
+cat $jobsList | while read line
+# 对每行名称的项目，调用以上代码进行删除和插入的操作
+do
+	./addLines.sh ${line}
+done
 ```

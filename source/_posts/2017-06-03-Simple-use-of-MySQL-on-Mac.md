@@ -101,8 +101,8 @@ tags: [mysql]
 	select emp_no,count(1) from salaries group by emp_no with rollup;
 	# 统计发工资月数超过17的员工和具体发工资的月数
 	select emp_no,count(1) from salaries group by emp_no having count(1) > 17;
-	# 统计总工资和最小最大工资
-	select sum(salary),max(salary),min(salary) from salaries;
+	# 统计总月数、总工资、平均工资、最小最大工资
+	select count(1),sum(salary),avg(salary),max(salary),min(salary) from salaries;
 	```
 
 12. 表连接
