@@ -204,6 +204,9 @@ JENKINS_URL/job/JOB_NAME/buildWithParameters?token=TOKEN_NAME&params1=params1&..
 ##### ``Startup Trigger``jenkins每次重启或者启动后自动执行任务
 在`jenkins`项目的配置中，`构建触发器`中，`Build when job nodes start`配置项中，设置`Quiet period`字段为默认值`0`，表示重启后，没有任何延迟，直接启动。
 
+##### ``Configuration Slicing plugin``批量修改所有项目的某一个配置
+在``系统管理``中，``Configuration Slicing``打开，可以看多很多的设置项，点击进入自己需要批量设置的项，进行设置。
+
 ##### 常用插件汇总
 ``Build Environment Plugin``构建环境插件，可以进行构建环境比较。
 ``Build Flow Plugin``工作流插件，支持DSL脚本定义工作流

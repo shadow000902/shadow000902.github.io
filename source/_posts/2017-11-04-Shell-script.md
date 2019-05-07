@@ -395,10 +395,12 @@ exit 0
 ```
 _shell脚本中调用shell脚本_
 ```bash
+# 定义jenkins项目名称文件路径
+jobsList="/home/souche/scripts/jobsList"
 # 获取所有的jenkins项目名称，并写入文件jobsList中
-ll ~/jenkins/Home/jobs/ | awk '{print $9}' > jobsList
+ll ~/jenkins/Home/jobs/ | awk '{print $9}' > /home/souche/scripts/jobsList
 # 由于写入的文件中的第一行为空行，需要删除
-sed -i '1d' jobsList
+sed -i '1d' /home/souche/scripts/jobsList
 # 读取jobsList中的每行
 cat $jobsList | while read line
 # 对每行名称的项目，调用以上代码进行删除和插入的操作
