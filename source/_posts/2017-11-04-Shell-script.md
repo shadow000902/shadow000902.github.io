@@ -357,12 +357,13 @@ tomcatDir=$1
 
 echo "hello, begin..."
 echo ""
+echo "dealing ${tomcatDir}"
 
 src_file="/home/souche/scripts/resource"
 dest_file="/home/souche/jenkins/Home/jobs/"${tomcatDir}"/config.xml"
 
 
-function add_content_src_to_dest_file ()
+function addLines ()
 {
     # delimit_line="==========================================="
 
@@ -385,9 +386,8 @@ function add_content_src_to_dest_file ()
     #cat $dest_file
 }
 
-
-#for_test
-add_content_src_to_dest_file
+# 调用函数执行
+addLines
 
 echo ""
 echo "hey, end..."
@@ -395,16 +395,28 @@ exit 0
 ```
 _shell脚本中调用shell脚本_
 ```bash
-# 定义jenkins项目名称文件路径
+#!/usr/bin/env bash
+
+# 定义jenkins项目目录文件
 jobsList="/home/souche/scripts/jobsList"
-# 获取所有的jenkins项目名称，并写入文件jobsList中
-ll ~/jenkins/Home/jobs/ | awk '{print $9}' > /home/souche/scripts/jobsList
-# 由于写入的文件中的第一行为空行，需要删除
-sed -i '1d' /home/souche/scripts/jobsList
-# 读取jobsList中的每行
-cat $jobsList | while read line
-# 对每行名称的项目，调用以上代码进行删除和插入的操作
-do
-	./addLines.sh ${line}
-done
+
+function repeatAddLines ()
+{
+	# 获取所有的jenkins项目名称，并写入文件jobsList中
+	# ll ~/jenkins/Home/jobs/ | awk '{print $9}' > /home/souche/scripts/jobsList
+
+	# 由于写入的文件中的第一行为空行，需要删除
+	# sed -i '1d' /home/souche/scripts/jobsList
+
+	# 读取jobsList中的每行
+	cat $jobsList | while read line
+
+	# 对每行名称的项目，调用以上代码进行删除和插入的操作
+	do
+		/home/souche/scripts/addLines.sh ${line}
+	done
+}
+
+# 调用函数执行
+repeatAddLines
 ```
