@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 Commit_Docs=$1
 
 hexo clean

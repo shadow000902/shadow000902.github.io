@@ -108,17 +108,23 @@ drwxr-xr-x  25 taoyi  wheel   850B  8 16 01:27 war
 drwxr-xr-x   3 taoyi  wheel   102B  8 16 01:44 workspace
 ```
 
+#### 简单操作jenkins状态
+关闭jenkins：``http://localhost:8080/exit``
+重启jenkins：``http://localhost:8080/restart``
+重新加载配置信息：``http://localhost:8080/reload``
+
 #### 问题总结
 ##### ``Jenkins console``输出乱码
 在``/etc/profile``中添加``export JAVA_TOOL_OPTIONS="-Dfile.encoding=UTF-8"``
 在``Jenkins``系统管理里，添加环境变量``Key``：``LANG``，``Value``：``en_US.UTF-8``（如果系统默认的已经是en_US.UTF-8，就不用设置了）
 
 ##### ``jenkins``中的``WORKSPACE``中的``HTML``文件无法打开
-    ```html
-    Verify that you have JavaScript enabled in your browser.
-    Make sure you are using a modern enough browser. Firefox 3.5, IE 8, or equivalent is required, newer browsers are recommended.
-    Check are there messages in your browser's JavaScript error log. Please report the problem if you suspect you have encountered a bug.
-    ```
+报错如下：
+```html
+Verify that you have JavaScript enabled in your browser.
+Make sure you are using a modern enough browser. Firefox 3.5, IE 8, or equivalent is required, newer browsers are recommended.
+Check are there messages in your browser's JavaScript error log. Please report the problem if you suspect you have encountered a bug.
+```
 解决方法：在``系统管理-脚本命令行``中执行如下脚本
 ```groovy
 System.setProperty("hudson.model.DirectoryBrowserSupport.CSP","sandbox allow-scripts; default-src 'none'; img-src 'self' data: ; style-src 'self' 'unsafe-inline' data: ; script-src 'self' 'unsafe-inline' 'unsafe-eval' ;")
