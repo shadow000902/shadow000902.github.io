@@ -1,5 +1,5 @@
 ---
-title: Adb连接夜神模拟器
+title: Adb连接夜神模拟器&网易MuMu模拟器
 date: 2016-03-21 00:04:06
 categories: [Android]
 tags: [adb]
@@ -33,3 +33,11 @@ box_adb.exe connect 127.0.0.1:62001
 adb connect 127.0.0.1:62001
 ```
 来连接。
+
+#### adb连接网易MuMu模拟器
+```bash
+# Mac下
+adb connect 127.0.0.1:5555
+# Windows下
+adb connect 127.0.0.1:7555
+```

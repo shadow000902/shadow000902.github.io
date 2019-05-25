@@ -529,10 +529,10 @@ scp  -r ~/local_dir username@servername:/remote_path/remote_dir
     -x或--unix 此参数的效果和指定"-A: unix"参数相同。
     --ip或--inet 此参数的效果和指定"-A: inet"参数相同。
 
-1. 获取端口占用情况
+1. 获取端口占用情况【Linux系统】
 	```bash
 	# shadow @ shadow in ~ [0:33:06] 
-	$ netstat -anp|grep 80
+	$ netstat -anp | grep 80
 	(No info could be read for "-p": geteuid()=1000 but you should be root.)
 	tcp        0      0 172.16.194.20:41622     100.100.45.73:80        TIME_WAIT   -                   
 	tcp        0      0 172.16.194.20:39718     100.100.30.25:80        ESTABLISHED -                   
@@ -561,6 +561,14 @@ scp  -r ~/local_dir username@servername:/remote_path/remote_dir
 	| sort -nr \
 	|wc -l
 	```
+
+##### lsof    # Mac下查看端口占用情况
+```bash
+# taoyi @ TyMac in ~ [1:54:51] C:130
+$ lsof -i tcp:5555
+COMMAND   PID  USER   FD   TYPE             DEVICE SIZE/OFF NODE NAME
+adb     94280 taoyi   14u  IPv4 0x38c46a3265bac391      0t0  TCP 192.168.31.71:49360->192.168.31.233:personal-agent (ESTABLISHED)
+```
 
 
 #### Linux 三剑客
@@ -789,3 +797,8 @@ s ：取代，可以直接进行取代的工作哩！通常这个 s 的动作可
     2
     3
 	```
+13. **在文件开头插入指定内容**
+    ```bash
+    # 在jobList文件的开头插入字符串`123456`
+    sed -i "1i\\123456" jobsList
+    ```

@@ -367,11 +367,13 @@ function addLines ()
 {
     # delimit_line="==========================================="
 
-    # sed -i "2i\\insert line" file 该sed命令使用的是-i参数指定i\选项，在第2行后插入内容
-    # 2i\\ 拆解3部分：2为行号，i\为sed行下追加命令，\为转义字符(必须转义读取变量)
-    # "" 双引号，保持引号内的字面值，可读\$转义后的变量内容，单引号不行。
-    # echo $delimit_line | sed -i "2i\\$delimit_line" $dest_file
-    
+:<<BLOCK
+    sed -i "2i\\insert line" file 该sed命令使用的是-i参数指定i\选项，在第2行后插入内容
+    2i\\ 拆解3部分：2为行号，i\为sed行下追加命令，\为转义字符(必须转义读取变量)
+    "" 双引号，保持引号内的字面值，可读\$转义后的变量内容，单引号不行。
+    echo $delimit_line | sed -i "2i\\$delimit_line" $dest_file
+BLOCK
+
     # 删除倒数第二行
     sed -i.backup $(($(cat ${dest_file} | wc -l)))'d' ${dest_file}
     

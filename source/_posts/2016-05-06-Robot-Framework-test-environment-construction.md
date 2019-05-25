@@ -109,6 +109,57 @@ pip install robotframework-selenium2library
 Mac 下 pkg 安装 Python2.7 的情况下，pip 快捷目录为`/usr/local/bin/pip`，也就是`/Library/Frameworks/Python.framework/Versions/2.7/bin/pip`对应的软连接的位置的文件，对应的第三方库安装位置为`/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/`。
 然后通过`/usr/local/bin/pip install robotframework-ride==1.5.2`来安装`ride.py`，再通过`brew`来安装`wxpython`，最后就能通过`/Library/Frameworks/Python.framework/Versions/2.7/bin/ride.py`来启动`ride.py`，如果`/usr/local/bin/ride.py`没有生成的话。
 
+#### **Mac下一定能成功启动ride的方法**
+##### brew 安装 python@2和python
+```bash
+brew install python@2
+brew install python
+```
+如果检查系统中存在用安装包安装过的python，则全部删除干净，包括`/usr/local/bin`目录下存在的和python相关的所有软链和硬链
+然后用上述命令安装好python，同时就会在`/usr/local/bin`目录下新增对应的软链命令。
+
+##### 安装 wxpython
+首先使用brew来安装wxpython
+```bash
+brew install wxpython
+```
+后面会说到，如果不行的话，就需要用pip来安装wxpython
+```bash
+# 使用指定的pip来安装wxpython
+/usr/local/bin/pip3 install wxpython
+```
+该命令安装的是python3支持的ride，后面会说
+
+##### 安装ride
+```bash
+# 由于默认情况下会安装1.7.3.1版本，该版本在mac下会报pywin32不存在的问题，怀疑这个版本是只支持Windows系统的，所以安装如下版本
+/usr/local/bin/pip3 install robotframework-ride==1.7.3
+```
+正常情况下，按照如上的步骤，ride是一定能够启动的
+```bash
+/usr/local/bin/ride.py
+```
+
+##### 解释下为啥都用绝对路径来调用命令，而不是使用比如`pip3`
+原因是，可能我们安装了虚拟环境，且虚拟环境在环境变量初始化的时候被提前了，这样就不会去寻找`/usr/local/bin`目录下的命令，可以使用which命令确认一下
+如果which命令显示的就是`/usr/local/bin`目录下的命令，那就可以直接调用，不需要使用绝对路径访问了
+
+```bash
+# taoyi @ TyMac in ~ [0:12:56] 
+$ which ride.py 
+/Users/taoyi/.pyenv/shims/ride.py
+```
+这种情况就需要使用`/usr/local/bin/ride.py`来启动ride
+
+```bash
+# taoyi @ TyMac in ~ [0:13:00] 
+$ which ride.py
+/usr/local/bin/ride.py
+```
+这种情况就只需要使用`ride.py`来启动ride
+
+
+
 #### 问题解决
 
 ##### 遇到ride无法启动的问题【Windows】
@@ -169,3 +220,8 @@ wxPython 2.8.12.1 can be downloaded from http://sourceforge.net/projects/wxpytho
 因为brew默认启用的地址为：/Users/taoyi/Library/Python/2.7/lib/python/site-packages/
 后面的文件夹路径若没有则需要新建：mkdir -p /Users/taoyi/Library/Python/2.7/lib/python/site-packages
 再执行：echo 'import site; site.addsitedir("/usr/local/lib/python2.7/site-packages")' >> /Users/taoyi/Library/Python/2.7/lib/python/site-packages/homebrew.pth
+
+##### ``ImportError: cannot import name 'pub'`` 问题解决
+```bash
+pip install pypubsub
+```
