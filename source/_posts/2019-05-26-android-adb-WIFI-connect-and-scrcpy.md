@@ -86,6 +86,9 @@ tags: [adb]
     scrcpy --help
     # 设置码率（默认8M）
     scrcpy -b 8M
+    # 连接多个设备时，指定设备
+    scrcpy -s 63faca2b
+    scrcpy -s 172.18.98.221:9000
     # 限制投屏尺寸
     scrcpy -m 1024
     # 裁剪投屏屏幕(长:宽:偏移x:偏移y)
