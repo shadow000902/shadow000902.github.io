@@ -133,6 +133,23 @@ System.setProperty("hudson.model.DirectoryBrowserSupport.CSP","sandbox allow-scr
 
 #### 好用的Jenkins插件
 
+##### ``Parameterized Remote Trigger Plugin`` 【多slave项目顺序执行】 ``Parameterized Trigger Plugin`` 【多项目顺序执行】
+设置项目在某项目执行完成后，再执行当前项目
+【构建触发器】-【``Build after other projects are built``】
+
+##### ``Build periodically``【日程表】设置
+设置周期性执行策略
+>第一个参数代表的是分钟 minute，取值 0~59；
+>第二个参数代表的是小时 hour，取值 0~23；
+>第三个参数代表的是天 day，取值 1~31；
+>第四个参数代表的是月 month，取值 1~12；
+>最后一个参数代表的是星期 week，取值 0~7，0 和 7 都是表示星期天。
+
+示例：
+``H 8 * * 6``：每周六上午8点构建一次
+``H * * * *``：每小时构建一次
+``H 8 3 2 *``：每年2月3号8点构建一次
+
 ##### ``Git Parameter``【构建分支&Tags参数化】
 {% asset_img Git_Parameter.png Git_Parameter %}
 
