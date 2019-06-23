@@ -106,3 +106,9 @@ print ('%d * %d = %d' %(i, j, i * j), end='\t')
     }
 }
 ```
+
+##### 共享本地文件给局域网访问
+```bash
+python -m http.server
+```
+共享当前运行该命令的本地目录，给予在局域网内访问；默认共享端口为8000，即访问地址为：[localhost:8000](http://localhost:8000)

@@ -47,7 +47,13 @@ tags: [adb]
     192.168.31.233:5556	offline
     ```
     如上之前打开过一个`5556`的端口，因为也没有用到，且是掉线状态，如果留着，那连接的设备就不是唯一了，需要进行指定了，造成了一定的麻烦，所以需要手动删除该连接的设备，实际也就是关闭该设备的在线状态
-6. 查看端口占用的PID信息等
+    
+6. 断开远程连接
+```bash
+adb disconnect 192.168.31.233:5556
+```    
+
+7. 查看端口占用的PID信息等
     ```bash
     # taoyi @ TyMac in ~ [1:54:51] C:130
     $ lsof -i tcp:5555
@@ -62,7 +68,7 @@ tags: [adb]
       501 94280     1   0  3:44下午 ??         2:00.63 adb -L tcp:5037 fork-server server --reply-fd 5
       501 21281 16612   0  1:56上午 ttys000    0:00.00 grep --color=auto --exclude-dir=.bzr --exclude-dir=CVS --exclude-dir=.git --exclude-dir=.hg --exclude-dir=.svn fork-server
     ```
-7. `kill`掉刚才已经`offline`的设备的链接的`PID`，就可以删除该设备了
+8. `kill`掉刚才已经`offline`的设备的链接的`PID`，就可以删除该设备了
 
 
 #### 无线投屏

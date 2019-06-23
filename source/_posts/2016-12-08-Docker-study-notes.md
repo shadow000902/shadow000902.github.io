@@ -30,6 +30,8 @@ tags: [docker]
 ```
 到目前为止，还是没有办法指定``images``和``Container``的保存路径，你只能任由``docker``吃掉你的主盘。
 
+docker2版本增加了`move disk image`的入口，可以修改docker Disk image的路径
+
 #### docker镜像的常用操作
 1. 获取镜像
     ```bash
@@ -40,8 +42,8 @@ tags: [docker]
     ```
 	返回结果：
     ```bash
-    ╭─taoyi at TaoYi-Mac in ~ using ‹› 17-06-26 - 12:25:35
-    ╰─○ docker pull redis
+    # taoyi @ TyMac in ~ using ‹› 17-06-26 - 12:25:35
+    $ docker pull redis
     Using default tag: latest
     latest: Pulling from library/redis
     f5cc0ee7a6f6: Pull complete 														# f5cc0ee7a6f6是redis镜像的层ID，一个镜像由多层组成
@@ -60,8 +62,8 @@ tags: [docker]
     ```
 	返回结果：
     ```bash
-    ╭─taoyi at TaoYi-Mac in ~ using ‹› 17-06-26 - 12:27:31
-    ╰─○ docker images
+    # taoyi @ TyMac in ~ using ‹› 17-06-26 - 12:27:31
+    $ docker images
     REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
     jenkins             latest              0b4d4d677a26        2 days ago          681 MB
     redis               latest              4e482b286430        2 days ago          99 MB
@@ -72,8 +74,8 @@ tags: [docker]
     ```
 	返回结果：
     ```bash
-    ╭─taoyi at TaoYi-Mac in ~ using ‹› 17-06-26 - 12:32:43
-    ╰─○ docker inspect redis
+    # taoyi @ TyMac in ~ using ‹› 17-06-26 - 12:32:43
+    $ docker inspect redis
     [
         {
             "Id": "sha256:4e482b286430fc5abed4cd26965ef200c59b727739919489d9ba42d5c361576c",
@@ -197,8 +199,8 @@ tags: [docker]
     ```
 	返回结果：
     ```bash
-    ╭─taoyi at TaoYi-Mac in ~ using ‹› 17-06-26 - 12:34:23
-    ╰─○ docker inspect -f {{.Os}} 4e482b286430
+    # taoyi @ TyMac in ~ using ‹› 17-06-26 - 12:34:23
+    $ docker inspect -f {{.Os}} 4e482b286430
     linux
     ```
 
@@ -208,8 +210,8 @@ tags: [docker]
     ```
 	返回结果：
     ```bash
-    ╭─taoyi at TaoYi-Mac in ~ using ‹› 17-06-26 - 12:36:55
-    ╰─○ docker search redis
+    # taoyi @ TyMac in ~ using ‹› 17-06-26 - 12:36:55
+    $ docker search redis
     NAME                      DESCRIPTION                                     STARS     OFFICIAL   AUTOMATED
     redis                     Redis is an open source key-value store th...   3889      [OK]       
     sameersbn/redis                                                           54                   [OK]
@@ -250,15 +252,15 @@ tags: [docker]
     创建镜像的方法有三种：基于已有镜像的容器创建、基于本地模板的导入、基于Dockerfile创建。
     基于已有镜像的容器创建：
     ```bash
-    ╭─taoyi at TaoYi-Mac in ~ using ‹› 17-06-26 - 12:40:17
-    ╰─○ docker ps
+    # taoyi @ TyMac in ~ using ‹› 17-06-26 - 12:40:17
+    $ docker ps
     CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
-    ╭─taoyi at TaoYi-Mac in ~ using ‹› 17-06-26 - 12:44:55
-    ╰─○ docker ps -a
+    # taoyi @ TyMac in ~ using ‹› 17-06-26 - 12:44:55
+    $ docker ps -a
     CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS                      PORTS               NAMES
     eed91a25662b        jenkins             "/bin/tini -- /usr..."   16 hours ago        Exited (130) 16 hours ago                       myJenkins
-    ╭─taoyi at TaoYi-Mac in ~ using ‹› 17-06-26 - 12:57:23
-    ╰─○ docker commit -a "author" -m " " eed91a25662b shadow/testjenkins
+    # taoyi @ TyMac in ~ using ‹› 17-06-26 - 12:57:23
+    $ docker commit -a "author" -m " " eed91a25662b shadow/testjenkins
     sha256:7fdb1ba1c4a59310c61907c574567502fb2b4c9faad6d3fa1cde7ac24a1d7974
     ```
 
@@ -267,16 +269,16 @@ tags: [docker]
     docker save -o <image>.tar <image>:<tag>						# 其中的image可以为标签或ID
     ```
     ```bash
-    ╭─taoyi at TaoYi-Mac in ~ using ‹› 17-06-26 - 12:57:45
-    ╰─○ docker images
+    # taoyi @ TyMac in ~ using ‹› 17-06-26 - 12:57:45
+    $ docker images
     REPOSITORY           TAG                 IMAGE ID            CREATED             SIZE
     shadow/testjenkins   latest              7fdb1ba1c4a5        3 minutes ago       681 MB
     jenkins              latest              0b4d4d677a26        2 days ago          681 MB
     redis                latest              4e482b286430        2 days ago          99 MB
-    ╭─taoyi at TaoYi-Mac in ~ using ‹› 17-06-26 - 13:01:35
-    ╰─○ docker save -o testjenkins.tar 7fdb1ba1c4a5
-    ╭─taoyi at TaoYi-Mac in ~ using ‹› 17-06-26 - 13:02:41
-    ╰─○ ll
+    # taoyi @ TyMac in ~ using ‹› 17-06-26 - 13:01:35
+    $ docker save -o testjenkins.tar 7fdb1ba1c4a5
+    # taoyi @ TyMac in ~ using ‹› 17-06-26 - 13:02:41
+    $ ll
     -rw-------   1 taoyi  staff   664M  6 26 13:02 testjenkins.tar					# 镜像被迁出到了当前目录
     ```
 
@@ -286,38 +288,38 @@ tags: [docker]
     docker load
     ```
     ```bash
-    ╭─taoyi at TaoYi-Mac in ~ using ‹› 17-06-26 - 13:04:54
-    ╰─○ docker images
+    # taoyi @ TyMac in ~ using ‹› 17-06-26 - 13:04:54
+    $ docker images
     REPOSITORY           TAG                 IMAGE ID            CREATED             SIZE
     shadow/testjenkins   latest              7fdb1ba1c4a5        10 minutes ago      681 MB
     jenkins              latest              0b4d4d677a26        2 days ago          681 MB
     redis                latest              4e482b286430        2 days ago          99 MB
-    ╭─taoyi at TaoYi-Mac in ~ using ‹› 17-06-26 - 13:08:01
-    ╰─○ docker rmi 7fdb1ba1c4a5
+    # taoyi @ TyMac in ~ using ‹› 17-06-26 - 13:08:01
+    $ docker rmi 7fdb1ba1c4a5
     Untagged: shadow/testjenkins:latest
     Deleted: sha256:7fdb1ba1c4a59310c61907c574567502fb2b4c9faad6d3fa1cde7ac24a1d7974
     Deleted: sha256:ffe123eea6f84d7dc5626bffd1930b23d898ee65d0eb371d2a57da0abdfd5c87
-    ╭─taoyi at TaoYi-Mac in ~ using ‹› 17-06-26 - 13:08:15
-    ╰─○ docker images
+    # taoyi @ TyMac in ~ using ‹› 17-06-26 - 13:08:15
+    $ docker images
     REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
     jenkins             latest              0b4d4d677a26        2 days ago          681 MB
     redis               latest              4e482b286430        2 days ago          99 MB
-    ╭─taoyi at TaoYi-Mac in ~ using ‹› 17-06-26 - 13:08:24
-    ╰─○ docker load --input testjenkins.tar
+    # taoyi @ TyMac in ~ using ‹› 17-06-26 - 13:08:24
+    $ docker load --input testjenkins.tar
     57ee77a34bd9: Loading layer [==================================================>]  2.56 kB/2.56 kB
     Loaded image ID: sha256:7fdb1ba1c4a59310c61907c574567502fb2b4c9faad6d3fa1cde7ac24a1d7974
-    ╭─taoyi at TaoYi-Mac in ~ using ‹› 17-06-26 - 13:08:54
-    ╰─○ docker images
+    # taoyi @ TyMac in ~ using ‹› 17-06-26 - 13:08:54
+    $ docker images
     REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
     <none>              <none>              7fdb1ba1c4a5        11 minutes ago      681 MB
     jenkins             latest              0b4d4d677a26        2 days ago          681 MB
     redis               latest              4e482b286430        2 days ago          99 MB
     ```
     ```bash
-    ╭─taoyi at TaoYi-Mac in ~ using ‹› 17-06-26 - 13:09:05
-    ╰─○ docker tag 7fdb1ba1c4a5 "test0jenkins"											# 给容器命名
-    ╭─taoyi at TaoYi-Mac in ~ using ‹› 17-06-26 - 13:13:50
-    ╰─○ docker images                         
+    # taoyi @ TyMac in ~ using ‹› 17-06-26 - 13:09:05
+    $ docker tag 7fdb1ba1c4a5 "test0jenkins"											# 给容器命名
+    # taoyi @ TyMac in ~ using ‹› 17-06-26 - 13:13:50
+    $ docker images                         
     REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
     test0jenkins        latest              7fdb1ba1c4a5        16 minutes ago      681 MB
     jenkins             latest              0b4d4d677a26        2 days ago          681 MB
@@ -331,8 +333,8 @@ tags: [docker]
 	默认上传到DockerHub官方仓库。
 	登录Docker：
     ```bash
-    ╭─taoyi at TaoYi-Mac in ~ using ‹› 17-06-26 - 13:17:59
-    ╰─○ docker login
+    # taoyi @ TyMac in ~ using ‹› 17-06-26 - 13:17:59
+    $ docker login
     Login with your Docker ID to push and pull images from Docker Hub. If you don't have a Docker ID, head over to https://hub.docker.com to create one.
     Username: shadow000902
     Password: 
@@ -359,12 +361,38 @@ tags: [docker]
     docker stop tomcat
     # 宿主机 删除容器
     docker rm tomcat
+    # 强制删除正在运行的容器
+    docker rm -f tomcat 
     # 宿主机 docker 进程已经删除
     docker ps
     # 宿主机 docker 镜像依旧存在
     docker images
     ```
-    
+
+#### 登录docker容器
+```bash
+docker exec -it myjenkins bash
+# 直接使用docker执行命令
+docker exec myjenkins ping www.baidu.com
+# 复制宿主机文件到容器内
+docker cp `pwd`/text.txt myjenkins:/home
+```
+
+#### docker端口与宿主机端口映射
+```bash
+docker run -d --name myjenkins -p 8080:8080 jenkins
+```
+    -d ：后台运行
+    --name ：为启动的docker进程取名
+    -p 宿主机端口:docker端口 ：用于映射宿主机和docker的端口，用于外网访问
+    -v 宿主机目录:docker目录 ：用于映射docker运行目录，用于数据持久化存储，docker容器被删除后，数据依旧可以保存下来
+
+#### docker网络模式
+    docker docker启动的时候就启动的bridge
+    eth0
+    虚拟网卡 成对出现，
+    --net=Host
+
 #### docker 命令解释
 1. `docker exec`
     `docker exec` 命令用来启动 `sh` 或 `bash`，并通过它们实现对容器内的虚拟环境的控制。

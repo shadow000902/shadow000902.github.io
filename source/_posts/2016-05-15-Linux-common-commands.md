@@ -337,6 +337,17 @@ Retype new password: 										# 确认新的密码
 passwd: all authentication tokens updated successfully.		# 成功修改密码提示
 ```
 
+##### 永久修改`ubuntu`主机名
+```bash
+vim /etc/hostname
+```
+
+##### 永久修改`redhat/centos`主机名
+```bash
+vi /etc/sysconfig/network
+```
+修改`HOSTNAME`字段值即修改了主机名
+
 ##### 创建用户及用户组，并修改密码切换用户
 ```bash
 # root @ shadow in ~ [10:30:20] C:1
