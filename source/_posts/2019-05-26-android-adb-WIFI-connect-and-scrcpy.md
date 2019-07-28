@@ -111,20 +111,20 @@ adb disconnect 192.168.31.233:5556
 
 4. 快捷方式
     
-    Action|Shortcut
-    ---|---
-    切换全屏模式|Ctrl+f
-    将窗口调整为1：1（完美像素）|Ctrl+g
-    调整窗口大小以删除黑色边框|Ctrl+x / 双击黑色背景
-    设备HOME键|Ctrl+h / 鼠标中键
-    设备BACK键|Ctrl+b / 鼠标右键
-    设备任务管理键|Ctrl+s
-    设备 菜单 键|Ctrl+m
-    设备音量+键|Ctrl+↑
-    设备音量-键|Ctrl+↓
-    设备电源键|Ctrl+p
-    点亮手机屏幕|鼠标右键
-    复制内容到设备|Ctrl+v
-    启用/禁用FPS计数器（stdout）|Ctrl+i
-    安装APK|将apk文件拖入投屏
-    传输文件到设备|将文件拖入投屏（非apk）
+    |Action|Shortcut|
+    |---|---|
+    |切换全屏模式|Ctrl+f|
+    |将窗口调整为1：1（完美像素）|Ctrl+g|
+    |调整窗口大小以删除黑色边框|Ctrl+x / 双击黑色背景|
+    |设备HOME键|Ctrl+h / 鼠标中键|
+    |设备BACK键|Ctrl+b / 鼠标右键|
+    |设备任务管理键|Ctrl+s|
+    |设备 菜单 键|Ctrl+m|
+    |设备音量+键|Ctrl+↑|
+    |设备音量-键|Ctrl+↓|
+    |设备电源键|Ctrl+p|
+    |点亮手机屏幕|鼠标右键|
+    |复制内容到设备|Ctrl+v|
+    |启用/禁用FPS计数器（stdout）|Ctrl+i|
+    |安装APK|将apk文件拖入投屏|
+    |传输文件到设备|将文件拖入投屏（非apk）|
