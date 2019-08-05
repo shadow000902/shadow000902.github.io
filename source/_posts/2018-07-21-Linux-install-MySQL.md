@@ -5,7 +5,7 @@ categories: [MySQL]
 tags: [python, mysql]
 ---
 
-##### 以下内容基于CentOS完成
+#### 以下内容基于CentOS完成
 
 ##### MySQL包下载地址
 [32位5.7.22版本下载地址](https://dev.mysql.com/get/Downloads/MySQL-5.7/mysql-5.7.22-linux-glibc2.12-i686.tar.gz)
@@ -145,6 +145,7 @@ yum install libaio.so.1
 解决方法：
 ```bash
 yum install libnuma.so.1
+apt-get install libaio-dev     # ubuntu下解决该问题，可能还需要执行 apt-get -f install
 ```
 3. 服务启动报错
 ```bash
@@ -159,3 +160,145 @@ Starting MySQL.Logging to '/usr/local/mysql/data/dbserver.err'.
 # service mysql start
 Starting MySQL SUCCESS! 
 ```
+
+#### UBUNTU系统安装mysql
+1. 系统纯净的情况下安装：
+```bash
+sudo apt-get install mysql-server-5.7
+```
+
+2. 如果安装中出现各种莫名其妙的问题，说明环境有问题，处理方法是卸载掉所有mysql相关的库，然后重新安装
+需要用到的主要是`dpkg`命令
+```bash
+$ dpkg --list | grep mysql
+ii  mysql-client-5.7                              5.7.27-0ubuntu0.16.04.1                  amd64        MySQL database client binaries
+ii  mysql-client-core-5.7                         5.7.27-0ubuntu0.16.04.1                  amd64        MySQL database core client binaries
+ii  mysql-common                                  5.7.27-0ubuntu0.16.04.1                  all          MySQL database common files, e.g. /etc/mysql/my.cnf
+ii  mysql-server-5.7                              5.7.27-0ubuntu0.16.04.1                  amd64        MySQL database server binaries and system database setup
+ii  mysql-server-core-5.7                         5.7.27-0ubuntu0.16.04.1                  amd64        MySQL database server binaries
+ii  python-pymysql                                0.7.2-1ubuntu1                           all          Pure-Python MySQL driver - Python 2.x
+```
+可以看到所有系统已经安装的，或者是之前有人安装的mysql
+我们需要做的是先卸载这些所有的库，只要是名称上有mysql的全部卸载掉，命令为：
+```bash
+sudo dpkg --remove mysql-client-5.7 mysql-client-core-5.7 mysql-common mysql-server mysql-server-5.7 mysql-server-core-5.7
+```
+或者使用：
+```bash
+sudo dpkg --purge --remove mysql-server-5.7
+```
+即纯净模式，删除所有相关的依赖
+如果出现还是无法删除的情况，那多数是还是被依赖，把报错出来的相关的包进行删除，比如：
+```bash
+sudo dpkg --remove libqt4-sql-mysql:amd64
+sudo dpkg --remove libmysqlclient20
+sudo dpkg --remove libmysqlclient-dev
+```
+清除干净环境后，就可以重新用上面的命令安装了，正常情况下，会正常安装成功，安装成功的日志如下：
+```bash
+# souche @ kickseed in ~/ITPlatform/interfaceManage on git:master x [21:00:39] C:100
+$ sudo apt-get install mysql-server-5.7 
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+The following additional packages will be installed:
+  libcgi-fast-perl libcgi-pm-perl libevent-core-2.0-5 libfcgi-perl libhtml-template-perl libnuma1 mysql-client-5.7 mysql-client-core-5.7 mysql-common
+  mysql-server-core-5.7
+Suggested packages:
+  libipc-sharedcache-perl mailx tinyca
+The following NEW packages will be installed:
+  libcgi-fast-perl libcgi-pm-perl libevent-core-2.0-5 libfcgi-perl libhtml-template-perl libnuma1 mysql-client-5.7 mysql-client-core-5.7 mysql-common
+  mysql-server-5.7 mysql-server-core-5.7
+0 upgraded, 11 newly installed, 0 to remove and 251 not upgraded.
+Need to get 14.7 kB/19.0 MB of archives.
+After this operation, 162 MB of additional disk space will be used.
+Do you want to continue? [Y/n] y
+Get:1 http://mirrors.aliyun.com/ubuntu xenial-security/main amd64 mysql-common all 5.7.27-0ubuntu0.16.04.1 [14.7 kB]
+Fetched 14.7 kB in 0s (191 kB/s)   
+Preconfiguring packages ...
+Selecting previously unselected package mysql-common.
+(Reading database ... 114991 files and directories currently installed.)
+Preparing to unpack .../mysql-common_5.7.27-0ubuntu0.16.04.1_all.deb ...
+Unpacking mysql-common (5.7.27-0ubuntu0.16.04.1) ...
+Selecting previously unselected package libnuma1:amd64.
+Preparing to unpack .../libnuma1_2.0.11-1ubuntu1.1_amd64.deb ...
+Unpacking libnuma1:amd64 (2.0.11-1ubuntu1.1) ...
+Selecting previously unselected package mysql-client-core-5.7.
+Preparing to unpack .../mysql-client-core-5.7_5.7.27-0ubuntu0.16.04.1_amd64.deb ...
+Unpacking mysql-client-core-5.7 (5.7.27-0ubuntu0.16.04.1) ...
+Selecting previously unselected package mysql-client-5.7.
+Preparing to unpack .../mysql-client-5.7_5.7.27-0ubuntu0.16.04.1_amd64.deb ...
+Unpacking mysql-client-5.7 (5.7.27-0ubuntu0.16.04.1) ...
+Selecting previously unselected package mysql-server-core-5.7.
+Preparing to unpack .../mysql-server-core-5.7_5.7.27-0ubuntu0.16.04.1_amd64.deb ...
+Unpacking mysql-server-core-5.7 (5.7.27-0ubuntu0.16.04.1) ...
+Selecting previously unselected package libevent-core-2.0-5:amd64.
+Preparing to unpack .../libevent-core-2.0-5_2.0.21-stable-2ubuntu0.16.04.1_amd64.deb ...
+Unpacking libevent-core-2.0-5:amd64 (2.0.21-stable-2ubuntu0.16.04.1) ...
+Processing triggers for libc-bin (2.23-0ubuntu5) ...
+Processing triggers for man-db (2.7.5-1) ...
+Setting up mysql-common (5.7.27-0ubuntu0.16.04.1) ...
+update-alternatives: using /etc/mysql/my.cnf.fallback to provide /etc/mysql/my.cnf (my.cnf) in auto mode
+Selecting previously unselected package mysql-server-5.7.
+(Reading database ... 115159 files and directories currently installed.)
+Preparing to unpack .../mysql-server-5.7_5.7.27-0ubuntu0.16.04.1_amd64.deb ...
+Unpacking mysql-server-5.7 (5.7.27-0ubuntu0.16.04.1) ...
+Selecting previously unselected package libcgi-pm-perl.
+Preparing to unpack .../libcgi-pm-perl_4.26-1_all.deb ...
+Unpacking libcgi-pm-perl (4.26-1) ...
+Selecting previously unselected package libfcgi-perl.
+Preparing to unpack .../libfcgi-perl_0.77-1build1_amd64.deb ...
+Unpacking libfcgi-perl (0.77-1build1) ...
+Selecting previously unselected package libcgi-fast-perl.
+Preparing to unpack .../libcgi-fast-perl_1%3a2.10-1_all.deb ...
+Unpacking libcgi-fast-perl (1:2.10-1) ...
+Selecting previously unselected package libhtml-template-perl.
+Preparing to unpack .../libhtml-template-perl_2.95-2_all.deb ...
+Unpacking libhtml-template-perl (2.95-2) ...
+Processing triggers for systemd (229-4ubuntu21.4) ...
+Processing triggers for ureadahead (0.100.0-19) ...
+Processing triggers for man-db (2.7.5-1) ...
+Setting up libnuma1:amd64 (2.0.11-1ubuntu1.1) ...
+Setting up mysql-client-core-5.7 (5.7.27-0ubuntu0.16.04.1) ...
+Setting up mysql-client-5.7 (5.7.27-0ubuntu0.16.04.1) ...
+Setting up mysql-server-core-5.7 (5.7.27-0ubuntu0.16.04.1) ...
+Setting up libevent-core-2.0-5:amd64 (2.0.21-stable-2ubuntu0.16.04.1) ...
+Setting up mysql-server-5.7 (5.7.27-0ubuntu0.16.04.1) ...
+update-alternatives: using /etc/mysql/mysql.cnf to provide /etc/mysql/my.cnf (my.cnf) in auto mode
+Renaming removed key_buffer and myisam-recover options (if present)
+Setting up libcgi-pm-perl (4.26-1) ...
+Setting up libfcgi-perl (0.77-1build1) ...
+Setting up libcgi-fast-perl (1:2.10-1) ...
+Setting up libhtml-template-perl (2.95-2) ...
+Processing triggers for libc-bin (2.23-0ubuntu5) ...
+Processing triggers for systemd (229-4ubuntu21.4) ...
+Processing triggers for ureadahead (0.100.0-19) ...
+(venv) 
+# souche @ kickseed in ~/ITPlatform/interfaceManage on git:master x [21:01:53] 
+$ which mysql
+/usr/bin/mysql
+(venv) 
+# souche @ kickseed in ~/ITPlatform/interfaceManage on git:master x [21:02:00] 
+$ mysql -uroot
+ERROR 1045 (28000): Access denied for user 'root'@'localhost' (using password: NO)
+(venv) 
+# souche @ kickseed in ~/ITPlatform/interfaceManage on git:master x [21:02:06] C:1
+$ mysql -uroot -p
+Enter password: 
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 5
+Server version: 5.7.27-0ubuntu0.16.04.1 (Ubuntu)
+
+Copyright (c) 2000, 2019, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> exit
+Bye
+```
+
+安装过程中会跳出弹窗，让输入root密码，输入两边后，即会安装成功，记住自己设置的密码就可以登录了。

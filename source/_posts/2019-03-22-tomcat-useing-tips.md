@@ -8,8 +8,10 @@ tags: [tomcat]
 1. 设置 tomcat 启动后的占用内存大小
     ```bash
     # vim /tomcats/bin/catalina.sh
-    # 添加配置参数
-    JAVA_OPTS='-Xms256m -Xmx400m'
+    # 修改配置参数，大约是第251行：原始：JAVA_OPTS="$JAVA_OPTS $JSSE_OPTS"
+    # 修改为：
+    # 其中的数值可以根据需要修改
+    JAVA_OPTS="$JAVA_OPTS $JSSE_OPTS -Xms200m -Xmx200m"
     ```
 
   <!--more-->
