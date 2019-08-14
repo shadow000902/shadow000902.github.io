@@ -5,7 +5,6 @@ categories: [Python]
 tags: [python]
 ---
 
-#### pip使用技巧
 ##### 安装指定版本的第三方库
 ```bash
 pip install robotframework==2.8.7
@@ -13,6 +12,11 @@ pip install robotframework==2.8.7
 要用``pip``安装指定版本的``Python``包，只需通过``==``操作符指定即可。
 
   <!--more-->
+
+##### 将当前虚拟环境中的依赖包以版本号生成至文件中：
+```bash
+pip freeze > requirements.txt
+```
 
 ##### 在指定位置安装第三方
 ```bash
