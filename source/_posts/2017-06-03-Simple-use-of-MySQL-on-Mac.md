@@ -152,3 +152,8 @@ tags: [mysql]
 	```mysql
 	select deptname,deptno.name from staff right join deptno on deptno.name=staff.name;
 	```
+ 
+13. 查看当前的数据库连接数
+    ```mysql
+    show processlist;
+    ```
