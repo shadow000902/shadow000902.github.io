@@ -2,7 +2,7 @@
 title: Mac切换Terminal为zsh
 date: 2017-05-18 17:17:39
 categories: [Tips]
-tags: [terminal]
+tags: [terminal, zsh]
 ---
 
 ##### 下载一个 .oh-my-zsh 配置
@@ -32,9 +32,11 @@ ZSH_THEME="ys"                   # 设置选择的主题。默认是robbyrussell
 ...
 ...
 source $ZSH/oh-my-zsh.sh
-source ~/.bash_profile
 ...
 ```
+并且把老的环境变量文件中的设置项拷贝到该文件中。
+因为大多数情况下直接在`~/.zshrc`中使用`source ~/.bashrc`来初始化老的环境变量，会有一些不知名的报错。
+
 
 ##### 优化 terminal 样式
 {% asset_img 终端样式修改.png 终端样式修改 %}
@@ -44,13 +46,18 @@ source ~/.bash_profile
 ```bash
 chsh -s /bin/zsh
 ```
+ubuntu下如果不存在zsh的话，需要安装一下：
+```bash
+sudo apt-get install zsh
+```
+
 重启一下 Terminal 之后，就生效了。
 
 ###### 方法二
 编辑``/etc/passwd``文件，修改如下字段
 ```bash
 ...
-taoyi:x:500:500::/home/taoyi:/bin/zsh       # 把原来的 /bin/bash 改成新的 /bin/zsh
+taoyi:x:500:500::/home/taoyi:/bin/zsh       # 把对应用户下，原来的 /bin/bash 改成新的 /bin/zsh
 ...
 ```
 
@@ -82,7 +89,7 @@ alias rvm-prompt=$HOME/.rvm/bin/rvm-prompt
 这样后，就完美了，不会再有这个报错了。
 
 ##### 安装第三方插件
-1. 安装``zsh-syntax-highlighting``插件
+1. 安装``zsh-syntax-highlighting``插件，文本高亮
 ```bash
 cd ~/.oh-my-zsh/plugins/
 git clone git://github.com/zsh-users/zsh-syntax-highlighting.git
@@ -91,4 +98,14 @@ git clone git://github.com/zsh-users/zsh-syntax-highlighting.git
 ```bash
 # plugins=(git)
 plugin=(git zsh-syntax-highlighting)
+```
+2. 安装``zsh-autosuggestions``插件，历史输入自动补全
+```bash
+cd ~/.oh-my-zsh/plugins/
+git clone git://github.com/zsh-users/zsh-autosuggestions.git
+```
+然后编辑环境变量文件``~/.zshrc``，在其中加入插件名称
+```bash
+# plugins=(git)
+plugin=(git zsh-autosuggestions)
 ```
