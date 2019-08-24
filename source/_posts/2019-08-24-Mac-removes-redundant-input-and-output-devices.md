@@ -6,7 +6,7 @@ tags: [mac]
 ---
 
 查看3个目录：
-```shell script
+```bash
 /Library/Extensions/
 /System/Library/Extensions/
 /Library/Audio/Plug-Ins/HAL/
