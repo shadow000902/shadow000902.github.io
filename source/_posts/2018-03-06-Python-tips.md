@@ -155,3 +155,195 @@ print(lists)                 #[{'num': 0}, {'num': 1}, {'num': 2}]
       - copy浅拷贝，只拷贝父对象，不会拷贝对象的内部的子对象，所以原始数据改变，子对象会改变
       - copy深拷贝，包含对象里面的自对象的拷贝，所以原始对象的改变不会造成深拷贝里任何子元素的改变
 
+##### 全局变量和局部变量
+```python
+def test():
+    if value == 1:
+        a += 1
+    return a
+
+value = a = 1
+b = test()
+```
+执行上述代码就会出现`UnboundLocalError: local variable 'a' referenced before assignment`这个报错。
+因为在函数内部对变量赋值进行修改后，该变量就会被Python解释器认为是局部变量而非全局变量，当程序执行到a+=1的时候，因为这条语句是给a赋值，所以a成为了局部变量，那么在执行return a(或是print a)的时候，因为a这个局部变量还没有定义，自然就会抛出这样的错误。
+
+解决方案一：
+当全局变量。就是使用global关键字，在函数内部先声明a这个变量是全局变量。代码如下：
+```python
+def test():
+    global a
+    if value == 1:
+        a += 1
+    return a
+
+value = a = 1
+b = test()
+```
+这时，a就成为了全局变量，在函数内部修改该变量，也就没有问题了。
+这种情况外面的a执行完函数是2，而函数返回的也是2。
+
+解决方案二：
+当局部变量。就是这个变量只在函数内使用，那么只要在函数内把这个变量定义一下就行了。代码如下：
+```python
+def test():
+    a = 1
+    if value == 1:
+        a += 1
+    return a
+
+value = a = 1
+b = test()
+```
+这种情况外面的a执行完函数还是1，而函数返回的则是2。
+
+##### `requests.post`使用
+1. 带数据『data』的post
+    ```python
+    # -*- coding:utf-8 -*-
+    import requests
+    import json
+    
+    host = "http://httpbin.org/"
+    endpoint = "post"
+    url = ''.join([host,endpoint])
+    data = {'key1':'value1','key2':'value2'}
+    
+    r = requests.post(url,data=data)
+    #response = r.json()
+    print (r.text)
+    ```
+
+2. 带header的post
+    ```python
+    # -*- coding:utf-8 -*-
+    import requests
+    import json
+    
+    host = "http://httpbin.org/"
+    endpoint = "post"
+    
+    url = ''.join([host,endpoint])
+    headers = {"User-Agent":"test request headers"}
+    
+    # r = requests.post(url)
+    r = requests.post(url,headers=headers)
+    #response = r.json()
+    ```
+
+3. 带json的post
+    ```python
+    # -*- coding:utf-8 -*-
+    import requests
+    import json
+    
+    host = "http://httpbin.org/"
+    endpoint = "post"
+    
+    url = ''.join([host,endpoint])
+    data = {
+        "sites": [
+                    { "name":"test" , "url":"www.test.com" },
+                    { "name":"google" , "url":"www.google.com" },
+                    { "name":"weibo" , "url":"www.weibo.com" }
+        ]
+    }
+    
+    r = requests.post(url,json=data)
+    # r = requests.post(url,data=json.dumps(data))
+    response = r.json()
+    ```
+
+4. 带参数『params』的post
+    ```python
+    # -*- coding:utf-8 -*-
+    import requests
+    import json
+    
+    host = "http://httpbin.org/"
+    endpoint = "post"
+    
+    url = ''.join([host,endpoint])
+    params = {'key1':'params1','key2':'params2'}
+    
+    # r = requests.post(url)
+    r = requests.post(url,params=params)
+    #response = r.json()
+    print (r.text)
+    ```
+
+5. 普通文件上传
+    ```python
+    # -*- coding:utf-8 -*-
+    import requests
+    import json
+    
+    host = "http://httpbin.org/"
+    endpoint = "post"
+    
+    url = ''.join([host,endpoint])
+    #普通上传
+    files = {
+                'file':open('test.txt','rb')
+            }
+    
+    r = requests.post(url,files=files)
+    print (r.text)
+    ```
+
+6. 定制化文件上传
+    ```python
+    # -*- coding:utf-8 -*-
+    import requests
+    import json
+    
+    host = "http://httpbin.org/"
+    endpoint = "post"
+    
+    url = ''.join([host,endpoint])
+    #自定义文件名，文件类型、请求头
+    files = {
+            'file':('test.png',open('test.png','rb'),'image/png')
+    }
+    
+    r = requests.post(url,files=files)
+    print (r.text)
+    ```
+
+7. 多文件上传
+    ```python
+    # -*- coding:utf-8 -*-
+    import requests
+    import json
+    
+    host = "http://httpbin.org/"
+    endpoint = "post"
+    
+    url = ''.join([host,endpoint])
+    #多文件上传
+    files = [
+        ('file1',('test.txt',open('test.txt', 'rb'))),
+        ('file2', ('test.png', open('test.png', 'rb')))
+        ]
+    
+    r = requests.post(url,files=files)
+    print (r.text)
+    ```
+
+8. 流式上传
+    ```python
+    # -*- coding:utf-8 -*-
+    import requests
+    import json
+    
+    host = "http://httpbin.org/"
+    endpoint = "post"
+    
+    url = ''.join([host,endpoint])
+    
+    #流式上传
+    with open( 'test.txt' ) as f:
+        r = requests.post(url,data = f)
+    
+    print (r.text)
+    ```
