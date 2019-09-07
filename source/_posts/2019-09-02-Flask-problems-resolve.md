@@ -13,6 +13,9 @@ INFO  [alembic.runtime.migration] Context impl MySQLImpl.
 INFO  [alembic.runtime.migration] Will assume non-transactional DDL.
 ERROR [root] Error: Can't locate revision identified by '3ba21fe709f1'
 ```
+
+  <!--more-->
+
 1. 查询对应表中的数据
 ```
 mysql> SELECT * FROM alembic_version;
@@ -23,9 +26,6 @@ mysql> SELECT * FROM alembic_version;
 +-------------+
 1 row in set (0.00 sec)
 ```
-
-  <!--more-->
-
 2. 删除版本控制的数据表
 ```mysql
 DROP TABLE alembic_version;
