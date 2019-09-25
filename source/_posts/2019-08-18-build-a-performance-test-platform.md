@@ -17,7 +17,7 @@ tags: [performance, influxDB, grafana, shell]
 ##### 安装`influxDB`
 ```bash
 # 安装
-docker install influxdb
+docker pull influxdb
 # 启动容器
 docker run -d -p 8086:8086 -p 8083:8083 --name=jmeterdb influxdb
 # 进入容器内部
@@ -57,7 +57,7 @@ select * from jmeter
 [Grafana官网](https://grafana.com/docs/)
 ```bash
 # 安装
-docker install grafana/grafana
+docker pull grafana/grafana
 # 启动容器
 docker run -d -p 3000:3000 --name=jmeterGraf grafana/grafana
 ```
