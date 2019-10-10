@@ -105,5 +105,32 @@ tags: [jira]
     添加方式如图：
     {% asset_img 添加自定义脚本参数.png 添加自定义脚本参数 %}
     {% asset_img 编写脚本项.png 编写脚本项 %}
-    
+
+3. `Script-Fields`使用
+依次进入：`设置`-`管理应用`-`Script Fields`，点击`Create Script Field`按钮，再点击`Custom Script Field`
+{% asset_img Create-Script-Field.png Create-Script-Field %}
+{% asset_img Custom-Script-Field.png Custom-Script-Field %}
+
+示例：获取最后变更到某个状态的时间
+
+代码如下：
+```groovy
+package com.onresolve.jira.groovy.test.scriptfields.scripts
+
+import com.atlassian.jira.component.ComponentAccessor
+
+def changeHistoryManager = ComponentAccessor.getChangeHistoryManager()
+def created = changeHistoryManager.getChangeItemsForField(issue, "status").sort { a, b -> a.created == b.created ? 0 : a.created > b.created ? -1 : 1 }.find {
+    it.to == "12300" 
+}?.getCreated()
+
+def createdTime = created?.getTime()
+
+createdTime ? new Date(createdTime) : null
+```
+
+其中设置的`12300`即为目标状态的`statusId`，执行结果会返回一个最后变更到这个状态的时间，返回的格式由上面设置的`Template`字段格式来确定
+{% asset_img Template使用默认的Text-Field返回的结果.png Template使用默认的Text-Field返回的结果 %}
+{% asset_img Template使用默认的Date-Time返回的结果.png Template使用默认的Date-Time返回的结果 %}
+
 
