@@ -134,3 +134,87 @@ echo "自动化压测全部结束"
 3. 测试结果的展现
 {% asset_img 5次不同并发数的测试结果.png 5次不同并发数的测试结果 %}
 
+#### 服务器的使用情况监控
+1. 获取服务器监控数据
+```bash
+# 每秒采集一次，采集300次，生成文件名："主机名_年月日_时分.nmon",如："su-stable-007_191031_1814.nmon"
+nmon -ft -s 1 -c 300
+```
+2. 安装`nmon2influxdb`
+
+3. 导入采集的数据到`influxdb`中
+```bash
+root@su-stable-007:~# ./nmon2influxdb  import su-stable-007_191031_1814.nmon 
+2019/10/31 18:20:26 Using configuration file /root/.nmon2influxdb.cfg
+2019/10/31 18:20:26 Creating InfluxDB database nmon_reports
+2019/10/31 18:20:26 NMON file separator: ,
+#####
+File su-stable-007_191031_1814.nmon imported : 28800 points !
+```
+4. 在`influxdb`查询已导入的`nmon`数据
+```bash
+root@su-stable-007:~# influx
+Connected to http://localhost:8086 version 1.7.8
+InfluxDB shell version: 1.7.8
+> show databases
+name: databases
+name
+----
+telegraf
+_internal
+jmeter
+nmon_reports
+nmon2influxdb_log
+> use nmon_reports
+Using database nmon_reports
+> show measurements
+name: measurements
+name
+----
+CPU_ALL
+DISKBSIZE
+DISKBUSY
+DISKREAD
+DISKWRITE
+DISKXFER
+JFSFILE
+MEM
+NET
+NETPACKET
+PROC
+VM
+> select * from MEM
+name: MEM
+time                host          name       value
+----                ----          ----       -----
+1572538454000000000 su-stable-007 active     2740.8
+1572538454000000000 su-stable-007 bigfree    -1
+1572538454000000000 su-stable-007 buffers    226.3
+1572538454000000000 su-stable-007 cached     3511.5
+1572538454000000000 su-stable-007 highfree   -0
+1572538454000000000 su-stable-007 hightotal  -0
+1572538454000000000 su-stable-007 inactive   1470.1
+1572538454000000000 su-stable-007 lowfree    -0
+1572538454000000000 su-stable-007 lowtotal   -0
+1572538454000000000 su-stable-007 memfree    3509.7
+1572538454000000000 su-stable-007 memshared  -0
+1572538454000000000 su-stable-007 memtotal   7983.1
+```
+5. 导入面板
+```bash
+root@su-stable-007:~# ./nmon2influxdb dashboard su-stable-007_191031_1814.nmon 
+2019/10/31 19:35:02 Using configuration file /root/.nmon2influxdb.cfg
+2019/10/31 19:35:02 json: cannot unmarshal number into Go value of type grafanaclient.DataSourcePlugin
+root@su-stable-007:~# ./nmon2influxdb dashboard su-stable-007_191031_1814.nmon 
+2019/10/31 19:41:46 Using configuration file /root/.nmon2influxdb.cfg
+2019/10/31 19:41:47 Dashboard uploaded to grafana
+```
+导入时，可能会出现上面第一次失败的情况，可以多试几次；也可能需要自己手动创建`DataSource`，因为从上面看出来并没有自动创建`DataSource`。
+理论上的情况如下：
+```bash
+root@su-stable-007:~# ./nmon2influxdb dashboard su-stable-007_191031_1814.nmon 
+2019/10/31 19:41:46 Using configuration file /root/.nmon2influxdb.cfg
+2019/10/31 19:41:47 Grafana nmon2influxdb DataSource created.
+2019/10/31 19:41:48 Dashboard uploaded to grafana
+```
+此步操作会创建一个`grafana`的面板，并新建一个`DataSource`，需要自己手动修改一下`DataSource`的`HTTP-URL`
