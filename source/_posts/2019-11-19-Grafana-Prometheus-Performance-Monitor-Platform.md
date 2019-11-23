@@ -12,6 +12,8 @@ tags: [performance, prometheus, influxDB, grafana, shell]
     - MySQL监控服务：[mysqld_exporter](https://github.com/prometheus/mysqld_exporter/releases/download/v0.12.1/mysqld_exporter-0.12.1.linux-amd64.tar.gz)
     - JVM监控服务：[jmx_exporter](https://repo1.maven.org/maven2/io/prometheus/jmx/jmx_prometheus_javaagent/0.12.0/jmx_prometheus_javaagent-0.12.0.jar)
 
+  <!--more-->
+
 #### `监控服务`部署
 下载上述的监控服务包，并解压，可以得到如下文件：
 ```bash
