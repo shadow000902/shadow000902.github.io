@@ -570,8 +570,23 @@ scp  -r ~/local_dir username@servername:/remote_path/remote_dir
 	| sort \
 	| uniq -c \
 	| sort -nr \
-	|wc -l
+	| wc -l
 	```
+ 3. 显示tcp，udp的端口和进程等相关情况
+ ```bash
+ [root@shadow ~]# netstat -tunlp
+ Active Internet connections (only servers)
+ Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name    
+ tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      24569/sshd          
+ udp        0      0 0.0.0.0:4038            0.0.0.0:*                           724/dhclient        
+ udp        0      0 0.0.0.0:68              0.0.0.0:*                           724/dhclient        
+ udp        0      0 172.17.0.1:123          0.0.0.0:*                           32364/ntpd          
+ udp        0      0 172.16.194.20:123       0.0.0.0:*                           32364/ntpd          
+ udp        0      0 127.0.0.1:123           0.0.0.0:*                           32364/ntpd          
+ udp        0      0 0.0.0.0:123             0.0.0.0:*                           32364/ntpd          
+ udp6       0      0 :::61028                :::*                                724/dhclient        
+ udp6       0      0 :::123                  :::*                                32364/ntpd  
+```
 
 ##### lsof    # Mac下查看端口占用情况
 ```bash
