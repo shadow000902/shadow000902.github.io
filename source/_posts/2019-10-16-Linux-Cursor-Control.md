@@ -1,5 +1,5 @@
 ---
-title: 2019-10-16-Linux-Cursor-Control
+title: Linux&Mac控制台操作
 date: 2019-10-16 16:14:16
 categories: [Linux]
 tags: [linux]
@@ -12,6 +12,8 @@ shift+a
 # 命令模式下，移动光标到文尾
 shift+g
 ```
+
+  <!--more-->
 
 2. MAC下，命令行控制
 ```bash
