@@ -13,7 +13,7 @@ pip install robotframework==2.8.7
 
   <!--more-->
 
-##### 将当前虚拟环境中的依赖包以版本号生成至文件中：
+##### 将当前虚拟环境中的依赖包以版本号生成至文件中【导出第三方库】：
 ```bash
 pip freeze > requirements.txt
 ```
@@ -347,3 +347,22 @@ b = test()
     
     print (r.text)
     ```
+
+##### 递归函数的使用
+[递归从入门到精通](https://www.cnblogs.com/xzxl/p/7364515.html)
+```python
+# sd_list = [{"scenes_id": "1", "scenes_data_ids": [5, 6, [{"scenes_id": "3", "scenes_data_ids": [56, 2, 24, 4]}]]}]
+# 递归获取场景中的所有场景数据，并返回数据集合的list
+
+def get_scenesDataId_list(sd_list):
+    # 初始变量定义在此，解决二次调用时，带入一次递归时的数据的问题
+    sd_new_list = []
+    if sd_list[0]['scenes_data_ids']:
+        num_list = sd_list[0]['scenes_data_ids']
+        for i in num_list:
+            if isinstance(i, int):
+                sd_new_list.append(i)
+            else:
+                sd_new_list += get_scenesDataId_list(i)
+    return sd_new_list
+```
