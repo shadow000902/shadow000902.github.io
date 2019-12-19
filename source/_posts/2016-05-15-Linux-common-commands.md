@@ -643,9 +643,29 @@ adb     94280 taoyi   14u  IPv4 0x38c46a3265bac391      0t0  TCP 192.168.31.71:4
     ```bash
     grep -c -f shadow /etc/hosts
     ```
-    8.12
+12. 
     ```bash
     grep -irn "SyncWriteStream" ./node_modules/hexo-deployer-git/
+    ```
+13. 打印查找结果匹配行的上下n行
+    ```bash
+    # 前后5行
+    grep -5 'parttern' inputfile
+    # 后5行
+    grep -A 5 'parttern' inputfile
+    # 前5行
+    grep -B 5 'parttern' inputfile
+    ```
+14. 不查找有些文件夹
+    ```bash
+    # 排除单个目录
+    grep -E "http" ./ -R --exclude-dir=.git
+    # 排除多个目录
+    grep -E "http" . -R --exclude-dir={.git,venv}
+    # 排除多个文件
+    grep -E "http" . -R --exclude={_config.yml,debug.log}
+    # 排除多个类型后缀的文件
+    grep -E "http" . -R --exclude=*.{py,js} 
     ```
 
 ##### awk

@@ -111,7 +111,7 @@ tags: [jira]
 {% asset_img Create-Script-Field.png Create-Script-Field %}
 {% asset_img Custom-Script-Field.png Custom-Script-Field %}
 
-示例：获取最后变更到某个状态的时间
+示例1：获取最后变更到某个状态的时间
 
 代码如下：
 ```groovy
@@ -133,4 +133,28 @@ createdTime ? new Date(createdTime) : null
 {% asset_img Template使用默认的Text-Field返回的结果.png Template使用默认的Text-Field返回的结果 %}
 {% asset_img Template使用默认的Date-Time返回的结果.png Template使用默认的Date-Time返回的结果 %}
 
+示例2：获取在某个状态停留的时长
+```groovy
+import com.atlassian.jira.component.ComponentAccessor
+import com.atlassian.jira.issue.history.ChangeItemBean
 
+def changeHistoryManager = ComponentAccessor.getChangeHistoryManager()
+
+def inProgressName = "实施中"
+
+List<Long> rt = [0L]
+def changeItems = changeHistoryManager.getChangeItemsForField(issue, "status")
+changeItems.reverse().each { ChangeItemBean item ->
+    def timeDiff = System.currentTimeMillis() - item.created.getTime()
+    if (item.fromString == inProgressName) {
+        rt << -timeDiff
+    }
+    if (item.toString == inProgressName) {
+        rt << timeDiff
+    }
+}
+
+def total = rt.sum() as Long
+return (total/1000/60/60/24) as long ?: 0L
+```
+其中设置的`实施中`即为停留状态的名称，最后返回的`total`是一个单位为`毫秒`的时间，`return`结果可以根据需要进行调整
