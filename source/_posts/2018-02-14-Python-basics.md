@@ -5,8 +5,8 @@ categories: [Python]
 tags: [python]
 ---
 
-#### 基础方法
-##### 字符串大小写转换
+### 基础方法
+#### 字符串大小写转换
 ```python
 text.title()                # 首字母转大写
 text.upper()                # 字符串转大写
@@ -15,7 +15,7 @@ text.lower()                # 字符串转小写
 
   <!--more-->
 
-##### 对list进行排序
+#### 对list进行排序
 ```python
 cars = ['bmw', 'audi', 'toyota', 'subaru']
 print(sorted(cars))                             # 临时性字母正序排列
@@ -25,7 +25,7 @@ cars.sort(reverse=True)                         # 永久性字母倒叙排列
 print(cars)                                     # 默认排序
 ```
 
-##### 访问list元素
+#### 访问list元素
 ```python
 cars = ['bmw', 'audi', 'toyota', 'subaru']
 print(cars[0])                                  # 访问第一个元素
@@ -33,7 +33,7 @@ print(cars[0])                                  # 访问第一个元素
 print(cars[-1])                                 # 访问倒数第一个元素，即list最后一个元素
 ```
 
-##### list中增删元素
+#### list中增删元素
 ```python
 motorcycles = ['honda', 'yamaha', 'suzuki', 'ducati']
 too_expensive = 'ducati'
@@ -45,18 +45,18 @@ motorcycles.pop()                               # 取出list中的最后一个�
 print(motorcycles)
 ```
 
-##### 获取list长度
+#### 获取list长度
 ```python
 len(cars)
 ```
 
-##### 复制list
+#### 复制list
 ```python
 my_foods = ['pizza', 'falafel', 'carrot cake'] 
 friend_foods = my_foods[:]                      # 复制整个列表以 [:] 来表示
 ```
 
-##### 检查特定值是否在list中
+#### 检查特定值是否在list中
 ```python
 banned_users = ['andrew', 'carolina', 'david']
 user1 = 'andrew'
@@ -67,7 +67,7 @@ print(user1 not in banned_users)                # 返回false
 print(user2 in banned_users)                    # 返回false
 ```
 
-##### 在list中检索值
+#### 在list中检索值
 ```bash
 >>> a_list = ['a', 'b', 'new', 'mpilgrim', 'new']
 >>> a_list.count('new')       ①
@@ -78,7 +78,7 @@ True
 3
 ```
 
-##### ``if``判断条件为``list``注意点
+#### ``if``判断条件为``list``注意点
 在判断条件为``list``时，如果``list``为空，即记过为``false``，只有在``list``有一个元素时，才为``true``。
 ```python
 requested_toppings = []
@@ -90,7 +90,7 @@ else:
 ```
 这里实际执行的就是``else``中的语句，因为``requested_toppings``是空的，返回的``false``。
 
-##### 多个``list``判断
+#### 多个``list``判断
 ```python
 available_toppings = ['mushrooms', 'olives', 'green peppers', 'pepperoni', 'pineapple', 'extra cheese']
 requested_toppings = ['mushrooms', 'french fries', 'extra cheese']
@@ -103,7 +103,7 @@ for requested_topping in requested_toppings:
     print("\nFinished making your pizza!")
 ```
 
-##### 使用函数``range()``
+#### 使用函数``range()``
 ```python
 for value in range(1, 5):                       # 生成有序数值
     print(value)                                # 它只会打印4个数值，最后一个数值不会打印
@@ -114,7 +114,7 @@ even_num = list(range(2, 11, 2))                # 使用range()还可以指定�
 print(even_num)                                 # 结果：[2, 4, 6, 8, 10]
 ```
 
-##### 对数值列表执行简单的统计计算
+#### 对数值列表执行简单的统计计算
 ```python
 digits = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
 min(digits)                                     # 取最小值
@@ -122,7 +122,7 @@ max(digits)                                     # 取最大值
 sum(digits)                                     # 求总和
 ```
 
-##### **列表解析**
+#### **列表解析**
 1. 复杂模式1
 ```python
 squares = []
@@ -145,7 +145,7 @@ print(squares)
 ```
 要使用这种语法，首先指定一个描述性的列表名，如``squares``；然后，指定一个左方括号，并定义一个表达式，用于生成你要存储到列表中的值。在这个示例中，表达式为``value**2``，它计算平方值。接下来，编写一个``for``循环，用于给表达式提供值，再加上右方括号。在这个示例中，``for``循环为``for value in range(1,11)``，它将值1~10提供给表达式``value**2``。请注意，这里的``for``语句末尾没有冒号。
 
-##### 使用列表的一部分
+#### 使用列表的一部分
 定义列表后，可从其中获取任何部分作为新列表。该技术称为对列表进行``切片``。
 ```bash
 >>> a_list = ['a', 'b', 'mpilgrim', 'z', 'example']
@@ -169,7 +169,7 @@ print(squares)
 ['a', 'b', 'mpilgrim', 'z', 'example']
 ```
 
-##### 元组``tuple``
+#### 元组``tuple``
 元组：是不可变的列表。一旦创建之后，用任何方法都不可以修改元素。
 ```bash
 >>> a_tuple = ("a", "b", "mpilgrim", "z", "example")
@@ -189,7 +189,7 @@ print(squares)
 
 元组可转换成列表，反之亦然。内建的``tuple()``函数接受一个列表参数，并返回一个包含同样元素的元组，而``list()``函数接受一个元组参数并返回一个列表。从效果上看，``tuple()``冻结列表，而``list()``融化元组。
 
-##### 集合``{ }``
+#### 集合``{ }``
 一个简单的集合可以包含任何数据类型的值。如果有两个集合，则可以执行像联合、交集以及集合求差等标准集合运算。
 1. 从list创建集合
 ```bash
@@ -240,7 +240,7 @@ False
 {1, 3, 4, 6, 8, 76, 15, 17, 18, 195, 127, 30, 51}
 ```
 
-##### 字典``dict``
+#### 字典``dict``
 字典 是键值对的无序集合。向字典添加一个键的同时，必须为该键增添一个值。（之后可随时修改该值。） Python 的字典为通过键获取值进行了优化，而不是反过来。
 1. 修改字典
 ```bash
@@ -308,8 +308,8 @@ True
         me.hava_a_drink()
     ```
 
-#### 面向对象
-##### 封装
+### 面向对象
+#### 封装
 1. `封装`是面向对象编程的一大特点
 2. 面向对象编程的`第一步`——将`属性`和`方法``封装`到一个抽象的`类`中
 3. `外界`使用`类`创建`对象`，然后`让对象调用方法`
@@ -324,7 +324,7 @@ True
 
 在`封装的`方法内部，还可以让`自己的``使用其他类创建的对象的属性`调用已经`封装好的方法`
 
-##### 身份运算符
+#### 身份运算符
 身份运算符，用于比较两个对象的`内存地址`是否一致--`是否是对同一个对象的引用`
 在 Python 中针对`None`比较时，建议使用`is`判断
 
@@ -338,8 +338,8 @@ is not|is not 是判断两个标识符是不是引用不同对象|x is not y，�
 `==`用于判断`引用变量的值`是否相等
 
 
-#### 解析
-##### 处理文件和目录
+### 解析
+#### 处理文件和目录
 ``Python3``带有一个模块叫做``os``，代表``操作系统(operating system)``。``os``模块 包含非常多的函数用于获取(和修改)本地目录、文件进程、环境变量等的信息。
 ```python
 import os
@@ -399,7 +399,7 @@ print(os.path.realpath('feed.xml'))
 # os.path.realpath()函数，返回当前文件或者目录的绝对路径
 ```
 
-##### 列表解析
+#### 列表解析
 列表解析提供了一种紧凑的方式，实现了通过对列表中每一个元素应用一个函数的方法来将一个列表映射到另一个列表。
 ```python
 import os, glob
@@ -423,7 +423,7 @@ glob.glob('*.xml')
 # 这个列表解析在前一个的基础上对每一个.xml文件的大小应用approximate_size()函数。
 ```
 
-##### 字典解析
+#### 字典解析
 ```python
 # 列表解析
 metadata = [(f, os.stat(f)) for f in glob.glob('*test*.py')]
@@ -445,7 +445,7 @@ a_dict = {'a': 1, 'b': 2, 'c': 3}
 # 输出：{1: 'a', 2: 'b', 3: 'c'}
 ```
 
-##### 集合解析
+#### 集合解析
 
 集合也有自己的集合解析的语法。它和字典解析的非常相似，唯一的不同是集合只有值而没有键:值对。
 ```python
@@ -455,9 +455,9 @@ a_set = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}
 # 同列表解析和字典解析一样， 集合解析也可以包含if 字句来在将元素放入结果集合前进行过滤。
 ```
 
-#### 正则表达式
+### 正则表达式
 
-##### 替换操作
+#### 替换操作
 ```python
 import re
 
@@ -471,7 +471,7 @@ re.sub('ROAD$', 'RD.', s)
 # 输出：'100 NORTH BROAD RD.'
 ```
 
-##### 电话号码解析实例
+#### 电话号码解析实例
 ```python
 import re
 
@@ -533,9 +533,9 @@ x{n,m}    # 匹配n到m个x，至少n个，不能超过m个。
 (x)       # 这是一个组，它会记忆它匹配到的字符串。你可以用re.search返回的匹配对象的groups()函数来获取到匹配的值。
 ```
 
-#### 闭合和生成器
+### 闭合和生成器
 
-##### 正则表达式使用
+#### 正则表达式使用
 
 ```python
 import re

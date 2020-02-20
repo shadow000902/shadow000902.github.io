@@ -5,7 +5,7 @@ categories: [RobotFramework]
 tags: [robot-framework]
 ---
 
-##### 准备数据
+#### 准备数据
 ```bash
 # 三个list变量：list_a、list_b、list_c；
 @{list_a}    create list    1    a    ${21}    21    12
@@ -18,7 +18,7 @@ ${name}    set variable    ty
 
   <!--more-->
 
-##### 断言实例
+#### 断言实例
 1. ``should contain``、``should not contain``、``should contain x times``
 ```bash
 should contain    ${list_b}    1.0

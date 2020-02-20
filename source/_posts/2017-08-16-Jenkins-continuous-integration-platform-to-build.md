@@ -5,8 +5,8 @@ categories: [Jenkins]
 tags: [jenkins]
 ---
 
-#### Jenkins 部署
-##### 创建``Jenkins``运行目录
+### Jenkins 部署
+#### 创建``Jenkins``运行目录
 ```bash
 # Jenkins主目录
 mkdir /opt/Jenkins/Home
@@ -18,7 +18,7 @@ mkdir /opt/Jenkins/script
 
   <!--more-->
 
-##### 设置``jenkins``主目录
+#### 设置``jenkins``主目录
 第一种方法是使用WEB容器工具设置``JENKINS_HOME``环境参数。
 ```bash
 打开tomcat的bin目录，编辑catalina.sh文件。
@@ -34,11 +34,11 @@ vim ~/.bashrc
 export JENKINS_HOME="/home/souche/jenkins/Home"
 ```
 
-##### 下载``jenkins.war``
+#### 下载``jenkins.war``
 [下载地址](https://jenkins.io/download/)
 把下载的``war``包放入``/opt/Jenkins``目录下
 
-##### 编写启动脚本
+#### 编写启动脚本
 ```bash
 /usr/bin/java -Dfile.encoding=UTF-8 \
                     -XX:PermSize=256m -XX:MaxPermSize=512m -Xms256m -Xmx512m \
@@ -79,7 +79,7 @@ chmod a+x startJenkins.sh
 ./startJenkins.sh
 ```
 
-##### ``Jenkins``主目录介绍
+#### ``Jenkins``主目录介绍
 ```bash
 # jenkins主配置文件
 -rw-r--r--   1 taoyi  wheel   1.6K  8 16 01:43 config.xml
@@ -108,17 +108,17 @@ drwxr-xr-x  25 taoyi  wheel   850B  8 16 01:27 war
 drwxr-xr-x   3 taoyi  wheel   102B  8 16 01:44 workspace
 ```
 
-#### 简单操作jenkins状态
+### 简单操作jenkins状态
 关闭jenkins：``http://localhost:8080/exit``
 重启jenkins：``http://localhost:8080/restart``
 重新加载配置信息：``http://localhost:8080/reload``
 
-#### 问题总结
-##### ``Jenkins console``输出乱码
+### 问题总结
+#### ``Jenkins console``输出乱码
 在``/etc/profile``中添加``export JAVA_TOOL_OPTIONS="-Dfile.encoding=UTF-8"``
 在``Jenkins``系统管理里，添加环境变量``Key``：``LANG``，``Value``：``en_US.UTF-8``（如果系统默认的已经是en_US.UTF-8，就不用设置了）
 
-##### ``jenkins``中的``WORKSPACE``中的``HTML``文件无法打开
+#### ``jenkins``中的``WORKSPACE``中的``HTML``文件无法打开
 报错如下：
 ```html
 Verify that you have JavaScript enabled in your browser.
@@ -131,13 +131,13 @@ System.setProperty("hudson.model.DirectoryBrowserSupport.CSP","sandbox allow-scr
 ```
 或者在 Jenkins 中新建一个项目，添加一个``Execute system Groovy script``，其中添加以上脚本，然后构建该项目。
 
-#### 好用的Jenkins插件
+### 好用的Jenkins插件
 
-##### ``Parameterized Remote Trigger Plugin`` 【多slave项目顺序执行】 ``Parameterized Trigger Plugin`` 【多项目顺序执行】
+#### ``Parameterized Remote Trigger Plugin`` 【多slave项目顺序执行】 ``Parameterized Trigger Plugin`` 【多项目顺序执行】
 设置项目在某项目执行完成后，再执行当前项目
 【构建触发器】-【``Build after other projects are built``】
 
-##### ``Build periodically``【日程表】设置
+#### ``Build periodically``【日程表】设置
 设置周期性执行策略
 >第一个参数代表的是分钟 minute，取值 0~59；
 >第二个参数代表的是小时 hour，取值 0~23；
@@ -150,10 +150,10 @@ System.setProperty("hudson.model.DirectoryBrowserSupport.CSP","sandbox allow-scr
 ``H * * * *``：每小时构建一次
 ``H 8 3 2 *``：每年2月3号8点构建一次
 
-##### ``Git Parameter``【构建分支&Tags参数化】
+#### ``Git Parameter``【构建分支&Tags参数化】
 {% asset_img Git_Parameter.png Git_Parameter %}
 
-##### ``Build User Vars Plugin``【获取项目构建人】
+#### ``Build User Vars Plugin``【获取项目构建人】
 
 插件名称：``user build vars plugin``
 
@@ -194,13 +194,13 @@ System.setProperty("hudson.model.DirectoryBrowserSupport.CSP","sandbox allow-scr
 在jenkins任务中使用构建变量：注意需要勾选 "Set jenkins user build variables."
 
 
-##### ``Naginator``【任务失败重新构建插件】
+#### ``Naginator``【任务失败重新构建插件】
 在``构建后操作``中选择``Retry build after failure``。``Fixed delay``填写每次重试的时间延迟，单位是秒。``Maximum number of successive failed builds``文本框中填写重试次数。
 
 
-##### ``Publish Over SSH``【通过ssh构建项目】
+#### ``Publish Over SSH``【通过ssh构建项目】
 
-##### ``触发远程构建（例如，使用脚本）``
+#### ``触发远程构建（例如，使用脚本）``
 {% asset_img 构建触发器_身份验证令牌.png 构建触发器_身份验证令牌 %}
 设置身份验证令牌``TOKEN_NAME``，可以随意定义。
 ```bash
@@ -210,7 +210,7 @@ JENKINS_URL/job/JOB_NAME/build?token=TOKEN_NAME
 JENKINS_URL/job/JOB_NAME/buildWithParameters?token=TOKEN_NAME&params1=params1&...
 ```
 
-##### ``Job Configuration History Plugin``【记录项目的修改记录】
+#### ``Job Configuration History Plugin``【记录项目的修改记录】
 在项目中，点击左侧栏中的``Job Config History``，可以查看该项目的更改历史
 在``Jenkins``主目录下，点击左侧栏中的``Job Config History``，可以查看整个系统的所有修改历史
     ```bash
@@ -221,16 +221,16 @@ JENKINS_URL/job/JOB_NAME/buildWithParameters?token=TOKEN_NAME&params1=params1&..
     Show all configs
     ```
 
-##### ``Localization: Chinese (Simplified)``切换jenkins显示语言为中文
+#### ``Localization: Chinese (Simplified)``切换jenkins显示语言为中文
 只要安装重启后，jenkins的显示语言就会自动展示为中文
 
-##### ``Startup Trigger``jenkins每次重启或者启动后自动执行任务
+#### ``Startup Trigger``jenkins每次重启或者启动后自动执行任务
 在`jenkins`项目的配置中，`构建触发器`中，`Build when job nodes start`配置项中，设置`Quiet period`字段为默认值`0`，表示重启后，没有任何延迟，直接启动。
 
-##### ``Configuration Slicing plugin``批量修改所有项目的某一个配置
+#### ``Configuration Slicing plugin``批量修改所有项目的某一个配置
 在``系统管理``中，``Configuration Slicing``打开，可以看多很多的设置项，点击进入自己需要批量设置的项，进行设置。
 
-##### 常用插件汇总
+#### 常用插件汇总
 ``Build Environment Plugin``构建环境插件，可以进行构建环境比较。
 ``Build Flow Plugin``工作流插件，支持DSL脚本定义工作流
 ``Build Graph View Plugin``build Flow插件视图（安装后需要重新才能生效）
@@ -254,8 +254,8 @@ JENKINS_URL/job/JOB_NAME/buildWithParameters?token=TOKEN_NAME&params1=params1&..
 ``Status Monitor Plugin``构建状态插件
 ``ws-cleanup Plugin ``workspace清理插件
 
-#### `Jenkins`脚本
-##### 批量修改脚本的`丢弃旧的构建`设置项设置
+### `Jenkins`脚本
+#### 批量修改脚本的`丢弃旧的构建`设置项设置
 ```groovy
 import jenkins.model.Jenkins
 import hudson.model.Job

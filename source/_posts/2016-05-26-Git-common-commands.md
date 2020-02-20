@@ -5,7 +5,7 @@ categories: [Tools]
 tags: [git]
 ---
 
-#### 初始配置
+### 初始配置
 
 ``` bash
 mkdir d:\git_test
@@ -15,14 +15,14 @@ git config --global user.email "you@example.com"
 
   <!--more-->
 
-#### 获取当前git配置
+### 获取当前git配置
 ```bash
 git --version
 git config --global user.name         # 获取当前登录的用户
 git config --global user.email        # 获取当前登录用户的邮箱
 ```
 
-#### 创建文件并写入内容
+### 创建文件并写入内容
 如果文件不存在，则创建文件
 ```bash
 echo "hello git"
@@ -30,7 +30,7 @@ echo "hello git"
 ```
 单个``>``箭头表示写入，``>>``表示追加
 
-#### 使用
+### 使用
 
 ``` bash
 git init                        # 初始化当前所在目录的这个项目
@@ -53,7 +53,7 @@ git reflog                      # 回滚到未来
 ```
 总结：先``git add``修改过的文件，再``git diff``并``git status``查看确认，然后``git commit``提交，然后输入开发日志，然后``git push``推送到远程分支，最后``git log``再次确认。
 
-#### 创建分支
+### 创建分支
 
 ``` bash
 git branch                      # 查看分支列表
@@ -66,7 +66,7 @@ git merge experiment            # 合并分支到主干道
 git branch -d experiment        # -d，表示“在分支已经合并到主干后删除分支”。如果使用大写的-D的话，则表示“不论如何都删除分支”
 ```
 
-#### 使用git stash命令保存和恢复进度
+### 使用git stash命令保存和恢复进度
 ```bash
 git stash                       # 保留当前工作区进度，会把暂存区和工作区的改动保存起来
 git stash save 'message...'     # 保存当前工作区，并添加备注
@@ -77,14 +77,14 @@ git stash drop [stash_id]       # 删除一个存储的进度，如果不指定s
 git stash clear                 # 删除所有存储的进度
 ```
 
-#### 撤销一次已经提交到Github的内容
+### 撤销一次已经提交到Github的内容
 ```
 git reset --hard HEAD~1
 git push --force
 ```
 该命令执行后，会隐藏掉Github库中的被撤销掉的记录，但是指定到该被隐藏掉的记录来访问，依旧可以访问。
 
-#### GitHub更新自己fork的代码
+### GitHub更新自己fork的代码
 1. ``clone``已经``fork``到自己账号的代码
 ```bash
 git clone https://github.com/shadow000902/ApiTestEngine.git
@@ -113,7 +113,7 @@ git merge debugtalk/master
 git push origin master
 ```
 
-#### git撤销最后一次commit
+### git撤销最后一次commit
 1. 使用``git log``查看``commit``记录
 ```bash
 commit-id1
@@ -132,7 +132,7 @@ git reset --hard commit-id2			# 撤销提交，并撤销修改的内容
 git push origin HARD --force		# 撤销后，强制提交并push到远程分支
 ```
 
-#### 修改最新一次已提交但未 push 的 message
+### 修改最新一次已提交但未 push 的 message
 ```bash
 git commit --amend -m "your new message"
 ```

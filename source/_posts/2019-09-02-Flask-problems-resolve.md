@@ -5,7 +5,7 @@ categories: [Flask]
 tags: [flask]
 ---
 
-#### `Can't locate revision identified by '3ba21fe709f1'` 问题处理
+### `Can't locate revision identified by '3ba21fe709f1'` 问题处理
 ```bash
 # taoyi @ TyMac in ~ [16:26:14] 
 $ flask db migrate
@@ -39,7 +39,7 @@ flask db init
 flask db migrate
 ```
 
-#### `query.filter`常见操作符
+### `query.filter`常见操作符
 1. equals
 ```python
 query.filter(User.name == 'ed')

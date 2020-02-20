@@ -4,10 +4,10 @@ date: 2016-12-08 10:16:51
 categories: [Tools]
 tags: [docker]
 ---
-#### 安装docker
+### 安装docker
 官网下载 Docker for Mac
 
-#### 无法删除docker镜像时，处理方法
+### 无法删除docker镜像时，处理方法
 有依赖该image的container，先删除container再删除image
 ```bash
     docker ps -a | grep "Exited" | awk '{print $1 }'|xargs docker stop
@@ -18,12 +18,12 @@ tags: [docker]
 
   <!--more-->
 
-#### 安装``docker&boot2docker``
+### 安装``docker&boot2docker``
 ```bash
     brew install boot2docker
 ```
 
-#### ``Docker images``存放位置
+### ``Docker images``存放位置
 ``Docker for Mac``版本，所有的docker images 保存在下面这个文件里：
 ```bash
     /Users/{YourUserName}/Library/Containers/com.docker.docker/Data/com.docker.driver.amd64-linux/Docker.qcow2
@@ -32,7 +32,7 @@ tags: [docker]
 
 docker2版本增加了`move disk image`的入口，可以修改docker Disk image的路径
 
-#### docker镜像的常用操作
+### docker镜像的常用操作
 1. 获取镜像
     ```bash
     docker pull <域名>/<namespace>/<repo>:<tag>
@@ -369,7 +369,7 @@ docker2版本增加了`move disk image`的入口，可以修改docker Disk image
     docker images
     ```
 
-#### 登录docker容器
+### 登录docker容器
 ```bash
 docker exec -it myjenkins bash
 # 直接使用docker执行命令
@@ -378,7 +378,7 @@ docker exec myjenkins ping www.baidu.com
 docker cp `pwd`/text.txt myjenkins:/home
 ```
 
-#### docker端口与宿主机端口映射
+### docker端口与宿主机端口映射
 ```bash
 docker run -d --name myjenkins -p 8080:8080 jenkins
 ```
@@ -387,13 +387,13 @@ docker run -d --name myjenkins -p 8080:8080 jenkins
     -p 宿主机端口:docker端口 ：用于映射宿主机和docker的端口，用于外网访问
     -v 宿主机目录:docker目录 ：用于映射docker运行目录，用于数据持久化存储，docker容器被删除后，数据依旧可以保存下来
 
-#### docker网络模式
+### docker网络模式
     docker docker启动的时候就启动的bridge
     eth0
     虚拟网卡 成对出现，
     --net=Host
 
-#### docker 命令解释
+### docker 命令解释
 1. `docker exec`
     `docker exec` 命令用来启动 `sh` 或 `bash`，并通过它们实现对容器内的虚拟环境的控制。
     ```bash

@@ -5,14 +5,14 @@ categories: [Tools]
 tags: [appcrawler]
 ---
 
-##### 启动Appium服务器
+#### 启动Appium服务器
 ```bash
 TaoYi-Mac:~ taoyi$  appium --session-override -p 4730 --no-reset
 ```
 
   <!--more-->
 
-##### 运行appcrawler，执行测试
+#### 运行appcrawler，执行测试
 ```bash
 TaoYi-Mac:appcrawler taoyi$ java -jar appcrawler-1.2.1.jar -a /usr/local/TestGroupCode/appcrawler/fengche.apk
 ```

@@ -5,15 +5,15 @@ categories: [MySQL]
 tags: [python, mysql]
 ---
 
-#### 以下内容基于CentOS完成
+### 以下内容基于CentOS完成
 
-##### MySQL包下载地址
+#### MySQL包下载地址
 [32位5.7.22版本下载地址](https://dev.mysql.com/get/Downloads/MySQL-5.7/mysql-5.7.22-linux-glibc2.12-i686.tar.gz)
 [64位5.7.22版本下载地址](https://dev.mysql.com/get/Downloads/MySQL-5.7/mysql-5.7.22-linux-glibc2.12-x86_64.tar.gz)
 
   <!--more-->
 
-##### 下载、解压并安装
+#### 下载、解压并安装
 ```bash
 # 下载
 wget https://dev.mysql.com/get/Downloads/MySQL-5.7/mysql-5.7.22-linux-glibc2.12-i686.tar.gz
@@ -39,7 +39,7 @@ chown -R mysql mysql/
 chgrp -R mysql mysql/
 ```
 
-##### 安装和初始化数据库
+#### 安装和初始化数据库
 ```bash
 ./mysqld --initialize --user=mysql --basedir=/usr/local/mysql/ --datadir=/usr/local/mysql/data/
 ```
@@ -61,7 +61,7 @@ chgrp -R mysql mysql/
 
 最后的``,:eh<pj(p2NZ``为mysql初始化默认密码。
 
-##### 配置``/etc/my.cnf``
+#### 配置``/etc/my.cnf``
 ```cnf
 [mysqld]
 #skip-grant-tables
@@ -75,7 +75,7 @@ datadir = /usr/local/mysql/data/
 ```
 
 
-##### 初始化报错
+#### 初始化报错
 ```bash
 $ ./bin/mysqld --initialize --user=mysql --basedir=/usr/local/mysql/ --datadir=/usr/local/mysql/data/
 2018-07-21T06:58:34.705850Z 0 [Warning] TIMESTAMP with implicit DEFAULT value is deprecated. Please use --explicit_defaults_for_timestamp server option (see documentation for more details).
@@ -90,7 +90,7 @@ touch /var/log/mysqld.log
 chown -R mysql:mysql /var/log/mysqld.log
 ```
 
-##### 将``mysqld``服务加入开机自启动项
+#### 将``mysqld``服务加入开机自启动项
 ```bash
 cd /usr/local/mysql
 cp ./support-files/mysql.server /etc/init.d/mysql
@@ -103,13 +103,13 @@ chkconfig --list mysql
 ```
 ``Ubuntu``下，已经没有了``chkconfig``，替换之后的是``sysv-rc-conf``
 
-##### 启动``mysql``服务
+#### 启动``mysql``服务
 
 
 
 
 
-##### 设置远程登录权限
+#### 设置远程登录权限
 ```bash
 mysql> grant all privileges on *.* to'root' @'%' identified by 'root';
 Query OK, 0 rows affected, 1 warning (0.00 sec)
@@ -121,15 +121,15 @@ mysql> quit
 Bye
 ```
 
-##### 无密码登录mysql
+#### 无密码登录mysql
 在``/etc/my.cnf``中加入``skip-grant-tables``
 
-##### 修改mysql默认密码
+#### 修改mysql默认密码
 ```bash
 mysql> set password='123456';
 ```
 
-##### 问题解决
+#### 问题解决
 1. ``libaio.so.1``未安装
 ```bash
 ./mysqld: error while loading shared libraries: libaio.so.1: cannot open shared object file: No such file or directory
@@ -161,7 +161,7 @@ Starting MySQL.Logging to '/usr/local/mysql/data/dbserver.err'.
 Starting MySQL SUCCESS! 
 ```
 
-#### UBUNTU系统安装mysql
+### UBUNTU系统安装mysql
 1. 系统纯净的情况下安装：
 ```bash
 sudo apt-get install mysql-server-5.7

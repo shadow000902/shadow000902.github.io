@@ -5,10 +5,10 @@ categories: [Tools]
 tags: [redis]
 ---
 
-##### 下载安装包
+#### 下载安装包
 下载稳定版本的安装包[redis-stable](http://download.redis.io/redis-stable.tar.gz)
 
-##### 安装Redis
+#### 安装Redis
 ```bash
 tar -xvf redis-stable.tar.gz
 cp ./redis-stable /opt/
@@ -20,7 +20,7 @@ sudo make install
   <!--more-->
 
 
-##### 配置Redis
+#### 配置Redis
 1. 创建需要的目录
 ```bash
 mkdir bin
@@ -99,12 +99,12 @@ appendfsync everysec
 chown -R taoyi /opt/redis-stable
 ```
 
-##### 启动Redis服务
+#### 启动Redis服务
 ```bash
 ./opt/redis-stable/bin/redis-server ./opt/redis-stable/etc/redis.conf
 ```
 
-##### 访问Redis服务
+#### 访问Redis服务
 ```bash
 ./opt/redis-stable/bin/redis-cli
 ```

@@ -5,7 +5,7 @@ categories: [Tips]
 tags: [ios, 打包]
 ---
 
-##### IOS构建方式
+#### IOS构建方式
 对IOS源码的构建方式主要有两种，最后的目标都是生成``.ipa``文件
 
 - ``源码`` -> ``.archive文件`` -> ``.ipa文件``
@@ -61,7 +61,7 @@ xcrun \
   -o ${OUTPUT_FOLDER}/Release-iphoneos/xxx.ipa
 ```
 
-##### 参数说明
+#### 参数说明
 - ``-workspace``：需要打包的workspace，后面接的文件一定要是``.xcworkspace``结尾的；
 - ``-scheme``：需要打包的Scheme，一般与``$project_name``相同；
 - ``-sdk``：区分iphone device和Simulator，可通过``xcodebuild -showsdks``获取，例如``iphoneos``和``iphonesimulator10.3.2``；
@@ -74,7 +74,7 @@ xcrun \
 - ``-v``：指定``.app``文件的路径；
 - ``-o``：指定``.ipa``文件的路径
 
-##### 获取打包必要信息
+#### 获取打包必要信息
 在填写``target``/``workspace``/``scheme``/``configuration``等参数时，如果不知道该怎么填写，可以在项目根目录下执行``xcodebuild -list``命令，它会列出当前项目的所有可选参数。
 ```bash
 ╭─taoyi at TaoYi-Mac in /opt/Jenkins/Home/workspace/Coding-iOS on 89d7084✘✘✘ using ‹› 17-08-18 - 1:08:10
@@ -93,7 +93,7 @@ Information about project "Coding_iOS":
         Coding_iOS
 ```
 
-##### 处理``Cocoapod``依赖库
+#### 处理``Cocoapod``依赖库
 另外一个需要注意的是，若项目是采用``Cocoapod``管理项目依赖，每次拉取最新代码后直接编译可能会报错。这往往是因为其他同事更新了依赖库（新增了第三方库或升级了某些库），而本地还采用之前的第三方库进行编译，从而会出现依赖库缺失或版本不匹配等问题。
 应对的做法是，在每次``build``之前都更新一下``Cocoapod``。
 ```bash

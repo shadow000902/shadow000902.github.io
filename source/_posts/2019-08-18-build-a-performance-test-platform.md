@@ -5,7 +5,7 @@ categories: [性能测试]
 tags: [performance, influxDB, grafana, shell]
 ---
 
-#### 安装`Docker`
+### 安装`Docker`
 [MAC平台](https://download.docker.com/mac/stable/Docker.dmg)
 [Windows平台](https://download.docker.com/win/stable/Docker%20for%20Windows%20Installer.exe)
 [Ubuntu平台](https://www.runoob.com/docker/ubuntu-docker-install.html)
@@ -13,8 +13,8 @@ tags: [performance, influxDB, grafana, shell]
 
   <!--more-->
 
-#### 安装并启用`influxDB`
-##### 安装`influxDB`
+### 安装并启用`influxDB`
+#### 安装`influxDB`
 ```bash
 # 安装
 docker pull influxdb
@@ -28,7 +28,7 @@ flux
 create database jmeter;
 ```
 
-##### `Jmeter`设置
+#### `Jmeter`设置
 添加`Backend Listener`【后端监听器】
 {% asset_img Backend-Listener.png Backend-Listener %}
 {% asset_img 后端监听器.png 后端监听器 %}
@@ -37,7 +37,7 @@ create database jmeter;
   - application：应用名称
   - testTitle：测试标题
 
-##### 检查`jmeter`和数据库是否正常连接
+#### 检查`jmeter`和数据库是否正常连接
 在`jmeter`中添加Http请求，并执行测试
 在`influxdb`后台中查询是否有产生数据：
 ```bash
@@ -52,8 +52,8 @@ select * from jmeter
 ```
 {% asset_img 查询influxdb数据.png 查询influxdb数据 %}
 
-#### 性能监控平台`Grafana`部署及初始化
-##### `grafana`部署
+### 性能监控平台`Grafana`部署及初始化
+#### `grafana`部署
 [Grafana官网](https://grafana.com/docs/)
 ```bash
 # 安装
@@ -62,7 +62,7 @@ docker pull grafana/grafana
 docker run -d -p 3000:3000 --name=jmeterGraf grafana/grafana
 ```
 
-##### 平台初始化设置
+#### 平台初始化设置
 1. 本地登录地址：[http://localhost:3000](http://localhost:3000)
 2. 默认用户名/密码：admin/admin
 3. 在Web平台中添加influxdb数据库
@@ -71,7 +71,7 @@ docker run -d -p 3000:3000 --name=jmeterGraf grafana/grafana
 {% asset_img 导入工作台配置.png 导入工作台配置 %}
 填入其中的[JSON内容](https://github.com/shadow000902/iJmeter/blob/master/shell/jmeter_dashboard.json)
 
-#### 使用`Grafana`平台进行自动化压测实践
+### 使用`Grafana`平台进行自动化压测实践
 1. 对被测的`jmeter`脚本的`线程数`进行参数化设置
 该设置主要用于在后面脚本中进行线程数的修改，从而达到执行不同并发下的测试
 {% asset_img 线程参数化设置.png 线程参数化设置 %}
@@ -134,7 +134,7 @@ echo "自动化压测全部结束"
 3. 测试结果的展现
 {% asset_img 5次不同并发数的测试结果.png 5次不同并发数的测试结果 %}
 
-#### 服务器的使用情况监控
+### 服务器的使用情况监控
 1. 获取服务器监控数据
 ```bash
 # 每秒采集一次，采集300次，生成文件名："主机名_年月日_时分.nmon",如："su-stable-007_191031_1814.nmon"
@@ -148,7 +148,7 @@ root@su-stable-007:~# ./nmon2influxdb  import su-stable-007_191031_1814.nmon
 2019/10/31 18:20:26 Using configuration file /root/.nmon2influxdb.cfg
 2019/10/31 18:20:26 Creating InfluxDB database nmon_reports
 2019/10/31 18:20:26 NMON file separator: ,
-#####
+####
 File su-stable-007_191031_1814.nmon imported : 28800 points !
 ```
 4. 在`influxdb`查询已导入的`nmon`数据

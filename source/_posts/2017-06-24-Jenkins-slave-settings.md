@@ -5,13 +5,13 @@ categories: [Jenkins]
 tags: [jenkins]
 ---
 
-#### 在Jenkins中配置从节点
+### 在Jenkins中配置从节点
 {% asset_img 配置从节点.png 配置从节点 %}
 增加节点后，实际并没有直接连上，还需要在节点服务器上进行相应的配置
 
   <!--more-->
 
-#### 在从节点服务器的host中的加入配置
+### 在从节点服务器的host中的加入配置
 
 ```bash
 sudo vim /etc/hosts
@@ -20,7 +20,7 @@ sudo vim /etc/hosts
 111.111.111.111 jenkins.shadow.com						# 前部分IP为Jenkins的内网地址，后部分为Jenkins的对外访问域名
 ```
 
-#### 从节点服务器上配置Jenkins节点配置
+### 从节点服务器上配置Jenkins节点配置
 {% asset_img 从节点配置要点.png 从节点配置要点 %}
 点击上图中的``slave.jar``的链接，下载该文件，放在上方指定的``Jenkins``工作目录下
 ```bash
@@ -58,6 +58,6 @@ chmod a+x start_jenkins.sh
 
 至此，slave节点就配置并启动完毕了。
 
-#### 问题处理
+### 问题处理
 1. 出现`java.net.ConnectException: Connection refused (Connection refused)`解决方式
     在 jenkins 的`系统设置`中的`Jenkins Location`模块下的`Jenkins URL`中，不要使用域名，而是直接写`http://IP:port`

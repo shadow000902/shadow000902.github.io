@@ -5,7 +5,7 @@ categories: [Docker, Selenium]
 tags: [docker, selenium]
 ---
 
-#### 安装`Docker`
+### 安装`Docker`
 [MAC平台](https://download.docker.com/mac/stable/Docker.dmg)
 [Windows平台](https://download.docker.com/win/stable/Docker%20for%20Windows%20Installer.exe)
 [Ubuntu平台](https://www.runoob.com/docker/ubuntu-docker-install.html)
@@ -13,7 +13,7 @@ tags: [docker, selenium]
 
   <!--more-->
 
-#### 下载主`hub`镜像`selenium/hub`
+### 下载主`hub`镜像`selenium/hub`
 ```bash
 # 安装
 docker pull selenium/hub
@@ -23,7 +23,7 @@ docker run -d -P --name selenium-hub selenium/hub
   `-d` 表示容器以守护态（Daemonized）形式运行。
   `-P` 表示 Docker 会随机映射一个 49000~49900 的端口到内部容器开放的网络端口。
 
-#### 下载主`node chrome`镜像`selenium/node-chrome`
+### 下载主`node chrome`镜像`selenium/node-chrome`
 ```bash
 # 安装
 docker pull selenium/node-chrome
@@ -32,7 +32,7 @@ docker run -d --link selenium-hub:hub selenium/node-chrome
 ```
   `--link` 通过 link 关联`selenium-hub`容器，并为其设置了别名`hub`
 
-#### 查看容器
+### 查看容器
 ```bash
 $ docker ps -a
 CONTAINER ID        IMAGE                  COMMAND                  CREATED             STATUS                     PORTS                                            NAMES
@@ -41,10 +41,10 @@ a280e0bce3a4        selenium/hub           "/opt/bin/entry_poin…"   38 seconds
 ```
   `Selenium/hub`容器的端口号为`4444`，对`MAC`映射的端口为`32768`，前面通过`-P`参数自动分配。
   
-#### 工作原理
+### 工作原理
 selenium Grid脚本 -> ubuntu(32768) -> Hub容器(4444) -> Node Chrome 容器
 
-#### 创建Grid测试脚本与运行
+### 创建Grid测试脚本与运行
 ```python
 # grid_demo.py
 

@@ -5,7 +5,7 @@ categories: [Shell]
 tags: [shell]
 ---
 
-##### 删除目录下的除今天外的所有文件夹
+#### 删除目录下的除今天外的所有文件夹
 
 1. 目录下的文件夹规律【年月日时分秒】
 ```bash
@@ -39,7 +39,7 @@ done
 rm -rf /Users/taoyi/Desktop/test0001/dir
 ```
 
-##### kill指定name的pid
+#### kill指定name的pid
 
 ```bash
 # kill指定name的pid
@@ -52,7 +52,7 @@ do
 done
 ```
 
-##### adb截图导出并展示
+#### adb截图导出并展示
 
 ```bash
 # 调用安卓系统内部截图命令screencap截图保存
@@ -63,7 +63,7 @@ adb pull /sdcard/screenshot.jpg ~/shell-tools/ScreenShots/
 open ~/shell-tools/ScreenShots/screenshot.jpg
 ```
 
-##### android打包并安装
+#### android打包并安装
 
 ```bash
 cd /Users/taoyi/git_projects/Gitlab/androidclientnative/
@@ -82,7 +82,7 @@ adb uninstall com.souche.fengche
 adb install /Users/taoyi/shell-tools/APK/*.apk
 ```
 
-##### Shell脚本解析xml文件字段
+#### Shell脚本解析xml文件字段
 
 示例文件内容``build.xml``
 ```xml
@@ -126,14 +126,14 @@ sed -n 's/.*>\(.*\)<\/userId>/\1/p' $JENKINS_HOME/jobs/$JOB_NAME/builds/$BUILD_N
 userId=(`sed -n 's/.*>\(.*\)<\/userId>/\1/p' $JENKINS_HOME/jobs/$JOB_NAME/builds/$BUILD_NUMBER/build.xml`)
 ```
 
-##### Shell脚本获取文本特定字段
+#### Shell脚本获取文本特定字段
 
 ```bash
 # 获取log文件第一行中，``[0m``字符后面的所有字符
 head -1 $JENKINS_HOME/jobs/$JOB_NAME/builds/$BUILD_NUMBER/log | awk -F '\\[0m' '{print $NF}'
 ```
 
-##### Jenkins获取构建人，并赋值到变量并使用
+#### Jenkins获取构建人，并赋值到变量并使用
 
 取值``shell``
 ```bash
@@ -146,7 +146,7 @@ echo "userId=${userId}" > userId.txt
 ${PROPFILE,file="userId.txt",property="userId"}
 ```
 
-##### Jenkins获取安卓APP版本号并赋值给变量并使用
+#### Jenkins获取安卓APP版本号并赋值给变量并使用
 
 取值``shell``
 ```bash
@@ -158,7 +158,7 @@ echo "versionName=${versionName}" > versionName.txt
 ${PROPFILE,file="versionName.txt",property="versionName"}
 ```
 
-##### 获取目录的所有csv文件并合并为一个csv文件
+#### 获取目录的所有csv文件并合并为一个csv文件
 ```bash
 interface=$1
 # 进入脚本所在的位置
@@ -174,7 +174,7 @@ rm -rf ./CSV/*.csv
 #sed -ig "" '1i\属于哪个服务,属于哪个suite,对应RF接口名称\n' ./together.csv
 ```
 
-##### ``Json``中的字典转化成``Robot-Framework``的参数格式
+#### ``Json``中的字典转化成``Robot-Framework``的参数格式
 ```bash
 # ``Json``中的字典转化成``Robot-Framework``的参数格式
 # 先把需要修改的json文本写入文件，再对该文件进行操作
@@ -186,7 +186,7 @@ sed -ig 's/"//g' $file_name
 sed -ig 's/,/    /g' $file_name
 ```
 
-##### 简单的服务器部署脚本
+#### 简单的服务器部署脚本
 ```bash
 #!/bin/bash
 
@@ -233,7 +233,7 @@ cd ${dir_tomcat_home}/logs
 tail -f catalina.out
 ```
 
-##### Jenkins上部署Tomcat的通用脚本
+#### Jenkins上部署Tomcat的通用脚本
 ```bash
 #!/bin/bash
 set -o errexit
@@ -264,7 +264,7 @@ echo "----start tomcat"
 sh ${dir_tomcat_home}/bin/startup.sh;
 ```
 
-##### **自动部署服务器应用**
+#### **自动部署服务器应用**
 ```bash
 # 执行脚本：
 # ./new_server.sh server_tomcat git_repo nu
@@ -292,7 +292,7 @@ sed -ig 's/mvn config:load/# mvn config:load/g' ./${server_tomcat}/deploy.sh
 ```
 Sed后面的表达式一般用单引号引起来``'``，当需要使用**变量**时就换用双引号``"``。
 
-##### 指定次数执行``pybot``脚本
+#### 指定次数执行``pybot``脚本
 ```bash
 # 执行示例：./repeat_test.sh testCases testSuite num
 
@@ -312,13 +312,13 @@ done
 echo "Finished."
 ```
 
-##### 顺序列出当前服务器上运营的 tomcat 应用
+#### 顺序列出当前服务器上运营的 tomcat 应用
 ```bash
 # ps 获取的结果，用"/"分隔，取第十段，并用数字正序排列
 ps -ef | grep tomcat | awk -F "/" '{print $10 | sort -n}'
 ```
 
-##### 指定文件中的换行符替换为空格
+#### 指定文件中的换行符替换为空格
 1. 使用正则
 ```bash
 cat listTomcat | sed ':label;N;s/\n/ /;b label'
@@ -328,7 +328,7 @@ cat listTomcat | sed ':label;N;s/\n/ /;b label'
 cat listTomcat | tr "\n" " "
 ```
 
-##### 根据 tag 和 env 执行用例
+#### 根据 tag 和 env 执行用例
 ```bash
 #!/usr/bin/env bash
 
@@ -345,7 +345,7 @@ tag=$2
     .
 ```
 
-##### 把文件A的内容插入到文件B中的指定行后
+#### 把文件A的内容插入到文件B中的指定行后
 ```bash
 #!/usr/bin/env bash
 #for test add content from src_file to dest_file at specified place.

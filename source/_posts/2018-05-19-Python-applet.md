@@ -5,7 +5,7 @@ categories: [Python]
 tags: [python]
 ---
 
-##### 修改文件内容，并存入原文件
+#### 修改文件内容，并存入原文件
 ```python
 import fileinput
 for line in fileinput.input("test0", inplace=1):
@@ -15,7 +15,7 @@ for line in fileinput.input("test0", inplace=1):
 
   <!--more-->
 
-##### 比较两个文件的差异，并输出HTML对比结果
+#### 比较两个文件的差异，并输出HTML对比结果
 ```python
 # -*- coding: utf-8 -*-
 """
@@ -66,7 +66,7 @@ if __name__ == '__main__':
     diff_file(filename1, filename2)
 ```
 
-##### 金额数值转大写
+#### 金额数值转大写
 ```python
 # -*- coding: utf-8 -*-
 
@@ -133,7 +133,7 @@ def convertNumToChinese(totalPrice):
 print (convertNumToChinese(23001231.041))
 ```
 
-##### RobotFramework 监听器
+#### RobotFramework 监听器
 ```python
 # -*- coding: utf-8 -*-
 

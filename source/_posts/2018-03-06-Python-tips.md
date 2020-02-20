@@ -5,7 +5,7 @@ categories: [Python]
 tags: [python]
 ---
 
-##### 安装指定版本的第三方库
+#### 安装指定版本的第三方库
 ```bash
 pip install robotframework==2.8.7
 ```
@@ -13,18 +13,18 @@ pip install robotframework==2.8.7
 
   <!--more-->
 
-##### 将当前虚拟环境中的依赖包以版本号生成至文件中【导出第三方库】：
+#### 将当前虚拟环境中的依赖包以版本号生成至文件中【导出第三方库】：
 ```bash
 pip freeze > requirements.txt
 ```
 
-##### 在指定位置安装第三方
+#### 在指定位置安装第三方
 ```bash
 pip install -t /Users/taoyi/.pyenv/versions/2.7.14/lib/python2.7/site-packages lxml
 ```
 ``pip``安装的包不一定是用户想要的位置，此时可以用``-t``选项来指定位置。
 
-##### 通过requirement.txt文件来管理pip的第三方库
+#### 通过requirement.txt文件来管理pip的第三方库
 文件内容如下：
 ```bash
 robotframework==3.0.2
@@ -44,7 +44,7 @@ MySQL-python==1.2.5
 pip install -r requirement.txt
 ```
 
-##### 查看有更新的``pip``第三方库
+#### 查看有更新的``pip``第三方库
 ```zsh
 # taoyi @ TaoYi-Mac in ~ [16:27:56]
 $ pip list --outdate --trusted-host pypi.douban.com
@@ -55,17 +55,17 @@ robotframework-sshlibrary 2.1.3     3.0.0     sdist
 setuptools                                28.8.0    39.1.0    wheel
 ```
 
-##### 更新指定的第三方库
+#### 更新指定的第三方库
 ```bash
 pip install --upgrade robotframework-sshlibrary
 ```
 
-##### 查看第三方库的详细信息
+#### 查看第三方库的详细信息
 ```bash
 pip show robotframework-sshlibrary
 ```
 
-##### pip配置文件更新
+#### pip配置文件更新
 ``pip``配置文件是``~/.pip/pip.conf``文件
 ```bash
 [global]
@@ -81,7 +81,7 @@ trusted-host=pypi.douban.com
 format=columns
 ```
 
-##### ``print('*',end='')``中``end``问题
+#### ``print('*',end='')``中``end``问题
 end是print（）函数的一个参数。end 是输出语句结束以后附加的字符串，它的默认值是换行（’\n’）。
 ```python
 print('')#end值为默认值（换行\n）
@@ -91,13 +91,13 @@ print('*',end = '1')                # end值为字符串‘1’
 print('*',end = '12')             # end值为字符串‘12’
 ```
 
-##### 打印中的赋值语句
+#### 打印中的赋值语句
 ```python
 print ('%d * %d = %d' %(i, j, i * j), end='\t')
 # 三个%d分别从后面跟着的3个参数取对应的值
 ```
 
-##### VSCode的代码段设置
+#### VSCode的代码段设置
 ```json
 {
     "MarkDown insert Pyhton": {
@@ -111,13 +111,13 @@ print ('%d * %d = %d' %(i, j, i * j), end='\t')
 }
 ```
 
-##### 共享本地文件给局域网访问
+#### 共享本地文件给局域网访问
 ```bash
 python -m http.server
 ```
 共享当前运行该命令的本地目录，给予在局域网内访问；默认共享端口为8000，即访问地址为：[localhost:8000](http://localhost:8000)
 
-##### 字典在for循环中数据覆盖的分析与解决
+#### 字典在for循环中数据覆盖的分析与解决
 预期打印出来的list为：[{'num': 0}, {'num': 1}, {'num': 2}]，结果为[{'num': 2}, {'num': 2}, {'num': 2}]
 ```python
 lists=[]
@@ -155,7 +155,7 @@ print(lists)                 #[{'num': 0}, {'num': 1}, {'num': 2}]
       - copy浅拷贝，只拷贝父对象，不会拷贝对象的内部的子对象，所以原始数据改变，子对象会改变
       - copy深拷贝，包含对象里面的自对象的拷贝，所以原始对象的改变不会造成深拷贝里任何子元素的改变
 
-##### 全局变量和局部变量
+#### 全局变量和局部变量
 ```python
 def test():
     if value == 1:
@@ -197,7 +197,7 @@ b = test()
 ```
 这种情况外面的a执行完函数还是1，而函数返回的则是2。
 
-##### `requests.post`使用
+#### `requests.post`使用
 1. 带数据『data』的post
     ```python
     # -*- coding:utf-8 -*-
@@ -348,7 +348,7 @@ b = test()
     print (r.text)
     ```
 
-##### 递归函数的使用
+#### 递归函数的使用
 [递归从入门到精通](https://www.cnblogs.com/xzxl/p/7364515.html)
 ```python
 # sd_list = [{"scenes_id": "1", "scenes_data_ids": [5, 6, [{"scenes_id": "3", "scenes_data_ids": [56, 2, 24, 4]}]]}]

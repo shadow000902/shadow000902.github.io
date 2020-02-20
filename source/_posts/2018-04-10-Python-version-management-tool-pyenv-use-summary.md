@@ -5,25 +5,25 @@ categories: [Python]
 tags: [pyenv]
 ---
 
-##### 安装``brew``
+#### 安装``brew``
 ```bash
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 
   <!--more-->
 
-##### 安装``pyenv``
+#### 安装``pyenv``
 ```bash
 brew install pyenv
 ```
 
-##### 把``pyenv``加入环境变量
+#### 把``pyenv``加入环境变量
 如果使用的终端是``bash``，则编辑``~/.bashrc``，如果使用的终端是``zsh``，则编辑``~/.zshrc``，在该文件的最开头加入语句：
 ```bash
 eval "$(pyenv init -)"
 ```
 
-##### ``pyenv``常用基本命令
+#### ``pyenv``常用基本命令
 ```bash
 pyenv install --list                            # List all available versions
 pyenv install <version>                         # install python
@@ -35,7 +35,7 @@ pyenv versions                                  # 列举所有版本的python，
 pyenv version                                   # 列举已经安装的版本
 ```
 
-##### 使用``virtualenv``创建``Python``虚拟环境
+#### 使用``virtualenv``创建``Python``虚拟环境
 这个命令只需要一个参数，即虚拟环境的名字。创建完虚拟环境后，当前文件夹会出现一个子文件夹，名字就是上述命令中指定的参数，与虚拟环境相关的文件都保存在这个子文件夹中。按照惯例，一般虚拟环境会被命名为``venv``：
 ```bash
 $ virtualenv venv
@@ -55,14 +55,14 @@ Python 2.7.14
 ```
 如果想回到全局``Python``解析器中，可以再命令行提示符下输入``deactivate``。
 
-##### 使用``virtualenv``创建指定版本的``Python``的虚拟环境
+#### 使用``virtualenv``创建指定版本的``Python``的虚拟环境
 ```bash
 virtualenv -p /Users/taoyi/.pyenv/versions/3.6.5/bin/python  py3env
 ```
  - ``-p``：指定指定版本的``python``的绝对路径
  - ``py3env``：创建的虚拟环境的名称
 
-##### Linux环境下，安装``brew``【需要切换git源码地址中的`Linuxbrew`为`Homebrew`，后续，`Linuxbrew`不在更新】
+#### Linux环境下，安装``brew``【需要切换git源码地址中的`Linuxbrew`为`Homebrew`，后续，`Linuxbrew`不在更新】
 ```bash
 # clone源码到用户目录下
 git clone https://github.com/Linuxbrew/brew.git ~/.linuxbrew
@@ -75,7 +75,7 @@ export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
 export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
 ```
 
-##### Ubuntu环境下，pyenv安装python失败，解决方法
+#### Ubuntu环境下，pyenv安装python失败，解决方法
 问题基本就是出现在缺少一些基础库上，解决方法也就是尽量的把一些基础库都安装上
 ```bash
 # 在ubuntu软件源里zlib和zlib-devel叫做zlib1g zlib1g.dev
@@ -86,7 +86,7 @@ sudo apt-get install zlib1g zlib1g.dev
 yum install readline readline-devel readline-static openssl openssl-devel openssl-static sqlite-devel bzip2-devel bzip2-libs build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm
 ```
 
-##### Linux环境下，pyenv安装python3，``ModuleNotFoundError: No module named '_ctypes'``报错解决
+#### Linux环境下，pyenv安装python3，``ModuleNotFoundError: No module named '_ctypes'``报错解决
 python`3.7`版本需要一个新的包`libffi`
 ```bash
 # Ubuntu 下处理

@@ -5,7 +5,7 @@ categories: [MySQL]
 tags: [mysql]
 ---
 
-#### 数据库表操作
+### 数据库表操作
 1. 登录
     ```bash
     [root@host]# mysql -u root -p
@@ -74,7 +74,7 @@ tags: [mysql]
     DROP USER 'username'@'host';
     ```
 
-#### 增删改
+### 增删改
 1. 插入数据
     ```sql
     INSERT INTO table_name ( field1, field2,...fieldN )
@@ -93,7 +93,7 @@ tags: [mysql]
     DELETE FROM table_name [WHERE Clause]
     ```
 
-#### 查
+### 查
 1. 查询数据
     1.1 基础查询语句
     ```sql
@@ -157,7 +157,7 @@ tags: [mysql]
     select quantity, quantity*item_price AS expended_price
     ```
     
-#### 使用函数处理数据
+### 使用函数处理数据
     函数的类型：
         - 用于处理文本字符串
         - 用于在数值数据上进行算术操作

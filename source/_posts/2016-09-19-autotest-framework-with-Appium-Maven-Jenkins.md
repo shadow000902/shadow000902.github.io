@@ -5,7 +5,7 @@ categories: [Appium]
 tags: [appium, maven, jenkins]
 ---
 
-#### 前置条件
+### 前置条件
 1. ``JDK``安装
 2. ``Appium``安装［``node``安装，``npm``安装］
 3. ``Maven``安装
@@ -14,14 +14,14 @@ tags: [appium, maven, jenkins]
 
   <!--more-->
 
-#### 环境可用的情况
+### 环境可用的情况
 1. ``adb -devices``命令可用
 2. ``appium --session-override``服务可用
 3. ``mvn package``编译可用
 
-#### 框架介绍
+### 框架介绍
 框架主要以``appium``测试框架为基础，用maven进行依赖的管理，以及编译执行测试。
-##### 框架目录结构
+#### 框架目录结构
 {% asset_img 目录结构.png 目录结构 %}
 ```
 ├── data                                                                    # 项目测试数据存放位置
@@ -102,7 +102,7 @@ tags: [appium, maven, jenkins]
                             ├── PropertiesDataProvider.java
                             └── SelectDriver.java
 ```
-##### 框架运行介绍
+#### 框架运行介绍
 ``testcases``下的测试用例都是继承至``BasePrepare.java``类，这个类的主要作用是启动和关闭APP，以及数据提供。
 
 举``Login``的例子，介绍框架中用例的运行原理：
@@ -111,33 +111,33 @@ tags: [appium, maven, jenkins]
 {% asset_img 用例运行结构.png 用例运行结构 %}
 最后``testng``文件调用``excel``插件生成``excel``报告。
 
-#### 持续集成
-##### 前置条件
+### 持续集成
+#### 前置条件
     [代码仓库地址](http://git.souche.com/testGroup/dfcAppium.git)
     ``Jenkins``上配置好安卓测试环境，包括本地配置的所有环境。
 由于大风车有``Native Library``，导致无法在``X86``的模拟器上安装，而且``arm``的模拟器奇慢，所以选择在安卓真机上执行测试。在执行测试前要确保指定的设备与运行持续集成的服务器通讯正常。
-##### 持续集成结果展示：
+#### 持续集成结果展示：
 {% asset_img Excel测试报告.png Excel测试报告 %}
 
-#### 备注：appium源码安装
-##### 安装cnpm
+### 备注：appium源码安装
+#### 安装cnpm
 ```
 npm install -g cnpm --registry=https://registry.npm.taobao.org
 ```
-##### 下载源代码
+#### 下载源代码
 ```
 git clone https://github.com/appium/appium.git
 ```
-##### 编译安装
+#### 编译安装
 ```
 cd appium               # 进入appium源码目录
 cnpm install            # 执行安装
 ```
-##### 用``cnpm link``命令将``appium link``到系统，可以忽略``warn``
+#### 用``cnpm link``命令将``appium link``到系统，可以忽略``warn``
 ```
 cnpm link
 ```
-##### 查看安装结果
+#### 查看安装结果
 ```
 appium -v
 

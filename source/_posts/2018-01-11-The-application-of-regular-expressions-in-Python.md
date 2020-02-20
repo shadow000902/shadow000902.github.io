@@ -5,7 +5,7 @@ categories: [Python]
 tags: [正则表达式]
 ---
 
-#### 简单字符串替换
+### 简单字符串替换
 ```python
 import re  
 urlp = "http://www.mypcera.com/star/mm/jiepaimeinv/942{_page}.html&{what}&&{come}"
@@ -25,7 +25,7 @@ print(result)
 
   <!--more-->
 
-#### # 修改字典 value 值
+### # 修改字典 value 值
 ```python
 import re
 

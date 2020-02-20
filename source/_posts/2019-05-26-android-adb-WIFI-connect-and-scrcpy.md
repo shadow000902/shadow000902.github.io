@@ -5,7 +5,7 @@ categories: [Tips]
 tags: [adb]
 ---
 
-#### `adb`无线连接
+### `adb`无线连接
 1. 手机有线模式下连接电脑，且手机开启了USB调试模式，效果如下
     ```bash
     # taoyi @ TyMac in ~ [1:18:55] 
@@ -71,7 +71,7 @@ adb disconnect 192.168.31.233:5556
 8. `kill`掉刚才已经`offline`的设备的链接的`PID`，就可以删除该设备了
 
 
-#### 无线投屏
+### 无线投屏
 1. 安卓投屏软件
     ```bash
     brew install scrcpy

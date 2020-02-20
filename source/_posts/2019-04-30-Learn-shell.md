@@ -5,7 +5,7 @@ categories: [Shell]
 tags: [shell]
 ---
 
-##### 命令嵌套【嵌套语句通过 \`\` 来标记】
+#### 命令嵌套【嵌套语句通过 \`\` 来标记】
 ```bash
 for list in \
 `find /root/.jenkins/jobs/DEBUG-UZAO-*/ -maxdepth 1 -type f -name config.xml`\
@@ -15,7 +15,7 @@ for list in \
 
   <!--more-->
 
-##### shell的多行注释
+#### shell的多行注释
 ```bash
 :<<BLOCK
 ....注释内容

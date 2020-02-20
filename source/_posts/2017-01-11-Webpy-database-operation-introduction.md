@@ -5,21 +5,21 @@ categories: [Python]
 tags: [web.py, 数据库]
 ---
 
-#### 安装MySQL数据库
+### 安装MySQL数据库
 
-##### 本地数据库的安装[MySQL](http://dev.mysql.com/downloads/mysql/)
+#### 本地数据库的安装[MySQL](http://dev.mysql.com/downloads/mysql/)
 安装完后，会给出一个默认密码：
 
   <!--more-->
 
 {% asset_img 初始化密码.png 初始化密码 %}
 
-##### 启动本机上的MySQL
+#### 启动本机上的MySQL
 {% asset_img 启动MySQL-1.png 启动MySQL-1 %}
 {% asset_img 启动MySQL-2.png 启动MySQL-2 %}
 {% asset_img 启动MySQL-3.png 启动MySQL-3 %}
 
-##### 修改MySQL默认密码
+#### 修改MySQL默认密码
 
 ```bash
 ➜  ~ mysql -u root -p       
@@ -40,7 +40,7 @@ mysql> SET PASSWORD = PASSWORD('123456');           # 重置密码
 ```
 这样就把MySQL的登录密码设置成了``123456``
 
-#### 安装Web.py及相关数据库操作模块
+### 安装Web.py及相关数据库操作模块
 
 1. 安装``web.py``
 ```bash
@@ -59,16 +59,16 @@ easy_install psycopg2
 easy_install DBUtiles
 ```
 
-#### web.py操作数据库
+### web.py操作数据库
 
-##### 导入模块，定义数据库连接``db``
+#### 导入模块，定义数据库连接``db``
 ```bash
 import web
 db = web.database(dbn = 'mysql', db = 'mytable', user = 'root', pw = '123456')
 # dbn 用于指定数据库类型
 ```
 
-##### ``select``查询
+#### ``select``查询
 ```python
 # 查询表
 entries = db.select('mytable')
@@ -94,13 +94,13 @@ results = db.select('mytable', limit = 10)
 results = db.select('mytable', offset = 10)
 ```
 
-##### 插入
+#### 插入
 ```python
 db.insert('user', name = 'TY', age = 28, passwd = '123456', email = '526077432@qq.com')
 # 插入利用了Python的**kw提供字段值，非常方便
 ```
 
-##### 更新
+#### 更新
 ```python
 db.update('mytable', where = "id = 10", value1 = "foo")
 db.update('user', where = 'id = $id', vars = {'id' : 100}, name = 'TY001', age = 29)
@@ -108,13 +108,13 @@ db.update('user', where = 'id = $id', vars = {'id' : 100}, name = 'TY001', age =
 # where和vars负责where语句的生成和绑定参数
 ```
 
-##### 删除
+#### 删除
 ```python
 db.delete('mytable', where = "id = 10")
 db.delete('user', where = 'id = $id', vars = {'id':100})
 ```
 
-##### 复杂查询
+#### 复杂查询
 ```python
 # count
 results = db.query("SELECT COUNT(*) AS total_users FROM users")
@@ -127,7 +127,7 @@ results = db.query("SELECT * FROM entries JOIN users WHERE entries.author_id = u
 results = db.query("SELECT * FROM entries WHERE id = $id", vars = {'id':10})
 ```
 
-##### 多数据库操作（web.py大于0.3）
+#### 多数据库操作（web.py大于0.3）
 ```python
 db1 = web.database(dbn = 'mysql', db = 'dbname1', user = 'foo')
 db2 = web.database(dbn = 'mysql', db = 'dbname2', user = 'foo')
@@ -136,7 +136,7 @@ print db1.select('foo', where = 'id = 1')
 print db2.select('bar', where = 'id = 5')
 ```
 
-##### 事务
+#### 事务
 ```python
 t = db.transaction()
 try:

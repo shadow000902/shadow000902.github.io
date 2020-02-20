@@ -5,7 +5,7 @@ categories: [Python]
 tags: [ssh]
 ---
 
-#### 方式一：通过``MySQLdb``模块
+### 方式一：通过``MySQLdb``模块
 ```python
 	def con_sshDb(self, sql):
 		# ssh的地址，端口，用户名，密码
@@ -36,7 +36,7 @@ tags: [ssh]
 
   <!--more-->
 
-#### 方式二：通过``paramiko``模块
+### 方式二：通过``paramiko``模块
 ```python
 	def con_sshDb(self, sql):
 		import paramiko
@@ -49,7 +49,7 @@ tags: [ssh]
 		ssh.close()
 ```
 
-#### 方式二：通过``sqlalchemy``模块
+### 方式二：通过``sqlalchemy``模块
 ```python
 	def con_sshDb(self, sql):
 		from sshtunnel import SSHTunnelForwarder

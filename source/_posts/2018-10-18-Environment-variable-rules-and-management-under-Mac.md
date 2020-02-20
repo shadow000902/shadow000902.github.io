@@ -5,7 +5,7 @@ categories: [Tips]
 tags: [mac]
 ---
 
-##### Mac系统的环境变量，加载顺序
+#### Mac系统的环境变量，加载顺序
 - a. /etc/profile
 - b. /etc/paths
 - c. ~/.bash_profile
@@ -21,7 +21,7 @@ tags: [mac]
 `~/.zshrc`没有上述规则，它是`zsh shell`打开的时候载入的。
 这里建议在`c`中添加环境变量，以下也是以在`c`中添加环境变量来演示的。
 
-##### 添加环境变量
+#### 添加环境变量
 比如添加 `maven` 环境变量
 编辑 `~/.bash_profile`文件
 ```bash
@@ -37,7 +37,7 @@ export PATH=$PATH:$M2_HOME/bin
 source ~/.bash_profile
 ```
 
-##### 使用zsh shell
+#### 使用zsh shell
 在`~/.zshrc`中加入如下内容
 ```bash
 ...

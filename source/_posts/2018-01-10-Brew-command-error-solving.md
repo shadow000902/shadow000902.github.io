@@ -5,7 +5,7 @@ categories: [SolveProblem]
 tags: [brew]
 ---
 
-##### 运行任何``brew``命令，都提示错误
+#### 运行任何``brew``命令，都提示错误
 ```bash
 git: error: unable to find utility "git", not a developer tool or in PATH
 ```

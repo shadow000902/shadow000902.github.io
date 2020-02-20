@@ -5,7 +5,7 @@ categories: [Jenkins]
 tags: [jenkins]
 ---
 
-##### Jenkins环境准备
+#### Jenkins环境准备
 1. Jenkins安装，这个就不说了
 2. Jenkins环境配置
 
@@ -24,11 +24,11 @@ drwxrwxr-x  6 test test    4096 Jun  6 21:39 apache-maven-3.3.9/
 lrwxrwxrwx  1 test test      25 Jun 23 16:18 jdk1.8.0_91/
 ```
 
-##### 服务器环境准备
+#### 服务器环境准备
 1. 首先需要把服务器加入到Jenkins的slave中，即配置Jenkins的从节点
 2. 服务器环境配置：建议**配置完全同Jenkins中的环境配置**，包括JDK和MVN，不然会有很多让人头痛无法解决的问题
 
-##### 服务器部署WEB实例
+#### 服务器部署WEB实例
 1. 在用户目录下新建两个目录，一个用来存放源代码，一个用来存放Web实例
 ```bash
 test@test-devtesting-00001:~$ ll
@@ -109,7 +109,7 @@ chmod a+x deploy.sh
 
 	至此，即可完成在服务器上的Web实例部署。
 
-##### Jenkins集成Web实例部署
+#### Jenkins集成Web实例部署
 1. 新建一个``Jenkins``项目
 	因为我们的Web项目是从maven进行编译的，所以在新建项目时，选择``构建一个maven项目``
 2. ``Jenkins``项目配置

@@ -5,14 +5,14 @@ categories: [Python]
 tags: [python]
 ---
 
-##### `pytest`每次运行都会报`ValueError: option names {'--alluredir'} already added`
+#### `pytest`每次运行都会报`ValueError: option names {'--alluredir'} already added`
 原因是同时安装了`pytest-allure-adaptor`和`allure-pytest`，而它俩又都被引用了，造成了冲突。
 解决方案：
 
 	卸载掉其中一个
 	全局搜索哪些地方引用了，处理掉别的引用
 
-##### `httprunner`框架中`https`请求报错解决
+#### `httprunner`框架中`https`请求报错解决
 1. 接口请求的参数中，增加参数`'verify': False`
 ```python
 _data = {'name': api_data.name,

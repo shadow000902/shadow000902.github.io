@@ -5,7 +5,7 @@ categories: [性能测试]
 tags: [performance, prometheus, influxDB, grafana, shell]
 ---
 
-#### 几个关键地址
+### 几个关键地址
 1. 包下载地址：[官网下载地址](https://prometheus.io/download/)
     - 监控服务：[prometheus](https://github.com/prometheus/prometheus/releases/download/v2.14.0/prometheus-2.14.0.linux-amd64.tar.gz)
     - 服务器监控服务：[node_exporter](https://github.com/prometheus/node_exporter/releases/download/v0.18.1/node_exporter-0.18.1.linux-amd64.tar.gz)
@@ -14,7 +14,7 @@ tags: [performance, prometheus, influxDB, grafana, shell]
 
   <!--more-->
 
-#### `监控服务`部署
+### `监控服务`部署
 下载上述的监控服务包，并解压，可以得到如下文件：
 ```bash
 root@su-007:~/tools/prometheus-2.13.1.linux-amd64# ll
@@ -99,7 +99,7 @@ nohup ./prometheus >> ./nohup.log 2>&1 &
 启动后，就可以在浏览器中访问`10.10.10.10:9090/targets`查看各个节点的状态了，确保`State`是`UP`，不然就可能有问题，需要排查了
 {% asset_img 监控节点情况.png 监控节点情况 %}
 
-#### `服务器`监控部署
+### `服务器`监控部署
 下载上述的服务器监控服务包，并解压，可以得到如下文件：
 ```bash
 root@su-007:~/tools/node_exporter-0.18.1.linux-amd64# ll
@@ -117,7 +117,7 @@ nohup ./node_exporter >> ./nohup.log 2>&1 &
 ```
 在浏览器访问`10.10.10.10:9100/metrics`，可以看到监控数据，就说明服务启动成功了
 
-#### `MySQL`监控部署
+### `MySQL`监控部署
 下载上述的MySQL监控服务包，并解压，可以得到如下文件：
 ```bash
 root@test-01:~/tools/mysqld_exporter-0.12.1.linux-amd64$ ll
@@ -149,7 +149,7 @@ nohup ./mysqld_exporter --config.my-cnf=./.my.cnf >> ./nohup.log 2>&1 &
 ```
 在浏览器访问`10.10.10.11:9104/metrics`，可以看到监控数据，就说明服务启动成功了
 
-#### `JVM`监控部署
+### `JVM`监控部署
 下载上述的jar文件，创建配置文件`jmx_exporter.yml`
 配置文件内容如下：
 ```yaml
@@ -172,7 +172,7 @@ CATALINA_OPTS="-Xms2g -Xmx2g -javaagent:/home/shadow/tools/JMX/jmx_prometheus_ja
 还有一点需要注意的是：`jmx_prometheus_javaagent-0.12.0.jar`和`jmx_exporter.yml`存放的位置必须和tomcat的位置在同一用户下，不然可能会出现因为权限问题，无法调用的情况。
 在浏览器访问`10.10.10.11:3080/metrics`，可以看到监控数据，就说明服务启动成功了
 
-#### `Grafana`各个监控面板配置
+### `Grafana`各个监控面板配置
 每个不同类型的监控，需要有不同类型的面板，这里不自己配置面板，而是从外部导入，[官方Dashboards平台](https://grafana.com/grafana/dashboards)
 1. 服务器监控面板：选择`主机基础监控(cpu，内存，磁盘，网络)`，`ID`为`9276`
 2. MySQL监控面板：选择`MySQL Overview`，`ID`为`7362`

@@ -5,8 +5,8 @@ categories: [Linux]
 tags: [linux]
 ---
 
-#### 基础命令
-##### mv
+### 基础命令
+#### mv
 1. Moving files
     ```bash
     mv test0001.txt /opt/
@@ -53,12 +53,12 @@ tags: [linux]
     ```
     [10 Practical mv Command Examples](https://linoxide.com/linux-command/mv-command-linux/)
 
-##### cp(copy)
+#### cp(copy)
 ```bash
 cp -r /opt/android/tools /opt/      # -r 复制文件夹
 ```
 
-##### ps(process status)
+#### ps(process status)
 参数说明：
 ```
 ps 的参数非常多, 在此仅列出几个常用的参数并大略介绍含义
@@ -115,21 +115,21 @@ COMMAND:所执行的指令
      4618  4415  4618  4223  4618 ps
 	```
 
-##### kill
+#### kill
 
-##### shutdown
+#### shutdown
 
-##### swatch(simple watcher)
+#### swatch(simple watcher)
 
-##### unzip
+#### unzip
 
-##### tar(tape archive)
+#### tar(tape archive)
 
-##### diff
+#### diff
 
-##### git
+#### git
 
-##### cat
+#### cat
 ```bash
 一次显示整个文件:cat filename
 从键盘创建一个文件:cat > filename 只能创建新文件,不能编辑已有文件.
@@ -141,43 +141,43 @@ COMMAND:所执行的指令
     cat file1.csv file2.csv file3.csv ... file[n].csv > all-in-one.csv				# 合并多个CSV文件，考虑顺序
     ```
 
-##### chmod(change mode)    # 更改文件／文件夹权限
+#### chmod(change mode)    # 更改文件／文件夹权限
 
-##### chown(change owner)   # 更改文件／文件夹所有者
+#### chown(change owner)   # 更改文件／文件夹所有者
 
-##### cd(change directory)  # 进入某目录
+#### cd(change directory)  # 进入某目录
 
-##### df(disk free)
+#### df(disk free)
 
-##### dirs
+#### dirs
 
-##### 列举当前目录文件``ls``、``ll``(list)
+#### 列举当前目录文件``ls``、``ll``(list)
 ```bash
 ll -t                     # 当前目录文件按倒叙排列，最新的排最前面
 ll -t | tac               # 当前目录文件按顺序排列，最早的排最前面
 ```
 
-##### mkdir(make directories)
+#### mkdir(make directories)
 
-##### rm
+#### rm
 ```bash
 rm -f 					# 直接删除文件，无需确认
 rm -r 					# 删除文件夹，需要确认
 rm -rf 					# 直接删除目录及其中的全部文件，无需确认
 ```
 
-##### fdisk
+#### fdisk
 
-##### telnet
+#### telnet
 
-##### ifconfig
+#### ifconfig
 
-##### tail
+#### tail
 ```bash
 tail -f catalina.out | grep request      # 查看Linux服务器实时日志，catalina.out为服务器实时记录日志的文件
 ```
 
-##### touch           # 创建文件（夹）命令
+#### touch           # 创建文件（夹）命令
 
 1. 使用文件名作为参数，可以同时创建多个文件。当目标文件已经存在时，将更新该文件的时间标记，否则将创建指定名称的空文件。
     ```bash
@@ -203,7 +203,7 @@ tail -f catalina.out | grep request      # 查看Linux服务器实时日志，ca
     [root@localhost home]#
     ```
 
-##### rmdir            # 删除文件（夹）命令
+#### rmdir            # 删除文件（夹）命令
 ```bash
 [root@localhost home]# mkdir -p {dir1,dir2/dir3}            # -p 当子目录被删除后也成为空目录的话，则顺便一并删除
 [root@localhost home]# ls
@@ -217,7 +217,7 @@ justin lost+found t
 [root@localhost home]#
 ```
 
-##### 更改文件（夹）权限
+#### 更改文件（夹）权限
 1. 更改所有者权限
     ```bash
     sudo chmod 600 ××× #（只有所有者有读和写的权限）
@@ -274,7 +274,7 @@ justin lost+found t
     drwxr-xr-x (755) - 所有用户可读该目录，但只有属主才能改变目录中的内容。
     ```
 
-##### 查看目录剩余空间大小，*du(disk usage)*
+#### 查看目录剩余空间大小，*du(disk usage)*
 1. df -hl             # 查看磁盘剩余空间
     ```bash
     文件系统       容量    已用   可用                      已用%          挂载点
@@ -328,7 +328,7 @@ justin lost+found t
     - ``–version``：显示版本信息。
     - ``-0``：（杠零）表示每列出一个目录的信息，不换行，而是直接输出下一个目录的信息。
 
-##### 修改root密码
+#### 修改root密码
 ```bash
 [root@shadow000902 /]# passwd								# 修改密码命令
 Changing password for user root.
@@ -337,18 +337,18 @@ Retype new password: 										# 确认新的密码
 passwd: all authentication tokens updated successfully.		# 成功修改密码提示
 ```
 
-##### 永久修改`ubuntu`主机名
+#### 永久修改`ubuntu`主机名
 ```bash
 vim /etc/hostname
 ```
 
-##### 永久修改`redhat/centos`主机名
+#### 永久修改`redhat/centos`主机名
 ```bash
 vi /etc/sysconfig/network
 ```
 修改`HOSTNAME`字段值即修改了主机名
 
-##### 创建用户及用户组，并修改密码切换用户
+#### 创建用户及用户组，并修改密码切换用户
 ```bash
 # root @ shadow in ~ [10:30:20] C:1
 $ adduser shadow                            # 创建用户
@@ -366,7 +366,7 @@ $ su - shadow                               # 切换用户
 [shadow@shadow ~]$                          # 切换用户成功
 ```
 
-##### 删除用户及用户文件夹
+#### 删除用户及用户文件夹
 ```bash
 # 查看所有用户
 cat /etc/passwd|grep -v nologin|grep -v halt|grep -v shutdown|awk -F":" '{ print $1"|"$3"|"$4 }'|more
@@ -374,12 +374,12 @@ su - root                                   # 首先需要切换到root用户
 userdel -r shadow                           # 删除shadow用户及用户文件夹
 ```
 
-##### CentOS卸载软件
+#### CentOS卸载软件
 ```bash
 yum remove tomcat
 ```
 
-##### “shadow is not in the sudoers file.  This incident will be reported.”解决方法
+#### “shadow is not in the sudoers file.  This incident will be reported.”解决方法
 在``root``用户下，执行``visudo``
 ```bash
   91 ## Allow root to run any commands anywhere
@@ -389,7 +389,7 @@ yum remove tomcat
   95 ## Allows members of the 'sys' group to run networking, software,
 ```
 
-##### Ubuntu 命令行安装语言包
+#### Ubuntu 命令行安装语言包
 中文语言包:
 - language-pack-zh-hans 简体中文
 - language-pack-zh-hans-base
@@ -406,12 +406,12 @@ sudo apt install $(check-language-support)
 ```
 会更新最新的语言支持包。
 
-##### 查找文件夹
+#### 查找文件夹
 ```bash
 find / -name mysql
 ```
 
-##### tree Mac下树形查看当前目录文件
+#### tree Mac下树形查看当前目录文件
 1. 使用`find`命令模拟出`tree`命令的效果
     ```bash
     find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'
@@ -454,11 +454,11 @@ find / -name mysql
     ```
     - -N  Print non-printable characters as is instead of as escaped octal numbers.
 
-##### ls -R
+#### ls -R
 列出当前目录下所有目录及文件的相对路径
 {% asset_img 当前目录下的所有文件及文件夹.png 当前目录下的所有文件及文件夹 %}
 
-##### `last`显示最近的登录用户信息
+#### `last`显示最近的登录用户信息
 ```bash
 # souche @ kickseed in ~ [11:34:38]
 $ last -n 5
@@ -472,8 +472,8 @@ wtmp begins Mon Dec  3 10:06:15 2018
 
 ```
 
-#### 进阶命令
-##### top
+### 进阶命令
+#### top
 参数：
 ```
 -b：以批处理模式操作,搭配`n`参数一起使用，可以用来将`top`的结果输出到档案内
@@ -492,7 +492,7 @@ wtmp begins Mon Dec  3 10:06:15 2018
 top -b -d 1 -n 20 -p 3951 | grep --line-buffered ^3951 | awk '{cpu+=$9;mem+=$10}{print $9,$10,cpu/NR,mem/NR}'
 ```
 
-##### 文本去重
+#### 文本去重
 ```bash
 # !/bin/sh
 file='test.txt'
@@ -501,7 +501,7 @@ sort -n $file | awk '{if($0!=line)print; line=$0}'
 sort -n $file | sed '$!N; /^\(.*\)\n\1$/!P; D'
 ```
 
-##### scp     # 本地文件与服务器文件交互
+#### scp     # 本地文件与服务器文件交互
 ```bash
 # 从服务器下载文件
 scp username@servername:/remote_path/filename ~/local_destination
@@ -513,7 +513,7 @@ scp -r username@servername:/remote_path/remote_dir/ ~/local_destination
 scp  -r ~/local_dir username@servername:/remote_path/remote_dir
 ```
 
-##### netstat
+#### netstat
 参数：
     -a或--all: 显示所有连线中的Socket。
     -A<网络类型>或--<网络类型>: 列出该网络类型连线中的相关地址。
@@ -588,7 +588,7 @@ scp  -r ~/local_dir username@servername:/remote_path/remote_dir
  udp6       0      0 :::123                  :::*                                32364/ntpd  
 ```
 
-##### lsof    # Mac下查看端口占用情况
+#### lsof    # Mac下查看端口占用情况
 ```bash
 # taoyi @ TyMac in ~ [1:54:51] C:130
 $ lsof -i tcp:5555
@@ -597,8 +597,8 @@ adb     94280 taoyi   14u  IPv4 0x38c46a3265bac391      0t0  TCP 192.168.31.71:4
 ```
 
 
-#### Linux 三剑客
-##### grep
+### Linux 三剑客
+#### grep
 1. 在文件中查找单词
     ```bash
     grep shadow /etc/hosts
@@ -668,7 +668,7 @@ adb     94280 taoyi   14u  IPv4 0x38c46a3265bac391      0t0  TCP 192.168.31.71:4
     grep -E "http" . -R --exclude=*.{py,js} 
     ```
 
-##### awk
+#### awk
 参数：
 	NR：表示从awk开始执行后，按照记录分隔符读取的数据次数，默认的记录分隔符为换行符，因此默认的就是读取的数据行数，NR可以理解为Number of Record的缩写。
 	NF：表示目前的记录被分割的字段的数目，NF可以理解为Number of Field。
@@ -736,7 +736,7 @@ ps -ef | grep tomcat | awk '{printf $2 "\t" }'          # 获取 ps 出来的结
     其中`-r`表示从大到小，不加该参数表示从小到大，`-n`表示按照数字排序
 
 
-##### sed     #
+#### sed     #
 [sed命令用法](https://www.cnblogs.com/maxincai/p/5146338.html)
 
 ```markdown

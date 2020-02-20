@@ -5,7 +5,7 @@ categories: [Python]
 tags: [python]
 ---
 
-#### 打开文件
+### 打开文件
 ```python
 #打开文件    w会新建文件，有写的权限   r读   r+读写
 
@@ -22,7 +22,7 @@ fo.close() #关闭之后数据才写到文件 中
 
   <!--more-->
 
-#### 读文件
+### 读文件
 ```python
 ##读文件
 
@@ -41,7 +41,7 @@ print(f1.readline());
 #f1.next() 超出范围会停止
 ```
 
-#### 写文件
+### 写文件
 ```python
 ###写文件
 l=["one\n","two\n","three\n","four\n"]
@@ -67,7 +67,7 @@ f2.writelines(l) #在写一次 不关闭是不保存的
 f2.flush() #提交更新  没关闭 先把写入的数据保存
 ```
 
-#### 查找文件中的内容
+### 查找文件中的内容
 ```python
 import re
 #查找文件中有多少个hello
@@ -82,7 +82,7 @@ print("search:",count,">>>hello")
 fp.close()
 ```
 
-#### 替换文件内容
+### 替换文件内容
 ```python
 #把文件内容替换
 #把file3.txt 的 hello 替换为 good,并保存到file3Back.txt
@@ -98,7 +98,7 @@ fp3.close()
 fp4.close()
 ```
 
-#### 在原文件中替换文件内容
+### 在原文件中替换文件内容
 ```python
 #写在原文件中
 fp3=open("file3.txt","r+") #不用w w会清空数据

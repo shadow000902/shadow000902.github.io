@@ -5,7 +5,7 @@ categories: [RobotFramework]
 tags: [robot-framework]
 ---
 
-#### 操作系统相关变量
+### 操作系统相关变量
 内置的操作系统相关的变量，减少了测试数据对操作系统之间的差异性的关注
 
   <!--more-->
@@ -26,7 +26,7 @@ Example
     Set Environment Variable    CLASSPATH    ${TEMPDIR}${:}${CURDIR}${/}foo.jar
 ```
 
-#### 数字变量
+### 数字变量
 变量语法能用来创建 整型 和 浮点型 数据。当一个关键字需要 真实的数字而非对应的数字字符串作为参数时，这种创建数字变量的方法是很有用的。
 
 ```robot
@@ -50,7 +50,7 @@ Example
     Should Be Equal    ${0B1010}   ${0XA}
 ```
 
-#### 布尔值和 None/ null变量
+### 布尔值和 None/ null变量
 布尔值和 Python 的 None，Java 的 null 变量也可以用创建数字变量类似的语法创建：
 
 ```robot
@@ -69,7 +69,7 @@ Null
 
 这些变量也是大小写不敏感的，所以 ${True} 和 ${true} 是一样的。此外 ${None} 和 ${null} 是同义词，因为用 Jython 解释器执行用例时， Jython 会自动将 None 和 null 转换成正确格式。
 
-#### 空格和空（empty）变量
+### 空格和空（empty）变量
 可以分别使用 ${SPACE} 和 ${EMPTY} 来创建空格和空字符串变量。这些变量很有用，如果不使用这些变量的话，就需要对空格或空单元格进行转义。如果需要一个以上的空格，也可以使用扩展变量语法来轻易获得，形如： ${SPACE * 5}。下面的例子中，Should Be Equal 关键字得到的参数值是相等的，但很明显使用变量的方式比使用 ‘\' 转义的方式更易理解。
 
 ```robot
@@ -106,7 +106,7 @@ Override
     Set Suite Variable     &{DICT}     &{EMPTY}
 ```
 
-#### 自动变量
+### 自动变量
 还有一些自动变量可以在测试数据中使用。这些变量在测试过程中可能有不同的取值，其中有一些甚至不是一直可用的。
 
 | 变量                   | 解释                                                                                            | 使用地点            |

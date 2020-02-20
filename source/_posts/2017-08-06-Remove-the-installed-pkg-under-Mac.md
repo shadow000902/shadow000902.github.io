@@ -5,7 +5,7 @@ categories: [Tips]
 tags: [mac]
 ---
 
-##### 使用``pkg_uninstaller``来卸载``pkg``安装的软件
+#### 使用``pkg_uninstaller``来卸载``pkg``安装的软件
 1. 安装
 ```bash
 cd ~
@@ -38,7 +38,7 @@ pkg-util --files [pkg_name]
 [sudo] pkgutil --forget [pkg_name]
 ```
 
-##### 使用``pkg``管理软件来卸载
+#### 使用``pkg``管理软件来卸载
 1. 下载地址
 [破解版地址](https://pan.baidu.com/s/1hsxMhHM)
 [官网地址](https://www.corecode.io/uninstallpkg/)

@@ -5,7 +5,7 @@ categories: [RobotFramework]
 tags: [robot-framework]
 ---
 
-##### 命令行执行RF用例
+#### 命令行执行RF用例
 ```bash
 # 执行整个项目下的所有用例
 pybot /opt/robotframework/
@@ -20,7 +20,7 @@ pybot --include=tagName /opt/robotframework/
 
   <!--more-->
 
-##### 设置环境变量，根据环境执行测试
+#### 设置环境变量，根据环境执行测试
 变量脚本``envVars.py``
 ```python
 def get_variables(env = 'test'):
@@ -66,7 +66,7 @@ pybot -d results -V ./envVars.py:online -V ./orderVars.py:preview --include=test
 ```
 
 
-##### IDE设置命令行执行RF用例
+#### IDE设置命令行执行RF用例
 ```bash
 # 执行单条用例
 /usr/local/bin/pybot -d results -t testcase001 ./
@@ -79,14 +79,14 @@ pybot -d results -V ./envVars.py:online -V ./orderVars.py:preview --include=test
 ```
 {% asset_img TestSuite.png TestSuite %}
 
-##### 指定RF用例执行后日志的保存位置
+#### 指定RF用例执行后日志的保存位置
 其实上面的``-d``参数就是用来指定Log的保存位置的，默认``-d results``指定日志保存在运行命令的目录的``results``文件夹下。
 在``ride``中的``run``标签下，``Arguments``中填入``-d results``也能达到同样的效果。
 
-##### 重新运行上一轮``Fail``的``Case``
+#### 重新运行上一轮``Fail``的``Case``
 使用``-R``参数，同``--rerunfailed output``，后面跟前次执行生成的``results/output.xml``，这样就只会运行上次失败了的Case。
 
-##### List中的字典循环
+#### List中的字典循环
 ```robot
 *** Test Cases ***
 takeValueFromCircle
@@ -103,7 +103,7 @@ takeValueFromCircle
     \    RUN KEYWORD IF    "${params["carInfo"]["status"]}"=="评估中"    Log    ${params["carId"]}
 ```
 
-##### wait until keyword succeeds关键字使用
+#### wait until keyword succeeds关键字使用
 ```robot
 *** Test Cases ***
 "Wait until ..." with normal error
@@ -144,7 +144,7 @@ Keyword With AttributeError
 ```
 5秒执行一次关键字，如果``${json["data"]["progress"]}!=100``，执行一次关键字，直到相等时，执行一次关键字中的最后一行代码。
 
-##### 一个完整的独立case
+#### 一个完整的独立case
 ```robot
 *** Test Cases ***
 登录
@@ -158,7 +158,7 @@ Keyword With AttributeError
     Log    &{json}[success]
 ```
 
-##### 对请求proxy、tag、headers、session、response的整体封装
+#### 对请求proxy、tag、headers、session、response的整体封装
 ```robot
 *** Keywords ***
 Rest.Post
@@ -185,7 +185,7 @@ Rest.Post
     [Return]    &{json}
 ```
 
-##### 所有的安装内容
+#### 所有的安装内容
 ```bash
 pip install robotframework
 pip install robotframework-ride
@@ -201,7 +201,7 @@ pip install PyMySQL
 pip install MySQL-python
 ```
 
-##### ``RobotFramework``自带变量
+#### ``RobotFramework``自带变量
 
 | Variable               | Explanation                                                                                                                                  | Available             |
 | ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- |
