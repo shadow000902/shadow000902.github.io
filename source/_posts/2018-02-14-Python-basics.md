@@ -5,17 +5,8 @@ categories: [Python]
 tags: [python]
 ---
 
-### 基础方法
-#### 字符串大小写转换
-```python
-text.title()                # 首字母转大写
-text.upper()                # 字符串转大写
-text.lower()                # 字符串转小写
-```
-
-  <!--more-->
-
-#### 对list进行排序
+### List
+#### 排序
 ```python
 cars = ['bmw', 'audi', 'toyota', 'subaru']
 print(sorted(cars))                             # 临时性字母正序排列
@@ -25,6 +16,8 @@ cars.sort(reverse=True)                         # 永久性字母倒叙排列
 print(cars)                                     # 默认排序
 ```
 
+  <!--more-->
+
 #### 访问list元素
 ```python
 cars = ['bmw', 'audi', 'toyota', 'subaru']
@@ -33,7 +26,7 @@ print(cars[0])                                  # 访问第一个元素
 print(cars[-1])                                 # 访问倒数第一个元素，即list最后一个元素
 ```
 
-#### list中增删元素
+#### **增删元素**『重要』
 ```python
 motorcycles = ['honda', 'yamaha', 'suzuki', 'ducati']
 too_expensive = 'ducati'
@@ -123,7 +116,7 @@ sum(digits)                                     # 求总和
 ```
 
 #### **列表解析**
-1. 复杂模式1
+- 复杂模式1
 ```python
 squares = []
 for value in range(1, 11):
@@ -131,21 +124,23 @@ for value in range(1, 11):
     squares.append(square)
 print(squares)
 ```
-2. 较复杂模式2
+- 较复杂模式2
 ```python
 squares = []
 for value in range(1, 11):
     squares.append(value**2)
 print(squares)
 ```
-3. 列表解析
+- 列表解析
 ```python
 squares = [value**2 for value in range(1,11)]
 print(squares)
 ```
-要使用这种语法，首先指定一个描述性的列表名，如``squares``；然后，指定一个左方括号，并定义一个表达式，用于生成你要存储到列表中的值。在这个示例中，表达式为``value**2``，它计算平方值。接下来，编写一个``for``循环，用于给表达式提供值，再加上右方括号。在这个示例中，``for``循环为``for value in range(1,11)``，它将值1~10提供给表达式``value**2``。请注意，这里的``for``语句末尾没有冒号。
+要使用这种语法，首先指定一个描述性的列表名，如``squares``；然后，指定一个左方括号，并定义一个表达式，用于生成你要存储到列表中的值。
+表达式为``value**2``，它计算平方值。接下来，编写一个``for``循环，用于给表达式提供值，再加上右方括号。
+``for``循环为``for value in range(1,11)``，它将值1~10提供给表达式``value**2``。请注意，这里的``for``语句末尾没有冒号。
 
-#### 使用列表的一部分
+#### 使用列表的一部分：列表切片『重要』
 定义列表后，可从其中获取任何部分作为新列表。该技术称为对列表进行``切片``。
 ```bash
 >>> a_list = ['a', 'b', 'mpilgrim', 'z', 'example']
@@ -169,7 +164,266 @@ print(squares)
 ['a', 'b', 'mpilgrim', 'z', 'example']
 ```
 
-#### 元组``tuple``
+#### 分片赋值
+- 一次为多个元素赋值
+```bash
+>>> name = list('Perl')
+>>> name
+['P', 'e', 'r', 'l']
+>>> name[1:] = list('ython')
+>>> name
+['P', 'y', 't', 'h', 'o', 'n']
+```
+- 插入新的元素「替换一个空的切片」
+```bash
+>>> numbers = [1, 5]
+>>> numbers[1:1] = [2, 3, 4]
+>>> numbers
+[1, 2, 3, 4, 5]
+```
+- 删除元素
+```bash
+>>> numbers
+[1, 2, 3, 4, 5]
+>>> numbers[1:4] = []
+>>> numbers
+[1, 5]
+```
+
+#### 列表方法
+- append「列表末尾增加元素」
+- count 「统计某个元素在列表中出现的次数」
+```bash
+>>> ['to', 'be', 'or', 'not', 'to', 'be'].count('to') 
+2 
+>>> x = [[1, 2], 1, 1, [2, 1, [1, 2]]] 
+>>> x.count(1) 
+2 
+>>> x.count([1, 2]) 
+1
+```
+- extend 「在列表末尾增加另一个列表中的多个值」「原列表被修改」
+```bash
+>>> a = [1, 2, 3] 
+>>> b = [4, 5, 6] 
+>>> a.extend(b) 
+>>> a 
+[1, 2, 3, 4, 5, 6]
+```
+- index 「索引位置」
+```bash
+>>> knights = ['We', 'are', 'the', 'knights', 'who', 'say', 'ni'] 
+>>> knights.index('who') 
+4 
+>>> knights.index('herring') 
+Traceback (innermost last): 
+ File "<pyshell>", line 1, in ? 
+ knights.index('herring') 
+ValueError: list.index(x): x not in list
+>>> knights[4] 
+'who'
+```
+- insert 「列表插入元素」
+```bash
+>>> numbers = [1, 2, 3, 5, 6, 7] 
+>>> numbers.insert(3, 'four') 
+>>> numbers 
+[1, 2, 3, 'four', 5, 6, 7]
+```
+- pop 「移除列表元素」「默认最后一个」「可实现一种常见的数据结构—栈"后进先出"」
+```bash
+>>> x = [1, 2, 3] 
+>>> x.pop() 
+3 
+>>> x 
+[1, 2] 
+>>> x.pop(0) 
+1 
+>>> x 
+[2]
+```
+- remove 「删除第一个指定值的元素」
+```bash
+>>> x = ['to', 'be', 'or', 'not', 'to', 'be'] 
+>>> x.remove('be') 
+>>> x 
+['to', 'or', 'not', 'to', 'be'] 
+>>> x.remove('bee') 
+Traceback (innermost last): 
+ File "<pyshell>", line 1, in ? 
+ x.remove('bee') 
+ValueError: list.remove(x): x not in list
+```
+- reverse 「按相反的顺序排列列表中的元素」「reversed」
+```bash
+>>> x = [1, 2, 3] 
+>>> x.reverse() 
+>>> x 
+[3, 2, 1]
+```
+- sort 「对列表就地排序」「sorted」
+```bash
+>>> x = [4, 6, 2, 1, 7, 9] 
+>>> x.sort() 
+>>> x 
+[1, 2, 4, 6, 7, 9]
+```
+- 高级排序「方法sort接受两个可选参数：key和reverse」
+```bash
+>>> x = ['aardvark', 'abalone', 'acme', 'add', 'aerate'] 
+>>> x.sort(key=len) 
+>>> x 
+['add', 'acme', 'aerate', 'abalone', 'aardvark']
+>>> x = [4, 6, 2, 1, 7, 9] 
+>>> x.sort(reverse=True) 
+>>> x 
+[9, 7, 6, 4, 2, 1]
+```
+
+### 字符串
+#### 设置字符串格式『Python基础教程3.2、3.3节』
+1. `%`-转换说明符
+    `%s`-s将值的格式设置为字符串
+    `%.3f`-将值的格式设置为包含3位小数的浮点数
+    ```bash
+    >>> format = "Hello, %s. %s enough for ya?"
+    >>> values = ('world', 'Hot') 
+    >>> format % values
+    'Hello, world. Hot enough for ya?'
+    ```
+2. `{}.format`-字符串方法
+    每个替换字段都用花括号括起，其中可能包含名称，还可能包含有关如何对相应的值进行转换和格式设置的信息
+    ```bash
+    # 在最简单的情况下，替换字段没有名称或将索引用作名称。
+    >>> "{}, {} and {}".format("first", "second", "third") 
+    'first, second and third' 
+    >>> "{0}, {1} and {2}".format("first", "second", "third") 
+    'first, second and third' 
+    # 然而，索引无需像上面这样按顺序排列。
+    >>> "{3} {0} {2} {1} {3} {0}".format("be", "not", "or", "to") 
+    'to be or not to be' 
+    # 命名字段的工作原理与你预期的完全相同。
+    >>> from math import pi 
+    >>> "{name} is approximately {value:.2f}.".format(value=pi, name="π") 
+    'π is approximately 3.14.'
+    ```
+3. 格式化字符串核心-`替换字段`
+    替换字段由如下部分组成：
+    - `字段名`：索引或标识符，指出要设置哪个值的格式并使用结果来替换该字段。除指定值外，还可指定值的特定部分，如列表的元素。
+    - `转换标志`：跟在叹号后面的单个字符。当前支持的字符包括`r（表示repr）`、`s（表示str）`和`a（表示ascii）`。如果你指定了转换标志，将不使用对象本身的格式设置机制，而是使用指定的函数将对象转换为字符串，再做进一步的格式设置。
+    - `格式说明符`：跟在冒号后面的表达式（这种表达式是使用微型格式指定语言表示的）。格式说明符让我们能够详细地指定最终的格式，包括格式类型（如字符串、浮点数或十六进制数），字段宽度和数的精度，如何显示符号和千位分隔符，以及各种对齐和填充方式。
+    3.1 替换字段名：
+    ```bash
+    >>> "{foo} {} {bar} {}".format(1, 2, bar=4, foo=3) 
+    '3 1 4 2' 
+    >>> "{foo} {1} {bar} {0}".format(1, 2, bar=4, foo=3) 
+    '3 2 4 1'
+    ```
+    3.2 基本转换
+    3.3 宽度、精度、千位分隔符
+    3.4 符号、对齐、用0填充
+
+#### 字符串方法
+1. center
+    通过在两边添加填充字符（默认为空格）让字符串居中。
+    ```bash
+    >>> "The Middle by Jimmy Eat World".center(39) 
+    ' The Middle by Jimmy Eat World ' 
+    >>> "The Middle by Jimmy Eat World".center(39, "*") 
+    '*****The Middle by Jimmy Eat World*****'
+    ```
+2. find
+    在字符串中查找子串。如果找到，就返回子串的第一个字符的索引，否则返回-1。
+    ```bash
+    >>> 'With a moo-moo here, and a moo-moo there'.find('moo') 
+    7 
+    >>> title = "Monty Python's Flying Circus" 
+    >>> title.find('Monty') 
+    0 
+    >>> title.find('Python') 
+    6 
+    >>> title.find('Flying') 
+    15 
+    >>> title.find('Zirquss') 
+    -1
+    # 指定搜索的起点和终点（它们都是可选的）。
+    >>> subject = '$$$ Get rich now!!! $$$' 
+    >>> subject.find('$$$') 
+    0 
+    >>> subject.find('$$$', 1) # 只指定了起点
+    20 
+    >>> subject.find('!!!') 
+    16 
+    >>> subject.find('!!!', 0, 16) # 同时指定了起点和终点
+    -1
+    ```
+3. join
+    其作用与split相反，用于合并序列的元素。
+    ```bash
+    >>> seq = [1, 2, 3, 4, 5] 
+    >>> sep = '+' 
+    >>> sep.join(seq) # 尝试合并一个数字列表
+    Traceback (most recent call last): 
+     File "<stdin>", line 1, in ? 
+    TypeError: sequence item 0: expected string, int found 
+    >>> seq = ['1', '2', '3', '4', '5'] 
+    >>> sep.join(seq) # 合并一个字符串列表
+    '1+2+3+4+5' 
+    >>> dirs = '', 'usr', 'bin', 'env' 
+    >>> '/'.join(dirs) 
+    '/usr/bin/env' 
+    >>> print('C:' + '\\'.join(dirs)) 
+    C:\usr\bin\env
+    ```
+4. lower
+    返回字符串的小写版本。
+    ```bash
+    >>> 'Trondheim Hammer Dance'.lower() 
+    'trondheim hammer dance'
+    ```
+5. replace
+    将指定子串都替换为另一个字符串，并返回替换后的结果。
+    ```bash
+    >>> 'This is a test'.replace('is', 'eez') 
+    'Theez eez a test'
+    ```
+6. split
+    作用与join相反，用于将字符串拆分为序列。
+    ```bash
+    >>> '1+2+3+4+5'.split('+') 
+    ['1', '2', '3', '4', '5'] 
+    >>> '/usr/bin/env'.split('/') 
+    ['', 'usr', 'bin', 'env'] 
+    >>> 'Using the default'.split() 
+    ['Using', 'the', 'default']
+    ```
+   如果没有指定分隔符，将默认在单个或多个连续的空白字符（空格、制表符、换行符等）处进行拆分。
+7. strip
+    将字符串开头和末尾的空白（但不包括中间的空白）删除，并返回删除后的结果。
+    ```bash
+    >>> ' internal whitespace is kept '.strip() 
+    'internal whitespace is kept'
+    ```
+    与lower一样，需要将输入与存储的值进行比较时，strip很有用。回到前面介绍lower时使用的用户名示例，并假定用户输入用户名时不小心在末尾加上了一个空格。
+    ```bash
+    >>> names = ['gumby', 'smith', 'jones'] 
+    >>> name = 'gumby ' 
+    >>> if name in names: print('Found it!') 
+    ... 
+    >>> if name.strip() in names: print('Found it!') 
+    ... 
+    Found it! 
+    >>>
+    ```
+    还可在一个字符串参数中指定要删除哪些字符。
+    ```bash
+    >>> '*** SPAM * for * everyone!!! ***'.strip(' *!') 
+    'SPAM * for * everyone'
+    ```
+8. translate
+    方法translate与replace一样替换字符串的特定部分，但不同的是它只能进行单字符替换。这个方法的优势在于能够同时替换多个字符，因此效率比replace高。
+
+### 元组``tuple``
 元组：是不可变的列表。一旦创建之后，用任何方法都不可以修改元素。
 ```bash
 >>> a_tuple = ("a", "b", "mpilgrim", "z", "example")
@@ -189,9 +443,9 @@ print(squares)
 
 元组可转换成列表，反之亦然。内建的``tuple()``函数接受一个列表参数，并返回一个包含同样元素的元组，而``list()``函数接受一个元组参数并返回一个列表。从效果上看，``tuple()``冻结列表，而``list()``融化元组。
 
-#### 集合``{ }``
+### 集合``{ }``
 一个简单的集合可以包含任何数据类型的值。如果有两个集合，则可以执行像联合、交集以及集合求差等标准集合运算。
-1. 从list创建集合
+#### 从list创建集合
 ```bash
 >>> a_list = ['a', 'b', 'mpilgrim', True, False, 42]
 >>> a_set = set(a_list)                           ①
@@ -199,7 +453,7 @@ print(squares)
 # 集合是 无序的。该集合并不记得用于创建它的列表中元素的最初顺序。
 {'a', False, 'b', True, 'mpilgrim', 42}
 ```
-2. 创建空集合
+#### 创建空集合
 ```bash
 # 要创建空集合，可不带参数调用 set() 。
 >>> a_set = set()    ①
@@ -209,15 +463,15 @@ set()
 >>> type(a_set)      ③
 <class 'set'>
 ```
-3. 修改集合
+#### 修改集合
 有两种方法可向现有集合中添加值： add() 方法和 update() 方法。
 集合是装 唯一值 的袋子。如果试图添加一个集合中已有的值，将不会发生任何事情。将不会引发一个错误；只是一条空操作。
 
-4. 从集合中删除元素
+#### 从集合中删除元素
 有三种方法可以用来从集合中删除某个值。前两种，discard() 和 remove() 有细微的差异。集合也有个 pop() 方法。
 ``pop()``方法从集合中删除某个值，并返回该值。然而，由于集合是无序的，并没有“最后一个”值的概念，因此无法控制删除的是哪一个值。它基本上是随机的。
 
-5. 常见集合操作
+#### 常见集合操作
 ```bash
 >>> a_set = {2, 4, 5, 9, 12, 21, 30, 51, 76, 127, 195}
 # ① 要检测某值是否是集合的成员，可使用 in 运算符。其工作原理和列表的一样。
@@ -240,9 +494,9 @@ False
 {1, 3, 4, 6, 8, 76, 15, 17, 18, 195, 127, 30, 51}
 ```
 
-#### 字典``dict``
+### 字典``dict``
 字典 是键值对的无序集合。向字典添加一个键的同时，必须为该键增添一个值。（之后可随时修改该值。） Python 的字典为通过键获取值进行了优化，而不是反过来。
-1. 修改字典
+#### 修改字典
 ```bash
 >>> a_dict = {'server': 'db.diveintopython3.org', 'database': 'mysql'}
 >>> a_dict['database'] = 'blog'  ①
@@ -264,7 +518,7 @@ False
 {'User': 'mark', 'server': 'db.diveintopython3.org', 'user': 'dora', 'database': 'blog'}
 ```
 
-2. 混合值字典，value不为单个值
+#### 混合值字典，value不为单个值
 字典并非只能用于字符串。字典的值可以是任何数据类型，包括整数、布尔值、任何对象，甚至是其它的字典。而且就算在同一字典中，所有的值也无须是同一类型，您可根据需要混合匹配。字典的键要严格得多，可以是字符串、整数和其它一些类型。在同一字典中也可混合、匹配使用不同数据类型的键。
 ```bash
 >>> SUFFIXES = {1000: ['KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'],
@@ -286,7 +540,7 @@ True
 'TB'
 ```
 
-3. grades['']
+#### grades['']
 
   - 是否可迭代``Iterable``
   - 类似一个概念，实例才是可被CPU操作的，真实存在的东西。
@@ -307,6 +561,100 @@ True
         me.have_some_food()
         me.hava_a_drink()
     ```
+
+#### 字典方法『Python基础教程4.2.4节』
+1. clear
+    场景一：通过将一个空字典赋给x来“清空”它。这对y没有任何影响，它依然指向原来的字典。
+    ```bash
+    >>> x = {} 
+    >>> y = x 
+    >>> x['key'] = 'value' 
+    >>> y 
+    {'key': 'value'} 
+    >>> x = {} 
+    >>> x = {} 
+    {'key': 'value'} 
+    ```
+    场景二：但要删除原来字典的所有元素，必须使用clear。如果这样做，y也将是空的。
+    ```bash
+    >>> x = {} 
+    >>> y = x 
+    >>> x['key'] = 'value' 
+    >>> y 
+    {'key': 'value'} 
+    >>> x.clear() 
+    >>> y 
+    {}
+    ```
+2. copy
+    返回一个新字典，其包含的键值对与原来的字典相同（这个方法执行的是浅复制，因为值本身是原件，而非副本）。
+    为避免修改副本时也同时修改了原件，一种办法是执行深复制，即同时复制值及其包含的所有值，等等。为此，可使用模块copy中的函数deepcopy。
+3. fromkeys
+    创建一个新字典，其中包含指定的键，且每个键对应的值都是None。
+4. get
+    使用get来访问不存在的键时，没有引发异常，而是返回None。你可指定“默认”值，这样将返回你指定的值而不是None。
+    ```bash
+    >>> d.get('name', 'N/A') 
+    'N/A'
+    ```
+5. items
+    方法items返回一个包含所有字典项的列表，其中每个元素都为(key, value)的形式。字典项在列表中的排列顺序不确定。
+    ```bash
+    >>> d = {'title': 'Python Web Site', 'url': 'http://www.python.org', 'spam': 0} 
+    >>> d.items() 
+    dict_items([('url', 'http://www.python.org'), ('spam', 0), ('title', 'Python Web Site')])
+    ```
+   返回值属于一种名为`字典视图`的特殊类型。
+6. keys
+    返回一个`字典视图`，其中包含指定字典中的键。
+7. pop
+    用于获取与指定键相关联的值，并将该键值对从字典中删除。
+    ```bash
+    >>> d = {'x': 1, 'y': 2} 
+    >>> d.pop('x') 
+    1 
+    >>> d 
+    {'y': 2}
+    ```
+8. popitem
+    类似于list.pop，但list.pop弹出列表中的最后一个元素，而popitem随机地弹出一个字典项
+    ```bash
+    >>> d = {'url': 'http://www.python.org', 'spam': 0, 'title': 'Python Web Site'} 
+    >>> d.popitem() 
+    ('url', 'http://www.python.org') 
+    >>> d 
+    {'spam': 0, 'title': 'Python Web Site'}
+    ```
+9. setdefault
+    有点像get，因为它也获取与指定键相关联的值，但除此之外，setdefault还在字典不包含指定的键时，在字典中添加指定的键值对。
+    ```bash
+    >>> d = {} 
+    >>> d.setdefault('name', 'N/A') 
+    'N/A' 
+    >>> d 
+    {'name': 'N/A'} 
+    >>> d['name'] = 'Gumby' 
+    >>> d.setdefault('name', 'N/A') 
+    'Gumby' 
+    >>> d 
+    {'name': 'Gumby'}
+    ```
+10. update
+    使用一个字典中的项来更新另一个字典。
+    ```bash
+    >>> d = { 
+    ... 'title': 'Python Web Site', 
+    ... 'url': 'http://www.python.org', 
+    ... 'changed': 'Mar 14 22:09:15 MET 2016' 
+    ... } 
+    >>> x = {'title': 'Python Language Website'} 
+    >>> d.update(x) 
+    >>> d 
+    {'url': 'http://www.python.org', 'changed': 
+    'Mar 14 22:09:15 MET 2016', 'title': 'Python Language Website'}
+    ```
+11. values
+    返回一个由字典中的值组成的字典视图。不同于方法keys，方法values返回的视图可能包含重复的值。
 
 ### 面向对象
 #### 封装
