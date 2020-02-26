@@ -656,6 +656,113 @@ True
 11. values
     返回一个由字典中的值组成的字典视图。不同于方法keys，方法values返回的视图可能包含重复的值。
 
+### 抽象
+#### 参数
+1. 位置参数
+    ```bash
+    storage = {} 
+    storage['first'] = {} 
+    storage['middle'] = {} 
+    storage['last'] = {} 
+    >>> me = 'Magnus Lie Hetland' 
+    >>> storage['first']['Magnus'] = [me] 
+    >>> storage['middle']['Lie'] = [me] 
+    >>> storage['last']['Hetland'] = [me] 
+    >>> storage['middle']['Lie'] 
+    ['Magnus Lie Hetland']
+    ```
+2. 关键字参数和默认值
+    使用名称指定的参数称为关键字参数，主要优点是有助于澄清各个参数的作用。通过给参数指定默认值，可使其变成可选的。
+    ```bash
+    >>> store('Mr. Brainsample', 10, 20, 13, 5) 
+    >>> store(patient='Mr. Brainsample', hour=10, minute=20, day=13, month=5)
+    ```
+   具体使用示例如下：
+    ```bash
+    def hello_3(greeting='Hello', name='world'): 
+        print('{}, {}!'.format(greeting, name)) 
+    >>> hello_3() 
+    Hello, world! 
+    >>> hello_3('Greetings') 
+    Greetings, world! 
+    >>> hello_3('Greetings', 'universe') 
+    Greetings, universe! 
+    >>> hello_3(name='Gumby') 
+    Hello, Gumby!
+    ```
+3. 收集参数
+    - 参数前面带`一个星号`将提供的所有值都放在一个元组中，也就是将这些值收集起来。
+    ```bash
+    def print_params_2(title, *params): 
+        print(title) 
+        print(params)
+    >>> print_params_2('Params:', 1, 2, 3) 
+    Params: 
+    (1, 2, 3)
+    ```
+    - `一个星号`不会收集关键字参数
+    ```bash
+    >>> def in_the_middle(x, *y, z): 
+    ... print(x, y, z) 
+    ... 
+    >>> in_the_middle(1, 2, 3, 4, 5, z=7) 
+    1 (2, 3, 4, 5) 7 
+    >>> in_the_middle(1, 2, 3, 4, 5, 7) 
+    Traceback (most recent call last): 
+     File "<stdin>", line 1, in <module> 
+    TypeError: in_the_middle() missing 1 required keyword-only argument: 'z'
+    ```
+    - 要收集关键字参数，可使用两个星号。
+    ```bash
+    def print_params_4(x, y, z=3, *pospar, **keypar): 
+        print(x, y, z) 
+        print(pospar) 
+        print(keypar) 
+    >>> print_params_4(1, 2, 3, 5, 6, 7, foo=1, bar=2) 
+    1 2 3 
+    (5, 6, 7) 
+    {'foo': 1, 'bar': 2} 
+    >>> print_params_4(1, 2) 
+    1 2 3 
+    () 
+    {}
+    ```
+    
+#### 作用域
+在函数内使用的变量称为局部变量（与之相对的是全局变量）。参数类似于局部变量，因此参数与全局变量同名不会有任何问题。
+1. 作用域嵌套
+    Python函数可以嵌套，即可将一个函数放在另一个函数内
+    ```bash
+    def multiplier(factor): 
+        def multiplyByFactor(number): 
+        return number * factor 
+        return multiplyByFactor
+    >>> double = multiplier(2) 
+    >>> double(5) 
+    10 
+    >>> triple = multiplier(3) 
+    >>> triple(3) 
+    9 
+    >>> multiplier(5)(4) 
+    20 
+    ```
+    像`multiplyByFactor`这样存储其所在作用域的函数称为`闭包`。
+
+#### 递归
+- `基线条件`（针对最小的问题）：满足这种条件时函数将直接返回一个值。
+- `递归条件`：包含一个或多个调用，这些调用旨在解决问题的一部分。
+这里的关键是，通过将问题分解为较小的部分，可避免递归没完没了，因为问题终将被分解成基线条件可以解决的最小问题。
+- 示例：阶乘和幂
+- lambda表达式
+```bash
+>>> seq = ["foo", "x41", "?!", "***"]
+>>> [x for x in seq if x.isalnum()] 
+['foo', 'x41'] 
+>>> filter(lambda x: x.isalnum(), seq) 
+['foo', 'x41']
+```
+
+
 ### 面向对象
 #### 封装
 1. `封装`是面向对象编程的一大特点
