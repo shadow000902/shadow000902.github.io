@@ -474,7 +474,11 @@ git pull
 ### ``npm``第三方模块升级
 局部模块管理
 ```bash
-npm outdated        # 列出当前目录下的第三方模块
+$ npm outdated        # 列出当前目录下的第三方模块
+Package  Current   Wanted   Latest  Location
+appium    1.16.0   1.17.0   1.17.0
+node      12.6.0  12.16.1  13.12.0
+npm       6.10.1   6.14.4   6.14.4
 ```
 
 ```bash
@@ -516,6 +520,33 @@ Run ncu with -u to upgrade package.json
 ```bash
 ncu -a
 ```
+
+``npm``高级升级插件``npm-check``安装：
+```bash
+npm install -g npm-check
+```
+使用：
+```bash
+npm-check -u -g             # 检查系统级npm安装的node第三方包
+```
+返回结果：
+```bash
+$ npm-check -u -g
+The global path you are searching is: /usr/local/lib/node_modules
+? Choose which packages to update. (Press <space> to select)
+  
+ Minor Update New backwards-compatible features.
+❯◯ appium  1.16.0  ❯  1.17.0  https://github.com/appium/appium#readme
+ ◯ npm     6.10.1  ❯  6.14.4  https://docs.npmjs.com/
+  
+ Major Update Potentially breaking API changes. Use caution.
+ ◯ node  12.6.0  ❯  13.12.0  https://github.com/aredridel/node-bin-gen#readme
+  
+ Space to select. Enter to start upgrading. Control-C to cancel.
+  
+```
+通过上下键移动光标，通过空格键选中需要升级的包，支持多选，按回车即可升级选中的包。
+
 
 ### ``next``主题使用``gitment``评论
 安装``gitment``模块：
