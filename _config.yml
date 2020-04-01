@@ -160,7 +160,7 @@ baidusitemap:
   path: baidusitemap.xml
 
 ## Themes: https://hexo.io/themes/
-theme: next-6
+theme: NexT
 
 
 # Deployment  部署到Github
