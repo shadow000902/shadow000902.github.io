@@ -6,10 +6,10 @@ tags: [telegram, tips]
 ---
 
 1. 自身电脑的代理打开全局代理
-{% asset_img 全局代理设置.png 全局代理设置 %}
 
   <!--more-->
 
+{% asset_img 全局代理设置.png 全局代理设置 %}
 2. 设置好全局代理后，查看全局代理情况下，电脑默认设置的socks代理IP和端口
 {% asset_img 默认SOCKS代理设置.png 默认SOCKS代理设置 %}
 
