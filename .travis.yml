@@ -23,7 +23,7 @@ script:
 
   # 因为主题是属于另一个git项目，无法发布到博客源码所在的项目，所以需要重新从git拉取
   # 下载自己的主题``next-6``
-  - git clone https://github.com/shadow000902/next-6.git NexT
+  - git clone https://github.com/shadow000902/NexT.git NexT
 
   # 因为第三方插件都是一个独立的git项目，无法发布到另一个git项目中，所以需要在主题拉取后，再独立的拉取代码到对应的主题插件目录下
   # 在主题中加载第三方插件``algolia``
