@@ -58,6 +58,14 @@ chmod a+x start_jenkins.sh
 
 至此，slave节点就配置并启动完毕了。
 
+### 通过`SSH`的方式连接`slave`
+{% asset_img SSH方式设置slave连接.png SSH方式设置slave连接 %}
+- 启动方式：`Launch agent agents via SSH`
+- 主机：Agent's Hostname or IP
+- Credentials：登录以上`主机`的账密信息
+该种连接`slave`的方式依赖`Java`环境，所以需要设置一个`JAVA_HOME`的环境变量
+如无问题，点击保存之后，就会正常连接成功了
+
 ### 问题处理
 1. 出现`java.net.ConnectException: Connection refused (Connection refused)`解决方式
     在 jenkins 的`系统设置`中的`Jenkins Location`模块下的`Jenkins URL`中，不要使用域名，而是直接写`http://IP:port`
