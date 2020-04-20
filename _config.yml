@@ -169,4 +169,4 @@ deploy:
   type: git
   repo:
     github: https://github.com/shadow000902/shadow000902.github.io.git,master
-    coding: https://git.coding.net/shadow000902/shadow000902.coding.me.git,master
+    coding: https://e.coding.net/shadow000902/shadow000902.coding.me/shadow000902.coding.me.git,master
