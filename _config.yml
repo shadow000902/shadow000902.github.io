@@ -70,8 +70,8 @@ leancloud_counter_security:
   enable_sync: true
   app_id: qjdKXm0RH80J6HWCj1X3DREC-gzGzoHsz
   app_key: 4rSep9EijQDvdmVi5cPCzgxz
-  username: shadow000902@gmail.com # Will be asked while deploying if is left blank
-  password: TaoYi620120 # Recommmended to be left blank. Will be asked while deploying if is left blank
+  username: shadow000902@gmail.com #  Will be asked while deploying if is left blank
+  password: TaoYi620120 #  Recommmended to be left blank. Will be asked while deploying if is left blank
 
 # Tencent analytics ID
 # tencent_analytics:
