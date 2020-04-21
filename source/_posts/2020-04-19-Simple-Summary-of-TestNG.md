@@ -38,7 +38,7 @@ TestNG的特点：
 `groups`|这个类或方法所属的分组列表
 `inheritGroups`|如果设置为true，这个方法被属于在类级别被@Test annotation指定的组
 
-### `testng.xml`配置详解
+### `testng.xml` 配置详解
 #### `XML`规则
  - suite
  - --tests
