@@ -83,7 +83,7 @@ tags: [jira]
 #### 修改项目的`工作流`
 
 
-### 插件及其作用
+### 插件及其应用
 #### `scriptrunner`
 该插件可用作jira工作流的一个验证器，用于在工作流转换时，增加额外的操作，比如如下功能：
 1. 在状态转换时，设置必填`备注`
@@ -97,9 +97,9 @@ tags: [jira]
     1.5 添加成功后如图所示
     {% asset_img 验证器添加成功后.png 验证器添加成功后 %}
 
-到这里算是完成了80%，在对`BUG`进行`FIXED`操作是，还是可能会出现`没有弹窗`的情况，这种情况主要是对转换操作没有设置界面，导致没有界面可以弹出来
-所以需要最后一步操作，就是对转换动作添加`界面`：
-{% asset_img 对转换操作添加界面.png 对转换操作添加界面 %}
+    到这里算是完成了80%，在对`BUG`进行`FIXED`操作是，还是可能会出现`没有弹窗`的情况，这种情况主要是对转换操作没有设置界面，导致没有界面可以弹出来
+    所以需要最后一步操作，就是对转换动作添加`界面`：
+    {% asset_img 对转换操作添加界面.png 对转换操作添加界面 %}
 
 2. 在转换状态时，可以添加脚本方式去设置执行自己想要做的事情
     添加方式如图：
@@ -107,54 +107,70 @@ tags: [jira]
     {% asset_img 编写脚本项.png 编写脚本项 %}
 
 3. `Script-Fields`使用
-依次进入：`设置`-`管理应用`-`Script Fields`，点击`Create Script Field`按钮，再点击`Custom Script Field`
-{% asset_img Create-Script-Field.png Create-Script-Field %}
-{% asset_img Custom-Script-Field.png Custom-Script-Field %}
+    依次进入：`设置`-`管理应用`-`Script Fields`，点击`Create Script Field`按钮，再点击`Custom Script Field`
+    {% asset_img Create-Script-Field.png Create-Script-Field %}
+    {% asset_img Custom-Script-Field.png Custom-Script-Field %}
 
-示例1：获取最后变更到某个状态的时间
+    示例1：获取最后变更到某个状态的时间
 
-代码如下：
-```groovy
-package com.onresolve.jira.groovy.test.scriptfields.scripts
+    代码如下：
+    ```groovy
+    package com.onresolve.jira.groovy.test.scriptfields.scripts
+    
+    import com.atlassian.jira.component.ComponentAccessor
+    
+    def changeHistoryManager = ComponentAccessor.getChangeHistoryManager()
+    def created = changeHistoryManager.getChangeItemsForField(issue, "status").sort { a, b -> a.created == b.created ? 0 : a.created > b.created ? -1 : 1 }.find {
+        it.to == "12300" 
+    }?.getCreated()
+    
+    def createdTime = created?.getTime()
+    
+    createdTime ? new Date(createdTime) : null
+    ```
+    
+    其中设置的`12300`即为目标状态的`statusId`，执行结果会返回一个最后变更到这个状态的时间，返回的格式由上面设置的`Template`字段格式来确定
+    {% asset_img Template使用默认的Text-Field返回的结果.png Template使用默认的Text-Field返回的结果 %}
+    {% asset_img Template使用默认的Date-Time返回的结果.png Template使用默认的Date-Time返回的结果 %}
 
-import com.atlassian.jira.component.ComponentAccessor
-
-def changeHistoryManager = ComponentAccessor.getChangeHistoryManager()
-def created = changeHistoryManager.getChangeItemsForField(issue, "status").sort { a, b -> a.created == b.created ? 0 : a.created > b.created ? -1 : 1 }.find {
-    it.to == "12300" 
-}?.getCreated()
-
-def createdTime = created?.getTime()
-
-createdTime ? new Date(createdTime) : null
-```
-
-其中设置的`12300`即为目标状态的`statusId`，执行结果会返回一个最后变更到这个状态的时间，返回的格式由上面设置的`Template`字段格式来确定
-{% asset_img Template使用默认的Text-Field返回的结果.png Template使用默认的Text-Field返回的结果 %}
-{% asset_img Template使用默认的Date-Time返回的结果.png Template使用默认的Date-Time返回的结果 %}
-
-示例2：获取在某个状态停留的时长
-```groovy
-import com.atlassian.jira.component.ComponentAccessor
-import com.atlassian.jira.issue.history.ChangeItemBean
-
-def changeHistoryManager = ComponentAccessor.getChangeHistoryManager()
-
-def inProgressName = "实施中"
-
-List<Long> rt = [0L]
-def changeItems = changeHistoryManager.getChangeItemsForField(issue, "status")
-changeItems.reverse().each { ChangeItemBean item ->
-    def timeDiff = System.currentTimeMillis() - item.created.getTime()
-    if (item.fromString == inProgressName) {
-        rt << -timeDiff
+    示例2：获取在某个状态停留的时长
+    ```groovy
+    import com.atlassian.jira.component.ComponentAccessor
+    import com.atlassian.jira.issue.history.ChangeItemBean
+    
+    def changeHistoryManager = ComponentAccessor.getChangeHistoryManager()
+    
+    def inProgressName = "实施中"
+    
+    List<Long> rt = [0L]
+    def changeItems = changeHistoryManager.getChangeItemsForField(issue, "status")
+    changeItems.reverse().each { ChangeItemBean item ->
+        def timeDiff = System.currentTimeMillis() - item.created.getTime()
+        if (item.fromString == inProgressName) {
+            rt << -timeDiff
+        }
+        if (item.toString == inProgressName) {
+            rt << timeDiff
+        }
     }
-    if (item.toString == inProgressName) {
-        rt << timeDiff
-    }
-}
+    
+    def total = rt.sum() as Long
+    return (total/1000/60/60/24) as long ?: 0L
+    ```
+    其中设置的`实施中`即为停留状态的名称，最后返回的`total`是一个单位为`毫秒`的时间，`return`结果可以根据需要进行调整
 
-def total = rt.sum() as Long
-return (total/1000/60/60/24) as long ?: 0L
-```
-其中设置的`实施中`即为停留状态的名称，最后返回的`total`是一个单位为`毫秒`的时间，`return`结果可以根据需要进行调整
+4. 获取项目中的`BUG`被`Reopened`的次数
+    依旧是使用`scriptrunner`这个插件中的功能。
+    4.1 在`Fields`中选择`Create Script Field`
+    {% asset_img 选择「CreateScriptField」.png 选择「CreateScriptField」 %}
+    4.2 在列表中选择`No. of Times In Status`
+    {% asset_img 选择「No.ofTimesInStatus」.png 选择「No.ofTimesInStatus」 %}
+    4.3 选择需要进行统计的状态，如`Reopen`
+    {% asset_img 选择「issureStatuses」中的状态.png 选择「issureStatuses」中的状态 %}
+    可以在`Preview Issue Key`中填入一个进行过`Reopen`操作的关键字，进行调试
+    这里需要注意一点，状态列表里，可能会有比较名称比较接近的状态，你需要确认，在你的项目的工作流里，这个`Reopen`对应的是哪个确切的名称，如果选择里，结果不对，可以自己调试，找到对的
+    4.4 到这里获取状态次数的字段创建好了，后面需要应用到项目中
+    {% asset_img 在列表选择字段编辑的「ConfigureContext」.png 在列表选择字段编辑的「ConfigureContext」 %}
+    从上面这张图可以看到，因为有两个作为`Reopen`的状态，比较粗暴的方法就是都统计上
+    4.5 在该字段的`Configure Context`，就可以设置需要应用到的项目了，建议按照需要选择自己的项目，以免影响他人使用
+    {% asset_img 选择需要应用的项目.png 选择需要应用的项目.png %}
