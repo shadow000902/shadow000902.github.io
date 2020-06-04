@@ -158,6 +158,41 @@ tags: [jira]
     return (total/1000/60/60/24) as long ?: 0L
     ```
     其中设置的`实施中`即为停留状态的名称，最后返回的`total`是一个单位为`毫秒`的时间，`return`结果可以根据需要进行调整
+    
+    示例2扩展：获取多个状态下停留时长的总和
+    ```groovy
+    import com.atlassian.jira.component.ComponentAccessor
+    import com.atlassian.jira.issue.history.ChangeItemBean
+    
+    def changeHistoryManager = ComponentAccessor.getChangeHistoryManager()
+    
+    def inProgressName1 = "开发开始"
+    def inProgressName2 = "开发结束"
+    
+    List<Long> rt1 = [0L]
+    List<Long> rt2 = [0L]
+    def changeItems = changeHistoryManager.getChangeItemsForField(issue, "status")
+    changeItems.reverse().each { ChangeItemBean item ->
+        def timeDiff = System.currentTimeMillis() - item.created.getTime()
+        if (item.fromString == inProgressName1) {
+            rt1 << -timeDiff
+        }
+        if (item.toString == inProgressName1) {
+            rt1 << timeDiff
+        }
+        if (item.fromString == inProgressName2) {
+            rt2 << -timeDiff
+        }
+        if (item.toString == inProgressName2) {
+            rt2 << timeDiff
+        }
+    }
+    
+    def total1 = rt1.sum() as Long
+    def total2 = rt2.sum() as Long
+    
+    return ((total1+total2)/1000/60/60/24) as long ?: 0L
+    ```
 
 4. 获取项目中的`BUG`被`Reopened`的次数
     依旧是使用`scriptrunner`这个插件中的功能。

@@ -2,7 +2,7 @@
 title: Python版本管理工具pyenv使用小结
 date: 2018-04-10 20:31:28
 categories: [Python]
-tags: [pyenv]
+tags: [pyenv, brew]
 ---
 
 #### 安装``brew``
