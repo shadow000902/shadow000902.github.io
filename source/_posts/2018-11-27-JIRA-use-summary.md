@@ -131,6 +131,22 @@ tags: [jira]
     
     其中设置的`12300`即为目标状态的`statusId`，执行结果会返回一个最后变更到这个状态的时间，返回的格式由上面设置的`Template`字段格式来确定
     {% asset_img Template使用默认的Text-Field返回的结果.png Template使用默认的Text-Field返回的结果 %}
+
+    或者在`Template`字段依旧选择`Text Field(multi-line)`，然后再脚本中格式化日期为一下格式
+    ```groovy
+    package com.onresolve.jira.groovy.test.scriptfields.scripts
+    
+    import com.atlassian.jira.component.ComponentAccessor
+    import com.atlassian.jira.datetime.DateTimeFormatter
+    def changeHistoryManager = ComponentAccessor.getChangeHistoryManager()
+    def created = changeHistoryManager.getChangeItemsForField(issue, "status").sort { a, b -> a.created == b.created ? 0 : a.created > b.created ? -1 : 1 }.find {
+        it.to == "12300" 
+    }?.getCreated()
+    
+    def createdTime = created?.getTime()
+    DateTimeFormatter dateTimeFormatter = ComponentAccessor.getComponent(DateTimeFormatter.class);
+    createdTime?dateTimeFormatter.withStyle(com.atlassian.jira.datetime.DateTimeStyle.DATE_TIME_PICKER).format(new Date(createdTime)):null
+    ```
     {% asset_img Template使用默认的Date-Time返回的结果.png Template使用默认的Date-Time返回的结果 %}
 
     示例2：获取在某个状态停留的时长
@@ -192,6 +208,75 @@ tags: [jira]
     def total2 = rt2.sum() as Long
     
     return ((total1+total2)/1000/60/60/24) as long ?: 0L
+    ```
+   
+   结果取绝对值，并保留两位小数
+   ```groovy
+    def total1 = rt1.sum() as float
+    def total2 = rt2.sum() as float
+        
+    def total = Math.round(Math.abs((total1+total2)/1000/60/60/24)*100)/100
+    
+    return total ?: 0L
+    ```
+   
+    以上获取时间段的方式，如果是取单个状态的时间段，可能会存在不准确的情况，建议使用时间点相减的方式来进行获取，代码如下：
+    ```groovy
+    package com.onresolve.jira.groovy.test.scriptfields.scripts
+    
+    import com.atlassian.jira.component.ComponentAccessor
+    import com.atlassian.jira.datetime.DateTimeFormatter
+    
+    def changeHistoryManager = ComponentAccessor.getChangeHistoryManager()
+    def start = changeHistoryManager.getChangeItemsForField(issue, "status").sort { a, b ->
+        a.created == b.created ? 0
+                : a.created > b.created ? -1 : 1
+    }.find {
+        it.to == "13302"
+    }?.getCreated()
+    
+    def finish = changeHistoryManager.getChangeItemsForField(issue, "status").sort { a, b ->
+        a.created == b.created ? 0
+                : a.created > b.created ? -1 : 1
+    }.find {
+        it.to == "13027"
+    }?.getCreated()
+    
+    def closed = changeHistoryManager.getChangeItemsForField(issue, "status").sort { a, b ->
+        a.created == b.created ? 0
+                : a.created > b.created ? -1 : 1
+    }.find {
+        it.to == "11202"
+    }?.getCreated()
+    
+    
+    def startTime
+    def finishTime
+    def diffTime
+    
+    if(start){
+        startTime = start?.getTime()
+        if(finish){
+            finishTime = finish?.getTime()
+        }else if (finish == null && closed != null){
+            finishTime = closed?.getTime()
+        }else{
+            finishTime = System.currentTimeMillis()
+        }
+        diffTime = finishTime - startTime as float
+    }else{
+        diffTime = 0
+    }
+    
+    DateTimeFormatter dateTimeFormatter = ComponentAccessor.getComponent(DateTimeFormatter.class);
+    //startTime ? dateTimeFormatter.withStyle(com.atlassian.jira.datetime.DateTimeStyle.DATE_TIME_PICKER).format(new Date(startTime)) : null
+    //finishTime ? dateTimeFormatter.withStyle(com.atlassian.jira.datetime.DateTimeStyle.DATE_TIME_PICKER).format(new Date(finishTime)) : null
+    
+    //return (diffTime / 1000 / 60 / 60 / 24) as float ?: 0L
+    
+    def total = Math.round((diffTime/1000/60/60/24)*100)/100
+    
+    return total ?: 0L
     ```
 
 4. 获取项目中的`BUG`被`Reopened`的次数
