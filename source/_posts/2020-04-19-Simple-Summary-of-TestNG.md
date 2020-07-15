@@ -281,5 +281,83 @@ public class TestTimeout {
     }
 }
 ```
+
+### 设置失败用例重跑
+对于`TestNG`，首先重写接口`IRetryAnalyzer`，重写该接口中的`retry`方法，自定义需要重试的次数`maxRetryCount`，如果一个用例失败，自动进入`retry`方法，在此方法中判断已经重试的次数是否小于`maxRetryCount`，如果是，则返回`true`，则自动再次执行失败的用例，如果是失败的用例再次执行还是失败，那么还是自动调用`retry`方法，直到到重试次数大于设定的`maxRetryCount`了，则返回`false`，那么系统就是判定该方法失败了。
+失败用例重跑方法代码：
+```java
+package com.shadow.qa.common.listeners;
+
+import com.shadow.qa.common.tools.BT;
+import org.testng.IRetryAnalyzer;
+import org.testng.ITestResult;
+import org.testng.Reporter;
+import org.testng.log4testng.Logger;
+
+public class TestNGRetryAnalyzer implements IRetryAnalyzer {
+
+    public static Logger logger = Logger.getLogger(TestNGRetryAnalyzer.class);
+
+    private int retryCount = 0;
+    private static final int maxRetryCount = Integer.parseInt(BT.GetProv("/config/application.properties", "maxRetryCount"));
+
+    public boolean retry(ITestResult iTestResult) {
+        if (retryCount < maxRetryCount) {
+            String message = "方法<" + iTestResult.getName() + ">执行失败，重试第" + retryCount + "次";
+            logger.info(message);
+            Reporter.setCurrentTestResult(iTestResult);
+            Reporter.log(message);
+            retryCount++;
+            BT.sleep(3000);
+            return true;
+        }
+        return false;
+    }
+}
+```
+
+重写了`TestNG`的`IRetryAnalyzer`接口，那么就需要让系统调用我们重写的接口，需要让`TestNG`调用，还需要对`TestNG.xml`中的注解接口进行重写。先判断`TestNG.xml`中是否有重试分析器，如果没有，则调用我们自己重写类。
+失败重跑监听器代码：
+```java
+package com.shadow.qa.common.listeners;
+
+import org.testng.IAnnotationTransformer;
+import org.testng.IRetryAnalyzer;
+import org.testng.annotations.ITestAnnotation;
+
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Method;
+
+public class RetryListener implements IAnnotationTransformer {
+    @Override
+    public void transform(ITestAnnotation iTestAnnotation, Class aClass, Constructor constructor, Method method) {
+        IRetryAnalyzer iRetryAnalyzer= iTestAnnotation.getRetryAnalyzer();
+        if(iRetryAnalyzer==null){
+            iTestAnnotation.setRetryAnalyzer(TestNGRetryAnalyzer.class);
+        }
+    }
+}
+```
+
+使用方法一：在`TestNG`的执行文件中配置
+在`TestNG`的执行文件的`suite`标签中，增加一个监听器，用于监听`suite`下所有的用例执行情况。
+```xml
+<suite name="接口测试" verbose="1"  >
+    <listeners>
+        <listener class-name="com.shadow.qa.common.listeners.RetryListener"/>
+    </listeners>
+    <test name="网管层接口" preserve-order="true">
+        <packages>
+            <package name="com.shadow.qa.testCases.hhh.*"/>
+        </packages>
+    </test>
+</suite>
+```
+
+使用方法二：对特定的用例进行设置
+在用例的`@Test`中，增加失败用例重跑的参数
+```java
+@Test(dataProvider = "data", description = "Test", retryAnalyzer = TestNGRetryAnalyzer.class)
+```
    
 

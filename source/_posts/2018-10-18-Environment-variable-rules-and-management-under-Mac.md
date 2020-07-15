@@ -45,3 +45,43 @@ source ~/.bash_profile
 ...
 ```
 这样的话，在每次打开 `zsh shell` 的时候，都会对 `~/.bash_profile` 中的环境变量进行初始化生效
+
+#### `Mac`下`JAVA_HOME`设置，适用于通过`pkg`包直接安装的`java`
+1. 检查Java是否已经安装成功
+    ```bash
+    # taoyi @ taoyiDSC000331 in ~ [15:30:28] 
+    $ java -version
+    java version "1.8.0_251"
+    Java(TM) SE Runtime Environment (build 1.8.0_251-b08)
+    Java HotSpot(TM) 64-Bit Server VM (build 25.251-b08, mixed mode)
+    ```
+    以上输出即说明Java已经安装成功了
+
+2. 查看java指令文件的位置
+    ```bash
+    # taoyi @ taoyiDSC000331 in ~ [15:35:22] 
+    $ which java     
+    /usr/bin/java
+    # taoyi @ taoyiDSC000331 in ~ [15:36:13] 
+    $ ll /usr/bin/java             
+    lrwxr-xr-x  1 root  wheel    74B  7  7 01:46 /usr/bin/java -> /System/Library/Frameworks/JavaVM.framework/Versions/Current/Commands/java
+    ```
+    从以上输出可以知道，`/usr/bin/java`是一个链接文件，实际指向`/System/Library/Frameworks/JavaVM.framework/Versions/Current/Commands/java`这个文件。
+
+3. 获取java实际安装位置
+    ```bash
+    # taoyi @ taoyiDSC000331 in ~ [15:36:21] 
+    $ cd /System/Library/Frameworks/JavaVM.framework/Versions/Current/Commands                                  
+    # taoyi @ taoyiDSC000331 in /System/Library/Frameworks/JavaVM.framework/Versions/Current/Commands [15:44:24] 
+    $ ./java_home
+    /Library/Java/JavaVirtualMachines/jdk1.8.0_251.jdk/Contents/Home
+    ```
+    从以上可以看到，java的实际安装位置为`/Library/Java/JavaVirtualMachines/jdk1.8.0_251.jdk`，实际的HOME位置为`/Library/Java/JavaVirtualMachines/jdk1.8.0_251.jdk/Contents/Home`
+
+4. 设置`JAVA_HOME`环境变量
+    ```bash
+    export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_251.jdk/Contents/Home"
+    export PATH="$JAVA_HOME/bin:$PATH"
+    ```
+    根据使用的终端命令的不一样，把以上内容添加到对应的环境变量文件中，如果使用的是原生的`bash`终端，就把内容添加到`~/.bash_profile`中，如果使用的是`zsh`终端，就把内容添加到`~/.zshrc`中
+    最后执行`source ~/.zshrc`命令，使刚才的设置生效。
