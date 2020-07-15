@@ -12,6 +12,9 @@ tags: [web, xpath]
     $x("//*[text()='确认']")
     (4) [span.confirm, span.confirm, span.confirm, span.confirm]
     ```
+   
+  <!--more-->
+   
 2. 实现元素点击：`$x('xpath路径")][text()="项目总数"]')[0].click()`
     示例：
     ```xpath
