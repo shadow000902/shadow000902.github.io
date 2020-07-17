@@ -100,7 +100,7 @@ password:   password
 ```xml
     <listeners>
         <!-- extent报告 -->
-        <listener class-name="com.souche.dfcAppium.plugins.extentReporter.ExtentTestNGITestListener" />
+        <listener class-name="com.shadow.dfcAppium.plugins.extentReporter.ExtentTestNGITestListener" />
     </listeners>
 ```
 #### 加载报告插件

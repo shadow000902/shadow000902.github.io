@@ -196,7 +196,7 @@ sudo dpkg --remove libmysqlclient-dev
 ```
 清除干净环境后，就可以重新用上面的命令安装了，正常情况下，会正常安装成功，安装成功的日志如下：
 ```bash
-# souche @ kickseed in ~/ITPlatform/interfaceManage on git:master x [21:00:39] C:100
+# shadow @ kickseed in ~/ITPlatform/interfaceManage on git:master x [21:00:39] C:100
 $ sudo apt-get install mysql-server-5.7 
 Reading package lists... Done
 Building dependency tree       
@@ -274,15 +274,15 @@ Processing triggers for libc-bin (2.23-0ubuntu5) ...
 Processing triggers for systemd (229-4ubuntu21.4) ...
 Processing triggers for ureadahead (0.100.0-19) ...
 (venv) 
-# souche @ kickseed in ~/ITPlatform/interfaceManage on git:master x [21:01:53] 
+# shadow @ kickseed in ~/ITPlatform/interfaceManage on git:master x [21:01:53] 
 $ which mysql
 /usr/bin/mysql
 (venv) 
-# souche @ kickseed in ~/ITPlatform/interfaceManage on git:master x [21:02:00] 
+# shadow @ kickseed in ~/ITPlatform/interfaceManage on git:master x [21:02:00] 
 $ mysql -uroot
 ERROR 1045 (28000): Access denied for user 'root'@'localhost' (using password: NO)
 (venv) 
-# souche @ kickseed in ~/ITPlatform/interfaceManage on git:master x [21:02:06] C:1
+# shadow @ kickseed in ~/ITPlatform/interfaceManage on git:master x [21:02:06] C:1
 $ mysql -uroot -p
 Enter password: 
 Welcome to the MySQL monitor.  Commands end with ; or \g.

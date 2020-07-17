@@ -28,22 +28,22 @@ def get_variables(env = 'test'):
         #preview environment
         variables = {
             # 登录服务：大风车|广汇
-            "sso" : "http://sso.prepub.souche.com",
+            "sso" : "http://sso.prepub.shadow.com",
             "ghsso" : "http://hmc-sso.prepub.cgacar.com",
         }
     elif env=='online':
     	#online environment
         variables = {
             # 登录服务：大风车|广汇
-            "sso" : "http://sso.souche.com",
+            "sso" : "http://sso.shadow.com",
             "ghsso" : "http://hmc-sso.cgacar.com",
         }
     else:
     	#text environment
         variables = {
             # 登录服务：大风车|广汇
-            "sso" : "http://dfc.dasouche.net",
-            "ghsso" : "http://sso.gh.dasouche.net",
+            "sso" : "http://dfc.shadow.net",
+            "ghsso" : "http://sso.gh.shadow.net",
         }
 
     globalvars = {
@@ -149,8 +149,8 @@ Keyword With AttributeError
 *** Test Cases ***
 登录
     ${dict}=    Create Dictionary    Content-Type=application/x-www-form-urlencoded
-    ${host}=    Create Session    _session    http://dfc.souche.com    ${dict}
-    ${params}=    Create Dictionary    loginName=15558135526    password=souche2015    jPushId=jpushid001
+    ${host}=    Create Session    _session    http://dfc.shadow.com    ${dict}
+    ${params}=    Create Dictionary    loginName=15558135526    password=shadow2015    jPushId=jpushid001
     ${response}=    Post Request    _session    /rest/account/login    params=${params}    headers=${dict}
     Should Be Equal As Strings    ${response.status_code}    200
     &{json}=    Set Variable    ${response.json()}

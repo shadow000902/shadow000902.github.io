@@ -19,7 +19,7 @@ TaoYi-Mac:appcrawler taoyi$ java -jar appcrawler-1.2.1.jar -a /usr/local/TestGro
 
 如果APP的包名和启动时的Activity无法自动识别的话，需要手动指定
 ```bash
-TaoYi-Mac:appcrawler taoyi$ java -jar appcrawler-1.2.1.jar -a /usr/local/TestGroupCode/appcrawler/fengche.apk --capability appPackage=com.souche.fengche,appActivity=com.souche.fengche.ui.activity.SplashActivity
+TaoYi-Mac:appcrawler taoyi$ java -jar appcrawler-1.2.1.jar -a /usr/local/TestGroupCode/appcrawler/fengche.apk --capability appPackage=com.shadow.fengche,appActivity=com.shadow.fengche.ui.activity.SplashActivity
 ```
 
 使用配置文件

@@ -12,9 +12,9 @@ tags: [web, xpath]
     $x("//*[text()='确认']")
     (4) [span.confirm, span.confirm, span.confirm, span.confirm]
     ```
-   
+
   <!--more-->
-   
+
 2. 实现元素点击：`$x('xpath路径")][text()="项目总数"]')[0].click()`
     示例：
     ```xpath
@@ -28,10 +28,10 @@ tags: [web, xpath]
 表达式|实例|描述
 ---|---|---
 `/`|`xpath('//div')`|路径以`/`开始，表示找到满足绝对路径的元素
-`//`||路径以`//`开始，表示找到文档中所有满足`//`后规则的元素，如`//TEXT`表示找到所有`TEXT`元素
-`*`||表示所有，如`//*`，表示选择所有元素
-[表达式]||进一步限定元素：<br>①[数字]：表示选择第几个，其中[last()]表示最后一个<br>②[@属性]限定满足该属性，如`//TEXT[@name]`表示含有`name`属性的`TEXT`元素；`//TEXT[not(@*)]`表示所有没有属性的`TEXT`元素；<br>③`/TEXT[@name="text"]`表示所有含有name属性且其值为`text`的`TEXT`元素
-&#124;||逻辑或，将多个路径合并到一起，如`//BBB` &#124; `/AAA` 选择所有BBB元素和根元素AAA；可合并的路径数目没有限制|
+`//`|`xpath('//div')`|路径以`//`开始，表示找到文档中所有满足`//`后规则的元素，如`//div`表示找到所有`div`元素
+`*`|`xpath（'/div/*')`|表示选择所有元素
+[表达式]|`xpath('/body/div[1]')`<br>`xpath('/body/div[@class]')`<br>`xpath('/body/div[@class="main"]')`|①[数字]：表示选择第几个，其中[last()]表示最后一个<br>②[@属性]限定满足该属性，如`//TEXT[@name]`表示含有`name`属性的`TEXT`元素；`//TEXT[not(@*)]`表示所有没有属性的`TEXT`元素；<br>③`/TEXT[@name="text"]`表示所有含有name属性且其值为`text`的`TEXT`元素
+&#124;|xpath('//div&#124;//table')|逻辑或，将多个路径合并到一起，如`//BBB` &#124; `/AAA` 选择所有BBB元素和根元素AAA；可合并的路径数目没有限制|
 
 ### `Xpath`定位方法
 
@@ -119,20 +119,21 @@ not()函数通常与返回值为`true or false`的函数组合使用，比如`co
 4. 轴&步
 轴可定义相对于当前节点的节点集。
 
-轴名称|结果
+轴名称|描述
 ---|---
-ancestor|选取当前节点的所有先辈（父、祖父等）。
-ancestor-or-self|选取当前节点的所有先辈（父、祖父等）以及当前节点本身。
-attribute|选取当前节点的所有属性。
-child|选取当前节点的所有子元素。
-descendant|选取当前节点的所有后代元素（子、孙等）。
-descendant-or-self|选取当前节点的所有后代元素（子、孙等）以及当前节点本身。
-following|选取文档中当前节点的结束标签之后的所有节点。
-namespace|选取当前节点的所有命名空间节点。
-parent|选取当前节点的父节点。
-preceding|选取文档中当前节点的开始标签之前的所有节点。
-preceding-sibling|选取当前节点之前的所有同级节点。
-self|选取当前节点。
+`ancestor`|选取当前节点的所有先辈（父、祖父等）。
+`ancestor-or-self`|选取当前节点的所有先辈（父、祖父等）以及当前节点本身。
+`attribute`|选取当前节点的所有属性。
+`child`|选取当前节点的所有子元素。
+`descendant`|选取当前节点的所有后代元素（子、孙等）。
+`descendant-or-self`|选取当前节点的所有后代元素（子、孙等）以及当前节点本身。
+`following`|选取文档中当前节点的结束标签之后的所有节点。
+`following-sibling`|选取当前节点之后的所有同级节点
+`namespace`|选取当前节点的所有命名空间节点。
+`parent`|选取当前节点的父节点。
+`preceding`|选取文档中当前节点的开始标签之前的所有节点。
+`preceding-sibling`|选取当前节点之前的所有同级节点。
+`self`|选取当前节点。
 
 语法：`轴名称::节点测试[谓语]`
 

@@ -78,7 +78,7 @@ gradle clean assembleFengcheBeta
 # gradle clean assembleFengcheRelease
 
 cp -rf /Users/taoyi/git_projects/Gitlab/androidclientnative/app/build/outputs/apk/beta/*.apk /Users/taoyi/shell-tools/APK/
-adb uninstall com.souche.fengche
+adb uninstall com.shadow.fengche
 adb install /Users/taoyi/shell-tools/APK/*.apk
 ```
 
@@ -163,7 +163,7 @@ ${PROPFILE,file="versionName.txt",property="versionName"}
 interface=$1
 # 进入脚本所在的位置
 cd /Users/taoyi/git_projects/Gitlab/RF_InterfaceTest/Library/处理接口文档
-# 获取./output/api-docs/souche/*/*.csv文件并移动到./CSV目录下
+# 获取./output/api-docs/shadow/*/*.csv文件并移动到./CSV目录下
 mv -f ./*/*/*/*/*.csv ./CSV/
 # 把所有的csv文件合并为一个together.csv文件
 cat ./CSV/*.csv > ./$interface.csv
@@ -193,8 +193,8 @@ sed -ig 's/,/    /g' $file_name
 set -o errexit
 set -o xtrace
 
-dir_project_home="/home/souche/projects/topgear"
-dir_tomcat_home="/home/souche/tomcats/12001_topgear-test"
+dir_project_home="/home/shadow/projects/topgear"
+dir_tomcat_home="/home/shadow/tomcats/12001_topgear-test"
 file_war="*.war"
 file_catalina_out=${dir_tomcat_home}"/logs/catalina.out"
 
@@ -240,9 +240,9 @@ set -o errexit
 set -o xtrace
 
 export BUILD_ID=pleaseDontKillMe
-export JAVA_HOME=/opt/souche/java
+export JAVA_HOME=/opt/shadow/java
 
-dir_tomcat_home="/home/souche/tomcats/12001_topgear-test"
+dir_tomcat_home="/home/shadow/tomcats/12001_topgear-test"
 file_war="*.war"
 file_catalina_out=${dir_tomcat_home}"/logs/catalina.out"
 
@@ -359,8 +359,8 @@ echo "hello, begin..."
 echo ""
 echo "dealing ${tomcatDir}"
 
-src_file="/home/souche/scripts/resource"
-dest_file="/home/souche/jenkins/Home/jobs/"${tomcatDir}"/config.xml"
+src_file="/home/shadow/scripts/resource"
+dest_file="/home/shadow/jenkins/Home/jobs/"${tomcatDir}"/config.xml"
 
 
 function addLines ()
@@ -400,22 +400,22 @@ _shell脚本中调用shell脚本_
 #!/usr/bin/env bash
 
 # 定义jenkins项目目录文件
-jobsList="/home/souche/scripts/jobsList"
+jobsList="/home/shadow/scripts/jobsList"
 
 function repeatAddLines ()
 {
 	# 获取所有的jenkins项目名称，并写入文件jobsList中
-	# ll ~/jenkins/Home/jobs/ | awk '{print $9}' > /home/souche/scripts/jobsList
+	# ll ~/jenkins/Home/jobs/ | awk '{print $9}' > /home/shadow/scripts/jobsList
 
 	# 由于写入的文件中的第一行为空行，需要删除
-	# sed -i '1d' /home/souche/scripts/jobsList
+	# sed -i '1d' /home/shadow/scripts/jobsList
 
 	# 读取jobsList中的每行
 	cat $jobsList | while read line
 
 	# 对每行名称的项目，调用以上代码进行删除和插入的操作
 	do
-		/home/souche/scripts/addLines.sh ${line}
+		/home/shadow/scripts/addLines.sh ${line}
 	done
 }
 

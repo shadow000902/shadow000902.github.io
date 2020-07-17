@@ -31,7 +31,7 @@ mkdir /opt/Jenkins/script
 # 编辑profile文件：
 vim ~/.bashrc
 # 在最后加入：
-export JENKINS_HOME="/home/souche/jenkins/Home"
+export JENKINS_HOME="/home/shadow/jenkins/Home"
 ```
 
 #### 下载``jenkins.war``

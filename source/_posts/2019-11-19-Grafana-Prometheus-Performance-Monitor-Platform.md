@@ -163,7 +163,7 @@ rules:
    type: GAUGE
    attrNameSnakeCase: true
 ```
-在启动tomcat的脚本中，添加参数`-javaagent:/home/souche/tools/JMX/jmx_prometheus_javaagent-0.12.0.jar=3080:/home/souche/tools/JMX/jmx_exporter.yml`
+在启动tomcat的脚本中，添加参数`-javaagent:/home/shadow/tools/JMX/jmx_prometheus_javaagent-0.12.0.jar=3080:/home/shadow/tools/JMX/jmx_exporter.yml`
 在启动脚本中：
 ```bash
 CATALINA_OPTS="-Xms2g -Xmx2g -javaagent:/home/shadow/tools/JMX/jmx_prometheus_javaagent-0.12.0.jar=3080:/home/shadow/tools/JMX/jmx_exporter.yml"

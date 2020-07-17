@@ -35,13 +35,13 @@ def updateDictValue(fileName, key, value):
  with open(fileName, 'r') as f:
      line = f.readline()
      while line:
-         # 找到 line 中的 "souche2015" 值
+         # 找到 line 中的 "shadow2015" 值
          regex = key + '\s*=\s*"(.*)"'
          pattern = re.compile(regex)
          m = pattern.search(line)
          if m:
              print(m.group(1))
-             # 将 "souche2015" 替换为对应的 value
+             # 将 "shadow2015" 替换为对应的 value
              fileLineContent.append(line.replace(m.group(1), value))
          else:
              fileLineContent.append(line)

@@ -61,7 +61,7 @@ adb shell dumpsys
 
 3. 如果想查看特定进程的特定service ，如 com.android.mms进程的meminfo，可以使用
 ```
-adb shell dumpsys meminfo com.souche.fengche
+adb shell dumpsys meminfo com.shadow.fengche
 meminfo                                     # 显示内存信息
 cpuinfo                                     # 显示CPU信息
 account                                     # 显示accounts信息

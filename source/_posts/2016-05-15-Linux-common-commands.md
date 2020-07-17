@@ -460,13 +460,13 @@ find / -name mysql
 
 #### `last`显示最近的登录用户信息
 ```bash
-# souche @ kickseed in ~ [11:34:38]
+# shadow @ kickseed in ~ [11:34:38]
 $ last -n 5
-souche   pts/1        172.17.53.161    Tue Dec 11 11:34   still logged in
-souche   pts/1        172.17.49.117    Tue Dec 11 11:16 - 11:17  (00:00)
-souche   pts/1        172.17.53.161    Tue Dec 11 10:47 - 10:48  (00:00)
-souche   pts/1        172.17.52.197    Mon Dec 10 18:57 - 18:58  (00:01)
-souche   pts/4        172.17.53.34     Mon Dec 10 17:05 - 17:34  (00:28)
+shadow   pts/1        172.17.53.161    Tue Dec 11 11:34   still logged in
+shadow   pts/1        172.17.49.117    Tue Dec 11 11:16 - 11:17  (00:00)
+shadow   pts/1        172.17.53.161    Tue Dec 11 10:47 - 10:48  (00:00)
+shadow   pts/1        172.17.52.197    Mon Dec 10 18:57 - 18:58  (00:01)
+shadow   pts/4        172.17.53.34     Mon Dec 10 17:05 - 17:34  (00:28)
 
 wtmp begins Mon Dec  3 10:06:15 2018
 
@@ -687,7 +687,7 @@ ps -ef | grep tomcat | awk '{printf $2 "\t" }'          # 获取 ps 出来的结
 1. 获取 Linux 服务器下所有的 tomcat
     原始数据：
     ```bash
-    souche   14034     1  0 Dec07 ?        00:26:10 /opt/souche/java/bin/java -Djava.util.logging.config.file=/home/souche/tomcats/12005_ironman-test/conf/logging.properties -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager -Djdk.tls.ephemeralDHKeySize=2048 -Djava.protocol.handler.pkgs=org.apache.catalina.webresources -Dignore.endorsed.dirs= -classpath /home/souche/tomcats/12005_ironman-test/bin/bootstrap.jar:/home/souche/tomcats/12005_ironman-test/bin/tomcat-juli.jar -Dcatalina.base=/home/souche/tomcats/12005_ironman-test -Dcatalina.home=/home/souche/tomcats/12005_ironman-test -Djava.io.tmpdir=/home/souche/tomcats/12005_ironman-test/temp org.apache.catalina.startup.Bootstrap start
+    shadow   14034     1  0 Dec07 ?        00:26:10 /opt/shadow/java/bin/java -Djava.util.logging.config.file=/home/shadow/tomcats/12005_ironman-test/conf/logging.properties -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager -Djdk.tls.ephemeralDHKeySize=2048 -Djava.protocol.handler.pkgs=org.apache.catalina.webresources -Dignore.endorsed.dirs= -classpath /home/shadow/tomcats/12005_ironman-test/bin/bootstrap.jar:/home/shadow/tomcats/12005_ironman-test/bin/tomcat-juli.jar -Dcatalina.base=/home/shadow/tomcats/12005_ironman-test -Dcatalina.home=/home/shadow/tomcats/12005_ironman-test -Djava.io.tmpdir=/home/shadow/tomcats/12005_ironman-test/temp org.apache.catalina.startup.Bootstrap start
     ```
     ```bash
     ps -ef | grep tomcat | awk 'END{print "The end!"}BEGIN{FS="/"}{print $10}'
@@ -721,7 +721,7 @@ ps -ef | grep tomcat | awk '{printf $2 "\t" }'          # 获取 ps 出来的结
     ```
 4. awk 结果排序
     ```bash
-    # souche @ kickseed in ~/tomcats [12:48:05] C:2
+    # shadow @ kickseed in ~/tomcats [12:48:05] C:2
     $ ps -ef | grep tomcat | awk 'END{print "The end!"}BEGIN{FS="/"}{print $10 | "sort -r -n"}'
     The end!
     12021_venom-test

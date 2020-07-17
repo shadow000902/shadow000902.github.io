@@ -253,3 +253,102 @@ Your emulator is out of date, please update by launching Android Studio:
 ```
 android delete avd -n TestDevices001
 ```
+
+#### 异常处理
+1. `sdkmanager`命令执行，提示`Could not create settings`问题处理
+- 错误提示如下：
+
+    ```bash
+    $ ./sdkmanager --list
+    Warning: Could not create settings
+    java.lang.IllegalArgumentException
+            at com.android.sdklib.tool.sdkmanager.SdkManagerCliSettings.<init>(SdkManagerCliSettings.java:428)
+            at com.android.sdklib.tool.sdkmanager.SdkManagerCliSettings.createSettings(SdkManagerCliSettings.java:152)
+            at com.android.sdklib.tool.sdkmanager.SdkManagerCliSettings.createSettings(SdkManagerCliSettings.java:134)
+            at com.android.sdklib.tool.sdkmanager.SdkManagerCli.main(SdkManagerCli.java:57)
+            at com.android.sdklib.tool.sdkmanager.SdkManagerCli.main(SdkManagerCli.java:48)
+    Usage:
+      sdkmanager [--uninstall] [<common args>] [--package_file=<file>] [<packages>...]
+      sdkmanager --update [<common args>]
+      sdkmanager --list [<common args>]
+      sdkmanager --licenses [<common args>]
+      sdkmanager --version
+    ```
+即使设置了`ANDROID_SDK_HOME`环境变量，也把`sdkmanager`所在目录加入到了`PATH`，仍然会报同样的错误
+- *临时解决方案*：
+在执行`sdkmanager`命令的时候，加上`--sdk_root=...`的参数
+    ```bash
+    ./sdkmanager --list --sdk_root=~/Downloads/tools/bin
+    [=======================================] 100% Computing updates...             
+    Available Packages:
+    ```
+这样就能得到正确的输出了，但是每次都要加上`--sdk_root`也不是长久之计。
+
+- *根本解决方案*：
+
+一句话描述即为：通过下载的`commandlinetools-mac-6609375_latest.zip`文件解压后，生成的目录中的`sdkmanager`，重新下载生成整个`androidsdk`目录，并加入到环境变量中，然后删除下载解压的目录，使用重新生成的目录。
+
+- 下载创建新的基础`androidsdk`目录
+    ```bash
+    $ cd ~/androidsdk
+    $ unzip commandlinetools-mac-6609375_latest.zip
+    $ ll
+    commandlinetools-mac-6609375_latest.zip
+    tools
+    $ cd tools/bin
+    $ ./sdkmanager --sdk_root=~/androidsdk/tools "cmdline-tools;latest"
+    $ cd ~/androidsdk/cmdline-tools/latest
+    $ ll
+    total 216
+    -rwxr-xr-x@  1 shadow  staff    83K  7  2 10:59 NOTICE.txt
+    drwxr-xr-x@  7 shadow  staff   224B  7  2 10:59 bin
+    drwxr-xr-x@ 22 shadow  staff   704B  7  2 10:59 lib
+    -rw-r--r--@  1 shadow  staff    17K  7  2 10:59 package.xml
+    -rwxr-xr-x@  1 shadow  staff    84B  7  2 10:59 source.properties
+    ```
+    通过以上命令，即生成了可用的`sdkmanager`命令可用的`androidsdk`目录
+- 设置环境变量
+
+    设置环境变量的系统变量，增加一个`ANDROID_SDK_HOME`，设置为`~/androidsdk`
+    设置环境变量的用户变量，在`PATH`中增加`$ANDROID_SDK_HOME/cmdline-tools/latest/bin`
+    最后就可以删除之前下载解压的`tools`目录了
+
+    ```bash
+    $ sdkmanager --version                                          
+    26.1.1
+    ```
+    然后命令就正常了，也不需要`--sdk_root`参数了
+
+2. `emulator`命令执行，提示`No such file or directory`问题处理
+- SDK根目录如下：
+
+    ```bash
+    # shadow @ kickseed in ~/androidsdk [18:55:54] 
+    $ ll
+    total 36K
+    drwxrwxr-x 3 shadow shadow 4.0K Jul 14 11:52 build-tools
+    drwxrwxr-x 3 shadow shadow 4.0K Jul 14 11:32 cmdline-tools
+    drwxrwxr-x 7 shadow shadow 4.0K Jul 14 11:48 emulator
+    drwxrwxr-x 2 shadow shadow 4.0K Jul 14 11:52 licenses
+    drwxrwxr-x 3 shadow shadow 4.0K Jul 14 11:46 patcher
+    drwxrwxr-x 3 shadow shadow 4.0K Jul 14 11:49 platforms
+    drwxrwxr-x 5 shadow shadow 4.0K Jul 14 11:45 platform-tools
+    drwxrwxr-x 3 shadow shadow 4.0K Jul 14 11:52 system-images
+    drwxrwxr-x 6 shadow shadow 4.0K Jul 16 18:54 tools
+    ```
+
+- 报错信息如下：
+
+    ```bash
+    emulator: error while loading shared libraries: libtcmalloc_minimal.so.4: cannot open shared object file: No such file or directory
+    ```
+    
+    ```bash
+    which emulator 
+    /home/shadow/androidsdk/tools/emulator
+    ```
+  
+    执行`which emulator`命令，发现调用的是`tools`目录下的`emulator`，导致无法找到创建的`avd`，因为安卓虚拟机对应的命令路径是在`emulator`目录下。
+    所以我们需要让默认调用的`emulator`命令变成`emulator`目录下的`emulator`命令
+    方法一：调整环境变量，让初始化环境变量的时候，`tools`目录位于`emulator`目录之前，这样就能确保`emulator`目录下的`emulator`命令覆盖`tools`目录下的命令
+    方法二：直接删除`tools`目录下的`emulator`命令文件

@@ -72,9 +72,9 @@ def setUp(self):
     desired_caps['platformName'] = 'Android'
     desired_caps['platformVersion'] = '6.0'
     desired_caps['deviceName'] = 'Nexus 5'
-    desired_caps['appPackage'] = 'com.souche.fengche'  # 被测App的包名
-    desired_caps['appActivity'] = 'com.souche.fengche.ui.activity.SplashActivity'  # 启动时的Activity
-    # desired_caps['app'] = PATH('/Users/taoyi/Downloads/dasouche.apk')
+    desired_caps['appPackage'] = 'com.shadow.fengche'  # 被测App的包名
+    desired_caps['appActivity'] = 'com.shadow.fengche.ui.activity.SplashActivity'  # 启动时的Activity
+    # desired_caps['app'] = PATH('/Users/taoyi/Downloads/shadow.apk')
 ```
 
 #### 拖动操作解析
