@@ -10,6 +10,8 @@ tags: [node]
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
     ```
 
+  <!--more-->
+
 2. 安装`NVM`
     ```bash
     brew install nvm
