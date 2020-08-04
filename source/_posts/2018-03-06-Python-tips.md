@@ -366,3 +366,16 @@ def get_scenesDataId_list(sd_list):
                 sd_new_list += get_scenesDataId_list(i)
     return sd_new_list
 ```
+
+#### 远程连接服务器执行shell命令及脚本
+```python
+import paramiko
+
+ssh = paramiko.SSHClient()
+ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+ssh.connect(hostname='172.18.71.199', port=22, username='dasouche', password='V4HubdvgBePJ')
+stdin,stdout,stderr = ssh.exec_command("ls -l")
+stdin,stdout,stderr = ssh.exec_command("./test.sh")
+stdin,stdout,stderr = ssh.exec_command("python ./test.py")
+print(stdout.read())
+```

@@ -1,7 +1,7 @@
 ---
 title: Python-100-Days 知识小结
 date: 2018-08-23 23:52:25
-categories: [Python]
+categories: [学习笔记, Python]
 tags: [python]
 ---
 

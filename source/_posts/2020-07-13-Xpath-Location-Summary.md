@@ -137,7 +137,7 @@ not()函数通常与返回值为`true or false`的函数组合使用，比如`co
 
 语法：`轴名称::节点测试[谓语]`
 
-实例
+实例1
 
 例子|结果
 ---|---
@@ -151,3 +151,78 @@ descendant::book|选取当前节点的所有 book 后代。
 ancestor::book|选择当前节点的所有 book 先辈。
 ancestor-or-self::book|选取当前节点的所有 book 先辈以及当前节点（如果此节点是 book 节点）
 child::*/child::price|选取当前节点的所有 price 孙节点。
+
+实例2
+
+```html
+<div data-v-f7a7d94e="" id="carInfo" class="mt48">
+    <div data-v-f7a7d94e="" class="title">车辆信息</div>
+    <div data-v-f7a7d94e="" class="content">
+        <div data-v-f7a7d94e="" class="item">
+            <div data-v-f7a7d94e="" class="label mr12">车型</div>
+            <div data-v-f7a7d94e="" class="value">2016款 锐行 1.5L 手动风尚版</div>
+        </div>
+        <div data-v-f7a7d94e="" class="item">
+            <div data-v-f7a7d94e="" class="label mr12">外观颜色</div>
+            <div data-v-f7a7d94e="" class="value">泰晤士青</div>
+        </div>
+        <div data-v-f7a7d94e="" class="item">
+            <div data-v-f7a7d94e="" class="label mr12">内饰颜色</div>
+            <div data-v-f7a7d94e="" class="value">黑色</div>
+        </div>
+        <div data-v-f7a7d94e="" class="item">
+            <div data-v-f7a7d94e="" class="label mr12">车型编码</div>
+            <div data-v-f7a7d94e="" class="value">15004-n</div>
+        </div>
+        <div data-v-f7a7d94e="" class="item">
+            <div data-v-f7a7d94e="" class="label mr12">车架号</div>
+            <div data-v-f7a7d94e="" class="value">-</div>
+        </div>
+    </div>
+</div>
+
+<div data-v-f7a7d94e="" id="princeInfo" class="mt48">
+    <div data-v-f7a7d94e="" class="title">金额信息</div>
+    <div data-v-f7a7d94e="" class="content">
+        <div data-v-f7a7d94e="" class="item">
+            <div data-v-f7a7d94e="" class="label mr12">裸车价</div>
+            <div data-v-f7a7d94e="" class="value">¥ 0.06</div>
+        </div>
+        <div data-v-f7a7d94e="" class="item">
+            <div data-v-f7a7d94e="" class="label mr12">装潢合计</div>
+            <div data-v-f7a7d94e="" class="value">-</div>
+        </div>
+        <div data-v-f7a7d94e="" class="item">
+            <div data-v-f7a7d94e="" class="label mr12">金融合计</div>
+            <div data-v-f7a7d94e="" class="value">-</div>
+        </div>
+        <div data-v-f7a7d94e="" class="item">
+            <div data-v-f7a7d94e="" class="label mr12">保险合计</div>
+            <div data-v-f7a7d94e="" class="value">-</div>
+        </div>
+        <div data-v-f7a7d94e="" class="item">
+            <div data-v-f7a7d94e="" class="label mr12">延保金额</div>
+            <div data-v-f7a7d94e="" class="value">-</div>
+        </div>
+        <div data-v-f7a7d94e="" class="item">
+            <div data-v-f7a7d94e="" class="label mr12">代办合计</div>
+            <div data-v-f7a7d94e="" class="value">-</div>
+        </div>
+        <div data-v-f7a7d94e="" class="item">
+            <div data-v-f7a7d94e="" class="label mr12">实际成交价</div>
+            <div data-v-f7a7d94e="" class="value">¥ 0.06</div>
+        </div>
+    </div>
+</div>
+```
+{% asset_img UI展示.png UI展示 %}
+UI组件化获取label对应的value：
+```xpath
+//div[@class='title' and contains(text(),'"+分组名+"')]/parent::div/div[@class='content']/descendant::div[contains(@class,'label') and text()='"+标签+"']/parent::div/div[@class='value']
+```
+ - 分组名：选择的`title`的名称
+ - 标签：选择的`label`的名称
+ - `//div[@class='title' and contains(text(),'"+分组名+"')]`：选取`div`中，`class`等于`title`，并且`div`中文案包含对应的`分组名`的节点
+ - `parent::div/div[@class='content']`：选取父级`div`节点的子`div`节点中，`class`等于`content`的节点
+ - `descendant::div[contains(@class,'label') and text()='"+标签+"']`：选取当前节点所有的`div`子节点中，`class`包含`label`，并且文本等于`标签`值的节点
+ - `parent::div/div[@class='value']`：选取父级`div`节点的子`div`节点中，`class`等于`value`的节点

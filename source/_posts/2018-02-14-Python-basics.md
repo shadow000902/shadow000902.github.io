@@ -1,7 +1,7 @@
 ---
 title: Python基础知识整理
 date: 2018-02-14 18:40:37
-categories: [Python]
+categories: [学习笔记, Python]
 tags: [python]
 ---
 

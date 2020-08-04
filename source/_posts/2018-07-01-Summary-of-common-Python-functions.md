@@ -1,7 +1,7 @@
 ---
 title: Python常用函数总结
 date: 2018-07-01 10:18:17
-categories: [Python]
+categories: [学习笔记, Python]
 tags: [python]
 ---
 
