@@ -360,4 +360,49 @@ public class RetryListener implements IAnnotationTransformer {
 @Test(dataProvider = "data", description = "Test", retryAnalyzer = TestNGRetryAnalyzer.class)
 ```
    
+### 问题处理
+#### 使用`groups`时，`@BeforeClass`、`@BeforeSuite`被跳过
+有两种解决方式：
+1. 在`@BeforeClass`中添加`alwaysRun=true`
+    ```java
+    public class classTest {
+        @BeforeClass(alwaysRun=true)
+        public void initTest() {};
+    
+        @Test(groups = {"testGroup"})
+        public static void testMethod() {};
+    }
+    ```
+    `testNG`文件中包含了`该class`中存在的`groups`时，`该class`中的`@BeforeClass`才会执行，所以不必担心在所有的`@BeforeClass`中都添加`alwaysRun=true`会造成没必要的`@BeforeClass`执行的问题。
+   
+2. 在`@BeforeClass`中也添加需要的`groups`参数
+    ```java
+    public class classTest {
+        @BeforeClass(groups = {"testGroup"})
+        public void initTest() {};
+    
+        @Test(groups = {"testGroup"})
+        public static void testMethod() {};
+    }
 
+#### 执行某个包下所有包含某个分组的用例
+testNG的xml配置文件如下：
+```xml
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="接口测试" verbose="1">
+    <test name="网管层接口" preserve-order="true">
+        <groups>
+            <run>
+                <include name="testGroup"/>
+            </run>
+        </groups>
+
+        <packages>
+            <package name="com.shadow.qa.testCases.api.*"/>
+        </packages>
+    </test>
+</suite>
+```
+多数文档说`groups`必须和`classes`配合使用，但是`class`是无法用通配符的，会造成要枚举所有的`class`，这样就会非常麻烦；
+实际上`groups`也可以和`packages`配合使用，`packages`可以使用通配符，这样就大大省去了去找所有有需要的`groups`的`class`的麻烦
