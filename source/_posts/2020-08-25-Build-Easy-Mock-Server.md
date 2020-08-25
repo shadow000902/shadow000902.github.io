@@ -1,5 +1,5 @@
 ---
-title: 2020-08-25-Build-Easy-Mock-Server
+title: EasyMock服务搭建
 date: 2020-08-25 18:07:04
 categories: [环境搭建, Mock]
 tags: [mock]
@@ -57,6 +57,10 @@ $ npm run test
 # Test lint
 $ npm run lint
 ```
+
+服务启动后，登录主页如下：
+{% asset_img EasyMock主页.png EasyMock主页 %}
+如果IP+Port的方式无法访问，可能就是网络上的访问的限制了，可以配置一个域名映射解决
 
 ### 异常处理
 

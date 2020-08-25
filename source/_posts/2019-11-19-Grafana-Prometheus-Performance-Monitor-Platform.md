@@ -1,7 +1,7 @@
 ---
 title: 性能压测监控环境搭建
 date: 2019-11-19 15:35:45
-categories: [性能测试]
+categories: [环境搭建, 性能测试]
 tags: [performance, prometheus, influxDB, grafana, shell]
 ---
 

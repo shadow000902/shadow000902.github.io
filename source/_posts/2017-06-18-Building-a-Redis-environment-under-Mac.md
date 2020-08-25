@@ -1,7 +1,7 @@
 ---
 title: Mac下Redis环境搭建
 date: 2017-06-18 18:08:44
-categories: [Tools]
+categories: [环境搭建, Redis]
 tags: [redis]
 ---
 
