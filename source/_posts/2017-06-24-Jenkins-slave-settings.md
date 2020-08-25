@@ -69,3 +69,89 @@ chmod a+x start_jenkins.sh
 ### 问题处理
 1. 出现`java.net.ConnectException: Connection refused (Connection refused)`解决方式
     在 jenkins 的`系统设置`中的`Jenkins Location`模块下的`Jenkins URL`中，不要使用域名，而是直接写`http://IP:port`
+
+2. `slave`经常会掉线处理
+    首先需要获取到slave的状态
+    ```bash
+    http://hostName/computer/slaveName/api/json?pretty=true
+    ```
+    请求该url会得到一个slave状态的结果
+    ```json
+    {
+      "_class" : "hudson.slaves.SlaveComputer",
+      "actions" : [
+        {
+          "_class" : "hudson.plugins.jobConfigHistory.ComputerConfigHistoryAction"
+        },
+        {
+          
+        }
+      ],
+      "assignedLabels" : [
+        {
+          "name" : "Mac_slave"
+        }
+      ],
+      "description" : "",
+      "displayName" : "Mac_slave",
+      "executors" : [
+        {
+          
+        },
+        {
+          
+        }
+      ],
+      "icon" : "computer.png",
+      "iconClassName" : "icon-computer",
+      "idle" : true,
+      "jnlpAgent" : true,
+      "launchSupported" : false,
+      "loadStatistics" : {
+        "_class" : "hudson.model.Label$1"
+      },
+      "manualLaunchAllowed" : true,
+      "monitorData" : {
+        "hudson.node_monitors.SwapSpaceMonitor" : {
+          "_class" : "hudson.node_monitors.SwapSpaceMonitor$MemoryUsage2",
+          "availablePhysicalMemory" : -1,
+          "availableSwapSpace" : 830472192,
+          "totalPhysicalMemory" : -1,
+          "totalSwapSpace" : 1073741824
+        },
+        "hudson.node_monitors.TemporarySpaceMonitor" : {
+          "_class" : "hudson.node_monitors.DiskSpaceMonitorDescriptor$DiskSpace",
+          "timestamp" : 1596678461230,
+          "path" : "/private/var/folders/3z/t812m3_x2218m6wchwd0ttdm0000gn/T",
+          "size" : 63684665344
+        },
+        "hudson.node_monitors.DiskSpaceMonitor" : {
+          "_class" : "hudson.node_monitors.DiskSpaceMonitorDescriptor$DiskSpace",
+          "timestamp" : 1596678460739,
+          "path" : "/Users/dasouche/jenkins_slave/workspace",
+          "size" : 63684665344
+        },
+        "hudson.node_monitors.ArchitectureMonitor" : "Mac OS X (x86_64)",
+        "hudson.node_monitors.ResponseTimeMonitor" : {
+          "_class" : "hudson.node_monitors.ResponseTimeMonitor$Data",
+          "timestamp" : 1596678460739,
+          "average" : 106
+        },
+        "hudson.node_monitors.ClockMonitor" : {
+          "_class" : "hudson.util.ClockDifference",
+          "diff" : -45
+        }
+      },
+      "numExecutors" : 2,
+      "offline" : false,
+      "offlineCause" : null,
+      "offlineCauseReason" : "",
+      "oneOffExecutors" : [
+        
+      ],
+      "temporarilyOffline" : false,
+      "absoluteRemotePath" : "/Users/dasouche/jenkins_slave/workspace"
+    }
+    ```
+    其中有一个`offline`字段，`false`表示在线，`true`表示掉线，并且会在`offlineCauseReason`字段中显示掉线原因
+    然后我们可以通过定时获取`offline`字段的值来判断`slave`是否掉线，如果掉线了，就采取相应的重启`slave`的措施

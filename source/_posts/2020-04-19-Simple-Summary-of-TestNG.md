@@ -384,8 +384,10 @@ public class RetryListener implements IAnnotationTransformer {
         @Test(groups = {"testGroup"})
         public static void testMethod() {};
     }
+    ```
 
 #### 执行某个包下所有包含某个分组的用例
+
 testNG的xml配置文件如下：
 ```xml
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
@@ -404,5 +406,6 @@ testNG的xml配置文件如下：
     </test>
 </suite>
 ```
+
 多数文档说`groups`必须和`classes`配合使用，但是`class`是无法用通配符的，会造成要枚举所有的`class`，这样就会非常麻烦；
 实际上`groups`也可以和`packages`配合使用，`packages`可以使用通配符，这样就大大省去了去找所有有需要的`groups`的`class`的麻烦
