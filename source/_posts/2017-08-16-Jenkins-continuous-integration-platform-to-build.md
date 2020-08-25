@@ -1,7 +1,7 @@
 ---
 title: Jenkins持续集成平台搭建
 date: 2017-08-16 11:55:43
-categories: [Jenkins]
+categories: [环境搭建, Jenkins]
 tags: [jenkins]
 ---
 

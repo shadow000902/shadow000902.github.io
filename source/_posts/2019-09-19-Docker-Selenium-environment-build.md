@@ -1,7 +1,7 @@
 ---
 title: 基于Docker&Selenium的WEB自动化平台搭建
 date: 2019-09-19 00:24:23
-categories: [Selenium]
+categories: [环境搭建, Selenium]
 tags: [docker, selenium]
 ---
 

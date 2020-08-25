@@ -1,7 +1,7 @@
 ---
 title: InfluxDB&Grafana&Shell性能自动化测试平台搭建
 date: 2019-08-18 23:37:13
-categories: [性能测试]
+categories: [环境搭建, 性能测试]
 tags: [performance, influxDB, grafana, shell]
 ---
 
