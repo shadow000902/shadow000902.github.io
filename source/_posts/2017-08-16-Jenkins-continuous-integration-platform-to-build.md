@@ -230,6 +230,11 @@ JENKINS_URL/job/JOB_NAME/buildWithParameters?token=TOKEN_NAME&params1=params1&..
 #### ``Configuration Slicing plugin``批量修改所有项目的某一个配置
 在``系统管理``中，``Configuration Slicing``打开，可以看多很多的设置项，点击进入自己需要批量设置的项，进行设置。
 
+#### ``Post build task``用于在jenkins构建完成后，继续执行所需要执行的`shell`脚本
+{% asset_img 构建后添加PostBuildTask.png 构建后添加PostBuildTask %}
+{% asset_img PostBuildTask配置.png PostBuildTask配置 %}
+在`Script`中写入需要执行的`shell`命令
+
 #### 常用插件汇总
 ``Build Environment Plugin``构建环境插件，可以进行构建环境比较。
 ``Build Flow Plugin``工作流插件，支持DSL脚本定义工作流
