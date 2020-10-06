@@ -258,6 +258,7 @@ JENKINS_URL/job/JOB_NAME/buildWithParameters?token=TOKEN_NAME&params1=params1&..
 ``Rebuild Plugin``重新执行插件
 ``Status Monitor Plugin``构建状态插件
 ``ws-cleanup Plugin ``workspace清理插件
+``Node and Label parameter`` 这个插件增加了一个新的参数类型，Node 和 Label，从而使用户通过参数可以选择项目构建运行的节点。
 
 ### `Jenkins`脚本
 #### 批量修改脚本的`丢弃旧的构建`设置项设置
