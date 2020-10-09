@@ -39,6 +39,8 @@ script:
   - hexo generate
 
 after_script:
+  - cp -r navigation_files public
+  - cp navigation.html public
   - cd ./public
   - git init
   - git config user.name "shadow000902"
