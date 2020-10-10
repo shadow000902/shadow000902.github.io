@@ -40,10 +40,10 @@ drwxrwxr-x 14 test test   4096 Jun 24 12:43 workspace/								# Jenkins项目的
 ```shell
 java -jar slave.jar -jnlpUrl http://jenkins.shadow.com/computer/test-devtesting-00001/slave-agent.jnlp 2>&1 &
 # 或
-java -Dfile.encoding=UTF-8 -jar agent.jar -jnlpUrl http://jenkins-14.shadow-inc.net:17080/computer/slave_51/slave-agent.jnlp -secret 815485b5788e77960f86a6e02d55c9fa104c0e754c1efb046e8a50b44c31cec4 2>&1 &
+java -Dfile.encoding=UTF-8 -jar agent.jar -jnlpUrl http://jenkins.shadow.com/computer/slave_51/slave-agent.jnlp -secret 815485b5788e77960f86a1sdf32es6e02d55c9fa104c0e754c1efb046e8a50b44c31cec4 2>&1 &
 ```
 - 如果在 slave 上执行脚本出现乱码问题，可以通过加该参数`-Dfile.encoding=UTF-8`解决
-- 如果服务器存在密码，用于免密链接需要加该参数`-secret 815485b5788e77960f86a6e02d55c9fa104c0e754c1efb046e8a50`，该参数一般在 jenkins 的 slave 设置页会显示出来。
+- 如果服务器存在密码，用于免密链接需要加该参数`-secret 815485b5788e77960f86a6e02q3easf1cxad55c9fa104c0e754c1efb046e8a50`，该参数一般在 jenkins 的 slave 设置页会显示出来。
 
 赋予``start_jenkins.sh``执行权限
 ```bash
@@ -128,7 +128,7 @@ chmod a+x start_jenkins.sh
         "hudson.node_monitors.DiskSpaceMonitor" : {
           "_class" : "hudson.node_monitors.DiskSpaceMonitorDescriptor$DiskSpace",
           "timestamp" : 1596678460739,
-          "path" : "/Users/dasouche/jenkins_slave/workspace",
+          "path" : "/Users/shadow/jenkins_slave/workspace",
           "size" : 63684665344
         },
         "hudson.node_monitors.ArchitectureMonitor" : "Mac OS X (x86_64)",
@@ -150,8 +150,47 @@ chmod a+x start_jenkins.sh
         
       ],
       "temporarilyOffline" : false,
-      "absoluteRemotePath" : "/Users/dasouche/jenkins_slave/workspace"
+      "absoluteRemotePath" : "/Users/shadow/jenkins_slave/workspace"
     }
     ```
     其中有一个`offline`字段，`false`表示在线，`true`表示掉线，并且会在`offlineCauseReason`字段中显示掉线原因
     然后我们可以通过定时获取`offline`字段的值来判断`slave`是否掉线，如果掉线了，就采取相应的重启`slave`的措施
+    
+    处理代码如下：
+    ```python
+    # -*- coding: utf-8 -*-
+    from time import sleep
+    
+    import paramiko
+    import requests
+    
+    
+    def getSlaveStatus():
+        baseapi = 'http://jenkins.shadow.com/computer/Mac_slave/api/json?pretty=true'
+        resp = requests.get(baseapi)
+        result = resp.json()
+        return result
+    
+    
+    def judgeStatus():
+        while True:
+            sleep(3)
+            result = getSlaveStatus()
+            print(result)
+            status = result["offline"]
+            while status:
+                ssh = paramiko.SSHClient()
+                ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+                ssh.connect(hostname='192.168.8.8', port=22, username='shadow', password='V4Hubd1WBePJ')
+                stdin, stdout, stderr = ssh.exec_command(
+                    "nohup java -Xmx1024m -jar /Users/shadow/jenkins_slave/agent.jar -jnlpUrl "
+                    "http://jenkins.shadow.com/computer/Mac_slave/slave-agent.jnlp -secret "
+                    "d6c66e20341aa6e628b5f057355384a1q21q1q1a462349a852eec1294ad40cbd016964cb &")
+                print(stdout.read())
+                break
+    
+    
+    if __name__ == '__main__':
+        judgeStatus()
+
+    ```
