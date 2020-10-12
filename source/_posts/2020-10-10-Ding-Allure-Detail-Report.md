@@ -1,4 +1,4 @@
-----
+---
 title: Allure报告结果钉钉发送Python实现
 date: 2020-10-10 12:33:01
 categories: [Tools]
@@ -168,7 +168,7 @@ else:
 def getSummary():
     url = 'http://jenkins.shadow.com/job/' + JOB_NAME + '/allure/widgets/summary.json'
     summary = requests.get(url).json()['statistic']
-    # print(summary)
+    print(summary)
     return summary
 
 
@@ -179,7 +179,7 @@ def getResultDetails():
         if resultDetail.get("children") is None:
             resultDetails.remove(resultDetail)
 
-    # print(resultDetails)
+    print(resultDetails)
     return resultDetails
 
 
@@ -248,7 +248,7 @@ def spillDingText():
                           % (Name, Total, PassRate, Passed, Skipped, Failed, Broken)
         personCountsText += personCountText
     text = summaryText + personCountsText
-    # print(text)
+    print(text)
     return text
 
 
@@ -272,7 +272,7 @@ def sendMarkdownDing():
             "isAtAll": False
         }
     }
-    # print(data)
+    print(data)
     # 4、对请求的数据进行json封装
     sendData = json.dumps(data)  # 将字典类型数据转化为json格式
     sendData = sendData.encode("utf-8")  # python3的Request要求data为byte类型
