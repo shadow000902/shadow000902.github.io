@@ -79,7 +79,7 @@ tags: [allure, python]
 
 
 #### 脚本主要方法说明
-1. getSummary() 方法返回总体信息
+1. `getSummary()` 方法返回总体信息
     ```json
     {
         "failed": 108,
@@ -90,7 +90,7 @@ tags: [allure, python]
         "total": 1384
     }
     ```
-2. getResultDetails() 方法返回Owner具体信息，并对异常数据做清理
+2. `getResultDetails()` 方法返回Owner具体信息，并对异常数据做清理
     ```json
     [
         {
@@ -105,7 +105,7 @@ tags: [allure, python]
         }
     ]
     ```
-3. getPersonCounts() 方法返回每个Owner的具体用例数据
+3. `getPersonCounts()` 方法返回每个Owner的具体用例数据
     ```json
     [
       {
@@ -126,8 +126,8 @@ tags: [allure, python]
       }
     ]
     ```
-4. spillDingText() 方法返回钉钉发送消息体中的`text`
-5. sendMarkdownDing() 方法以markdown格式组织消息体，发送钉钉通知
+4. `spillDingText()` 方法返回钉钉发送消息体中的`text`
+5. `sendMarkdownDing()` 方法以markdown格式组织消息体，发送钉钉通知
 
 #### 完整脚本
 ```python
