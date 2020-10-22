@@ -31,3 +31,27 @@ _data = {'name': api_data.name,
     config_verify = config.pop("verify", False)
     functions = project_mapping.get("functions", {})
 ```
+
+#### 运行需要网络请求的`python`脚本，提示`libssl`找不到
+报错提示如下：
+```bash
+# shadow @ shadow in /usr/local/lib [17:55:16] 
+$ python
+Python 3.7.0 (default, Oct  1 2018, 10:38:36) 
+[Clang 10.0.0 (clang-1000.11.45.2)] on darwin
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import ssl
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/Users/shadow/.pyenv/versions/3.7.0/lib/python3.7/ssl.py", line 98, in <module>
+    import _ssl             # if we can't import it, let the error propagate
+ImportError: dlopen(/Users/shadow/.pyenv/versions/3.7.0/lib/python3.7/lib-dynload/_ssl.cpython-37m-darwin.so, 2): Library not loaded: /usr/local/opt/openssl/lib/libssl.1.0.0.dylib
+  Referenced from: /Users/shadow/.pyenv/versions/3.7.0/lib/python3.7/lib-dynload/_ssl.cpython-37m-darwin.so
+  Reason: image not found
+```
+
+**原因**：
+`brew`升级了`OpenSSL`版本到`OpenSSL@1.1`，所以`libssl.1.0.0.dylib`这个旧版本的库文件被卸载了，新的是`libssl.1.1.1.dylib`，旧版本的`python`没有更新链接，所以就会报找不到`/usr/local/opt/openssl/lib/libssl.1.0.0.dylib`
+
+**解决方法**：
+卸载之前引用了低版本的`python`，然后重新安装`python`就可以了

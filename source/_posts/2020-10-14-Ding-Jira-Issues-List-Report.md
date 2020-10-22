@@ -8,8 +8,8 @@ tags: [jira, python]
 ### 主要用到的开源API
 1. 公司内部JIRA的API文档地址：https://jira.shadow.com/plugins/servlet/restbrowser#/
 2. JIRA官方提供的API文档地址：https://developer.atlassian.com/cloud/jira/platform/rest/v3/intro/
-    官方已经指出到第三个版本，使用时需要根据自己公司使用的API版本来进行调用
-    官方提供了个子高你语言的调用示例，可以进行参考
+    官方已经出到第三个版本，使用时需要根据自己公司使用的API版本来进行调用
+    官方提供了各个语言的调用示例，可以进行参考
 3. 图床服务的API文档地址：https://doc.sm.ms/
     如果自己公司有影像件服务的话，可以传到公司的oss上进行保存
 
@@ -104,7 +104,8 @@ class ReportImage:
         for i in html_list:
             img_obj = image_path + str(index) + ".png"
             with open(i, 'r') as html_file:
-                imgkit.from_file(html_file, img_obj, options={"encoding": "UTF-8"})
+                # options内的参数，具体可以通过命令  `wkhtmltoimage --extended-help`  获取到详细的信息
+                imgkit.from_file(html_file, img_obj, options={"encoding": "UTF-8", "width": 1920, "quality": 100})
             index += 1
 
 
@@ -187,7 +188,6 @@ def getShowWords():
     for issue in issuesList:
         issueWords.append({'类型': issue['fields']['issuetype']['name'],
                            '关键字': issue['key'],
-                           '链接': 'https://jira.shadow.com/browse/' + issue['key'],
                            '概要': issue['fields']['summary'],
                            '报告人': issue['fields']['reporter']['displayName'],
                            '经办人': issue['fields']['assignee']['displayName'],
@@ -273,3 +273,6 @@ if __name__ == '__main__':
     excel2Image.ReportImage.html_image(html_list, "./")
     sendMarkdownDing()
 ```
+
+### 最后图片效果如下
+{% asset_img 缺陷图.png 缺陷图 %}
