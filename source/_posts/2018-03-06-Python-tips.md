@@ -379,3 +379,17 @@ stdin,stdout,stderr = ssh.exec_command("./test.sh")
 stdin,stdout,stderr = ssh.exec_command("python ./test.py")
 print(stdout.read())
 ```
+
+#### 生成指定位数的小写字母和数字的随机数
+```python
+import random
+
+def getRandomSet(bits):
+    num_set = [chr(i) for i in range(48, 58)]
+    char_set = [chr(i) for i in range(97, 123)]
+    total_set = num_set + char_set
+
+    value_set = ''.join(random.sample(total_set, bits))
+
+    return value_set
+```
