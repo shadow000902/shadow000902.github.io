@@ -62,19 +62,6 @@ virtualenv -p /Users/taoyi/.pyenv/versions/3.6.5/bin/python  py3env
  - ``-p``：指定指定版本的``python``的绝对路径
  - ``py3env``：创建的虚拟环境的名称
 
-#### Linux环境下，安装``brew``【需要切换git源码地址中的`Linuxbrew`为`Homebrew`，后续，`Linuxbrew`不在更新】
-```bash
-# clone源码到用户目录下
-git clone https://github.com/Linuxbrew/brew.git ~/.linuxbrew
-# 把homebrew-core克隆下来
-git clone https://github.com/Linuxbrew/homebrew-core ~/.linuxbrew/Library/Taps/homebrew
-
-# 设置环境变量
-export PATH="$HOME/.linuxbrew/bin:$PATH"
-export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
-export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
-```
-
 #### Ubuntu环境下，pyenv安装python失败，解决方法
 问题基本就是出现在缺少一些基础库上，解决方法也就是尽量的把一些基础库都安装上
 ```bash
