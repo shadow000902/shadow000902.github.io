@@ -314,7 +314,7 @@ search| |string|query|
       "description": "<p>标记Issue是在哪个端上被发现的</p>",
       "type": "选择列表 (级联)",
       "searcherKey": "端",
-      "self": "https://jira.souche-inc.com/rest/api/2/customFields/customfield_17601",
+      "self": "https://jira.shadow.com/rest/api/2/customFields/customfield_17601",
       "numericId": 17601,
       "isLocked": false,
       "isManaged": false,
