@@ -19,13 +19,13 @@ mkdir /opt/Jenkins/script
   <!--more-->
 
 #### 设置``jenkins``主目录
-第一种方法是使用WEB容器工具设置``JENKINS_HOME``环境参数。
-```bash
-打开tomcat的bin目录，编辑catalina.sh文件。
-在# OS specific support.  $var _must_ be set to either true or false.上面添加：export JENKINS_HOME=""
+1. 使用WEB容器工具设置``JENKINS_HOME``环境参数。
+
+打开``tomcat``的``bin``目录，编辑``catalina.sh``文件。
+在``# OS specific support.  $var _must_ be set to either true or false.``上面添加：``export JENKINS_HOME=""``
 在引号中填入你的路径。
-```
-第二种是在环境变量中设置``JENKINS_HOME``。
+
+2. 在环境变量中设置``JENKINS_HOME``。
 ```bash
 # 编辑对应用户的终端的环境变量设置文件
 # 编辑profile文件：
@@ -35,19 +35,20 @@ export JENKINS_HOME="/home/shadow/jenkins/Home"
 ```
 
 #### 下载``jenkins.war``
-[下载地址](https://jenkins.io/download/)
+[最新版jenkins的war包](https://mirrors.tuna.tsinghua.edu.cn/jenkins/war/latest/jenkins.war)
 把下载的``war``包放入``/opt/Jenkins``目录下
 
 #### 编写启动脚本
 ```bash
 /usr/bin/java -Dfile.encoding=UTF-8 \
-                    -XX:PermSize=256m -XX:MaxPermSize=512m -Xms256m -Xmx512m \
-                    -Djava.io.tmpdir=/opt/Jenkins/tmp \
-                    -jar /opt/Jenkins/jenkins.war \
-                    --httpListenAddress=127.0.0.1 \
-                    --httpPort=8080 \
-                    >> /opt/Jenkins/nohup.out \
-                    2>&1 &
+              -XX:PermSize=256m \
+               -XX:MaxPermSize=512m -Xms256m -Xmx512m \
+              -Djava.io.tmpdir=/opt/Jenkins/tmp \
+              -jar /opt/Jenkins/jenkins.war \
+              --httpListenAddress=127.0.0.1 \
+              --httpPort=8080 \
+              >> /opt/Jenkins/nohup.out \
+              2>&1 &
 ```
 
 
@@ -235,30 +236,53 @@ JENKINS_URL/job/JOB_NAME/buildWithParameters?token=TOKEN_NAME&params1=params1&..
 {% asset_img PostBuildTask配置.png PostBuildTask配置 %}
 在`Script`中写入需要执行的`shell`命令
 
+#### ``extra-columns`` 视图为`List View`视图的列表展示增强插件
+插件离线下载地址：[清华大学开源软件镜像站_Index of /jenkins/plugins/extra-columns/](https://mirrors.tuna.tsinghua.edu.cn/jenkins/plugins/extra-columns/)
+
+It currently provides the following columns:
+  - ``Build description``
+  - ``Build duration``
+  - ``Build parameters``
+  - ``Configure build button``
+  - ``Disable/enable Project button/icon``
+  - ``Job type``
+  - ``Last build``                                  # 最后一次构建的时间
+  - ``Last build node``
+  - ``Last/current build console``
+  - ``Last project configuration modification``
+  - ``Periodic build trigger``
+  - ``Project description``
+  - ``SCM type``
+  - ``Agent or label restriction``
+  - ``Test result``
+  - ``User name``                                   # 最后一次构建的执行人
+  - ``Workspace link``
+
+
 #### 常用插件汇总
-``Build Environment Plugin``构建环境插件，可以进行构建环境比较。
-``Build Flow Plugin``工作流插件，支持DSL脚本定义工作流
-``Build Graph View Plugin``build Flow插件视图（安装后需要重新才能生效）
-``Build Monitor View``使用心得：基于该插件可以实现dashboard功能
-``Build Pipeline Plugin View ``Pipeline 管道流图表展示插件
-``Build Timestamp Plugin ``任务log时间戳插件，使得job log的每次输出前面都增加当时的时间
-``Build-timeout Plugin``job构建超时插件
-``BuildResultTrigger Plugin``根据其他的job的成功或失败来启动此build。
-``Cron Column Plugin`` 通过定时任务例行的运行一些job
-``Files Found Trigger``检测指定的目录，如果发现指定模式的文件则启动build。
-``HTTP Request Plugin``使用心得：在构建前后可以通过该插件以http形式调用各种api接口实现和内部系统的联动
-``Job Configuration History Plugin``使用心得：使job具备版本管理的能力，diff和rollback功能更是非常赞
-``Job Import Plugin``使用心得：可以快速导入其他jenkins集群的已有job，需要认证的jenkins系统导入需要提供凭证才可以
-``Join Plugin``这也是一个触发job的插件，亮点在于它触发job的条件是等待所有当前job的下游的job都完成才会发生。
-``Multijob Plugin``多任务插件
-``Naginator Plugin``任务重试插件
-``Parameterized Trigger Plugin``这是一个扩展型的插件，使各个job连接的时候可以传递一些job相关的信息
-``Periodic Backup``使用心得：备份是运维一个系统必须要保障的事情，该插件的恢复功能可能不可用，需要手工进行，好处在于可以定时备份
-``Publish Over SSH Plugin``通过ssh发布文件
-``Rebuild Plugin``重新执行插件
-``Status Monitor Plugin``构建状态插件
-``ws-cleanup Plugin ``workspace清理插件
-``Node and Label parameter`` 这个插件增加了一个新的参数类型，Node 和 Label，从而使用户通过参数可以选择项目构建运行的节点。
+  - ``Build Environment Plugin``构建环境插件，可以进行构建环境比较。
+  - ``Build Flow Plugin``工作流插件，支持DSL脚本定义工作流
+  - ``Build Graph View Plugin``build Flow插件视图（安装后需要重新才能生效）
+  - ``Build Monitor View``使用心得：基于该插件可以实现dashboard功能
+  - ``Build Pipeline Plugin View ``Pipeline 管道流图表展示插件
+  - ``Build Timestamp Plugin ``任务log时间戳插件，使得job log的每次输出前面都增加当时的时间
+  - ``Build-timeout Plugin``job构建超时插件
+  - ``BuildResultTrigger Plugin``根据其他的job的成功或失败来启动此build。
+  - ``Cron Column Plugin`` 通过定时任务例行的运行一些job
+  - ``Files Found Trigger``检测指定的目录，如果发现指定模式的文件则启动build。
+  - ``HTTP Request Plugin``使用心得：在构建前后可以通过该插件以http形式调用各种api接口实现和内部系统的联动
+  - ``Job Configuration History Plugin``使用心得：使job具备版本管理的能力，diff和rollback功能更是非常赞
+  - ``Job Import Plugin``使用心得：可以快速导入其他jenkins集群的已有job，需要认证的jenkins系统导入需要提供凭证才可以
+  - ``Join Plugin``这也是一个触发job的插件，亮点在于它触发job的条件是等待所有当前job的下游的job都完成才会发生。
+  - ``Multijob Plugin``多任务插件
+  - ``Naginator Plugin``任务重试插件
+  - ``Parameterized Trigger Plugin``这是一个扩展型的插件，使各个job连接的时候可以传递一些job相关的信息
+  - ``Periodic Backup``使用心得：备份是运维一个系统必须要保障的事情，该插件的恢复功能可能不可用，需要手工进行，好处在于可以定时备份
+  - ``Publish Over SSH Plugin``通过ssh发布文件
+  - ``Rebuild Plugin``重新执行插件
+  - ``Status Monitor Plugin``构建状态插件
+  - ``ws-cleanup Plugin ``workspace清理插件
+  - ``Node and Label parameter`` 这个插件增加了一个新的参数类型，Node 和 Label，从而使用户通过参数可以选择项目构建运行的节点。
 
 ### `Jenkins`脚本
 #### 批量修改脚本的`丢弃旧的构建`设置项设置
