@@ -152,7 +152,12 @@ System.setProperty("hudson.model.DirectoryBrowserSupport.CSP","sandbox allow-scr
 ``H 8 3 2 *``：每年2月3号8点构建一次
 
 #### ``Git Parameter``【构建分支&Tags参数化】
+适用于项目中配置了"源码管理"的，Git分支直接从"源码管理"中拉取的代码中获取分支信息
 {% asset_img Git_Parameter.png Git_Parameter %}
+
+#### ``List Git Branches Parameter PlugIn`` 【构建分支&Tags参数化】plus
+适用于不在项目中配置源码拉取，但是需要去获取源码的分支信息的时候
+{% asset_img 分支源码配置.png 分支源码配置 %}
 
 #### ``Build User Vars Plugin``【获取项目构建人】
 

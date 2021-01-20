@@ -5,7 +5,7 @@ categories: [Python]
 tags: [web.py, 数据库]
 ---
 
-### 安装MySQL数据库
+### 安装包安装MySQL数据库
 
 #### 本地数据库的安装[MySQL](http://dev.mysql.com/downloads/mysql/)
 安装完后，会给出一个默认密码：
@@ -39,6 +39,108 @@ Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
 mysql> SET PASSWORD = PASSWORD('123456');           # 重置密码
 ```
 这样就把MySQL的登录密码设置成了``123456``
+
+### Brew安装MySQL数据库
+
+#### Brew执行安装命令
+```bash
+# taoyi @ taoyiDSC000331 in /usr/local [17:01:58] C:1
+$ brew install mysql
+...
+==> mysql
+We've installed your MySQL database without a root password. To secure it run:
+    mysql_secure_installation
+
+MySQL is configured to only allow connections from localhost by default
+
+To connect run:
+    mysql -uroot
+
+To have launchd start mysql now and restart at login:
+  brew services start mysql
+Or, if you don't want/need a background service you can just run:
+  mysql.server start
+```
+
+#### 设置MySQL的root账户密码
+默认情况下，brew安装的MySQL是没有root密码的，基于安全考虑，需要设置一个密码
+执行`mysql_secure_installation`命令后，跟着提示步骤走就可以了
+```bash
+# taoyi @ taoyiDSC000331 in /usr/local [18:02:32] 
+$ mysql_secure_installation
+
+Securing the MySQL server deployment.
+
+Connecting to MySQL using a blank password.
+
+VALIDATE PASSWORD COMPONENT can be used to test passwords
+and improve security. It checks the strength of password
+and allows the users to set only those passwords which are
+secure enough. Would you like to setup VALIDATE PASSWORD component?
+
+Press y|Y for Yes, any other key for No: Y
+
+There are three levels of password validation policy:
+
+LOW    Length >= 8
+MEDIUM Length >= 8, numeric, mixed case, and special characters
+STRONG Length >= 8, numeric, mixed case, special characters and dictionary                  file
+
+Please enter 0 = LOW, 1 = MEDIUM and 2 = STRONG: 0
+Please set the password for root here.
+
+New password: 
+
+Re-enter new password: 
+
+Estimated strength of the password: 50 
+Do you wish to continue with the password provided?(Press y|Y for Yes, any other key for No) : a
+
+New password: 
+
+Re-enter new password: 
+
+Estimated strength of the password: 50 
+Do you wish to continue with the password provided?(Press y|Y for Yes, any other key for No) : Y
+By default, a MySQL installation has an anonymous user,
+allowing anyone to log into MySQL without having to have
+a user account created for them. This is intended only for
+testing, and to make the installation go a bit smoother.
+You should remove them before moving into a production
+environment.
+
+Remove anonymous users? (Press y|Y for Yes, any other key for No) : Y
+Success.
+
+
+Normally, root should only be allowed to connect from
+'localhost'. This ensures that someone cannot guess at
+the root password from the network.
+
+Disallow root login remotely? (Press y|Y for Yes, any other key for No) : N
+
+ ... skipping.
+By default, MySQL comes with a database named 'test' that
+anyone can access. This is also intended only for testing,
+and should be removed before moving into a production
+environment.
+
+
+Remove test database and access to it? (Press y|Y for Yes, any other key for No) : Y
+ - Dropping test database...
+Success.
+
+ - Removing privileges on test database...
+Success.
+
+Reloading the privilege tables will ensure that all changes
+made so far will take effect immediately.
+
+Reload privilege tables now? (Press y|Y for Yes, any other key for No) : Y
+Success.
+
+All done!
+```
 
 ### 安装Web.py及相关数据库操作模块
 

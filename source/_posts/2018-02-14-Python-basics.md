@@ -117,25 +117,25 @@ sum(digits)                                     # 求总和
 
 #### **列表解析**
 - 复杂模式1
-```python
-squares = []
-for value in range(1, 11):
-    square = value**2
-    squares.append(square)
-print(squares)
-```
+    ```python
+    squares = []
+    for value in range(1, 11):
+        square = value**2
+        squares.append(square)
+    print(squares)
+    ```
 - 较复杂模式2
-```python
-squares = []
-for value in range(1, 11):
-    squares.append(value**2)
-print(squares)
-```
+    ```python
+    squares = []
+    for value in range(1, 11):
+        squares.append(value**2)
+    print(squares)
+    ```
 - 列表解析
-```python
-squares = [value**2 for value in range(1,11)]
-print(squares)
-```
+    ```python
+    squares = [value**2 for value in range(1,11)]
+    print(squares)
+    ```
 要使用这种语法，首先指定一个描述性的列表名，如``squares``；然后，指定一个左方括号，并定义一个表达式，用于生成你要存储到列表中的值。
 表达式为``value**2``，它计算平方值。接下来，编写一个``for``循环，用于给表达式提供值，再加上右方括号。
 ``for``循环为``for value in range(1,11)``，它将值1~10提供给表达式``value**2``。请注意，这里的``for``语句末尾没有冒号。
@@ -166,119 +166,119 @@ print(squares)
 
 #### 分片赋值
 - 一次为多个元素赋值
-```bash
->>> name = list('Perl')
->>> name
-['P', 'e', 'r', 'l']
->>> name[1:] = list('ython')
->>> name
-['P', 'y', 't', 'h', 'o', 'n']
-```
+    ```bash
+    >>> name = list('Perl')
+    >>> name
+    ['P', 'e', 'r', 'l']
+    >>> name[1:] = list('ython')
+    >>> name
+    ['P', 'y', 't', 'h', 'o', 'n']
+    ```
 - 插入新的元素「替换一个空的切片」
-```bash
->>> numbers = [1, 5]
->>> numbers[1:1] = [2, 3, 4]
->>> numbers
-[1, 2, 3, 4, 5]
-```
+    ```bash
+    >>> numbers = [1, 5]
+    >>> numbers[1:1] = [2, 3, 4]
+    >>> numbers
+    [1, 2, 3, 4, 5]
+    ```
 - 删除元素
-```bash
->>> numbers
-[1, 2, 3, 4, 5]
->>> numbers[1:4] = []
->>> numbers
-[1, 5]
-```
+    ```bash
+    >>> numbers
+    [1, 2, 3, 4, 5]
+    >>> numbers[1:4] = []
+    >>> numbers
+    [1, 5]
+    ```
 
 #### 列表方法
 - append「列表末尾增加元素」
 - count 「统计某个元素在列表中出现的次数」
-```bash
->>> ['to', 'be', 'or', 'not', 'to', 'be'].count('to') 
-2 
->>> x = [[1, 2], 1, 1, [2, 1, [1, 2]]] 
->>> x.count(1) 
-2 
->>> x.count([1, 2]) 
-1
-```
+    ```bash
+    >>> ['to', 'be', 'or', 'not', 'to', 'be'].count('to') 
+    2 
+    >>> x = [[1, 2], 1, 1, [2, 1, [1, 2]]] 
+    >>> x.count(1) 
+    2 
+    >>> x.count([1, 2]) 
+    1
+    ```
 - extend 「在列表末尾增加另一个列表中的多个值」「原列表被修改」
-```bash
->>> a = [1, 2, 3] 
->>> b = [4, 5, 6] 
->>> a.extend(b) 
->>> a 
-[1, 2, 3, 4, 5, 6]
-```
+    ```bash
+    >>> a = [1, 2, 3] 
+    >>> b = [4, 5, 6] 
+    >>> a.extend(b) 
+    >>> a 
+    [1, 2, 3, 4, 5, 6]
+    ```
 - index 「索引位置」
-```bash
->>> knights = ['We', 'are', 'the', 'knights', 'who', 'say', 'ni'] 
->>> knights.index('who') 
-4 
->>> knights.index('herring') 
-Traceback (innermost last): 
- File "<pyshell>", line 1, in ? 
- knights.index('herring') 
-ValueError: list.index(x): x not in list
->>> knights[4] 
-'who'
-```
-- insert 「列表插入元素」
-```bash
->>> numbers = [1, 2, 3, 5, 6, 7] 
->>> numbers.insert(3, 'four') 
->>> numbers 
-[1, 2, 3, 'four', 5, 6, 7]
-```
+    ```bash
+    >>> knights = ['We', 'are', 'the', 'knights', 'who', 'say', 'ni'] 
+    >>> knights.index('who') 
+    4 
+    >>> knights.index('herring') 
+    Traceback (innermost last): 
+     File "<pyshell>", line 1, in ? 
+     knights.index('herring') 
+    ValueError: list.index(x): x not in list
+    >>> knights[4] 
+    'who'
+    ```
+- insert 「列表插入元素」「第一个参数是索引号，第二个参数是待添加的新元素」
+    ```bash
+    >>> numbers = [1, 2, 3, 5, 6, 7] 
+    >>> numbers.insert(3, 'four') 
+    >>> numbers 
+    [1, 2, 3, 'four', 5, 6, 7]
+    ```
 - pop 「移除列表元素」「默认最后一个」「可实现一种常见的数据结构—栈"后进先出"」
-```bash
->>> x = [1, 2, 3] 
->>> x.pop() 
-3 
->>> x 
-[1, 2] 
->>> x.pop(0) 
-1 
->>> x 
-[2]
-```
+    ```bash
+    >>> x = [1, 2, 3] 
+    >>> x.pop() 
+    3 
+    >>> x 
+    [1, 2] 
+    >>> x.pop(0) 
+    1 
+    >>> x 
+    [2]
+    ```
 - remove 「删除第一个指定值的元素」
-```bash
->>> x = ['to', 'be', 'or', 'not', 'to', 'be'] 
->>> x.remove('be') 
->>> x 
-['to', 'or', 'not', 'to', 'be'] 
->>> x.remove('bee') 
-Traceback (innermost last): 
- File "<pyshell>", line 1, in ? 
- x.remove('bee') 
-ValueError: list.remove(x): x not in list
-```
+    ```bash
+    >>> x = ['to', 'be', 'or', 'not', 'to', 'be'] 
+    >>> x.remove('be') 
+    >>> x 
+    ['to', 'or', 'not', 'to', 'be'] 
+    >>> x.remove('bee') 
+    Traceback (innermost last): 
+     File "<pyshell>", line 1, in ? 
+     x.remove('bee') 
+    ValueError: list.remove(x): x not in list
+    ```
 - reverse 「按相反的顺序排列列表中的元素」「reversed」
-```bash
->>> x = [1, 2, 3] 
->>> x.reverse() 
->>> x 
-[3, 2, 1]
-```
+    ```bash
+    >>> x = [1, 2, 3] 
+    >>> x.reverse() 
+    >>> x 
+    [3, 2, 1]
+    ```
 - sort 「对列表就地排序」「sorted」
-```bash
->>> x = [4, 6, 2, 1, 7, 9] 
->>> x.sort() 
->>> x 
-[1, 2, 4, 6, 7, 9]
-```
+    ```bash
+    >>> x = [4, 6, 2, 1, 7, 9] 
+    >>> x.sort() 
+    >>> x 
+    [1, 2, 4, 6, 7, 9]
+    ```
 - 高级排序「方法sort接受两个可选参数：key和reverse」
-```bash
->>> x = ['aardvark', 'abalone', 'acme', 'add', 'aerate'] 
->>> x.sort(key=len) 
->>> x 
-['add', 'acme', 'aerate', 'abalone', 'aardvark']
->>> x = [4, 6, 2, 1, 7, 9] 
->>> x.sort(reverse=True) 
->>> x 
-[9, 7, 6, 4, 2, 1]
-```
+    ```bash
+    >>> x = ['aardvark', 'abalone', 'acme', 'add', 'aerate'] 
+    >>> x.sort(key=len) 
+    >>> x 
+    ['add', 'acme', 'aerate', 'abalone', 'aardvark']
+    >>> x = [4, 6, 2, 1, 7, 9] 
+    >>> x.sort(reverse=True) 
+    >>> x 
+    [9, 7, 6, 4, 2, 1]
+    ```
 
 ### 字符串
 #### 设置字符串格式『Python基础教程3.2、3.3节』
@@ -313,12 +313,12 @@ ValueError: list.remove(x): x not in list
     - `转换标志`：跟在叹号后面的单个字符。当前支持的字符包括`r（表示repr）`、`s（表示str）`和`a（表示ascii）`。如果你指定了转换标志，将不使用对象本身的格式设置机制，而是使用指定的函数将对象转换为字符串，再做进一步的格式设置。
     - `格式说明符`：跟在冒号后面的表达式（这种表达式是使用微型格式指定语言表示的）。格式说明符让我们能够详细地指定最终的格式，包括格式类型（如字符串、浮点数或十六进制数），字段宽度和数的精度，如何显示符号和千位分隔符，以及各种对齐和填充方式。
     3.1 替换字段名：
-    ```bash
-    >>> "{foo} {} {bar} {}".format(1, 2, bar=4, foo=3) 
-    '3 1 4 2' 
-    >>> "{foo} {1} {bar} {0}".format(1, 2, bar=4, foo=3) 
-    '3 2 4 1'
-    ```
+        ```bash
+        >>> "{foo} {} {bar} {}".format(1, 2, bar=4, foo=3) 
+        '3 1 4 2' 
+        >>> "{foo} {1} {bar} {0}".format(1, 2, bar=4, foo=3) 
+        '3 2 4 1'
+        ```
     3.2 基本转换
     3.3 宽度、精度、千位分隔符
     3.4 符号、对齐、用0填充
@@ -754,13 +754,13 @@ True
 这里的关键是，通过将问题分解为较小的部分，可避免递归没完没了，因为问题终将被分解成基线条件可以解决的最小问题。
 - 示例：阶乘和幂
 - lambda表达式
-```bash
->>> seq = ["foo", "x41", "?!", "***"]
->>> [x for x in seq if x.isalnum()] 
-['foo', 'x41'] 
->>> filter(lambda x: x.isalnum(), seq) 
-['foo', 'x41']
-```
+    ```bash
+    >>> seq = ["foo", "x41", "?!", "***"]
+    >>> [x for x in seq if x.isalnum()] 
+    ['foo', 'x41'] 
+    >>> filter(lambda x: x.isalnum(), seq) 
+    ['foo', 'x41']
+    ```
 
 
 ### 面向对象
