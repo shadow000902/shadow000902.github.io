@@ -15,6 +15,7 @@ tags: [测试用例]
     6. 判定表法
     7. 正交试验法
     8. 功能图法
+[Xmind原始文件地址](https://www.icloud.com/iclouddrive/0LOs-7Z7lePvixFZN6pPUnr6A)
 
   <!--more-->
 
