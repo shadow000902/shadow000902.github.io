@@ -263,7 +263,6 @@ It currently provides the following columns:
   - ``User name``                                   # 最后一次构建的执行人
   - ``Workspace link``
 
-
 #### 常用插件汇总
   - ``Build Environment Plugin``构建环境插件，可以进行构建环境比较。
   - ``Build Flow Plugin``工作流插件，支持DSL脚本定义工作流
@@ -282,6 +281,7 @@ It currently provides the following columns:
   - ``Multijob Plugin``多任务插件
   - ``Naginator Plugin``任务重试插件
   - ``Parameterized Trigger Plugin``这是一个扩展型的插件，使各个job连接的时候可以传递一些job相关的信息
+  - ``Persistent Parameter``参数化插件，用于在下次参数化构建时，保留前一次的选择记录
   - ``Periodic Backup``使用心得：备份是运维一个系统必须要保障的事情，该插件的恢复功能可能不可用，需要手工进行，好处在于可以定时备份
   - ``Publish Over SSH Plugin``通过ssh发布文件
   - ``Rebuild Plugin``重新执行插件
