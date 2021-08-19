@@ -1,77 +1,92 @@
 ---
 title: appium运行sample-code示例
-date: 2016-03-23 00:09:35
-categories: [Appium]
-tags: [appium]
+date: '2016-03-23T00:09:35.000Z'
+categories:
+  - Appium
+tags:
+  - appium
 ---
 
-### 准备工作
-0. android-sdk，jdk，python啥的就不说了，自己解决
-1. 安装node.js
-2. 安装appium
-``` bash
-npm install -g appium   # npm --registry http://registry.cnpmjs.org install -g appium (推荐这种,npm的国内镜像)
-```
+# 2016-03-23-appium-run-sample-code
 
-  <!--more-->
+## 准备工作
 
-3. 检查appium运行环境是否可用
-``` bash
-C:\Users\shadow>appium
-[Appium] Welcome to Appium v1.5.0
-[Appium] Appium REST http interface listener started on 0.0.0.0:4723
-```
-4. 安装selenium (前提已安装好python)
-``` bash
-pip install selenium    # pip install selenium -i http://pypi.douban.com/simple （使用国内地址）
-```
-5. 安装appium-python-client
-``` bash
-pip install Appium-Python-Client
-```
-至此，需要的软件和环境都已经安装完毕，下面就可以开始去运行sample-code的脚本了
+1. android-sdk，jdk，python啥的就不说了，自己解决
+2. 安装node.js
+3. 安装appium
 
-### 运行Appium
+   ```bash
+   npm install -g appium   # npm --registry http://registry.cnpmjs.org install -g appium (推荐这种,npm的国内镜像)
+   ```
+
+4. 检查appium运行环境是否可用
+
+   ```bash
+   C:\Users\shadow>appium
+   [Appium] Welcome to Appium v1.5.0
+   [Appium] Appium REST http interface listener started on 0.0.0.0:4723
+   ```
+
+5. 安装selenium \(前提已安装好python\)
+
+   ```bash
+   pip install selenium    # pip install selenium -i http://pypi.douban.com/simple （使用国内地址）
+   ```
+
+6. 安装appium-python-client
+
+   ```bash
+   pip install Appium-Python-Client
+   ```
+
+   至此，需要的软件和环境都已经安装完毕，下面就可以开始去运行sample-code的脚本了
+
+## 运行Appium
+
 1. 默认方式运行appium
-``` bash
-C:\Users\shadow>appium
-[Appium] Welcome to Appium v1.5.0
-[Appium] Appium REST http interface listener started on 0.0.0.0:4723
-```
-默认运行在本地ip的4723端口，每次运行用例都会重置app
+
+   ```bash
+   C:\Users\shadow>appium
+   [Appium] Welcome to Appium v1.5.0
+   [Appium] Appium REST http interface listener started on 0.0.0.0:4723
+   ```
+
+   默认运行在本地ip的4723端口，每次运行用例都会重置app
 
 2. 指定方式运行appium
-``` bash
-C:\Users\shadow>appium -a 127.0.0.1 -p 4723 -U 8XV5T15A20009865 --no-reset
-[Appium] Welcome to Appium v1.5.0
-[Appium] Non-default server args:
-[Appium]   address: '127.0.0.1'
-[Appium]   udid: '8XV5T15A20009865'
-[Appium]   noReset: true
-[Appium] Deprecated server args:
-[Appium]   -U,--udid => --default-capabilities '{"udid":"8XV5T15A20009865"}'
-[Appium]   --no-reset => --default-capabilities '{"noReset":true}'
-[Appium] Default capabilities, which will be added to each request unless overridden by desired capabilities:
-[Appium]   udid: '8XV5T15A20009865'
-[Appium]   noReset: true
-[Appium] Appium REST http interface listener started on 127.0.0.1:4723
-```
 
-``` bash
+   ```bash
+   C:\Users\shadow>appium -a 127.0.0.1 -p 4723 -U 8XV5T15A20009865 --no-reset
+   [Appium] Welcome to Appium v1.5.0
+   [Appium] Non-default server args:
+   [Appium]   address: '127.0.0.1'
+   [Appium]   udid: '8XV5T15A20009865'
+   [Appium]   noReset: true
+   [Appium] Deprecated server args:
+   [Appium]   -U,--udid => --default-capabilities '{"udid":"8XV5T15A20009865"}'
+   [Appium]   --no-reset => --default-capabilities '{"noReset":true}'
+   [Appium] Default capabilities, which will be added to each request unless overridden by desired capabilities:
+   [Appium]   udid: '8XV5T15A20009865'
+   [Appium]   noReset: true
+   [Appium] Appium REST http interface listener started on 127.0.0.1:4723
+   ```
+
+```bash
 -a 127.0.0.1                                                    # 指定服务器
 -p 4723                                                         # 指定端口
 -U 8XV5T15A20009865                                             # 指定设备，U指设备的udid
 --no-reset                                                      # 直接运行app，而不重置app
 ```
 
-### 执行脚本
-#### 编辑sample-code中的python脚本，以适应自己的机器运行
-脚本存放位置：
-在安装appium的时候，同时就下载好了示例脚本和需要的apk文件，存放在C:\Users\shadow\AppData\Roaming\npm\node_modules\appium\sample-code目录中
+## 执行脚本
 
-脚本如下(截取了配置部分)：
+### 编辑sample-code中的python脚本，以适应自己的机器运行
+
+脚本存放位置： 在安装appium的时候，同时就下载好了示例脚本和需要的apk文件，存放在C:\Users\shadow\AppData\Roaming\npm\node\_modules\appium\sample-code目录中
+
+脚本如下\(截取了配置部分\)：
+
 ```python
-
 PATH = lambda p: os.path.abspath(
     os.path.join(os.path.dirname(__file__), p)
 )
@@ -92,21 +107,27 @@ class ComplexAndroidTests(unittest.TestCase):
         self.driver.quit()
 ```
 
-#### 运行脚本
+### 运行脚本
+
 2.1 打开appium
-``` bash
+
+```bash
 C:\Users\shadow>appium
 [Appium] Welcome to Appium v1.5.0
 [Appium] Appium REST http interface listener started on 0.0.0.0:4723
 ```
+
 2.2 运行python脚本
-``` bash
+
+```bash
 py.test andrid_complex.py
 ```
+
 如果成功的话就能在打开appium的cmd窗口中看到有log不断的打印出来，结束后，在运行python脚本的cmd窗口就能看到用例的运行结果
 
 我是在git bash下运行的，结果如下：
-``` bash
+
+```bash
 shadow@shadow MINGW64 ~/AppData/Roaming/npm/node_modules/appium/sample-code/examples/python
 $ py.test android_complex.py
 ============================= test session starts =============================
@@ -129,6 +150,7 @@ C:\Anaconda3\lib\site-packages\selenium\webdriver\remote\errorhandler.py:194: We
 ```
 
 appium下的结果：
+
 ```bash
 shadow@shadow MINGW64 ~/Desktop
 $ appium
@@ -155,3 +177,4 @@ $ appium
 如此，一个用例就成功的运行了
 
 接下来的任务就是如何有效高效的编写高质量的自动化测试用例了~
+
