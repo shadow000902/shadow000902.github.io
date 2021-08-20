@@ -1,2 +1,4 @@
-# draft
-
+---
+title: {{ title }}
+tags:
+---
