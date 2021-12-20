@@ -119,3 +119,30 @@ VuePC端UI组件库：[Element](https://element.eleme.cn/)、[iView](https://www
         }
     </script>
     ```
+
+### 文本换行
+1. 通过 `css属性`实现
+
+    示例1：
+    ```vue
+    <p style="white-space: pre-wrap;" v-text='item.des'></p>
+    ```
+    示例2：
+    ```vue
+    <el-row>
+       <el-col>职位描述：</el-col>
+       <el-col style="white-space: pre-wrap;">{{resumeDetails.postDescribe}}</el-col>
+    </el-row>
+    ```
+    `white-space`的各属性详情可以阅读[这里](https://www.w3school.com.cn/cssref/pr_text_white-space.asp)
+
+2. 通过`v-html`实现
+    
+    需要先把字符串里的`\n`替换为`<br>`，然后用`v-html`指令渲染字符串为`innerHTML`。
+    ```vue
+    // JS部分
+    this.text = res.data.replace(/\n/g, '<br>')
+    
+    // HTML部分
+    <div v-html="text"></div>
+    ```

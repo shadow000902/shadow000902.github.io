@@ -139,17 +139,13 @@ print(lists)                 #[{'num': 0}, {'num': 1}, {'num': 2}]
 原因分析：
 
     1. dictionary（字典）赋给list的是一个位置
-    
     2. dictionary定义在循环外，每次使用list.append(dictionary)赋给 list的都是相同的位置，即指向了同一块的地址；当在同一地址的dictionary的值已经改变了，所以list取到的之前位置的值改变了，表现出后面数据覆盖前面数据的表象
-
     3. dictionary定义在循环内，相当于每一次循环生成一个dictionary，占用不同的位置存储值，所以可以赋给list不同元素不同的位置，获得不同的值。 
 
 总结：
 
     1. 对于不能理解地址，可以通过在循环中print(id(dictionary))，将地址打印出来对比分析
-
     2. 在python中，对象赋值实际上是对象的引用。当创建一个对象，然后把它赋给另一个变量的时候，python并没有拷贝这个对象，而只是拷贝了这个对象的引用
-
     3. 关于Python中复制、浅拷贝和深拷贝的区别
       - 直接赋值，传递对象的引用而已，原始列表改变，被赋值的b也会做相同的改变
       - copy浅拷贝，只拷贝父对象，不会拷贝对象的内部的子对象，所以原始数据改变，子对象会改变
@@ -393,3 +389,27 @@ def getRandomSet(bits):
 
     return value_set
 ```
+
+#### 反转list的三种方法
+1. 使用`reversed()`函数
+    ```python
+    a=[1,2,3,4,5,6,7,8,9]  
+    b=list(reversed(a))  
+    print b
+    ```
+    注意：reversed()函数返回的是一个迭代器，而不是一个List，需要再使用List函数转换一下。
+2. 使用`sorted()`
+    ```python
+    a=[1,2,3,4,5,6,7,8,9]  
+    c=sorted(a,cmp=None, key=None, reverse=True)  
+    print c
+    ```
+    注意：其中reverse=True是按降序排列，reverse=False是按照升序排列。
+3. 使用分片
+    ```python
+    a=[1,2,3,4,5,6,7,8,9]  
+    d=a[::-1]  
+    print d
+    ```
+    注意：其中[::-1]代表从后向前取值，每次步进值为1。
+
