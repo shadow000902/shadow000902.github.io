@@ -117,6 +117,7 @@ tags: [jira]
 
 3. `Script-Fields`使用
     依次进入：`设置`-`管理应用`-`Script Fields`，点击`Create Script Field`按钮，再点击`Custom Script Field`
+    [documentation for Script Fields](https://scriptrunner.adaptavist.com/latest/jira/scripted-fields.html)
     {% asset_img Create-Script-Field.png Create-Script-Field %}
     {% asset_img Custom-Script-Field.png Custom-Script-Field %}
 
@@ -302,7 +303,48 @@ tags: [jira]
     {% asset_img 在列表选择字段编辑的「ConfigureContext」.png 在列表选择字段编辑的「ConfigureContext」 %}
     从上面这张图可以看到，因为有两个作为`Reopen`的状态，比较粗暴的方法就是都统计上
     4.5 在该字段的`Configure Context`，就可以设置需要应用到的项目了，建议按照需要选择自己的项目，以免影响他人使用
-    {% asset_img 选择需要应用的项目.png 选择需要应用的项目.png %}
+    {% asset_img 选择需要应用的项目.png 选择需要应用的项目 %}
+
+5. 对一些字段做一些特殊操作
+    使用 `scriptrunner` 插件的 `Behaviours` 功能
+    {% asset_img Behaviours.png Behaviours %}
+    对应的脚本编辑的官方文档[API quick reference.](https://scriptrunner.adaptavist.com/5.6.7.1-jira8/jira/behaviours-api-quickref.html)
+
+    5.1 对一些输入框字段增加默认内容
+    {% asset_img 输入框设置默认值.png 输入框设置默认值 %}
+    ```groovy
+    def desc = getFieldById("description")
+    
+    def defaultValue = """操作系统：Web
+    操作步骤：
+    
+    【实际值】
+    【期望值】""".replaceAll(/    /, '')
+    
+    if (!underlyingIssue?.description) {
+    desc.setFormValue(defaultValue)
+    }
+    ```
+   
+    5.2 下拉筛选支持搜索
+    {% asset_img 下拉筛选支持搜索.png 下拉筛选支持搜索 %}
+    ```groovy
+    getFieldByName("需求分类").convertToSingleSelect()
+    getFieldByName("超级4S项目").convertToSingleSelect()
+    ```
+   
+5. 监听器 `Listeners`
+    比如把操作问题状态变更的人加入到关注人列表 `Adds the current user as a watcher`
+    [官方介绍](https://scriptrunner.adaptavist.com/5.6.7.1-jira8/jira/listeners.html#_add_watcher)
+    {% asset_img Adds-the-current-user-as-a-watcher.png Adds-the-current-user-as-a-watcher %}
+    ```groovy
+    issue.getLabels().contains("数据订正") || issue.getLabels().contains("线上问题")
+    ```
+
+    
+    
+
+
 
 #### `JSU`
 1. `Copy Value From Other Field (JSU)`从其它字段复制值到另一个字段
@@ -322,4 +364,3 @@ tags: [jira]
     {% asset_img FieldsRequired.png FieldsRequired %}
     从`Available fields`中选择字段，添加到右侧的`Required fields`中，作为该次操作的必填参数
     比如希望产品在PRD完成、在和开发测试确认好排期后，在jira流程中填入预计上线时间，这个时候，就可以在产品进行把流转转给开发的这个操作下，新增该验证器，让产品同学必须填入`预计上线时间`，才能让流程往下流转
-    

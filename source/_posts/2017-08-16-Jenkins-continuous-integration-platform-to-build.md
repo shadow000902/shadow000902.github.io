@@ -132,6 +132,12 @@ System.setProperty("hudson.model.DirectoryBrowserSupport.CSP","sandbox allow-scr
 ```
 或者在 Jenkins 中新建一个项目，添加一个``Execute system Groovy script``，其中添加以上脚本，然后构建该项目。
 
+#### Jenkins构建时遇到的``No compiler is provided in this environment. Perhaps you are running on a JRE rather than a JDK?``
+原因：maven项目执行编译时，没有找到对应的JDK。
+解决方案：在Jenkins的设置中加入JDK的配置。
+{% asset_img Jenkins的JDK配置.png Jenkins的JDK配置 %}
+注意手动录入系统安装的JDK的路径，即在`JAVA_HOME`输入框手动输入JDK的安装路径，不勾选`Install automatically`
+
 ### 好用的Jenkins插件
 
 #### ``Parameterized Remote Trigger Plugin`` 【多slave项目顺序执行】 ``Parameterized Trigger Plugin`` 【多项目顺序执行】

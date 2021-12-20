@@ -57,5 +57,21 @@ tags: [github]
     git remote -v
     ```
 
+### 合并两个不同的仓库
+
+```shell
+# 本地仓库oldRepo中添加远程仓库newRepo
+git remote add newRepo https://github.com/shadow000902/newRepo.git
+# 从远程仓库newRepo中拉取数据到本地仓库中
+git fetch newRepo
+# 将远程仓库newRepo中拉取的develop分支作为新分支checkout到本地，新分支名为 newRepo/develop
+git checkout -b newRepo/develop newRepo/develop
+# 切换回本地仓库oldRepo的develop分支
+git checkout develop
+# 将 newRepo/develop 分支合并入 develop 分支
+git merge newRepo/develop
+# 解决冲突并推送到远程
+...
+```
 
 

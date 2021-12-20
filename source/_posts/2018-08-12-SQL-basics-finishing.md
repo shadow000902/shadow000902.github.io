@@ -157,6 +157,25 @@ tags: [mysql]
     select quantity, quantity*item_price AS expended_price
     ```
     
+4. 自身连接查询`join`
+    数据源如下，表明 `students` 查找`class='B'`的 `score` 大于 `class='A'` 的`score` 的`name`
+    | id | name | class | score |
+    | :--- | :--- | :--- | :--- |
+    | 1 | 张三 | A | 35 |
+    | 2 | 张三 | B | 16 |
+    | 3 | 李四 | A | 15 |
+    | 4 | 李四 | B | 17 |
+    | 5 | 王五 | A | 38 |
+    | 6 | 王五 | B | 18 |
+
+    ```sql
+    select a.name, a.score, b.score from students as a join students as b where a.name = b.name and a.score > b.class and a.class = "B";
+    ```
+    或者
+    ```sql
+    select a.name, a.score, b.score from students a, students b where a.name = b.name and a.score > b.class and a.class = "B";
+    ```
+    
 ### 使用函数处理数据
     函数的类型：
         - 用于处理文本字符串
