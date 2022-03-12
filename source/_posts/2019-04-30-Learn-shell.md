@@ -40,3 +40,19 @@ BLOCK
 ....注释内容1
 BLOCK'
 ```
+
+#### `shell` 并发执行
+```bash
+date
+for i in `seq 1 5`
+do
+{
+    sh newAccount.sh
+    sleep 3
+} &
+done
+wait  ##等待所有子后台进程结束
+date
+```
+`date`打印当前时间
+`sh newAccount.sh`表示执行`newAccount.sh`脚本，并发执行5次，即同时发起

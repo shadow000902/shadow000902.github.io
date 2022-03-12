@@ -1,27 +1,12 @@
 ---
-title: Spock 测试框架学习
+title: Spock 测试实践
 date: 2021-10-31 19:27:13
 categories: [Spock]
 tags: [spock]
 ---
 
 ### 异常测试
-
-被测试方法：
-
- <!--more-->
-
-<script>
-    if("spockTest"===prompt("请输入文档密码"))
-    {
-        alert("密码正确");
-    }
-    else
-    {
-        alert("密码错误返回主页");
-        location="/";
-    }
-</script>
+#### 被测对象
 
 ```groovy
 /**
@@ -59,7 +44,21 @@ public void validateUser(UserVO user) throws APIException {
 }
 ```
 
-Spock测试方法：
+  <!--more-->
+
+<script>
+    if("spockTest"===prompt("请输入文档密码"))
+    {
+        alert("密码正确");
+    }
+    else
+    {
+        alert("密码错误返回主页");
+        location="/";
+    }
+</script>
+
+#### Spock测试类
 ```groovy
 /**
  * 校验用户请求参数的测试类
@@ -420,6 +419,558 @@ class HttpRequestPropertyLoaderTest extends Specification {
 }
 ```
 
+
+### 被测对象有调用父类时的测试方法
+#### 被测对象
+```java
+package com.shadow.cloud.dennis.chain.biz.extension.member.changyi;
+
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
+import com.shadow.api.rpc.annotation.ExtensionService;
+import com.shadow.cloud.dennis.chain.api.enums.GenderEnum;
+import com.shadow.cloud.dennis.chain.api.model.User;
+import com.shadow.cloud.dennis.chain.api.model.UserRecord;
+import com.shadow.cloud.dennis.chain.biz.common.cloud.UserAPI;
+import com.shadow.cloud.dennis.chain.biz.extension.ExtensionBase;
+import com.shadow.cloud.dennis.chain.biz.extension.member.changyi.api.DennisCrmClient;
+import com.shadow.cloud.dennis.chain.biz.extension.member.changyi.bean.QueryMemberInfoCrmRequest;
+import com.shadow.cloud.dennis.chain.biz.extension.member.changyi.bean.QueryMemberInfoCrmResponse;
+import com.shadow.cloud.dennis.chain.biz.quartz.JobConstant;
+import com.shadow.cloud.dennis.chain.biz.quartz.JobEntity;
+import com.shadow.cloud.dennis.chain.biz.quartz.MemberCreateJob;
+import com.shadow.cloud.dennis.chain.biz.quartz.SchedulerConfig;
+import com.shadow.cloud.dennis.chain.biz.service.UserService;
+import com.shadow.cloud.dennis.chain.biz.utils.OutParamUtil;
+import com.shadow.cloud.dennis.chain.dal.mapper.UserRecordMapper;
+import com.shadow.cloud.extension.api.scrm.GetCustomerExtPoint;
+import com.shadow.cloud.extension.param.scrm.*;
+import com.shadow.cloud.metadata.common.OutParam;
+import com.shadow.cloud.open.sdk.gen.v3_0_1.model.ShadowUserBasicGetResult;
+import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import javax.annotation.Resource;
+
+
+@Slf4j
+@ExtensionService("getCustomerExtPoint")
+@Service
+public class GetCustomerEx extends ExtensionBase implements GetCustomerExtPoint {
+
+
+    @Resource
+    private DennisCrmClient dennisCrmClient;
+
+    @Autowired
+    protected UserService userService;
+
+    @Autowired
+    private UserRecordMapper userRecordMapper;
+
+
+    @Autowired
+    private UserAPI userAPI;
+
+
+    @Override
+    public OutParam<CustomerProfileDTO> execute(CustomerIdentifyDTO customerIdentifyDTO) {
+        CustomerProfileDTO customerProfileDTO = new CustomerProfileDTO();
+        try {
+            String yzOpenId = customerIdentifyDTO.getYzOpenId();
+
+
+            if (!isBinding(yzOpenId)) {//没绑定的情况重试
+                log.info("客户会员信息查询扩展点，查询长益crm会员信息失败,不存在会员绑定关系，扩展点请求参数 ： {}", JSON.toJSONString(customerIdentifyDTO));
+                CreateCustomerRequestDTO createCustomerRequestDTO = new CreateCustomerRequestDTO();
+                createCustomerRequestDTO.setCustomerIdentifyDTO(customerIdentifyDTO);
+                CustomerProfileCreateDTO customerProfileCreateDTO = new CustomerProfileCreateDTO();
+                //查询手机号
+                ShadowUserBasicGetResult shadowUserBasicInfoByOpenId = userAPI.getShadowUserBasicInfoByOpenId(customerIdentifyDTO.getKdtId().toString(), customerIdentifyDTO.getYzOpenId());
+                if (shadowUserBasicInfoByOpenId.getSuccess() && shadowUserBasicInfoByOpenId.getData() != null && shadowUserBasicInfoByOpenId.getData().getMobile() != null) {
+                    customerProfileCreateDTO.setRegisterMobile(shadowUserBasicInfoByOpenId.getData().getMobile());
+                    createCustomerRequestDTO.setCustomerProfileCreateDTO(customerProfileCreateDTO);
+                    insertUserRecord(createCustomerRequestDTO);
+                } else {
+                    log.info("客户会员信息查询扩展点，请求有赞Api返回参数 ： {}", JSON.toJSONString(shadowUserBasicInfoByOpenId));
+                }
+                return OutParamUtil.failResult("查询失败", customerProfileDTO);
+            }
+
+
+            QueryMemberInfoCrmResponse queryMemberInfoCrmResponse = this.queryMemberInfoCrm(yzOpenId);
+            log.info("客户会员信息查询扩展点, 查询三方会员信息，三方响应参数 ：  {} ", JSON.toJSONString(queryMemberInfoCrmResponse));
+            if (queryMemberInfoCrmResponse != null && queryMemberInfoCrmResponse.isSuccess()) {
+                customerProfileDTO.setName(queryMemberInfoCrmResponse.getMemberName());
+                String memberSex = queryMemberInfoCrmResponse.getMemberSex();
+                if (StringUtils.isNotBlank(memberSex)) {
+                    customerProfileDTO.setGender(GenderEnum.getEnum(memberSex).shortValue());
+                }
+                customerProfileDTO.setBirthday(queryMemberInfoCrmResponse.getMemberBirthday());
+                //是否会员
+                customerProfileDTO.setIsMember(false);
+                ContactAddressDTO contactAddressDTO = new ContactAddressDTO();
+                //地域编码
+                contactAddressDTO.setAreaCode(queryMemberInfoCrmResponse.getMemberAddress());
+                contactAddressDTO.setAddress(queryMemberInfoCrmResponse.getMemberAddress());
+                customerProfileDTO.setContactAddressDTO(contactAddressDTO);
+                customerProfileDTO.setEmail(queryMemberInfoCrmResponse.getMemberEmail());
+                return OutParamUtil.successResult(customerProfileDTO);
+
+            } else {
+                //查询失败
+                log.error("客户会员信息查询扩展点, 查询三方会员信息失败，三方响应参数 : {} ", JSONObject.toJSONString(queryMemberInfoCrmResponse));
+                return OutParamUtil.failResult("查询失败", customerProfileDTO);
+            }
+
+        } catch (Exception e) {
+            log.error("长益crm查询会员信息失败！", e);
+
+        }
+        return OutParamUtil.failResult("查询失败", customerProfileDTO);
+    }
+
+
+    public QueryMemberInfoCrmResponse queryMemberInfoCrm(String yzOpenId) {
+
+
+        try {
+            QueryMemberInfoCrmResponse memberInfoCrmFromRedis = getMemberInfoCrmFromRedis(yzOpenId);
+            if (memberInfoCrmFromRedis != null) {
+                memberInfoCrmFromRedis.setSuccess(true);
+                return memberInfoCrmFromRedis;
+            } else {
+                User user = getUser(yzOpenId);
+                //查询会员信息
+                QueryMemberInfoCrmRequest queryMemberInfoCrmRequest = new QueryMemberInfoCrmRequest();
+                queryMemberInfoCrmRequest.setCondType("3");
+                queryMemberInfoCrmRequest.setCondValue(user.getMobile());
+                QueryMemberInfoCrmResponse queryMemberInfoCrmResponse = dennisCrmClient.post(queryMemberInfoCrmRequest);
+                if (queryMemberInfoCrmResponse.isSuccess()) {
+                    setMemberInfoCrmToRedis(queryMemberInfoCrmResponse, user);
+                }
+                return queryMemberInfoCrmResponse;
+            }
+        } catch (Exception e) {
+            log.info("查询会员信息失败===", e);
+        }
+        return null;
+
+    }
+
+
+    /**
+     * 添加重试记录
+     *
+     * @param createCustomerRequestDTO
+     * @param
+     */
+    public void insertUserRecord(CreateCustomerRequestDTO createCustomerRequestDTO) {
+        //用户在crm中存在，只用建立关系
+        try {
+            UserRecord bind = new UserRecord();
+            bind.setMsgId(createCustomerRequestDTO.getCustomerIdentifyDTO().getYzOpenId());
+            bind.setKdtId(createCustomerRequestDTO.getCustomerIdentifyDTO().getKdtId());
+            bind.setMsgInfo(JSON.toJSONString(createCustomerRequestDTO));
+            bind.setStatus(0);
+            bind.setTimes(0);
+            bind.setType(1);
+
+            try {
+                int count = userRecordMapper.insertSelective(bind);
+            } catch (Exception e) {
+                userRecordMapper.updateByMsgIdToTime(createCustomerRequestDTO.getCustomerIdentifyDTO().getYzOpenId());
+            }
+            SchedulerConfig.addJob(new JobEntity(JobConstant.MENBER_CREATE_GROUP + createCustomerRequestDTO.getCustomerIdentifyDTO().getYzOpenId(), JobConstant.MENBER_CREATE_GROUP, MemberCreateJob.class.getName(), createCustomerRequestDTO.getCustomerIdentifyDTO().getYzOpenId(), 1));
+
+        } catch (Exception e) {
+            log.error("客户会员信息查询扩展点中添加重试记录出错", e);
+        }
+
+    }
+
+}
+```
+
+#### 被测对象父类
+```java
+package com.shadow.cloud.dennis.chain.biz.extension;
+
+import com.shadow.cloud.dennis.chain.api.exception.NoSuchRedisKeyException;
+import com.shadow.cloud.dennis.chain.api.model.User;
+import com.shadow.cloud.dennis.chain.biz.common.rest.ezrpro.RestTemplateEzrpro;
+import com.shadow.cloud.dennis.chain.biz.extension.member.changyi.bean.QueryMemberInfoCrmResponse;
+import com.shadow.cloud.dennis.chain.biz.service.UserService;
+import com.shadow.cloud.dennis.chain.biz.utils.RedisUtil;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.concurrent.TimeUnit;
+
+
+@Slf4j
+@Service
+public class ExtensionBase{
+
+    @Autowired
+    protected UserService userService;
+    @Autowired
+    protected RestTemplateEzrpro baseRestTemplate;
+
+    /***
+     * 用户账号绑定数据，通过yzOpenId取值
+     ****/
+    public User getUserFromRedis(String yzOpenId) {
+        try{
+            User user =  RedisUtil.get("yz_open_id:" + yzOpenId, User.class);
+            return user;
+        } catch (NoSuchRedisKeyException e){
+            log.error("获取redis用户数据失败", e);
+        }
+        return null;
+    }
+
+    /***
+     * 用户详细信息，通过yzOpenId取值
+     ****/
+    public QueryMemberInfoCrmResponse getMemberInfoCrmFromRedis(String yzOpenId) {
+        try{
+            QueryMemberInfoCrmResponse queryMemberInfoCrmResponse =  RedisUtil.get("yz_open_id:MemberInfoCrm"+yzOpenId, QueryMemberInfoCrmResponse.class);
+            return queryMemberInfoCrmResponse;
+        } catch (NoSuchRedisKeyException e){
+            log.error("获取redis用户数据失败", e);
+        }
+        return null;
+    }
+
+    /***
+     * 用户账号绑定数据，通过accountId取值
+     ****/
+    public User getUserFromRedis(Long accountId) {
+        try{
+            User user =  RedisUtil.get("account_id:" + accountId, User.class);
+            return user;
+        } catch (NoSuchRedisKeyException e){
+            log.error("获取redis用户数据失败", e);
+        }
+        return null;
+    }
+
+    /**
+     * 有的扩展点只有yz_open_id，有的扩展点只有account_id，因此：
+     * redis两个都保存了
+     * ***/
+    public void setUserToRedis(User user) {
+        try{
+            if(user.getYzOpenId() != null) {
+                RedisUtil.set("yz_open_id:" + user.getYzOpenId(), user,120L,TimeUnit.MINUTES);
+            }
+            if(user.getAccountId() != null) {
+                RedisUtil.set("account_id:" + user.getAccountId(), user,120L,TimeUnit.MINUTES);
+            }
+        } catch (Exception e){
+            log.error("设置redis用户数据失败", e);
+        }
+    }
+
+    /**
+     * 有的扩展点只有yz_open_id，有的扩展点只有account_id，因此：
+     * redis两个都保存了
+     * ***/
+    public void setMemberInfoCrmToRedis(QueryMemberInfoCrmResponse queryMemberInfoCrmResponse,User user) {
+
+        try{
+            if(user.getYzOpenId() != null) {
+                RedisUtil.set("yz_open_id:MemberInfoCrm" + user.getYzOpenId(), queryMemberInfoCrmResponse,30L, TimeUnit.MINUTES);
+            }
+            if(user.getAccountId() != null) {
+                RedisUtil.set("account_id:MemberInfoCrm" + user.getAccountId(), queryMemberInfoCrmResponse,30L, TimeUnit.MINUTES);
+            }
+        } catch (Exception e){
+            log.error("设置redis用户数据失败", e);
+        }
+    }
+
+
+    /***
+     * 通过yz_open_id
+     * 获取三方--有赞用户关联表中的纪录
+     * ***/
+    protected User getUser(String yzOpenId){
+
+        User tmpUser = userService.getUserByYzOpenId(yzOpenId);
+        return tmpUser;
+    }
+
+    /***
+     * 通过accountId
+     * 获取三方--有赞用户关联表中的纪录
+     * ***/
+    protected User getUser(Long accountId) {
+        User tmpUser = userService.getUserByAccountId(String.valueOf(accountId));
+        return tmpUser;
+    }
+
+    /***
+     * 通过yz_open_id
+     * 是否绑定过会员
+     * ***/
+    public boolean isBinding(String yzOpenId){
+        User user = this.getUser(yzOpenId);
+        if (null == user || user.getMemberId().isEmpty()) {//没绑定
+            return false;
+        }
+        return true;
+    }
+
+    /***
+     * 通过accountId
+     * 是否绑定过会员
+     * ***/
+    protected boolean isBinding(Long accountId){
+        User user = this.getUser(accountId);
+        if (null == user || user.getMemberId().isEmpty()) {//没绑定
+            return false;
+        }
+        return true;
+    }
+
+}
+```
+
+#### Spock测试类
+```groovy
+package com.shadow.cloud.dennis.chain.test
+
+import com.shadow.cloud.dennis.chain.biz.common.cloud.UserAPI
+import com.shadow.cloud.dennis.chain.biz.extension.member.changyi.GetCustomerEx
+import com.shadow.cloud.dennis.chain.biz.extension.member.changyi.api.DennisCrmClient
+import com.shadow.cloud.dennis.chain.biz.extension.member.changyi.bean.QueryMemberInfoCrmResponse
+import com.shadow.cloud.dennis.chain.biz.service.UserService
+import com.shadow.cloud.extension.param.scrm.CustomerIdentifyDTO
+import com.shadow.cloud.dennis.chain.api.model.User
+import com.shadow.cloud.open.sdk.gen.v3_0_1.model.ShadowUserBasicGetResult;
+import spock.lang.Specification
+
+class GetCustomerExTest extends Specification {
+
+    def getCustomerExtPoint = Spy(GetCustomerEx.class)
+
+    DennisCrmClient dennisCrmClient = Mock()
+    UserService userService = Mock()
+    UserAPI userAPI = Mock()
+
+//    void setup() {
+//        getCustomerExtPoint.dennisCrmClient = dennisCrmClient
+//        getCustomerExtPoint.userService = userService
+//    }
+
+    def "Execute"(Long accountId, String accountType, Long kdtId, String mobile, Integer nodeKdtId, String yzOpenId) {
+        setup: "验证扩展点"
+        GetCustomerEx.metaClass.setProperty(getCustomerExtPoint, "userService", userService)
+        GetCustomerEx.metaClass.setProperty(getCustomerExtPoint, "dennisCrmClient", dennisCrmClient)
+        GetCustomerEx.metaClass.setProperty(getCustomerExtPoint, "userAPI", userAPI)
+        def customerIdentifyDTO = new CustomerIdentifyDTO(
+                accountId: accountId,
+                accountType: accountType,
+                kdtId: kdtId,
+                mobile: mobile,
+                nodeKdtId: nodeKdtId,
+                yzOpenId: yzOpenId)
+        def queryMemberInfoCrmResponse = [
+                isSuccess: true
+        ] as QueryMemberInfoCrmResponse
+
+        def user = [
+                accountId: accountId,
+                memberId : "123456",
+                kdtId    : kdtId,
+                mobile   : mobile,
+                yzOpenId : yzOpenId,
+        ] as User
+
+        def shadowUserBasicGetResultData = [
+                mobile      : mobile,
+                avatar      : null,
+                nick_name   : null,
+                yz_open_id  : yzOpenId,
+                country_code: null
+        ] as ShadowUserBasicGetResult.ShadowUserBasicGetResultData
+
+        def shadowUserBasicGetResult = [
+                code    : 200,
+                data    : shadowUserBasicGetResultData,
+                success : true,
+                message : null,
+                trace_id: null
+        ] as ShadowUserBasicGetResult
+
+        and: "Mock方法调用"
+        0 * dennisCrmClient.post(_) >> queryMemberInfoCrmResponse
+        1 * getCustomerExtPoint.getUser(yzOpenId) >> user >> user
+        0 * userAPI.getShadowUserBasicInfoByOpenId(kdtId.toString(), yzOpenId) >> shadowUserBasicGetResult
+        1 * getCustomerExtPoint.getMemberInfoCrmFromRedis(yzOpenId) >> queryMemberInfoCrmResponse
+        0 * getCustomerExtPoint.setMemberInfoCrmToRedis(queryMemberInfoCrmResponse, user) >> null
+
+        when: "预期结果"
+        def resp = this.getCustomerExtPoint.execute(customerIdentifyDTO)
+
+        then: "验证结果"
+        assert resp.code == result
+        where: "数据准备"
+        accountId     | accountType     | kdtId    | mobile        | nodeKdtId  | yzOpenId                     || result
+        "16285515049" | "ShaDowAccount" | 91020932 | "15512341234" | "91020932" | "DhYBgpIs910549797344243712" || "200"
+    }
+
+}
+```
+
+### Spock依赖整理
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>shadow-sd</artifactId>
+        <groupId>com.shadow.sd</groupId>
+        <version>1.1.6-RELEASE</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>shadow-sd-spock</artifactId>
+
+    
+    <properties>
+
+        <groovy.version>3.0.9</groovy.version>
+        <spock.version>2.0-groovy-3.0</spock.version>
+        <junitplatform.version>1.8.2</junitplatform.version>
+
+
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+    </properties>
+
+
+    <dependencies>
+
+        <!--被测对象 dependency-->
+        <dependency>
+            <groupId>com.shadow.sd</groupId>
+            <artifactId>shadow-api</artifactId>
+            <version>1.7.25-RELEASE</version>
+            <scope>test</scope>
+        </dependency>
+        ......
+
+        <!--groovy dependency-->
+        <dependency>
+            <groupId>org.codehaus.groovy</groupId>
+            <artifactId>groovy</artifactId>
+            <version>${groovy.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.codehaus.groovy</groupId>
+            <artifactId>groovy-json</artifactId>
+            <version>${groovy.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.codehaus.groovy</groupId>
+            <artifactId>groovy-templates</artifactId>
+            <version>${groovy.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.codehaus.groovy</groupId>
+            <artifactId>groovy-sql</artifactId>
+            <version>${groovy.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.codehaus.groovy</groupId>
+            <artifactId>groovy-xml</artifactId>
+            <version>${groovy.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.codehaus.groovy</groupId>
+            <artifactId>groovy-all</artifactId>
+            <type>pom</type>
+            <version>${groovy.version}</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>groovy-test-junit5</artifactId>
+                    <groupId>org.codehaus.groovy</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>groovy-testng</artifactId>
+                    <groupId>org.codehaus.groovy</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <!--spock dependency-->
+        <dependency>
+            <groupId>org.spockframework</groupId>
+            <artifactId>spock-core</artifactId>
+            <version>${spock.version}</version>
+            <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <artifactId>junit-platform-engine</artifactId>
+                    <groupId>org.junit.platform</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>com.athaydes</groupId>
+            <artifactId>spock-reports</artifactId>
+            <version>${spock.version}</version>
+        </dependency>
+
+        <!--junitplatform dependency-->
+        <dependency>
+            <groupId>org.junit.platform</groupId>
+            <artifactId>junit-platform-launcher</artifactId>
+            <version>${junitplatform.version}</version>
+            <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <artifactId>junit-platform-engine</artifactId>
+                    <groupId>org.junit.platform</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.platform</groupId>
+            <artifactId>junit-platform-engine</artifactId>
+            <version>${junitplatform.version}</version>
+            <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <artifactId>junit-platform-commons</artifactId>
+                    <groupId>org.junit.platform</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.platform</groupId>
+            <artifactId>junit-platform-commons</artifactId>
+            <version>${junitplatform.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!--other dependency-->
+        <dependency>
+            <groupId>org.apache.ant</groupId>
+            <artifactId>ant</artifactId>
+            <version>1.10.11</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+</project>
+```
 
 ### 参考
 1. https://www.coder.work/article/6733126
