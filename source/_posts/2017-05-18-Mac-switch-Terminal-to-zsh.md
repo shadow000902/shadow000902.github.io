@@ -7,7 +7,12 @@ tags: [terminal, zsh]
 
 #### 下载一个 .oh-my-zsh 配置
 ```bash
-git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
+git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
+```
+
+新配置命令，该命令执行后会自动下载配置，并且在下载完成后会自动创建环境变量文件到`~/.zshrc`，并且询问是否切换到`zsh`
+```bash
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
 
   <!--more-->
@@ -92,7 +97,7 @@ alias rvm-prompt=$HOME/.rvm/bin/rvm-prompt
 1. 安装``zsh-syntax-highlighting``插件，文本高亮
 ```bash
 cd ~/.oh-my-zsh/plugins/
-git clone git://github.com/zsh-users/zsh-syntax-highlighting.git
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
 ```
 然后编辑环境变量文件``~/.zshrc``，在其中加入插件名称
 ```bash
@@ -102,7 +107,7 @@ plugin=(git zsh-syntax-highlighting)
 2. 安装``zsh-autosuggestions``插件，历史输入自动补全
 ```bash
 cd ~/.oh-my-zsh/plugins/
-git clone git://github.com/zsh-users/zsh-autosuggestions.git
+git clone https://github.com/zsh-users/zsh-autosuggestions.git
 ```
 然后编辑环境变量文件``~/.zshrc``，在其中加入插件名称
 ```bash
