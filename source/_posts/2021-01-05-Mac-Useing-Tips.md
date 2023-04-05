@@ -6,7 +6,9 @@ tags: [mac]
 ---
 
 ## 浏览器使用总结
-#### &emsp;标签页快捷键
+
+### &emsp;标签页快捷键
+
 1. Chrome浏览器，超链接点击后，在新的标签页打开，且切换到新的标签页
     **快捷键**：`COMMAND + SHIFT + 鼠标左键点击超链接`
     **适用场景**：不想页面跳转，又想立马看到超链接页面的内容
@@ -21,10 +23,11 @@ tags: [mac]
     **快捷键**：`COMMAND + 鼠标左键点击超链接`
     **适用场景**：需要快速查看单页面内的多个内部跳转的页面，又不想要每次查看再返回
 
-#### &emsp;好用的浏览器插件
+### &emsp;好用的浏览器插件
+
 1. 请求头管理插件`ModHeader`
     插件下载地址：[https://bewisse.com/modheader/](https://bewisse.com/modheader/)
-   
+
 2. 浏览器代理切换工具`SwitchyOmega`
     插件下载地址：[https://github.com/FelisCatus/SwitchyOmega/releases](https://github.com/FelisCatus/SwitchyOmega/releases)
 
@@ -38,7 +41,7 @@ tags: [mac]
       - 二维码/解码
       - JSON对比工具
       - 等等
-    
+
 4. 浏览器黑暗模式`DACK READER`
     插件下载地址：[https://darkreader.org/](https://darkreader.org/)
 
@@ -50,9 +53,10 @@ tags: [mac]
     插件下载地址：[https://chrome.google.com/webstore/detail/json-formatter/bcjindcccaagfpapjjmafapmmgkkhgoa](https://chrome.google.com/webstore/detail/json-formatter/bcjindcccaagfpapjjmafapmmgkkhgoa)
     浏览器请求返回的JSON结果，会自动格式化后进行可视化展示
 
+## Mac系统使用总结
 
-### Mac系统使用总结
-#### &emsp;升级系统后，截图软件无法使用
+### &emsp;升级系统后，截图软件无法使用
+
 问题可能原因：因为系统升级原因，`/Library/Application\ Support/com.apple.TCC`目录中的文件，损坏或权限异常
 导致在`系统偏好设置-安全性与隐私-隐私-屏幕录制`中，无法添加软件，从而无法进行截图和录屏。
 解决方案：删除`/Library/Application\ Support/com.apple.TCC`目录中的`TCC.db`文件，然后重启系统

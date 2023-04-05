@@ -6,6 +6,7 @@ tags: [spock]
 ---
 
 ### 异常测试
+
 #### 被测对象
 
 ```groovy
@@ -59,6 +60,7 @@ public void validateUser(UserVO user) throws APIException {
 </script>
 
 #### Spock测试类
+
 ```groovy
 /**
  * 校验用户请求参数的测试类
@@ -159,6 +161,7 @@ class UserControllerTest extends Specification {
 ```
 
 ### 合并参数正常和异常用例，合并多个调用异常的用例
+
 ```groovy
 package com.shadow.search.biz.impl
 
@@ -346,6 +349,7 @@ class CustomerOperationInfoSyncBizServiceImplSpec extends Specification {
 ### Spock 抛 MissingPropertyException 问题解决
 
 有问题的测试代码：
+
 ```groovy
 package foo.bar.test
 
@@ -419,9 +423,10 @@ class HttpRequestPropertyLoaderTest extends Specification {
 }
 ```
 
-
 ### 被测对象有调用父类时的测试方法
+
 #### 被测对象
+
 ```java
 package com.shadow.cloud.dennis.chain.biz.extension.member.changyi;
 
@@ -595,6 +600,7 @@ public class GetCustomerEx extends ExtensionBase implements GetCustomerExtPoint 
 ```
 
 #### 被测对象父类
+
 ```java
 package com.shadow.cloud.dennis.chain.biz.extension;
 
@@ -742,6 +748,7 @@ public class ExtensionBase{
 ```
 
 #### Spock测试类
+
 ```groovy
 package com.shadow.cloud.dennis.chain.test
 
@@ -829,6 +836,7 @@ class GetCustomerExTest extends Specification {
 ```
 
 ### Spock依赖整理
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
@@ -973,4 +981,5 @@ class GetCustomerExTest extends Specification {
 ```
 
 ### 参考
-1. https://www.coder.work/article/6733126
+
+1. <https://www.coder.work/article/6733126>

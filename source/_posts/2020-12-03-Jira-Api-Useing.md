@@ -6,11 +6,13 @@ tags: [jira, api]
 ---
 
 ### 获取Issue详情
+
 接口名：`https://jira.shadow.com/rest/api/2/issue/{issueIdOrKey}`
 
   <!--more-->
 
 #### 接口介绍
+
 Returns a full representation of the issue for the given issue key.
 An issue JSON consists of the issue key, a collection of fields, a link to the workflow transition sub-resource, and (optionally) the HTML rendered values of any fields that support it (e.g. if wiki syntax is enabled for the description or comments).
 
@@ -49,15 +51,18 @@ Parameter|Value|Type|Style|Description
 ---|---|---|---|---
 issueIdOrKey*| |string|template|the issue id or key to update (i.e. JRA-1330)
 fields| |string|query|the list of fields to return for the issue. By default, all fields are returned.
-expand| |string|query| 
+expand| |string|query|
 properties| |string|query|the list of properties to return for the issue. By default no properties are returned.
 updateHistory| |boolean|query|
 
 #### 常用参数说明
+
 主要说明`expand`字段
-  - changelog  - 填写参数为`changelog`时，对应这个接口获取到的数据为`JIRA`的`Issue详情页`的`活动日志-改动记录`
+
+- changelog  - 填写参数为`changelog`时，对应这个接口获取到的数据为`JIRA`的`Issue详情页`的`活动日志-改动记录`
 
 #### 返回结果示例
+
 ```json
 {
   "expand": "renderedFields,names,schema,operations,editmeta,changelog,versionedRepresentations",
@@ -218,14 +223,17 @@ updateHistory| |boolean|query|
 ```
 
 ### 使用JQL时间段精确搜索
+
 示例：`project = CARSERVICE AND issuetype = 缺陷 AND priority in (P0, P1) AND createdDate >= "2020-11-20 01:00" AND createdDate <= "2020-11-20 11:08" ORDER BY created DESC`
 用于时间段精确搜索的字段`key`叫`createDate`（创建时间精确搜索），用于更新时间精确搜索的字段`key`叫`updatedDate`。
 其中`createDate`或者`updatedDate`，正确的日期格式是：`yyyy/MM/dd HH:mm`，`yyyy-MM-dd HH:mm`，`yyyy/MM/dd`，`yyyy-MM-dd`，或者是一个时间段`-5d`，`4w 2d`。
 
 ### 获取Issue的备注详情列表
+
 接口名：`https://jira.shadow.com/rest/api/2/issue/{issueIdOrKey}/comment`
 
 #### 接口介绍
+
 Returns all comments for an issue.
 Results can be ordered by the "created" field which means the date a comment was added.
 
@@ -239,11 +247,12 @@ maxResults| |int|query|how many results on the page should be included. Defaults
 orderBy| |string|query|ordering of the results.
 expand| |string|query|optional flags: renderedBody (provides body rendered in HTML)
 
-
 ### 获取筛选器详情
+
 接口名：`https://jira.shadow.com/rest/api/2/filter/{id}`
 
 #### 接口介绍
+
 Returns a filter given an id
 从`Response`中可以拿到筛选器对应的`JQL`条件
 
@@ -254,11 +263,12 @@ Parameter|Value|Type|Style|Description
 id*| |long|template|the id of the filter being looked up
 expand| |string|query|the parameters to expand
 
-
 ### 获取Issue的列表
+
 接口名：`https://jira.shadow.com/rest/api/2/search`
 
 #### 接口介绍
+
 Searches for issues using JQL.
 **Sorting** the jql parameter is a full JQL expression, and includes an ORDER BY clause.
 
@@ -288,8 +298,8 @@ validateQuery| |boolean|query|whether to validate the JQL query
 fields| |string|query|the list of fields to return for each issue. By default, all navigable fields are returned.
 expand| |string|query|A comma-separated list of the parameters to expand.
 
-
 ### 模糊搜索，获取自定义字段的相关信息
+
 接口名：`https://jira.shadow.com/rest/api/2/customFields`
 
 #### Request Options
@@ -301,6 +311,7 @@ maxResults| |int|query|
 search| |string|query|
 
 #### 返回结果示例
+
 ```json
 {
   "maxResults": 50,

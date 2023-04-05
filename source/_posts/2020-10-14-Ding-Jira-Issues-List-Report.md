@@ -6,27 +6,31 @@ tags: [jira, python]
 ---
 
 ### 主要用到的开源API
-1. 公司内部JIRA的API文档地址：https://jira.shadow.com/plugins/servlet/restbrowser#/
-2. JIRA官方提供的API文档地址：https://developer.atlassian.com/cloud/jira/platform/rest/v3/intro/
+
+1. 公司内部JIRA的API文档地址：<https://jira.shadow.com/plugins/servlet/restbrowser#/>
+2. JIRA官方提供的API文档地址：<https://developer.atlassian.com/cloud/jira/platform/rest/v3/intro/>
     官方已经出到第三个版本，使用时需要根据自己公司使用的API版本来进行调用
     官方提供了各个语言的调用示例，可以进行参考
-3. 图床服务的API文档地址：https://doc.sm.ms/
+3. 图床服务的API文档地址：<https://doc.sm.ms/>
     如果自己公司有影像件服务的话，可以传到公司的oss上进行保存
 
   <!--more-->
 
 ### 具体使用到的API
-1. 获取JIRA筛选器详情：https://jira.shadow.com/rest/api/2/filter/{id}
-2. 获取问题列表：https://jira.shadow.com/rest/api/2/search
-3. 上传图片到图床：https://sm.ms/api/v2/upload
+
+1. 获取JIRA筛选器详情：<https://jira.shadow.com/rest/api/2/filter/{id>}
+2. 获取问题列表：<https://jira.shadow.com/rest/api/2/search>
+3. 上传图片到图床：<https://sm.ms/api/v2/upload>
 
 ### 脚本主要方法说明
+
 1. `getIssuesList()` 方法获取问题列表
     首先调用`filter`接口，获取到筛选器的详情，从中取出`jql`字段值
     然后调用`search`接口，获取问题列表
-    
+
 2. `getShowWords()` 方法获取问题列表中所需的字段，并构建新的`jsonList`
     从原有复杂的问题列表的json返回接口中，提取出所需的字段
+
     ```json
     [
         {
@@ -55,6 +59,7 @@ tags: [jira, python]
         }
     ]
     ```
+
 3. `json2Excel()` 方法把第二点中得到的json转换成`Excel`，返回写入内容的`Excel`文件
 4. `excel2Image.py`自定义类中的`excel_html()` 方法把`Excel`文件转换为`HTML`文件
 5. `excel2Image.py`自定义类中的`html_image()` 方法把`HTML`文件转换为`.png`格式的图片
@@ -62,7 +67,9 @@ tags: [jira, python]
 6. `sendMarkdownDing()` 方法以markdown格式组织消息体，发送钉钉通知
 
 ### 完整脚本
+
 #### `excel2Image.py`自定义类文件
+
 ```python
 # -*- coding:utf-8 -*-
 
@@ -114,8 +121,8 @@ if __name__ == '__main__':
     ReportImage.html_image(html_list, "./")
 ```
 
-
 #### `jiraSearch.py`脚本实现文件
+
 ```python
 # -*- coding: utf-8 -*-
 
@@ -275,4 +282,5 @@ if __name__ == '__main__':
 ```
 
 ### 最后图片效果如下
+
 {% asset_img 缺陷图.png 缺陷图 %}

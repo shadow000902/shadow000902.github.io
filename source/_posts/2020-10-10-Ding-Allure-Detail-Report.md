@@ -6,9 +6,10 @@ tags: [allure, python]
 ---
 
 #### Jenkins中的Allure插件，增加Owner插件
+
 1. Jenkins中配置Allure插件，目录为`System Configuation -> Global Tool Configuration`，从中找到`Allure Commandline`
     {% asset_img AllureCommandline.png AllureCommandline %}
-    
+
   <!--more-->
 
 2. 下载`owners-failed-plugin`插件
@@ -18,6 +19,7 @@ tags: [allure, python]
     安装完插件后，可以在Jenkins任务的执行机上，也就是jenkins任务真正执行的机器上，会有一个`workspace/tools/ru.yandex.qatools.allure.jenkins.tools.AllureCommandlineInstallation/Allure_Commandline/plugins`目录，这个`workspace`也就是Jenkins的一个工作空间
     `plugins`目录下，就是`Allure`插件自带的一些插件
     我们把第二步下载的插件解压后的文件夹，放到该目录下，`owners-failed-plugin`展示如下：
+
     ```bash
     # shadow @ domain in ~/jenkins_slave/workspace/tools/ru.yandex.qatools.allure.jenkins.tools.AllureCommandlineInstallation/Allure_Commandline/plugins [15:55:35] 
     $ ll
@@ -35,7 +37,9 @@ tags: [allure, python]
     drwxrwxr-x 3 shadow shadow 4.0K Sep  9 14:45 xray-plugin
     drwxrwxr-x 2 shadow shadow 4.0K Sep  9 14:45 xunit-xml-plugin
     ```
+
     然后需要退一层目录，把插件的配置写入配置文件中，不然就无法被调用到
+
     ```shell script
     # shadow @ domain in ~/jenkins_slave/workspace/tools/ru.yandex.qatools.allure.jenkins.tools.AllureCommandlineInstallation/Allure_Commandline/plugins [15:55:51] 
     $ cd ..
@@ -58,7 +62,9 @@ tags: [allure, python]
     -rwxrwxr-x 1 shadow shadow  46 Jul  7 10:18 allure-junit.yml
     -rwxrwxr-x 1 shadow shadow 205 Sep 10 09:32 allure.yml
     ```
+
    编辑allure.yml文件，写入`owners-failed-plugin`配置如下：
+
     ```yaml
     plugins:
       - junit-xml-plugin
@@ -74,12 +80,14 @@ tags: [allure, python]
     ```
 
 #### 读取报告信息
+
 - 报告总体信息："http://jenkins.shadow.com/job/" + JOB_NAME + "/allure/widgets/summary.json"
 - Owner具体信息："http://jenkins.shadow.com/job/" + JOB_NAME + "/allure/data/owners.json"
 
-
 #### 脚本主要方法说明
+
 1. `getSummary()` 方法返回总体信息
+
     ```json
     {
         "failed": 108,
@@ -90,7 +98,9 @@ tags: [allure, python]
         "total": 1384
     }
     ```
+
 2. `getResultDetails()` 方法返回Owner具体信息，并对异常数据做清理
+
     ```json
     [
         {
@@ -105,7 +115,9 @@ tags: [allure, python]
         }
     ]
     ```
+
 3. `getPersonCounts()` 方法返回每个Owner的具体用例数据
+
     ```json
     [
       {
@@ -126,10 +138,12 @@ tags: [allure, python]
       }
     ]
     ```
+
 4. `spillDingText()` 方法返回钉钉发送消息体中的`text`
 5. `sendMarkdownDing()` 方法以markdown格式组织消息体，发送钉钉通知
 
 #### 完整脚本
+
 ```python
 # -*- coding: utf-8 -*-
 import json
@@ -285,5 +299,3 @@ def sendMarkdownDing():
 if __name__ == '__main__':
     sendMarkdownDing()
 ```
-   
-   

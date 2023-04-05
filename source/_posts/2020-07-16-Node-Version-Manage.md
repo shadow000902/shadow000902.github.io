@@ -6,6 +6,7 @@ tags: [node]
 ---
 
 1. 安装`brew`
+
     ```bash
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
     ```
@@ -13,18 +14,21 @@ tags: [node]
   <!--more-->
 
 2. 安装`NVM`
+
     ```bash
     brew install nvm
     ```
 
 3. 配置环境变量
     在环境变量文件中加入如下内容，如`zsh`即为`~/.zshrc`
+
     ```bash
     export NVM_DIR=~/.nvm
     source $(brew --prefix nvm)/nvm.sh
     ```
 
 4. 安装指定版本的`node`
+
     ```bash
     nvm install 8.17.0        
     Downloading and installing node v8.17.0...
@@ -37,6 +41,7 @@ tags: [node]
     ```
 
 5. `nvm`常用命令
+
     ```bash
     nvm ls-remote           # 查看所有的node可用版本
     nvm install xxx         # 下载你想要的版本
@@ -45,7 +50,9 @@ tags: [node]
     ```
 
 6. 问题解决
+
 - 问题如下：
+
     ```bash
     nvm ls-remote
     dyld: Library not loaded: /usr/local/opt/openssl/lib/libssl.1.0.0.dylib
@@ -58,6 +65,7 @@ tags: [node]
     ```
 
 - 解决方法：
+
     ```bash
     brew switch openssl 1.0.2s
     Cleaning /usr/local/Cellar/openssl/1.0.2s

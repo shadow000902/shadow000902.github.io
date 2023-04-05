@@ -6,6 +6,7 @@ tags: [mock]
 ---
 
 ### Mock服务搭建整体步骤
+
  - 克隆`GitHub`代码仓库
  - 安装`Node`环境
  - 安装`MongoDB`服务
@@ -15,31 +16,40 @@ tags: [mock]
   <!--more-->
 
 ### 克隆代码
+
 ```bash
 git clone https://github.com/easy-mock/easy-mock.git
 cd easy-mock && npm install
 ```
 
 ### 安装Node服务
+
 推荐使用`nvm`来管理本地`Node`服务，方便随意切换`Node`版本
+
 ```bash
 brew install nvm
 ```
+
 [Linux下安装Brew](https://shadow000902.space/2018/04/10/2018-04-10-Python-version-management-tool-pyenv-use-summary/)
 然后再安装指定版本的Node
+
 ```bash
 nvm install 10.22.0
 ```
 
 ### 安装MongoDB服务
+
 [安装MongoDB服务](https://shadow000902.space/2017/01/18/2017-01-18-Useing-Extent-test-report/)
 注意文件目录需要放在当前用户有权限的位置，否则可能会有无法辨别的报错信息
 
 ### 安装Redis服务
+
 [Redis服务部署](https://shadow000902.space/2017/06/18/2017-06-18-Building-a-Redis-environment-under-Mac/)
 
 ### 启动Mock服务
+
 基本命令如下：
+
 ```bash
 $ npm run dev
 # Visit http://127.0.0.1:7300
@@ -65,6 +75,7 @@ $ npm run lint
 ### 异常处理
 
 #### curl报错
+
 ```bash
 # shadow @ kickseed in ~/easy-mock on git:dev x [17:43:05] C:1
 $ brew reinstall nvm
@@ -74,13 +85,17 @@ Error: An exception occurred within a child process:
   RuntimeError: no executable curl was found
 
 ```
+
 安装curl命令：
+
 ```bash
 sudo apt-get install curl
 ```
 
 #### webpack报错
+
 报错信息如下：
+
 ```bash
 # shadow @ kickseed in ~/easy-mock on git:dev x [17:53:45] 
 $ npm run build                                                 
@@ -140,12 +155,13 @@ npm ERR!     /home/shadow/.npm/_logs/2020-08-25T09_54_02_315Z-debug.log
 ```
 
 需要安装webpack，命令如下：
+
 ```bash
 sudo apt-get install webpack
 ```
 
-
 #### node报错
+
 ```bash
 # shadow @ kickseed in ~/easy-mock on git:dev x [17:54:02] C:134
 $ npm run dev  
@@ -179,6 +195,7 @@ server started at http://0.0.0.0:7300
 ```
 
 切换node版本为8.17.0
+
 ```bash
 nvm install 8.17.0
 ```
