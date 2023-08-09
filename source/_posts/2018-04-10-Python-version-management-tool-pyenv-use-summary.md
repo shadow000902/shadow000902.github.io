@@ -20,6 +20,7 @@ brew install pyenv
 #### 把``pyenv``加入环境变量
 如果使用的终端是``bash``，则编辑``~/.bashrc``，如果使用的终端是``zsh``，则编辑``~/.zshrc``，在该文件的最开头加入语句：
 ```bash
+# pyenv init -  pyenv初始化，把pyenv加入环境变量，使其生效，否则pyenv命令无法使用，pyenv命令是pyenv的核心命令，用于安装、卸载、查看、切换不同版本的python，pyenv的其他命令都是围绕这个命令展开的
 eval "$(pyenv init -)"
 ```
 
@@ -63,21 +64,83 @@ virtualenv -p /Users/taoyi/.pyenv/versions/3.6.5/bin/python  py3env
  - ``py3env``：创建的虚拟环境的名称
 
 #### Ubuntu环境下，pyenv安装python失败，解决方法
-问题基本就是出现在缺少一些基础库上，解决方法也就是尽量的把一些基础库都安装上
-```bash
-# 在ubuntu软件源里zlib和zlib-devel叫做zlib1g zlib1g.dev
-sudo apt-get install zlib1g zlib1g.dev
-```
+  报错信息：
+  ```bash
+  # ubuntu @ VM-4-14-ubuntu in /usr/bin [16:24:51]
+  $ pyenv install 3.11.3
+  WARNING: Please make sure you remove any previous custom paths from your /home/ubuntu/.pydistutils.cfg file.
+  Downloading Python-3.11.3.tar.xz...
+  -> https://www.python.org/ftp/python/3.11.3/Python-3.11.3.tar.xz
+  Installing Python-3.11.3...
+  Traceback (most recent call last):
+    File "<string>", line 1, in <module>
+    File "/home/ubuntu/.pyenv/versions/3.11.3/lib/python3.11/curses/__init__.py", line 13, in <module>
+      from _curses import *
+  ModuleNotFoundError: No module named '_curses'
+  WARNING: The Python curses extension was not compiled. Missing the ncurses lib?
+  Traceback (most recent call last):
+    File "<string>", line 1, in <module>
+    File "/home/ubuntu/.pyenv/versions/3.11.3/lib/python3.11/ctypes/__init__.py", line 8, in <module>
+      from _ctypes import Union, Structure, Array
+  ModuleNotFoundError: No module named '_ctypes'
+  WARNING: The Python ctypes extension was not compiled. Missing the libffi lib?
+  Traceback (most recent call last):
+    File "<string>", line 1, in <module>
+  ModuleNotFoundError: No module named 'readline'
+  WARNING: The Python readline extension was not compiled. Missing the GNU readline lib?
+  Traceback (most recent call last):
+    File "<string>", line 1, in <module>
+    File "/home/ubuntu/.pyenv/versions/3.11.3/lib/python3.11/ssl.py", line 100, in <module>
+      import _ssl             # if we can't import it, let the error propagate
+      ^^^^^^^^^^^
+  ModuleNotFoundError: No module named '_ssl'
+  ERROR: The Python ssl extension was not compiled. Missing the OpenSSL lib?
+  
+  Please consult to the Wiki page to fix the problem.
+  https://github.com/pyenv/pyenv/wiki/Common-build-problems
+  
+  
+  BUILD FAILED (Ubuntu 22.04 using python-build 20180424)
+  ...
+  ```
 
-```bash
-yum install readline readline-devel readline-static openssl openssl-devel openssl-static sqlite-devel bzip2-devel bzip2-libs build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm
-```
+##### ``ModuleNotFoundError: No module named '_curses'``报错
+  ```shell
+  ModuleNotFoundError: No module named '_curses'
+  WARNING: The Python curses extension was not compiled. Missing the ncurses lib?
+  ```
+  解决
+  ```shell
+  sudo apt-get install libncurses-dev
+  ```
 
-#### Linux环境下，pyenv安装python3，``ModuleNotFoundError: No module named '_ctypes'``报错解决
-python`3.7`版本需要一个新的包`libffi`
-```bash
-# Ubuntu 下处理
-sudo apt-get install libffi-dev
-# Centos 下处理
-yum install -y libffi-devel
-```
+##### ``ModuleNotFoundError: No module named '_ctypes'``报错
+  ```shell
+  ModuleNotFoundError: No module named '_ctypes'
+  WARNING: The Python ctypes extension was not compiled. Missing the libffi lib?
+  ```
+  解决
+  ```shell
+  sudo apt-get install libffi-dev
+  ```
+
+
+##### ``ModuleNotFoundError: No module named 'readline'``报错
+  ```shell
+  ModuleNotFoundError: No module named 'readline'
+  WARNING: The Python readline extension was not compiled. Missing the GNU readline lib?
+  ```
+  解决
+  ```shell
+  sudo apt-get install libreadline-dev
+  ```
+
+##### ``ModuleNotFoundError: No module named '_ssl'``报错
+  ```shell
+  ModuleNotFoundError: No module named '_ssl'
+  ERROR: The Python ssl extension was not compiled. Missing the OpenSSL lib?
+  ```
+  解决
+  ```shell
+  sudo apt-get install libssl-dev
+  ```
