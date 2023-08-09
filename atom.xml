@@ -408,11 +408,11 @@
     
       <category term="performance" scheme="http://shadow000902.space/tags/performance/"/>
     
-      <category term="prometheus" scheme="http://shadow000902.space/tags/prometheus/"/>
-    
       <category term="influxDB" scheme="http://shadow000902.space/tags/influxDB/"/>
     
       <category term="grafana" scheme="http://shadow000902.space/tags/grafana/"/>
+    
+      <category term="prometheus" scheme="http://shadow000902.space/tags/prometheus/"/>
     
   </entry>
   
