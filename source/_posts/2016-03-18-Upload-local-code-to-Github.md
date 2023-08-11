@@ -22,6 +22,42 @@ tags: [github]
     
     至此，本地的代码就上传到了github上。
 
+### 强制推送一个版本的代码到一个已存在的远程仓库
+```shell
+# taoyi @ tysYZMac in ~/Desktop/public on git:master x [17:00:23] 
+$ git init
+已重新初始化已存在的 Git 仓库于 /Users/taoyi/Desktop/public/.git/
+
+# taoyi @ tysYZMac in ~/Desktop/public on git:master x [17:00:26] 
+$ git add .
+
+# taoyi @ tysYZMac in ~/Desktop/public on git:master x [17:00:36] 
+$ git commit -m "Update docs"                
+[master（根提交） 30f486f] Update docs
+ 602 files changed, 13450 insertions(+)
+ create mode 100644 2016/01/01/2016-01-01-Java-Learning-Notes/index.html
+ create mode 100644 2016/03/12/2016-03-12-Learning-Hexo/index.html
+ ...
+ ...
+ create mode 100644 "tags/\350\275\257\344\273\266\346\265\213\350\257\225\346\265\201\347\250\213\347\256\241\347\220\206/index.html"
+ create mode 100644 "tags/\351\207\215\347\255\276\345\220\215/index.html"
+
+# taoyi @ tysYZMac in ~/Desktop/public on git:master o [17:01:12] C:130
+$ git push --force https://e.coding.net/shadow000902/shadow000902.coding.me.git master:master                                         
+Username for 'https://e.coding.net': 13003665526
+Password for 'https://13003665526@e.coding.net': <令牌的Token>
+枚举对象中: 1155, 完成.
+对象计数中: 100% (1155/1155), 完成.
+使用 8 个线程进行压缩
+压缩对象中: 100% (821/821), 完成.
+写入对象中: 100% (1155/1155), 31.79 MiB | 26.49 MiB/s, 完成.
+总共 1155（差异 348），复用 0（差异 0），包复用 0
+remote: Resolving deltas: 100% (348/348), done.
+To https://e.coding.net/shadow000902/shadow000902.coding.me.git
+ + 0a12f7e...30f486f master -> master (forced update)
+
+```
+
 ### Git切换远程仓库地址
 1. 方法一：直接修改远程仓库地址
     ```bash
