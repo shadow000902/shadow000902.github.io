@@ -138,6 +138,23 @@ System.setProperty("hudson.model.DirectoryBrowserSupport.CSP","sandbox allow-scr
 {% asset_img Jenkins的JDK配置.png Jenkins的JDK配置 %}
 注意手动录入系统安装的JDK的路径，即在`JAVA_HOME`输入框手动输入JDK的安装路径，不勾选`Install automatically`
 
+#### Jenkins主目录空间满了，导致任务无法执行处理 ``你的 Jenkins 数据目录 "/root/.jenkins" (AKA JENKINS_HOME) 就快要空间不足了。你应该在它被完全撑满之前就有所行动。``
+解决方案：修改主目录位置
+解决方式：
+1. 移动主目录到新目录下：``mv /root/.jenkins/ /opt/jenkins/`` ，需要确保执行这些操作前，Jenkins已经关闭，不然``mv``命令执行完毕后，还是会存在``.jenkins``的目录，导致软连接无法创建成功
+2. 创建新目录到指定原目录的软连接： ``ln -s /opt/jenkins/.jenkins/ /root/.jenkins``
+得到如下结果：
+```bash
+   (base) [root@localhost ~]# ll -a
+   总用量 1585684
+   dr-xr-x---. 45 root root       4096 11月 29 14:54 .
+   dr-xr-xr-x. 19 root root       4096 10月 18 11:15 ..
+   ...
+   lrwxrwxrwx.  1 root root         22 11月 29 14:54 .jenkins -> /opt/jenkins/.jenkins/
+   ...
+```
+3. 最后重新启动Jenkins服务，任务都正常展示，就说明主目录迁移成功了。
+
 ### 好用的Jenkins插件
 
 #### ``Parameterized Remote Trigger Plugin`` 【多slave项目顺序执行】 ``Parameterized Trigger Plugin`` 【多项目顺序执行】
@@ -302,23 +319,24 @@ import jenkins.model.Jenkins
 import hudson.model.Job
 import jenkins.model.BuildDiscarderProperty
 import hudson.tasks.LogRotator
-// 遍历所有的任务
+
+// 遍历所有的任务
 Jenkins.instance.allItems(Job).each { job ->
- 
-if ( job.isBuildable() && job.supportsLogRotator() && job.getProperty(BuildDiscarderProperty) == null) {
-    println " \"${job.fullDisplayName}\" 处理中"
- 
-    job.addProperty(new BuildDiscarderProperty(new LogRotator (3, 10, 3, 10)))
-    println "$job.name 已更新"
+
+    if (job.isBuildable() && job.supportsLogRotator() && job.getProperty(BuildDiscarderProperty) == null) {
+        println " \"${job.fullDisplayName}\" 处理中"
+
+        job.addProperty(new BuildDiscarderProperty(new LogRotator(3, 10, 3, 10)))
+        println "$job.name 已更新"
+    }
 }
-}
-return;
+return
 
 /**
 LogRotator 构造参数分别为：
-daysToKeep:  If not -1, history is only kept up to this days.
-numToKeep: If not -1, only this number of build logs are kept.
-artifactDaysToKeep: If not -1 nor null, artifacts are only kept up to this days.
-artifactNumToKeep: If not -1 nor null, only this number of builds have their artifacts kept.
+daysToKeep:  If not -1, history is only kept up to this days.
+numToKeep: If not -1, only this number of build logs are kept.
+artifactDaysToKeep: If not -1 nor null, artifacts are only kept up to this days.
+artifactNumToKeep: If not -1 nor null, only this number of builds have their artifacts kept.
 **/
 ```
